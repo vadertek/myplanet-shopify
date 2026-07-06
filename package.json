@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently  -c \"auto\" \"npm:dev:*\"",
     "dev:tailwind": "npx @tailwindcss/cli -i ./styles/main.css -o ./assets/style.css --watch --minify",
-    "dev:shopify": "shopify theme dev --store=store-myplanet --store-password=strapi",
+    "dev:shopify": "shopify theme dev --store=myplanet-5623 --store-password=strapi",
     "build:css": "tailwindcss -i ./styles/main.css -o ./assets/style.css --minify",
     "format": "prettier --write \".github/workflows/*.{yml,yaml}\" \".prettierrc.json\" \".theme-check.yml\" \"package.json\" \"README.md\" \"styles/main.css\"",
     "format:check": "prettier --check \".github/workflows/*.{yml,yaml}\" \".prettierrc.json\" \".theme-check.yml\" \"package.json\" \"README.md\" \"styles/main.css\""

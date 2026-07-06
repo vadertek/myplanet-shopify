@@ -51,6 +51,25 @@
       }
     </script>
 
+    {% style %}
+      @font-face {
+        font-family: 'Montserrat-Regular';
+        src: url('{{ 'Montserrat-Regular.woff2' | asset_url }}') format('woff2');
+      }
+      @font-face {
+        font-family: 'Montserrat-Medium';
+        src: url('{{ 'Montserrat-Medium.woff2' | asset_url }}') format('woff2');
+      }
+      @font-face {
+        font-family: 'Montserrat-Bold';
+        src: url('{{ 'Montserrat-Bold.woff2' | asset_url }}') format('woff2');
+      }
+      @font-face {
+        font-family: 'Montserrat-ExtraBold';
+        src: url('{{ 'Montserrat-ExtraBold.woff2' | asset_url }}') format('woff2');
+      }
+    {% endstyle %}
+
     {% comment %} Connecting compiled tailwindcss {% endcomment %}
     {{ 'style.css' | asset_url | stylesheet_tag }}
   </head>

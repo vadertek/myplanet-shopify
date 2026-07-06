@@ -8,7 +8,7 @@
   <div class="flex items-center justify-between px-4 py-3 md:px-7 md:py-4">
     <!-- Logo -->
     <a href="/">
-      <img class="h-8 md:h-10" src="{{ 'header-logo.webp' |  asset_url }}" alt="My Planet">
+      <img loading="eager" class="h-8 md:h-10" src="{{ 'header-logo.webp' |  asset_url }}" alt="My Planet">
     </a>
 
     <!-- Desktop Navigation -->
@@ -24,10 +24,10 @@
     <!-- Actions -->
     <div class="flex items-center gap-5 md:space-x-4">
       <a href="#" class="hidden md:block">
-        <img class="h-4" src="{{ 'search-icon.svg' |  asset_url }}" alt="Пошук">
+        <img loading="eager" class="h-4" src="{{ 'search-icon.svg' |  asset_url }}" alt="Пошук">
       </a>
       <a href="#">
-        <img class="h-5 md:h-4" src="{{ 'cart-icon.svg' |  asset_url }}" alt="Кошик">
+        <img loading="eager" class="h-5 md:h-4" src="{{ 'cart-icon.svg' |  asset_url }}" alt="Кошик">
       </a>
       <button type="button" class="flex h-8 w-8 flex-col items-center justify-center gap-1.5 md:hidden" aria-label="Відкрити меню" aria-expanded="false" data-burger>
         <span class="h-0.5 w-5 rounded-full bg-main-blue transition duration-200" data-burger-line="top"></span>
