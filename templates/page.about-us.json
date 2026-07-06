@@ -1,0 +1,133 @@
+{
+  "layout": "theme.mp",
+  "sections": {
+    "mp-about-hero": {
+      "type": "mp-about-hero",
+      "settings": {
+
+      }
+    },
+    "mp-about-info": {
+      "type": "mp-about-info",
+      "settings": {
+
+      }
+    },
+    "mp-home-treasures": {
+      "type": "mp-home-treasures",
+      "blocks": {
+        "item_MKgyMM": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/Family.png",
+            "title": "Турбота про родину",
+            "text": "Безпечні рішення для дому, дітей та щоденного використання."
+          }
+        },
+        "item_BaxmXz": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/home.png",
+            "title": "Турбота про дім",
+            "text": "Ефективні формули для чистоти кожного куточка вашого простору."
+          }
+        },
+        "item_aCWk84": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/Earth.png",
+            "title": "Турбота про планету",
+            "text": "Відповідальні інгредієнти та екологічний підхід на кожному етапі виробництва."
+          }
+        }
+      },
+      "block_order": [
+        "item_MKgyMM",
+        "item_BaxmXz",
+        "item_aCWk84"
+      ],
+      "settings": {
+        "title": "Наші цінності"
+      }
+    },
+    "mp-about-bigturtle": {
+      "type": "mp-about-bigturtle",
+      "settings": {
+
+      }
+    },
+    "mp-about-uses": {
+      "type": "mp-about-uses",
+      "settings": {
+
+      }
+    },
+    "mp_faq_Vm3LMW": {
+      "type": "mp-faq",
+      "blocks": {
+        "faq_JCabPF": {
+          "type": "faq",
+          "settings": {
+            "question": "Чим засоби My Planet відрізняються від звичайних побутових засобів?",
+            "answer": "My Planet поєднує ефективність для щоденного прибирання з уважним ставленням до родини, поверхонь і довкілля."
+          }
+        },
+        "faq_bKxCYK": {
+          "type": "faq",
+          "settings": {
+            "question": "Чи безпечні засоби My Planet для використання в домі з дітьми та домашніми тваринами?",
+            "answer": "Так, засоби підходять для щоденного дому за умови використання згідно з інструкцією на упаковці."
+          }
+        },
+        "faq_xF6gbg": {
+          "type": "faq",
+          "settings": {
+            "question": "Для яких поверхонь підходять універсальні засоби My Planet?",
+            "answer": "Вони підходять для більшості твердих поверхонь: підлоги, кухонних поверхонь, ванної кімнати та інших зон дому."
+          }
+        },
+        "faq_ABx7cC": {
+          "type": "faq",
+          "settings": {
+            "question": "Чи можна використовувати засоби My Planet щодня?",
+            "answer": "Так, формули розраховані на регулярне використання для підтримання чистоти без зайвого навантаження."
+          }
+        },
+        "faq_dT9Nia": {
+          "type": "faq",
+          "settings": {
+            "question": "Чи залишають засоби My Planet різкий хімічний запах?",
+            "answer": "Ні, продукти мають приємні аромати без відчуття агресивної хімії після прибирання."
+          }
+        },
+        "faq_xWHdQk": {
+          "type": "faq",
+          "settings": {
+            "question": "Як обрати правильний засіб My Planet для своїх потреб?",
+            "answer": "Орієнтуйтеся на зону використання: кухня, прання, дитячі речі, скло або універсальний догляд для дому."
+          }
+        }
+      },
+      "block_order": [
+        "faq_JCabPF",
+        "faq_bKxCYK",
+        "faq_xF6gbg",
+        "faq_ABx7cC",
+        "faq_dT9Nia",
+        "faq_xWHdQk"
+      ],
+      "name": "MP FAQ",
+      "settings": {
+        "title": "Часті питання"
+      }
+    }
+  },
+  "order": [
+    "mp-about-hero",
+    "mp-about-info",
+    "mp-home-treasures",
+    "mp-about-bigturtle",
+    "mp-about-uses",
+    "mp_faq_Vm3LMW"
+  ]
+}

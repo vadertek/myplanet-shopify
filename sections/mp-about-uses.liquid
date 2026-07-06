@@ -1,0 +1,105 @@
+<!-- Uses Sections -->
+<section class="px-4 py-8 md:px-10 md:py-12">
+  <div class="mx-auto max-w-360">
+    <div class="mb-7 md:mb-10">
+      {%- if section.settings.title != blank -%}
+        <h2 class="font-montserrat-bold text-[32px] leading-none font-bold text-[#004200] md:whitespace-nowrap md:text-[40px]">
+          {{ section.settings.title | escape }}
+        </h2>
+      {%- endif -%}
+
+      {%- if section.settings.subtitle != blank -%}
+        <p class="mt-3 font-montserrat-med text-[14px] leading-none font-medium text-[#325037] md:text-[18px]">
+          {{ section.settings.subtitle | escape }}
+        </p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="grid gap-3 md:grid-cols-4 md:gap-2">
+        {%- for block in section.blocks -%}
+          <article {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 720 | image_tag: class: 'w-full rounded-lg object-cover', loading: 'lazy', alt: '' }}
+            {%- else -%}
+              <img class="w-full rounded-lg object-cover" src="/img/use.webp" alt="">
+            {%- endif -%}
+
+            {%- if block.settings.text != blank -%}
+              <h3 class="mt-3 font-montserrat-bold text-[14px] leading-none font-bold text-[#325037] md:text-[18px]">
+                {{ block.settings.text | escape }}
+              </h3>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP about uses",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Рішення для щоденної чистоти"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Наші продукти створені для:"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Універсальні засоби"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP about uses",
+      "blocks": [
+        {
+          "type": "item"
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Засоби для кухні"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Засоби для прання"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Дитячі засоби"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

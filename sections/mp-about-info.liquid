@@ -1,0 +1,29 @@
+<!-- Info Section -->
+<section class="text-[#325037] md:py-20 md:px-10 px-4 py-10 flex justify-end">
+  <div class="flex flex-col gap-6 md:w-3/4">
+    <h2 class="font-montserrat-med text-[40px] leading-[100%]">{{ section.settings.info_title }}</h2>
+    <p class="font-montserrat-reg">
+      {{ section.settings.info_description }}
+    </p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP About Info",
+  "settings": [
+    {
+      "type": "text",
+      "id": "info_title",
+      "label": "Info Title",
+      "default": "Понад 78 років турботи"
+    },
+    {
+      "type": "textarea",
+      "id": "info_description",
+      "label": "Info Description",
+      "default": "Ми створюємо засоби для дому, щоб ви могли менше думати про прибирання і більше часу присвячувати тому, що справді важливо — родині, дому та щоденним моментам. Ми віримо, що чистота — це не лише про порядок у домі, а й про спокій у серці. Тому ми прагнемо створювати продукти, які допомагають вам насолоджуватися життям без зайвого клопоту."
+    }
+  ]
+}
+{% endschema %}

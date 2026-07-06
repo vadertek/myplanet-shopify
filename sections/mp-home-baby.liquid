@@ -12,16 +12,18 @@
     <img loading="eager" class="md:hidden w-full object-cover" src="{{ 'baby-mob.webp' |  asset_url }}" alt="">
   {% endif %}
   <div class="absolute inset-0 bg-black/35"></div>
-  <div class="absolute top-auto bottom-10 md:bottom-auto left-4 flex max-w-120 flex-col gap-6 text-white md:top-10 md:left-10">
-    <span class="w-fit rounded-full border border-white px-6 py-2 text-sm leading-none">{{ section.settings.hero_tag }}</span>
-    <h1 class="max-w-170 font-montserrat-bold text-[48px] leading-[0.95] font-bold md:text-[64px]">{{ section.settings.hero_title }}</h1>
-    <p class="max-w-180 font-montserrat-reg leading-[1.45] text-sm">{{ section.settings.hero_description }}</p>
-    <a
-      href="{{ section.settings.hero_button_link }}"
-      class="w-fit rounded-2xl bg-white px-8 py-4 font-montserrat-bold text-sm font-bold text-dark-blue transition duration-200 hover:bg-main-blue hover:text-white focus-visible:bg-main-blue focus-visible:text-white"
-    >
-      {{ section.settings.hero_button_text }}
-    </a>
+  <div class="absolute inset-0 mx-auto max-w-[1440px]">
+    <div class="absolute top-auto bottom-10 left-4 flex max-w-120 flex-col gap-6 text-white md:top-10 md:bottom-auto md:left-10">
+      <span class="w-fit rounded-full border border-white px-6 py-2 text-sm leading-none">{{ section.settings.hero_tag }}</span>
+      <h1 class="max-w-170 font-montserrat-bold text-[48px] leading-[0.95] font-bold md:text-[64px]">{{ section.settings.hero_title }}</h1>
+      <p class="max-w-180 font-montserrat-reg leading-[1.45] text-sm">{{ section.settings.hero_description }}</p>
+      <a
+        href="{{ section.settings.hero_button_link }}"
+        class="w-fit rounded-2xl bg-white px-8 py-4 font-montserrat-bold text-sm font-bold text-dark-blue transition duration-200 hover:bg-main-blue hover:text-white focus-visible:bg-main-blue focus-visible:text-white"
+      >
+        {{ section.settings.hero_button_text }}
+      </a>
+    </div>
   </div>
 </section>
 
