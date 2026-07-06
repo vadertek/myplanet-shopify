@@ -1,71 +1,326 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "layout": "theme.mp",
   "sections": {
     "mp-home-hero": {
       "type": "mp-home-hero",
       "settings": {
-
-      },
+        "hero_image": "shopify://shop_images/main-bg.webp",
+        "hero_image_mobile": "shopify://shop_images/main-bg-mob.webp",
+        "hero_tag": "MyPlanet",
+        "hero_title": "Турбота починається на кухні",
+        "hero_description": "Безпечні та ефективні засоби для чистоти поверхонь, посуду, фруктів і овочів — для комфортного та здорового простору щодня.",
+        "hero_button_link": "",
+        "hero_button_text": "Дізнатися більше"
+      }
     },
     "mp-home-trends": {
       "type": "mp-home-trends",
-      "settings": {
-
+      "blocks": {
+        "collection_XQhDq7": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage",
+            "title": ""
+          }
+        },
+        "collection_YkEVK6": {
+          "type": "collection",
+          "settings": {
+            "collection": "test-2",
+            "title": ""
+          }
+        }
       },
+      "block_order": [
+        "collection_XQhDq7",
+        "collection_YkEVK6"
+      ],
+      "settings": {
+        "title": "Зараз в тренді",
+        "products_to_show": 8
+      }
     },
     "mp-home-baby": {
       "type": "mp-home-baby",
       "settings": {
-
-      },
+        "hero_tag": "MyPlanet",
+        "hero_title": "Безпечна чистота для всього, чого торкається ваш малюк",
+        "hero_description": "Від дитячого одягу та пляшечок до іграшок і поверхонь — Baby Planet допомагає створити чистий і комфортний простір для росту та розвитку дитини.",
+        "hero_button_link": "",
+        "hero_button_text": "Переглянути каталог"
+      }
     },
     "mp-home-choices": {
       "type": "mp-home-choices",
+      "blocks": {
+        "choice_yVkBVX": {
+          "type": "choice",
+          "settings": {
+            "heading": "My Planet Bundles",
+            "text": "Все необхідне для чистоти та комфорту вашого дому в одному наборі.",
+            "button_label": "Обрати набір",
+            "button_link": "",
+            "color": "#004172"
+          }
+        },
+        "choice_WAfpV4": {
+          "type": "choice",
+          "settings": {
+            "heading": "Baby Planet Bundles",
+            "text": "Ніжна турбота для малюка та спокій для батьків — у готових комплектах Baby Planet.",
+            "button_label": "Обрати набір",
+            "button_link": "",
+            "image": "shopify://shop_images/Group_1321316783.png",
+            "color": "#5FB7BD"
+          }
+        }
+      },
+      "block_order": [
+        "choice_yVkBVX",
+        "choice_WAfpV4"
+      ],
       "settings": {
         "title": "Обирайте готові рішення"
       }
     },
     "mp-home-turtle": {
       "type": "mp-home-turtle",
-      "settings": {
-
+      "blocks": {
+        "link_8Dkfmh": {
+          "type": "link",
+          "settings": {
+            "label": "Baby Planet",
+            "link": ""
+          }
+        },
+        "link_gpejzj": {
+          "type": "link",
+          "settings": {
+            "label": "Гіпоалергенний догляд",
+            "link": ""
+          }
+        },
+        "link_WNQPdF": {
+          "type": "link",
+          "settings": {
+            "label": "Для сім’ї",
+            "link": ""
+          }
+        },
+        "link_y3AJc7": {
+          "type": "link",
+          "settings": {
+            "label": "Для кухні",
+            "link": ""
+          }
+        },
+        "link_mHHpNH": {
+          "type": "link",
+          "settings": {
+            "label": "Для прання",
+            "link": ""
+          }
+        },
+        "link_h8etC6": {
+          "type": "link",
+          "settings": {
+            "label": "Eco Friendly",
+            "link": ""
+          }
+        }
       },
+      "block_order": [
+        "link_8Dkfmh",
+        "link_gpejzj",
+        "link_WNQPdF",
+        "link_y3AJc7",
+        "link_mHHpNH",
+        "link_h8etC6"
+      ],
+      "settings": {
+        "tag": "Обирайте за потребою",
+        "title": "Безпечні рішення для кожного дому"
+      }
     },
     "mp-home-reviews": {
       "type": "mp-home-reviews",
-      "settings": {
-
+      "blocks": {
+        "review_7Dz6xB": {
+          "type": "review",
+          "settings": {
+            "product": "test-product-1",
+            "author": "Олена К.",
+            "badge": "Перевірений покупець",
+            "date": "2025-05-14",
+            "rating": 5,
+            "heading": "Ocean Fresh",
+            "text": "Користуюся універсальним засобом Ocean Fresh вже понад пів року. Чудово справляється з підлогою, кухонними поверхнями та ванною кімнатою. Приємний аромат і жодного відчуття агресивної хімії."
+          }
+        },
+        "review_w7riT9": {
+          "type": "review",
+          "settings": {
+            "product": "test-product-2",
+            "author": "Олена К.",
+            "badge": "Перевірений покупець",
+            "date": "2025-05-14",
+            "rating": 5,
+            "heading": "Чистота без зайвих зусиль",
+            "text": "Користуюся універсальним засобом Ocean Fresh вже понад пів року. Чудово справляється з підлогою, кухонними поверхнями та ванною кімнатою. Приємний аромат і жодного відчуття агресивної хімії."
+          }
+        },
+        "review_acwDEK": {
+          "type": "review",
+          "settings": {
+            "product": "test-product-1",
+            "author": "Марія В",
+            "badge": "Перевірений покупець",
+            "date": "2025-05-14",
+            "rating": 5,
+            "heading": "Ефективно та безпечно",
+            "text": "Veggie Wash став незамінним на кухні. Особливо подобається, що можна ретельно мити овочі та фрукти для дітей без зайвих хвилювань."
+          }
+        },
+        "review_MBwUVD": {
+          "type": "review",
+          "settings": {
+            "product": "test-product-2",
+            "author": "Ірина С.",
+            "badge": "Перевірений покупець",
+            "date": "2025-05-14",
+            "rating": 5,
+            "heading": "Дім сяє чистотою",
+            "text": "Спрей Crystal Ice чудово очищує дзеркала та скло без розводів. Використовую щодня для ванної кімнати та вікон."
+          }
+        }
       },
+      "block_order": [
+        "review_7Dz6xB",
+        "review_w7riT9",
+        "review_acwDEK",
+        "review_MBwUVD"
+      ],
+      "settings": {
+        "title": "Нам довіряють тисячі родин"
+      }
     },
     "mp-home-bottle": {
       "type": "mp-home-bottle",
       "settings": {
-
-      },
+        "hero_tag": "4.9/5 · 12 000+ покупців",
+        "hero_title": "ПРОДУКТ 2026 РОКУ!",
+        "hero_description": "ColdFusion+ ефективно видаляє складні плями від низьких температур",
+        "hero_button_link": "",
+        "hero_button_text": "Замовити зараз"
+      }
     },
     "mp-home-treasures": {
       "type": "mp-home-treasures",
-      "settings": {
-
+      "blocks": {
+        "item_MKgyMM": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/Family.png",
+            "title": "Турбота про родину",
+            "text": "Безпечні рішення для дому, дітей та щоденного використання."
+          }
+        },
+        "item_BaxmXz": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/home.png",
+            "title": "Турбота про дім",
+            "text": "Ефективні формули для чистоти кожного куточка вашого простору."
+          }
+        },
+        "item_aCWk84": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/Earth.png",
+            "title": "Турбота про планету",
+            "text": "Відповідальні інгредієнти та екологічний підхід на кожному етапі виробництва."
+          }
+        }
       },
+      "block_order": [
+        "item_MKgyMM",
+        "item_BaxmXz",
+        "item_aCWk84"
+      ],
+      "settings": {
+        "title": "Наші цінності"
+      }
     },
     "mp-home-knowlege": {
       "type": "mp-home-knowlege",
-      "settings": {
-
+      "blocks": {
+        "slide_kcTmmB": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1.png",
+            "tag": "Безпечний дім",
+            "title": "Як створити чистий простір без агресивної хімії",
+            "link": ""
+          }
+        },
+        "slide_agApYH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-1.png",
+            "tag": "Прибирання",
+            "title": "5 поверхонь у домі, які потребують щоденного догляду",
+            "link": ""
+          }
+        },
+        "slide_fCXX47": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-2.png",
+            "tag": "Еко-поради",
+            "title": "Прості звички для більш екологічного дому",
+            "link": ""
+          }
+        },
+        "slide_hQgqyg": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-3.png",
+            "tag": "Baby Care",
+            "title": "Як безпечно доглядати за дитячими речами з перших днів життя",
+            "link": ""
+          }
+        }
       },
+      "block_order": [
+        "slide_kcTmmB",
+        "slide_agApYH",
+        "slide_fCXX47",
+        "slide_hQgqyg"
+      ],
+      "settings": {
+        "title": "Корисно знати"
+      }
     },
     "mp-home-community": {
       "type": "mp-home-community",
       "settings": {
-
-      },
+        "title": "Станьте частиною спільноти My Planet\n#lifewithmyplanet"
+      }
     },
     "mp-faq": {
       "type": "mp-faq",
       "settings": {
-
-      },
+        "title": "Часті питання"
+      }
     }
   },
   "order": [
