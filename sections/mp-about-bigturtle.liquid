@@ -1,0 +1,56 @@
+<!-- Big Turtle Section -->
+<section class="relative overflow-hidden">
+  {% if section.settings.hero_image != blank %}
+    <img loading="eager" class="md:block hidden max-h-140 w-full object-cover" src="{{ section.settings.hero_image |  image_url  }}" alt="">
+  {% else %}
+    <img loading="eager" class="md:block hidden max-h-140 w-full object-cover" src="{{ 'big-turtle.webp' |  asset_url }}" alt="">
+  {% endif %}
+  {% if section.settings.hero_image_mobile != blank %}
+    <img loading="eager" class="md:hidden w-full object-cover" src="{{ section.settings.hero_image_mobile | image_url  }}" alt="">
+  {% else %}
+    <img loading="eager" class="md:hidden w-full object-cover" src="{{ 'turtle-mob.webp' |  asset_url }}" alt="">
+  {% endif %}
+  <div class="absolute top-1/2 left-4 flex max-w-110 -translate-y-1/2 flex-col gap-4 text-white md:left-10 md:pr-0 pr-4">
+    <h2 class="font-montserrat-bold text-[44px] leading-none font-bold">
+      {{ section.settings.title }}
+    </h2>
+    <p class="max-w-150 font-montserrat-reg text-sm leading-[120%]">
+      {{ section.settings.description }}
+    </p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP where hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Mobile image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Черепаха — <br> символ My Planet"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Черепаха уособлює мудрість, стабільність, захист і природний ритм життя. <br> Вона нагадує, що справжня турбота проявляється у щоденних діях та рішеннях, які залишаються цінними з часом."
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP where hero"
+    }
+  ]
+}
+{% endschema %}

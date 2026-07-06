@@ -1,0 +1,37 @@
+<!-- Hero Section -->
+<section class="relative overflow-hidden">
+  <!-- HERO IMAGE -->
+  {% if section.settings.hero_image != blank %}
+    <img loading="eager" class="hidden max-h-200 w-full object-cover md:block" src="{{ section.settings.hero_image |  image_url  }}" alt="">
+  {% else %}
+    <img loading="eager" class="hidden max-h-200 w-full object-cover md:block" src="{{ 'where-bg.webp' |  asset_url }}" alt="">
+  {% endif %}
+  {% if section.settings.hero_image_mobile != blank %}
+    <img loading="eager" class="w-full object-cover md:hidden" src="{{ section.settings.hero_image_mobile | image_url  }}" alt="">
+  {% else %}
+    <img loading="eager" class="w-full object-cover md:hidden" src="{{ 'where-bg-mob.webp' |  asset_url }}" alt="">
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "MP where hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Mobile image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP where hero"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,95 @@
+{
+  "layout": "theme.mp",
+  "sections": {
+    "mp-where-hero": {
+      "type": "mp-where-hero",
+      "settings": {
+
+      }
+    },
+    "mp-where-stores": {
+      "type": "mp-where-stores",
+      "settings": {
+
+      }
+    },
+    "mp-where-map": {
+      "type": "mp-where-map",
+      "settings": {
+
+      }
+    },
+    "mp_faq_Vm3LMW": {
+      "type": "mp-faq",
+      "blocks": {
+        "faq_JCabPF": {
+          "type": "faq",
+          "settings": {
+            "question": "Чим засоби My Planet відрізняються від звичайних побутових засобів?",
+            "answer": "My Planet поєднує ефективність для щоденного прибирання з уважним ставленням до родини, поверхонь і довкілля."
+          }
+        },
+        "faq_bKxCYK": {
+          "type": "faq",
+          "settings": {
+            "question": "Чи безпечні засоби My Planet для використання в домі з дітьми та домашніми тваринами?",
+            "answer": "Так, засоби підходять для щоденного дому за умови використання згідно з інструкцією на упаковці."
+          }
+        },
+        "faq_xF6gbg": {
+          "type": "faq",
+          "settings": {
+            "question": "Для яких поверхонь підходять універсальні засоби My Planet?",
+            "answer": "Вони підходять для більшості твердих поверхонь: підлоги, кухонних поверхонь, ванної кімнати та інших зон дому."
+          }
+        },
+        "faq_ABx7cC": {
+          "type": "faq",
+          "settings": {
+            "question": "Чи можна використовувати засоби My Planet щодня?",
+            "answer": "Так, формули розраховані на регулярне використання для підтримання чистоти без зайвого навантаження."
+          }
+        },
+        "faq_dT9Nia": {
+          "type": "faq",
+          "settings": {
+            "question": "Чи залишають засоби My Planet різкий хімічний запах?",
+            "answer": "Ні, продукти мають приємні аромати без відчуття агресивної хімії після прибирання."
+          }
+        },
+        "faq_xWHdQk": {
+          "type": "faq",
+          "settings": {
+            "question": "Як обрати правильний засіб My Planet для своїх потреб?",
+            "answer": "Орієнтуйтеся на зону використання: кухня, прання, дитячі речі, скло або універсальний догляд для дому."
+          }
+        }
+      },
+      "block_order": [
+        "faq_JCabPF",
+        "faq_bKxCYK",
+        "faq_xF6gbg",
+        "faq_ABx7cC",
+        "faq_dT9Nia",
+        "faq_xWHdQk"
+      ],
+      "name": "MP FAQ",
+      "settings": {
+        "title": "Часті питання"
+      }
+    },
+    "mp-home-community": {
+      "type": "mp-home-community",
+      "settings": {
+        "title": "Станьте частиною спільноти My Planet\n#lifewithmyplanet"
+      }
+    },
+  },
+  "order": [
+    "mp-where-hero",
+    "mp-where-stores",
+    "mp-where-map",
+    "mp_faq_Vm3LMW",
+    "mp-home-community"
+  ]
+}

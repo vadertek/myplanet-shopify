@@ -1,0 +1,169 @@
+<!-- Stores -->
+<section id="mp-where-stores-{{ section.id }}" class="overflow-hidden bg-white px-4 py-10 md:px-10 md:py-14">
+  <div class="mx-auto max-w-340">
+    <div class="mb-10 flex items-center justify-between gap-6">
+      {%- if section.settings.title != blank -%}
+        <h2 class="font-montserrat-bold text-[32px] leading-none font-bold text-main-blue md:text-[40px]">
+          {{ section.settings.title | escape }}
+        </h2>
+      {%- endif -%}
+
+      <div class="flex h-9 w-22 shrink-0 overflow-hidden rounded-full bg-[#C0D7ED]/20" aria-label="Stores navigation">
+        <button
+          id="stores-prev-{{ section.id }}"
+          class="grid h-9 w-11 cursor-pointer place-items-center text-main-blue transition hover:bg-main-blue/10 focus-visible:bg-main-blue/10 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-60"
+          type="button"
+          aria-label="Previous stores"
+        >
+          <span class="h-2.5 w-2.5 rotate-45 border-b border-l border-current" aria-hidden="true"></span>
+        </button>
+        <button
+          id="stores-next-{{ section.id }}"
+          class="grid h-9 w-11 cursor-pointer place-items-center text-main-blue transition hover:bg-main-blue/10 focus-visible:bg-main-blue/10 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-60"
+          type="button"
+          aria-label="Next stores"
+        >
+          <span class="h-2.5 w-2.5 rotate-225 border-b border-l border-current" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="stores-swiper-{{ section.id }}" class="swiper flex w-full items-center overflow-hidden">
+      <div class="swiper-wrapper flex">
+        {%- for block in section.blocks -%}
+          <article class="swiper-slide flex min-w-0 flex-col" {{ block.shopify_attributes }}>
+            <div class="flex h-18 items-center md:h-20">
+              {%- if block.settings.logo != blank -%}
+                {{ block.settings.logo | image_url: width: 320 | image_tag: class: 'max-h-15 w-auto object-contain', loading: 'lazy', alt: block.settings.logo_alt }}
+              {%- else -%}
+                <img class="max-h-15 w-auto object-contain" src="/img/rozetka.webp" alt="{{ block.settings.logo_alt | escape }}">
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.button_label != blank -%}
+              <a
+                class="mt-5 flex min-h-12 w-full items-center justify-center rounded-[14px] bg-main-blue px-6 text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:bg-dark-blue focus-visible:bg-dark-blue"
+                href="{{ block.settings.link | default: '#' }}"
+              >
+                {{ block.settings.button_label | escape }}
+              </a>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stores Swiper Script -->
+<script>
+  (function () {
+    function initStoresSwiper() {
+      const swiperEl = document.getElementById('stores-swiper-{{ section.id }}');
+      if (!swiperEl || typeof Swiper === 'undefined') return;
+
+      if (swiperEl.swiper) swiperEl.swiper.destroy(true, true);
+
+      new Swiper(swiperEl, {
+        slidesPerView: 1.5,
+        spaceBetween: 16,
+        speed: 350,
+        watchOverflow: true,
+        navigation: {
+          nextEl: '#stores-next-{{ section.id }}',
+          prevEl: '#stores-prev-{{ section.id }}',
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 32,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 44,
+          },
+        },
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        initStoresSwiper();
+      });
+    } else {
+      initStoresSwiper();
+    }
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.target && (event.target.id === 'mp-where-stores-{{ section.id }}' || event.target.querySelector('#stores-swiper-{{ section.id }}'))) {
+        initStoresSwiper();
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MP where stores",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Де придбати?"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "store",
+      "name": "Store slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo"
+        },
+        {
+          "type": "text",
+          "id": "logo_alt",
+          "label": "Logo alt",
+          "default": "Rozetka"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Перейти в магазин"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP where stores",
+      "blocks": [
+        {
+          "type": "store"
+        },
+        {
+          "type": "store"
+        },
+        {
+          "type": "store"
+        },
+        {
+          "type": "store"
+        },
+        {
+          "type": "store"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,61 @@
+<!-- Hero Section -->
+<section class="relative overflow-hidden">
+  <!-- HERO IMAGE -->
+  {% if section.settings.hero_image != blank %}
+    <img loading="eager" class="md:block hidden max-h-200 w-full object-cover" src="{{ section.settings.hero_image |  image_url  }}" alt="">
+  {% else %}
+    <img loading="eager" class="md:block hidden max-h-200 w-full object-cover" src="{{ 'ab-bg.webp' |  asset_url }}" alt="">
+  {% endif %}
+  {% if section.settings.hero_image_mobile != blank %}
+    <img loading="eager" class="md:hidden w-full object-cover" src="{{ section.settings.hero_image_mobile | image_url  }}" alt="">
+  {% else %}
+    <img loading="eager" class="md:hidden w-full object-cover" src="{{ 'ab-bg-mob.webp' |  asset_url }}" alt="">
+  {% endif %}
+  <div class="absolute inset-0 bg-black/35"></div>
+  <div class="absolute bottom-10 left-4 flex max-w-180 flex-col gap-6 text-white md:bottom-20 md:left-10">
+    <h1 class="max-w-180 font-montserrat-bold text-[48px] leading-[0.95] font-bold md:text-[64px]">
+      {{ section.settings.hero_title }}
+    </h1>
+    <p class="max-w-150 font-montserrat-reg leading-[1.45] text-sm">
+      {{ section.settings.hero_description }}
+    </p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP Hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Життя <br> відбувається між прибираннями"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_description",
+      "label": "Hero Description",
+      "default": "Ми створюємо засоби для дому, щоб ви могли менше думати про прибирання і більше часу присвячувати тому, що справді важливо — родині, дому та щоденним моментам."
+    }
+  ]
+}
+{% endschema %}

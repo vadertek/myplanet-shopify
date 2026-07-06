@@ -1,0 +1,33 @@
+<!-- Section Map -->
+<section class="w-full mt-10">
+  <div id="s-contacts-map" class="w-full">
+    <div class="mapouter mx-auto">
+      <div class="gmap_canvas -mt-17.5">
+        <div class="h-17.5 w-full bg-white absolute"></div>
+        <iframe
+          class="gmap_iframe md:h-140"
+          width="100%"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+          src="{{ section.settings.map_url }}"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP - Where Buy Map",
+  "settings": [
+    {
+      "type": "text",
+      "id": "map_url",
+      "label": "Map URL",
+      "default": "https://www.google.com/maps/d/embed?mid=1CoIdR-d7T6hYHPgCi7y0LUYy66ZWk2w&ehbc=2E312F"
+    }
+  ]
+}
+{% endschema %}
