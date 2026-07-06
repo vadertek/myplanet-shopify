@@ -13,13 +13,15 @@
     "mp-about-hero": {
       "type": "mp-about-hero",
       "settings": {
-
+        "hero_title": "Життя <br> відбувається між прибираннями",
+        "hero_description": "Ми створюємо засоби для дому, щоб ви могли менше думати про прибирання і більше часу присвячувати тому, що справді важливо — родині, дому та щоденним моментам."
       }
     },
     "mp-about-info": {
       "type": "mp-about-info",
       "settings": {
-
+        "info_title": "Понад 78 років турботи",
+        "info_description": "Ми створюємо засоби для дому, щоб ви могли менше думати про прибирання і більше часу присвячувати тому, що справді важливо — родині, дому та щоденним моментам. Ми віримо, що чистота — це не лише про порядок у домі, а й про спокій у серці. Тому ми прагнемо створювати продукти, які допомагають вам насолоджуватися життям без зайвого клопоту."
       }
     },
     "mp-home-treasures": {
@@ -62,13 +64,51 @@
     "mp-about-bigturtle": {
       "type": "mp-about-bigturtle",
       "settings": {
-
+        "title": "Черепаха — <br> символ My Planet",
+        "description": "Черепаха уособлює мудрість, стабільність, захист і природний ритм життя. <br> Вона нагадує, що справжня турбота проявляється у щоденних діях та рішеннях, які залишаються цінними з часом."
       }
     },
     "mp-about-uses": {
       "type": "mp-about-uses",
+      "blocks": {
+        "item_rUQngB": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2.png",
+            "text": "Універсальні засоби"
+          }
+        },
+        "item_B4PGjk": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-1.png",
+            "text": "Засоби для кухні"
+          }
+        },
+        "item_ADXjDJ": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_7fe276b4-cdf8-4c9a-96bc-feef9b5e0543.png",
+            "text": "Засоби для прання"
+          }
+        },
+        "item_8UkBze": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-1_96d35415-1d04-46d4-a014-0e8b86ef5846.png",
+            "text": "Дитячі засоби"
+          }
+        }
+      },
+      "block_order": [
+        "item_rUQngB",
+        "item_B4PGjk",
+        "item_ADXjDJ",
+        "item_8UkBze"
+      ],
       "settings": {
-
+        "title": "Рішення для щоденної чистоти",
+        "subtitle": "Наші продукти створені для:"
       }
     },
     "mp_faq_Vm3LMW": {
