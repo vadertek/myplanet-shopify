@@ -1,0 +1,23 @@
+{
+  "name": "shopify-dawn-template",
+  "version": "1.0.0",
+  "description": "[![Build status](https://github.com/shopify/dawn/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Shopify/dawn/actions/workflows/ci.yml?query=branch%3Amain) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?color=informational)](/.github/CONTRIBUTING.md)",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "dev": "concurrently  -c \"auto\" \"npm:dev:*\"",
+    "dev:tailwind": "npx @tailwindcss/cli -i ./styles/main.css -o ./assets/style.css --watch --minify",
+    "dev:shopify": "shopify theme dev --store=store-name --store-password=strapi",
+    "build:css": "tailwindcss -i ./styles/main.css -o ./assets/style.css --minify",
+    "format": "prettier --write \".github/workflows/*.{yml,yaml}\" \".prettierrc.json\" \".theme-check.yml\" \"package.json\" \"README.md\" \"styles/main.css\"",
+    "format:check": "prettier --check \".github/workflows/*.{yml,yaml}\" \".prettierrc.json\" \".theme-check.yml\" \"package.json\" \"README.md\" \"styles/main.css\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@shopify/prettier-plugin-liquid": "^1.10.3",
+    "@tailwindcss/cli": "^4.3.2",
+    "concurrently": "^10.0.3",
+    "prettier": "^3.9.4",
+    "tailwindcss": "^4.3.2"
+  }
+}

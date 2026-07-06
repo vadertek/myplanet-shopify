@@ -1,0 +1,15 @@
+{
+  // "editor.formatOnSave": false,
+  "npm.packageManager": "auto",
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.formatOnSave": true
+  },
+  "[liquid]": {
+    "editor.formatOnSave": true
+  },
+  "themeCheck.checkOnSave": true
+}

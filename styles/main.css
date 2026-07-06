@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+@theme {
+
+  /* Colors */
+  --color-example: rgba(34, 50, 97, 1);
+
+  /* Fonts */
+  --font-example: 'Example', sans-serif;
+
+}
+
+/* CUSTOM CSS GOES HERE */
