@@ -1,0 +1,189 @@
+<!-- Good to Know -->
+<section id="mp-home-knowlege-{{ section.id }}" class="overflow-hidden px-4 py-8 md:px-10 md:py-10">
+  <div class="mx-auto max-w-360">
+    <div class="mb-6 flex items-center justify-between gap-5 md:mb-8">
+      {%- if section.settings.title != blank -%}
+        <h2 class="font-montserrat-bold text-[40px] leading-none font-bold text-dark-blue">
+          {{ section.settings.title | escape }}
+        </h2>
+      {%- endif -%}
+
+      <div class="hidden h-9 w-22 shrink-0 overflow-hidden rounded-full bg-[#C0D7ED4D] md:flex" aria-label="Materials navigation">
+        <button
+          id="knowlege-prev-{{ section.id }}"
+          class="grid h-9 w-11 cursor-pointer place-items-center text-main-blue transition hover:bg-white/55 focus-visible:bg-white/55 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/55 [&.swiper-button-disabled]:opacity-60"
+          type="button"
+          aria-label="Previous material"
+        >
+          <span class="h-3.5 w-3.5 rotate-45 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+        </button>
+        <button
+          id="knowlege-next-{{ section.id }}"
+          class="grid h-9 w-11 cursor-pointer place-items-center text-main-blue transition hover:bg-white/55 focus-visible:bg-white/55 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/55 [&.swiper-button-disabled]:opacity-60"
+          type="button"
+          aria-label="Next material"
+        >
+          <span class="h-3.5 w-3.5 rotate-225 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="knowlege-swiper-{{ section.id }}" class="swiper flex w-full items-center overflow-hidden">
+      <div class="swiper-wrapper flex">
+        {%- for block in section.blocks -%}
+          <article class="swiper-slide flex flex-col" {{ block.shopify_attributes }}>
+            {%- if block.settings.link != blank -%}
+              <a href="{{ block.settings.link }}" class="flex flex-col">
+            {%- endif -%}
+
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 900 | image_tag: class: 'w-full rounded-2xl object-cover', loading: 'lazy', alt: '' }}
+            {%- else -%}
+              <img class="w-full rounded-2xl object-cover" src="/img/slide.webp" alt="">
+            {%- endif -%}
+
+            {%- if block.settings.tag != blank -%}
+              <span class="mt-4 w-fit rounded-2xl bg-[#C0D7ED4D] px-2 py-1 font-montserrat-bold text-[12px] leading-none font-bold text-dark-blue">
+                {{ block.settings.tag | escape }}
+              </span>
+            {%- endif -%}
+
+            {%- if block.settings.title != blank -%}
+              <h3 class="mt-4 font-montserrat-bold text-[18px] leading-[1.2] font-bold text-main-blue">
+                {{ block.settings.title | escape }}
+              </h3>
+            {%- endif -%}
+
+            {%- if block.settings.link != blank -%}
+              </a>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="mt-6 flex h-9 w-22 overflow-hidden rounded-full bg-[#D71920]/10 md:hidden" aria-label="Materials navigation">
+      <button
+        id="knowlege-mobile-prev-{{ section.id }}"
+        class="grid h-9 w-11 cursor-pointer place-items-center text-[#D71920] transition hover:bg-white/55 focus-visible:bg-white/55 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/55 [&.swiper-button-disabled]:opacity-60"
+        type="button"
+        aria-label="Previous material"
+      >
+        <span class="h-3.5 w-3.5 rotate-45 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+      </button>
+      <button
+        id="knowlege-mobile-next-{{ section.id }}"
+        class="grid h-9 w-11 cursor-pointer place-items-center text-[#D71920] transition hover:bg-white/55 focus-visible:bg-white/55 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/55 [&.swiper-button-disabled]:opacity-60"
+        type="button"
+        aria-label="Next material"
+      >
+        <span class="h-3.5 w-3.5 rotate-225 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Good to Know Swiper Script -->
+<script>
+  (function () {
+    function initKnowlegeSwiper() {
+      const swiperEl = document.getElementById('knowlege-swiper-{{ section.id }}');
+      if (!swiperEl || typeof Swiper === 'undefined') return;
+
+      if (swiperEl.swiper) swiperEl.swiper.destroy(true, true);
+
+      new Swiper(swiperEl, {
+        slidesPerView: 1.05,
+        spaceBetween: 8,
+        speed: 350,
+        watchOverflow: true,
+        navigation: {
+          nextEl: '#knowlege-next-{{ section.id }}, #knowlege-mobile-next-{{ section.id }}',
+          prevEl: '#knowlege-prev-{{ section.id }}, #knowlege-mobile-prev-{{ section.id }}',
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 8,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 8,
+          },
+          1450: {
+            slidesPerView: 4,
+            spaceBetween: 8,
+          },
+        },
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        initKnowlegeSwiper();
+      });
+    } else {
+      initKnowlegeSwiper();
+    }
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.target && (event.target.id === 'mp-home-knowlege-{{ section.id }}' || event.target.querySelector('#knowlege-swiper-{{ section.id }}'))) {
+        initKnowlegeSwiper();
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MP home knowlege",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Корисно знати"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag",
+          "default": "Безпечний дім"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Як створити чистий простір без агресивної хімії"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP home knowlege",
+      "blocks": [
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,87 @@
+<!-- Bottle Section -->
+<section class="relative overflow-hidden">
+  <!-- HERO IMAGE -->
+  {% if section.settings.hero_image != blank %}
+    <img loading="eager" class="md:block hidden max-h-200 w-full object-cover" src="{{ section.settings.hero_image |  image_url  }}" alt="">
+  {% else %}
+    <img loading="eager" class="md:block hidden max-h-200 w-full object-cover" src="{{ 'bottle.webp' |  asset_url }}" alt="">
+  {% endif %}
+  {% if section.settings.hero_image_mobile != blank %}
+    <img loading="eager" class="md:hidden w-full object-cover" src="{{ section.settings.hero_image_mobile | image_url  }}" alt="">
+  {% else %}
+    <img loading="eager" class="md:hidden w-full object-cover" src="{{ 'bottle-mob.webp' |  asset_url }}" alt="">
+  {% endif %}
+  <div class="absolute top-1/2 left-4 flex max-w-110 -translate-y-1/2 flex-col gap-4 text-dark-blue md:left-10">
+    <div class="flex items-center gap-3">
+      <img class="w-28" src="{{ 'blue-stars.webp' |  asset_url }}" alt="">
+      <span class="font-montserrat-reg text-sm">{{ section.settings.hero_tag }}</span>
+    </div>
+    <h2 class="font-montserrat-bold text-[44px] leading-none font-bold">{{ section.settings.hero_title }}</h2>
+    <p class="max-w-100 font-montserrat-reg text-[20px] leading-[1.1]">{{ section.settings.hero_description }}</p>
+    <a
+      href="{{ section.settings.hero_button_link }}"
+      class="w-fit rounded-2xl bg-main-blue px-6 py-3 font-montserrat-bold text-sm font-bold text-white transition duration-200 hover:bg-dark-blue focus-visible:bg-dark-blue"
+    >
+      {{ section.settings.hero_button_text }}
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP Bottle Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "hero_tag",
+      "label": "Reviews",
+      "default": "4.9/5 · 12 000+ покупців"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "ПРОДУКТ 2026 РОКУ!"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_description",
+      "label": "Hero Description",
+      "default": "ColdFusion+ ефективно видаляє складні плями від низьких температур"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "url",
+      "id": "hero_button_link",
+      "label": "Hero Button Link"
+    },
+    {
+      "type": "text",
+      "id": "hero_button_text",
+      "label": "Hero Button Text",
+      "default": "Дізнатися більше"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,177 @@
+<!-- Choices -->
+<style>
+  #mp-home-choices-{{ section.id }} .mp-choice-card {
+    background-color: var(--choice-bg);
+  }
+
+  #mp-home-choices-{{ section.id }} .mp-choice-text {
+    color: var(--choice-text);
+  }
+
+  #mp-home-choices-{{ section.id }} .mp-choice-button {
+    color: var(--choice-button-text);
+  }
+
+  #mp-home-choices-{{ section.id }} .mp-choice-button:hover,
+  #mp-home-choices-{{ section.id }} .mp-choice-button:focus-visible {
+    background-color: var(--choice-color);
+    color: #fff;
+  }
+</style>
+
+<section class="py-8 px-4 md:py-10">
+  <div id="mp-home-choices-{{ section.id }}" class="mx-auto max-w-340">
+    <h2 class="mb-5 font-montserrat-bold text-[16px] leading-none font-bold text-main-blue uppercase">
+      {{ section.settings.title | escape }}
+    </h2>
+
+    <div class="grid gap-3 md:grid-cols-2 md:gap-4">
+      {%- for block in section.blocks limit: 2 -%}
+        {%- liquid
+          assign block_color = block.settings.color
+          assign bg_color = block_color | color_modify: 'alpha', 0.2
+          assign text_color = block_color
+          assign button_text_color = block_color
+        -%}
+
+        <article
+          class="mp-choice-card relative flex min-h-63.75 flex-col overflow-hidden rounded-2xl px-5 py-5 md:min-h-92.5"
+          style="--choice-color: {{ block_color }}; --choice-bg: {{ bg_color }}; --choice-text: {{ text_color }}; --choice-button-text: {{ button_text_color }};"
+          {{ block.shopify_attributes }}
+        >
+          <div class="z-10 flex max-w-70 flex-col items-start md:max-w-107.5">
+            {%- if block.settings.heading != blank -%}
+              <h3
+                class="mp-choice-text font-montserrat-bold text-[32px] leading-none font-bold md:whitespace-nowrap md:text-[40px]"
+              >
+                {{ block.settings.heading | escape }}
+              </h3>
+            {%- endif -%}
+
+            {%- if block.settings.text != blank -%}
+              <p
+                class="mp-choice-text mt-3 font-montserrat-reg text-[12px] leading-tight md:max-w-[60%] md:text-[16px]"
+              >
+                {{ block.settings.text | escape }}
+              </p>
+            {%- endif -%}
+
+            {%- if block.settings.button_label != blank -%}
+              <a
+                href="{{ block.settings.button_link | default: '#' }}"
+                class="mp-choice-button hidden min-h-12.5 min-w-37.25 items-center justify-center rounded-2xl bg-white px-6 font-montserrat-bold text-[14px] leading-none font-bold transition md:absolute md:bottom-8 md:left-8 md:flex"
+              >
+                {{ block.settings.button_label | escape }}
+              </a>
+            {%- endif -%}
+          </div>
+
+          <div class="relative z-0 mx-auto mt-4 flex h-37.5 w-62.5 items-end justify-center md:pointer-events-none md:absolute md:right-8 md:bottom-8 md:mt-0 md:h-75 md:w-97.5 md:pt-10">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 780 | image_tag: class: 'h-full object-contain object-bottom-right md:w-full', loading: 'lazy', alt: '' }}
+            {%- else -%}
+              <img class="h-full object-contain object-bottom-right md:w-full" src="{{ 'lot-bottles.webp' |  asset_url }}" alt="Lot Bottles">
+            {%- endif -%}
+          </div>
+
+          {%- if block.settings.button_label != blank -%}
+            <a
+              href="{{ block.settings.button_link | default: '#' }}"
+              class="mp-choice-button relative z-10 mt-2 flex min-h-12.5 w-full items-center justify-center rounded-2xl bg-white px-6 font-montserrat-bold text-[14px] leading-none font-bold transition md:hidden"
+            >
+              {{ block.settings.button_label | escape }}
+            </a>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home Choices",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Choose ready solutions"
+    }
+  ],
+  "max_blocks": 2,
+  "blocks": [
+    {
+      "type": "choice",
+      "name": "Choice block",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Text Information"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "My Planet Bundles"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Everything you need for a clean and comfortable home in one bundle."
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Choose bundle"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "header",
+          "content": "Image & Color"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Color",
+          "default": "#004172"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Choices",
+      "blocks": [
+        {
+          "type": "choice"
+        },
+        {
+          "type": "choice",
+          "settings": {
+            "heading": "Baby Planet Bundles",
+            "text": "Gentle care for your baby and peace of mind for parents in ready-made Baby Planet bundles.",
+            "button_label": "Choose bundle",
+            "color": "#008895"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

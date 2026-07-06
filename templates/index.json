@@ -3,7 +3,66 @@
   "sections": {
     "mp-home-hero": {
       "type": "mp-home-hero",
+      "settings": {
 
+      },
+    },
+    "mp-home-trends": {
+      "type": "mp-home-trends",
+      "settings": {
+
+      },
+    },
+    "mp-home-baby": {
+      "type": "mp-home-baby",
+      "settings": {
+
+      },
+    },
+    "mp-home-choices": {
+      "type": "mp-home-choices",
+      "settings": {
+        "title": "Обирайте готові рішення"
+      }
+    },
+    "mp-home-turtle": {
+      "type": "mp-home-turtle",
+      "settings": {
+
+      },
+    },
+    "mp-home-reviews": {
+      "type": "mp-home-reviews",
+      "settings": {
+
+      },
+    },
+    "mp-home-bottle": {
+      "type": "mp-home-bottle",
+      "settings": {
+
+      },
+    },
+    "mp-home-treasures": {
+      "type": "mp-home-treasures",
+      "settings": {
+
+      },
+    },
+    "mp-home-knowlege": {
+      "type": "mp-home-knowlege",
+      "settings": {
+
+      },
+    },
+    "mp-home-community": {
+      "type": "mp-home-community",
+      "settings": {
+
+      },
+    },
+    "mp-faq": {
+      "type": "mp-faq",
       "settings": {
 
       },
@@ -11,6 +70,15 @@
   },
   "order": [
     "mp-home-hero",
-
+    "mp-home-trends",
+    "mp-home-baby",
+    "mp-home-choices",
+    "mp-home-turtle",
+    "mp-home-reviews",
+    "mp-home-bottle",
+    "mp-home-treasures",
+    "mp-home-knowlege",
+    "mp-home-community",
+    "mp-faq"
   ]
 }

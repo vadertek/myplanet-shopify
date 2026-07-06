@@ -1,0 +1,122 @@
+<!-- Turtle Section -->
+<section class="px-0 pt-8 pb-0 md:px-10 md:pt-10 md:pb-10">
+  <div class="relative mx-auto h-120 max-w-340 overflow-hidden px-4 md:h-60 md:rounded-2xl md:px-0">
+    <picture>
+      <source media="(min-width: 768px)" srcset="{{ 'turtle.webp' | asset_url }}">
+      <img class="absolute inset-0 h-full w-full object-cover" src="{{ 'turtle-mob.webp' | asset_url }}" alt="">
+    </picture>
+    <div class="absolute inset-0 bg-dark-blue/15"></div>
+
+    <div class="relative z-10 flex h-full flex-col justify-between py-7 text-white md:items-center md:justify-center md:px-10 md:py-0">
+      {%- if section.settings.tag != blank -%}
+        <p class="mx-auto flex min-h-8.5 min-w-45 items-center justify-center rounded-2xl border border-white px-4 font-montserrat-reg text-[14px] leading-none font-bold text-white uppercase transition hover:bg-white hover:text-[#236591] focus-visible:bg-white focus-visible:text-[#236591] md:min-w-53">
+          {{ section.settings.tag | escape }}
+        </p>
+      {%- endif -%}
+
+      {%- if section.settings.title != blank -%}
+        <h2 class="px-4 text-center font-montserrat-bold text-[40px] leading-none font-bold text-white md:mt-6 md:px-0">
+          {{ section.settings.title | escape }}
+        </h2>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="scrollbar-none -mx-4 flex gap-5 overflow-x-auto px-4 md:mx-0 md:mt-6 md:justify-center md:gap-4 md:overflow-visible md:px-0">
+          {%- for block in section.blocks -%}
+            {%- if block.settings.label != blank -%}
+              <a
+                class="flex h-9.5 shrink-0 items-center justify-center rounded-2xl bg-white/80 px-4 font-montserrat-reg text-[16px] leading-none font-semibold whitespace-nowrap text-[#236591] transition hover:bg-white focus-visible:bg-white md:h-8.5"
+                href="{{ block.settings.link | default: '#' }}"
+                {{ block.shopify_attributes }}
+              >
+                {{ block.settings.label | escape }}
+              </a>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP home turtle",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Tag",
+      "default": "Обирайте за потребою"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Безпечні рішення для кожного дому"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Baby Planet"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP home turtle",
+      "blocks": [
+        {
+          "type": "link",
+          "settings": {
+            "label": "Baby Planet"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "label": "Гіпоалергенний догляд"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "label": "Для сім'ї"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "label": "Для кухні"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "label": "Для прання"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "label": "Eco Friendly"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

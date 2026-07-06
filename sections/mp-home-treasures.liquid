@@ -1,0 +1,107 @@
+<style>
+  .bg-treasure {
+    background-image: url('{{ 'ocean.webp' |  asset_url }}');
+  }
+  @media (max-width: 768px) {
+    .bg-treasure {
+      background-image: url('{{ 'ocean-mob.webp' |  asset_url }}');
+    }
+  }
+</style>
+
+<!-- Our Treasures -->
+<section class="px-4 py-10 md:px-10">
+  <div class="mx-auto max-w-360">
+    {%- if section.settings.title != blank -%}
+      <h2 class="mb-8 text-center font-montserrat-bold text-[40px] leading-none font-bold text-main-blue">
+        {{ section.settings.title | escape }}
+      </h2>
+    {%- endif -%}
+
+    <div class="grid gap-8 rounded-lg bg-treasure bg-cover bg-center px-5 py-8 text-center text-white md:grid-cols-3 md:px-10">
+      {%- for block in section.blocks limit: 3 -%}
+        <div class="flex flex-col items-center" {{ block.shopify_attributes }}>
+          {%- if block.settings.icon != blank -%}
+            {{ block.settings.icon | image_url: width: 56 | image_tag: class: 'mb-4 h-7 w-7', loading: 'lazy', alt: 'Icon' }}
+          {%- endif -%}
+
+          {%- if block.settings.title != blank -%}
+            <h3 class="mb-4 font-montserrat-bold text-[24px] leading-none font-bold">
+              {{ block.settings.title | escape }}
+            </h3>
+          {%- endif -%}
+
+          {%- if block.settings.text != blank -%}
+            <p class="max-w-95 font-montserrat-reg text-[16px] leading-tight">
+              {{ block.settings.text | escape }}
+            </p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP home treasures",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Наші цінності"
+    }
+  ],
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Турбота про родину"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Безпечні рішення для дому, дітей та щоденного використання."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP home treasures",
+      "blocks": [
+        {
+          "type": "item"
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Турбота про дім",
+            "text": "Ефективні формули для чистоти кожного куточка вашого простору."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Турбота про планету",
+            "text": "Відповідальні інгредієнти та екологічний підхід на кожному етапі виробництва."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
