@@ -1,0 +1,120 @@
+<!-- Community Section -->
+<section class="bg-[#EEF4FA] px-4 py-6 md:px-10 md:py-8">
+  <div class="mx-auto grid max-w-340 gap-1 md:grid-cols-[minmax(0,972px)_384px] md:items-end">
+    <div class="flex h-full flex-col justify-between">
+      {%- if section.settings.title != blank -%}
+        <h2 class="max-w-150 pb-5 font-montserrat-bold text-[24px] leading-[1.15] font-bold text-[#236591] md:pb-0">
+          {{ section.settings.title | newline_to_br }}
+        </h2>
+      {%- endif -%}
+
+      <div class="grid grid-cols-2 gap-1 md:grid-cols-4">
+        {%- if section.settings.small_image_1 != blank -%}
+          {{
+            section.settings.small_image_1
+            | image_url: width: 520
+            | image_tag: class: 'aspect-square w-full rounded-lg object-cover md:aspect-auto md:h-60', loading: 'lazy', alt: 'Community image'
+          }}
+        {%- else -%}
+          <img class="aspect-square w-full rounded-lg object-cover md:h-60 md:aspect-auto" src="{{ 'part-1.webp' | asset_url }}" alt="Community image">
+        {%- endif -%}
+
+        {%- if section.settings.small_image_2 != blank -%}
+          {{
+            section.settings.small_image_2
+            | image_url: width: 520
+            | image_tag: class: 'aspect-square w-full rounded-lg object-cover md:aspect-auto md:h-60', loading: 'lazy', alt: 'Community image'
+          }}
+        {%- else -%}
+          <img class="aspect-square w-full rounded-lg object-cover md:h-60 md:aspect-auto" src="{{ 'part-2.webp' | asset_url }}" alt="Community image">
+        {%- endif -%}
+
+        {%- if section.settings.small_image_3 != blank -%}
+          {{
+            section.settings.small_image_3
+            | image_url: width: 520
+            | image_tag: class: 'aspect-square w-full rounded-lg object-cover md:aspect-auto md:h-60', loading: 'lazy', alt: 'Community image'
+          }}
+        {%- else -%}
+          <img class="aspect-square w-full rounded-lg object-cover md:h-60 md:aspect-auto" src="{{ 'part-3.webp' | asset_url }}" alt="Community image">
+        {%- endif -%}
+
+        {%- if section.settings.small_image_4 != blank -%}
+          {{
+            section.settings.small_image_4
+            | image_url: width: 520
+            | image_tag: class: 'aspect-square w-full rounded-lg object-cover md:aspect-auto md:h-60', loading: 'lazy', alt: 'Community image'
+          }}
+        {%- else -%}
+          <img class="aspect-square w-full rounded-lg object-cover md:h-60 md:aspect-auto" src="{{ 'part-4.webp' | asset_url }}" alt="Community image">
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if section.settings.main_image != blank -%}
+      {{
+        section.settings.main_image
+        | image_url: width: 768
+        | image_tag: class: 'hidden aspect-square w-full rounded-lg object-cover md:block md:h-96 md:w-96', loading: 'lazy', alt: 'Community image'
+      }}
+    {%- else -%}
+      <img class="hidden aspect-square w-full rounded-lg object-cover md:block md:h-96 md:w-96" src="{{ 'part-5.webp' | asset_url }}" alt="Community image">
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP home community",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Станьте частиною спільноти My Planet\n#lifewithmyplanet"
+    },
+    {
+      "type": "header",
+      "content": "Small images"
+    },
+    {
+      "type": "image_picker",
+      "id": "small_image_1",
+      "label": "Small image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "small_image_2",
+      "label": "Small image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "small_image_3",
+      "label": "Small image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "small_image_4",
+      "label": "Small image 4"
+    },
+    {
+      "type": "header",
+      "content": "Main image"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP home community"
+    }
+  ]
+}
+{% endschema %}

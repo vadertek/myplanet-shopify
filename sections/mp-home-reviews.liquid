@@ -1,0 +1,239 @@
+<!-- Reviews Section -->
+<section id="mp-home-reviews-{{ section.id }}" class="overflow-hidden bg-[#F1F9E4] px-4 py-8 md:px-10 md:py-10">
+  <div class="mx-auto max-w-340">
+    <div class="mb-8 flex items-start justify-between gap-5 md:mb-9 md:items-center">
+      {%- if section.settings.title != blank -%}
+        <h2 class="font-montserrat-bold text-[40px] leading-none font-bold text-[#3FA11F] md:whitespace-nowrap">
+          {{ section.settings.title | escape }}
+        </h2>
+      {%- endif -%}
+
+      <div class="hidden h-9 w-22 shrink-0 overflow-hidden rounded-full bg-[#CFEFAC] md:flex" aria-label="Reviews navigation">
+        <button
+          id="reviews-prev-{{ section.id }}"
+          class="grid h-9 w-11 cursor-pointer place-items-center text-[#82B727] transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/45 [&.swiper-button-disabled]:opacity-60"
+          type="button"
+          aria-label="Previous review"
+        >
+          <span class="h-3.5 w-3.5 rotate-45 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+        </button>
+        <button
+          id="reviews-next-{{ section.id }}"
+          class="grid h-9 w-11 cursor-pointer place-items-center text-[#82B727] transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/45 [&.swiper-button-disabled]:opacity-60"
+          type="button"
+          aria-label="Next review"
+        >
+          <span class="h-3.5 w-3.5 rotate-225 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="reviews-swiper-{{ section.id }}" class="swiper flex w-full items-center overflow-hidden">
+    <div class="swiper-wrapper flex">
+      {%- for block in section.blocks -%}
+        {%- assign review_product = block.settings.product -%}
+
+        <article
+          class="swiper-slide flex min-h-75 flex-col rounded-2xl border border-[#82B727] bg-white px-5 py-5 md:min-h-75 md:px-7 md:py-6"
+          {{ block.shopify_attributes }}
+        >
+          <div class="flex items-start justify-between gap-4 font-montserrat-bold text-[16px] leading-none font-bold text-[#82B727]">
+            <p class="text-[#325037]/70">
+              {{ block.settings.author | escape }}
+              {%- if block.settings.badge != blank -%}
+                <span class="text-[#82B727]"> · {{ block.settings.badge | escape }}</span>
+              {%- endif -%}
+            </p>
+
+            {%- if block.settings.date != blank -%}
+              <time datetime="{{ block.settings.date | date: '%Y-%m-%d' }}">
+                {{ block.settings.date | date: '%d.%m.%Y' }}
+              </time>
+            {%- endif -%}
+          </div>
+
+          {%- if block.settings.rating > 0 -%}
+            <div class="mt-3 text-[22px] leading-none text-[#82B727]" aria-label="{{ block.settings.rating }} stars">
+              {%- for i in (1..block.settings.rating) -%}
+                ★
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.heading != blank -%}
+            <h3 class="mt-10 font-montserrat-bold text-[24px] leading-none font-bold text-[#325037]">
+              {{ block.settings.heading | escape }}
+            </h3>
+          {%- endif -%}
+
+          {%- if block.settings.text != blank -%}
+            <p class="mt-5 font-montserrat-bold text-[16px] leading-none font-bold text-[#325037]">
+              {{ block.settings.text | escape }}
+            </p>
+          {%- endif -%}
+
+          {%- if review_product != blank -%}
+            <a class="mt-auto flex items-center gap-5 pt-7 font-montserrat-bold text-[16px] leading-none font-bold text-[#82B727]" href="{{ review_product.url }}">
+              {%- if review_product.featured_image -%}
+                {{ review_product.featured_image | image_url: width: 120 | image_tag: class: 'h-14 w-10 shrink-0 object-contain', loading: 'lazy', alt: '' }}
+              {%- else -%}
+                <img class="h-14 w-10 shrink-0 object-contain" src="{{ 'product-example.webp' | asset_url }}" alt="">
+              {%- endif -%}
+              <span>{{ review_product.title | escape }}</span>
+            </a>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-340">
+    <div class="mx-auto mt-8 flex h-9 w-22 overflow-hidden rounded-full bg-[#CFEFAC] md:hidden" aria-label="Reviews navigation">
+      <button
+        id="reviews-mobile-prev-{{ section.id }}"
+        class="grid h-9 w-11 cursor-pointer place-items-center text-[#82B727] transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/45 [&.swiper-button-disabled]:opacity-60"
+        type="button"
+        aria-label="Previous review"
+      >
+        <span class="h-3.5 w-3.5 rotate-45 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+      </button>
+      <button
+        id="reviews-mobile-next-{{ section.id }}"
+        class="grid h-9 w-11 cursor-pointer place-items-center text-[#82B727] transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/45 [&.swiper-button-disabled]:opacity-60"
+        type="button"
+        aria-label="Next review"
+      >
+        <span class="h-3.5 w-3.5 rotate-225 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews Swiper Script -->
+<script>
+  (function () {
+    function initReviewsSwiper() {
+      const swiperEl = document.getElementById('reviews-swiper-{{ section.id }}');
+      if (!swiperEl || typeof Swiper === 'undefined') return;
+
+      if (swiperEl.swiper) swiperEl.swiper.destroy(true, true);
+
+      new Swiper(swiperEl, {
+        slidesPerView: 1.08,
+        spaceBetween: 10,
+        speed: 350,
+        watchOverflow: true,
+        navigation: {
+          nextEl: '#reviews-next-{{ section.id }}, #reviews-mobile-next-{{ section.id }}',
+          prevEl: '#reviews-prev-{{ section.id }}, #reviews-mobile-prev-{{ section.id }}',
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2.35,
+            spaceBetween: 8,
+          },
+          1200: {
+            slidesPerView: 3.35,
+            spaceBetween: 8,
+          },
+          1450: {
+            slidesPerView: 4,
+            spaceBetween: 8,
+          },
+        },
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        initReviewsSwiper();
+      });
+    } else {
+      initReviewsSwiper();
+    }
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.target && (event.target.id === 'mp-home-reviews-{{ section.id }}' || event.target.querySelector('#reviews-swiper-{{ section.id }}'))) {
+        initReviewsSwiper();
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MP home reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Нам довіряють тисячі родин"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review slide",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Олена К."
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge",
+          "default": "Перевірений покупець"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date",
+          "default": "2025-05-14",
+          "info": "Use YYYY-MM-DD format."
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Review title",
+          "default": "Чистота без зайвих зусиль"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Review text",
+          "default": "Користуюся універсальним засобом Ocean Fresh вже понад пів року. Чудово справляється з підлогою, кухонними поверхнями та ванною кімнатою."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP home reviews",
+      "blocks": [
+        {
+          "type": "review"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

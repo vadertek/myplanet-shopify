@@ -1,0 +1,309 @@
+<!-- In Trends -->
+<section
+  id="mp-home-trends-{{ section.id }}"
+  class="overflow-hidden bg-white py-8 px-4 md:py-10"
+  data-trends
+  data-section-id="{{ section.id }}"
+>
+  <div class="mx-auto max-w-340">
+    <h2 class="mb-5 font-montserrat-bold text-[32px] leading-none font-bold text-main-blue md:mb-10 md:text-[40px]">
+      {{ section.settings.title | escape }}
+    </h2>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="-mx-8 flex items-center justify-between gap-6 px-8 md:-mx-4 md:px-4">
+        <div
+          class="scrollbar-none flex min-w-0 gap-3 overflow-x-auto pr-8 [&::-webkit-scrollbar]:hidden"
+          role="tablist"
+          aria-label="Колекції товарів"
+        >
+          {%- for block in section.blocks -%}
+            {%- assign collection = block.settings.collection -%}
+            {%- assign tab_title = block.settings.title | default: collection.title -%}
+
+            {%- if tab_title != blank -%}
+              <button
+                class="min-h-6.5 shrink-0 cursor-pointer rounded-full px-3.5 py-1.5 text-[12px] leading-none font-bold transition hover:bg-main-blue hover:text-white focus-visible:bg-main-blue focus-visible:text-white md:min-h-8.5 md:px-4 md:py-2 md:text-[14px] {% if forloop.first %}bg-main-blue text-white{% else %}bg-[#C0D7ED]/30 text-main-blue{% endif %}"
+                type="button"
+                role="tab"
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                data-trends-tab="{% if forloop.first %}all{% else %}{{ block.id }}{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                {{ tab_title | escape }}
+              </button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        <div class="hidden shrink-0 overflow-hidden rounded-full bg-[#C0D7ED]/30 md:flex" aria-label="Навігація товарів">
+          <button
+            class="grid h-8.5 w-10 cursor-pointer place-items-center transition hover:bg-main-blue/10 focus-visible:bg-main-blue/10"
+            type="button"
+            aria-label="Попередні товари"
+            data-trends-prev
+          >
+            <span class="h-2.5 w-2.5 rotate-45 border-b border-l border-main-blue" aria-hidden="true"></span>
+          </button>
+          <button
+            class="grid h-8.5 w-10 cursor-pointer place-items-center transition hover:bg-main-blue/10 focus-visible:bg-main-blue/10"
+            type="button"
+            aria-label="Наступні товари"
+            data-trends-next
+          >
+            <span class="h-2.5 w-2.5 rotate-225 border-b border-l border-main-blue" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="trends-swiper-{{ section.id }}"
+        class="swiper overflow-hidden pt-7 md:overflow-visible md:pt-9"
+      >
+        <div class="swiper-wrapper flex md:grid md:transform-none md:grid-cols-4 md:gap-7" data-trends-grid>
+          {%- for block in section.blocks -%}
+            {%- assign collection = block.settings.collection -%}
+            {%- assign category = block.id -%}
+            {%- if forloop.first -%}
+              {%- assign category = 'all' -%}
+            {%- endif -%}
+
+            {%- if collection != blank and collection.products.size > 0 -%}
+              {%- for product in collection.products limit: section.settings.products_to_show -%}
+                <article
+                  class="swiper-slide relative flex w-full min-w-0 shrink-0 flex-col md:w-auto md:shrink"
+                  data-trend-card
+                  data-category="{{ category }}"
+                >
+                  <a class="mb-5 flex h-62.5 items-center justify-center pt-4 md:mb-7 md:h-82.5 md:pt-3" href="{{ product.url }}">
+                    {%- if product.featured_image -%}
+                      {{ product.featured_image | image_url: width: 560 | image_tag: class: 'max-h-full w-auto object-contain', loading: 'lazy', alt: 'Зображення товару' }}
+                    {%- else -%}
+                      <div class="flex h-full w-full max-w-60 items-center justify-center rounded-[10px] bg-[#C0D7ED]/20 px-5 text-center font-montserrat-bold text-[12px] leading-tight text-[#527FA1] md:text-[14px]">
+                        NO IMAGE
+                      </div>
+                    {%- endif -%}
+                  </a>
+
+                  <div class="flex flex-1 flex-col items-stretch md:items-start">
+                    <h3 class="max-w-58 font-montserrat-bold text-[13px] leading-[1.18] font-bold text-dark-blue md:min-h-10 md:max-w-75 md:text-[16px]">
+                      <a href="{{ product.url }}">{{ product.title | escape }}</a>
+                    </h3>
+
+                    {%- unless product.selected_or_first_available_variant.title == 'Default Title' -%}
+                      <p class="mt-2 font-montserrat-reg text-[12px] leading-tight text-[#527FA1] md:text-[16px]">
+                        {{ product.selected_or_first_available_variant.title | escape }}
+                      </p>
+                    {%- endunless -%}
+
+                    <div class="mt-2.5 flex min-h-5 items-center gap-1.5 font-montserrat-reg text-[10px] leading-none text-[#C0D7ED] md:gap-2 md:text-[12px]">
+                      <img class="w-19 md:w-22.5" src="{{ 'sky-start.webp' | asset_url }}" alt="Rating stars">
+                      <span>4.9 (178)</span>
+                    </div>
+
+                    {%- if product.available -%}
+                      <a
+                        class="mt-2.5 flex min-h-9 w-full items-center justify-center rounded-[10px] border border-main-blue bg-main-blue text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:-translate-y-0.5 hover:border-dark-blue hover:bg-dark-blue hover:shadow-[0_14px_28px_rgba(0,65,114,0.2)] focus-visible:-translate-y-0.5 focus-visible:border-dark-blue focus-visible:bg-dark-blue md:mt-3.5 md:min-h-13 md:rounded-[14px] md:text-[14px]"
+                        href="{{ product.url }}"
+                      >
+                        {{ 'general.custom.buy-for' | t }}
+                        {{ product.price | money }}
+                      </a>
+                    {%- else -%}
+                      <button
+                        class="mt-2.5 flex min-h-9 w-full cursor-not-allowed items-center justify-center rounded-[10px] border border-[#C0D7ED] bg-white text-center font-montserrat-bold text-[12px] leading-none font-bold text-[#C0D7ED] md:mt-3.5 md:min-h-13 md:rounded-[14px] md:text-[14px]"
+                        type="button"
+                        disabled
+                      >
+                        {{ 'sections.custom.sold-out' | t }}
+                      </button>
+                    {%- endif -%}
+                  </div>
+                </article>
+              {%- endfor -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="mx-auto mt-8 flex h-9 w-22 overflow-hidden rounded-full bg-[#C0D7ED]/30 md:hidden" aria-label="Навігація товарів">
+        <button
+          id="trends-swiper-prev-{{ section.id }}"
+          class="grid h-9 w-11 cursor-pointer place-items-center transition hover:bg-main-blue/10 focus-visible:bg-main-blue/10"
+          type="button"
+          aria-label="Попередні товари"
+        >
+          <span class="h-3.5 w-3.5 rotate-45 border-b-2 border-l-2 border-main-blue" aria-hidden="true"></span>
+        </button>
+        <button
+          id="trends-swiper-next-{{ section.id }}"
+          class="grid h-9 w-11 cursor-pointer place-items-center transition hover:bg-main-blue/10 focus-visible:bg-main-blue/10"
+          type="button"
+          aria-label="Наступні товари"
+        >
+          <span class="h-3.5 w-3.5 rotate-225 border-b-2 border-l-2 border-main-blue" aria-hidden="true"></span>
+        </button>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<!-- Trends Tabs Script -->
+<script>
+  (function () {
+    function initTrendsTabs(scope) {
+      const root = scope || document.getElementById('mp-home-trends-{{ section.id }}');
+      if (!root) return;
+
+      const tabs = Array.from(root.querySelectorAll('[data-trends-tab]'));
+      const cards = Array.from(root.querySelectorAll('[data-trend-card]'));
+      const activeClasses = ['bg-main-blue', 'text-white'];
+      const inactiveClasses = ['bg-[#C0D7ED]/30', 'text-main-blue'];
+
+      function setActiveTab(activeTab) {
+        tabs.forEach(function (tab) {
+          const isActive = tab === activeTab;
+          tab.setAttribute('aria-selected', String(isActive));
+          tab.classList.toggle(activeClasses[0], isActive);
+          tab.classList.toggle(activeClasses[1], isActive);
+          tab.classList.toggle(inactiveClasses[0], !isActive);
+          tab.classList.toggle(inactiveClasses[1], !isActive);
+        });
+      }
+
+      function filterCards(category) {
+        cards.forEach(function (card) {
+          const categories = card.dataset.category?.split(' ') || [];
+          card.hidden = !categories.includes(category);
+        });
+
+        window.updateTrendsSwiper?.(true);
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          const category = tab.dataset.trendsTab || 'all';
+          setActiveTab(tab);
+          filterCards(category);
+          tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        });
+      });
+
+      filterCards('all');
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        initTrendsTabs();
+      });
+    } else {
+      initTrendsTabs();
+    }
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.target && event.target.id === 'mp-home-trends-{{ section.id }}') {
+        initTrendsTabs(event.target);
+      }
+    });
+  })();
+</script>
+<!-- Trends Swiper Script -->
+<script>
+  (function () {
+    function initTrendsSwiper(reset) {
+      const swiperEl = document.getElementById('trends-swiper-{{ section.id }}');
+      if (!swiperEl || typeof Swiper === 'undefined') return;
+
+      if (window.matchMedia('(min-width: 768px)').matches) {
+        if (swiperEl.swiper) swiperEl.swiper.destroy(true, true);
+        return;
+      }
+
+      if (swiperEl.swiper) swiperEl.swiper.destroy(true, true);
+
+      const nextBtn = document.getElementById('trends-swiper-next-{{ section.id }}');
+      const prevBtn = document.getElementById('trends-swiper-prev-{{ section.id }}');
+
+      const swiper = new Swiper(swiperEl, {
+        slidesPerView: 1,
+        speed: 350,
+        watchOverflow: true,
+        navigation: {
+          nextEl: nextBtn || null,
+          prevEl: prevBtn || null,
+        },
+      });
+
+      if (reset) {
+        swiper.slideTo(0, 0);
+      }
+    }
+
+    window.updateTrendsSwiper = initTrendsSwiper;
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        initTrendsSwiper();
+      });
+    } else {
+      initTrendsSwiper();
+    }
+
+    window.addEventListener('resize', function () {
+      initTrendsSwiper();
+    });
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.target && (event.target.id === 'mp-home-trends-{{ section.id }}' || event.target.querySelector('#trends-swiper-{{ section.id }}'))) {
+        initTrendsSwiper();
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MP home trends",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Зараз в тренді"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products per collection",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection tab",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab title",
+          "info": "Optional. Collection title is used by default."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP home trends"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,166 @@
+<!-- FAQ (Blue) -->
+<section id="mp-faq-{{ section.id }}" class="px-4 py-10 md:px-10 md:py-14">
+  <div class="mx-auto max-w-340">
+    {%- if section.settings.title != blank -%}
+      <h2 class="mb-8 text-center font-montserrat-bold text-[40px] leading-none font-bold text-dark-blue">
+        {{ section.settings.title | escape }}
+      </h2>
+    {%- endif -%}
+
+    <div class="mx-auto max-w-155">
+      {%- for block in section.blocks -%}
+        <div class="js-faq-item border-b border-[#C0D7ED]/20" {{ block.shopify_attributes }}>
+          <button
+            class="js-faq-button flex w-full cursor-pointer items-center justify-between gap-4 py-4 text-left font-montserrat-bold text-[14px] leading-none font-bold text-main-blue"
+            type="button"
+            aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+            aria-controls="mp-faq-panel-{{ section.id }}-{{ block.id }}"
+          >
+            <span>{{ block.settings.question | escape }}</span>
+            <span class="grid h-6 w-9 shrink-0 place-items-center rounded-full bg-[#C0D7ED]/20" aria-hidden="true">
+              <img class="js-faq-icon h-3 w-3 transition duration-300{% if forloop.first %} rotate-45{% endif %}" src="{{ 'Plus-blue.svg' | asset_url }}" alt="">
+            </span>
+          </button>
+
+          <div
+            id="mp-faq-panel-{{ section.id }}-{{ block.id }}"
+            class="js-faq-panel overflow-hidden transition-all duration-300 ease-in-out"
+          >
+            <p class="pb-4 font-montserrat-reg text-[14px] leading-tight text-main-blue">
+              {{ block.settings.answer | escape }}
+            </p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Script -->
+<script>
+  (function () {
+    function initMpFaq() {
+      const root = document.getElementById('mp-faq-{{ section.id }}');
+      if (!root) return;
+
+      const buttons = Array.from(root.querySelectorAll('.js-faq-button'));
+
+      function setState(button, isOpen) {
+        const panel = document.getElementById(button.getAttribute('aria-controls'));
+        const icon = button.querySelector('.js-faq-icon');
+
+        button.setAttribute('aria-expanded', String(isOpen));
+        if (icon) icon.classList.toggle('rotate-45', isOpen);
+        if (panel) panel.style.maxHeight = isOpen ? `${panel.scrollHeight}px` : '0px';
+      }
+
+      buttons.forEach(function (button, index) {
+        setState(button, index === 0);
+
+        if (button.dataset.ready === 'true') return;
+        button.dataset.ready = 'true';
+
+        button.addEventListener('click', function () {
+          const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+          buttons.forEach(function (currentButton) {
+            setState(currentButton, currentButton === button && !isOpen);
+          });
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        initMpFaq();
+      });
+    } else {
+      initMpFaq();
+    }
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.target && (event.target.id === 'mp-faq-{{ section.id }}' || event.target.querySelector('#mp-faq-{{ section.id }}'))) {
+        initMpFaq();
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MP FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Часті питання"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Чим засоби My Planet відрізняються від звичайних побутових засобів?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "My Planet поєднує ефективність для щоденного прибирання з уважним ставленням до родини, поверхонь і довкілля."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP FAQ",
+      "blocks": [
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Чи безпечні засоби My Planet для використання в домі з дітьми та домашніми тваринами?",
+            "answer": "Так, засоби підходять для щоденного дому за умови використання згідно з інструкцією на упаковці."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Для яких поверхонь підходять універсальні засоби My Planet?",
+            "answer": "Вони підходять для більшості твердих поверхонь: підлоги, кухонних поверхонь, ванної кімнати та інших зон дому."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Чи можна використовувати засоби My Planet щодня?",
+            "answer": "Так, формули розраховані на регулярне використання для підтримання чистоти без зайвого навантаження."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Чи залишають засоби My Planet різкий хімічний запах?",
+            "answer": "Ні, продукти мають приємні аромати без відчуття агресивної хімії після прибирання."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Як обрати правильний засіб My Planet для своїх потреб?",
+            "answer": "Орієнтуйтеся на зону використання: кухня, прання, дитячі речі, скло або універсальний догляд для дому."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
