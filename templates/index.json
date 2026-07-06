@@ -1,16 +1,29 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "layout": "theme.mp",
   "sections": {
     "mp-home-hero": {
       "type": "mp-home-hero",
-
       "settings": {
-
-      },
+        "hero_image": "shopify://shop_images/main-bg.webp",
+        "hero_image_mobile": "shopify://shop_images/main-bg-mob.webp",
+        "hero_tag": "MyPlanet",
+        "hero_title": "Турбота починається на кухні",
+        "hero_description": "Безпечні та ефективні засоби для чистоти поверхонь, посуду, фруктів і овочів — для комфортного та здорового простору щодня.",
+        "hero_button_link": "",
+        "hero_button_text": "Дізнатися більше"
+      }
     }
   },
   "order": [
-    "mp-home-hero",
-
+    "mp-home-hero"
   ]
 }
