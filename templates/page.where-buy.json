@@ -1,22 +1,73 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "layout": "theme.mp",
   "sections": {
     "mp-where-hero": {
       "type": "mp-where-hero",
-      "settings": {
-
-      }
+      "settings": {}
     },
     "mp-where-stores": {
       "type": "mp-where-stores",
+      "blocks": {
+        "store_9iUNAa": {
+          "type": "store",
+          "settings": {
+            "logo": "shopify://shop_images/Frame_41538.png",
+            "logo_alt": "Rozetka",
+            "button_label": "Перейти в магазин",
+            "link": ""
+          }
+        },
+        "store_8K3TdN": {
+          "type": "store",
+          "settings": {
+            "logo": "shopify://shop_images/Frame_41542.png",
+            "logo_alt": "Rozetka",
+            "button_label": "Перейти в магазин",
+            "link": ""
+          }
+        },
+        "store_xKYxrJ": {
+          "type": "store",
+          "settings": {
+            "logo": "shopify://shop_images/Frame_41538-1.png",
+            "logo_alt": "Rozetka",
+            "button_label": "Перейти в магазин",
+            "link": ""
+          }
+        },
+        "store_UAibmp": {
+          "type": "store",
+          "settings": {
+            "logo": "shopify://shop_images/Frame_41542-1.png",
+            "logo_alt": "Rozetka",
+            "button_label": "Перейти в магазин",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "store_9iUNAa",
+        "store_8K3TdN",
+        "store_xKYxrJ",
+        "store_UAibmp"
+      ],
       "settings": {
-
+        "title": "Де придбати?"
       }
     },
     "mp-where-map": {
       "type": "mp-where-map",
       "settings": {
-
+        "map_url": "https://www.google.com/maps/d/embed?mid=1CoIdR-d7T6hYHPgCi7y0LUYy66ZWk2w&ehbc=2E312F"
       }
     },
     "mp_faq_Vm3LMW": {
@@ -83,7 +134,7 @@
       "settings": {
         "title": "Станьте частиною спільноти My Planet\n#lifewithmyplanet"
       }
-    },
+    }
   },
   "order": [
     "mp-where-hero",
