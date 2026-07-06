@@ -2,14 +2,14 @@
 <section class="relative overflow-hidden">
   <!-- HERO IMAGE -->
   {% if section.settings.hero_image != blank %}
-    <img class="md:block hidden max-h-200 w-full object-cover" src="{{ section.settings.hero_image |  image_url  }}" alt="">
+    <img loading="eager" class="md:block hidden max-h-200 w-full object-cover" src="{{ section.settings.hero_image |  image_url  }}" alt="">
   {% else %}
-    <img class="md:block hidden max-h-200 w-full object-cover" src="{{ 'main-bg.webp' |  asset_url }}" alt="">
+    <img loading="eager" class="md:block hidden max-h-200 w-full object-cover" src="{{ 'main-bg.webp' |  asset_url }}" alt="">
   {% endif %}
   {% if section.settings.hero_image_mobile != blank %}
-    <img class="md:hidden w-full object-cover" src="{{ section.settings.hero_image_mobile | image_url  }}" alt="">
+    <img loading="eager" class="md:hidden w-full object-cover" src="{{ section.settings.hero_image_mobile | image_url  }}" alt="">
   {% else %}
-    <img class="md:hidden w-full object-cover" src="{{ 'main-bg-mob.webp' |  asset_url }}" alt="">
+    <img loading="eager" class="md:hidden w-full object-cover" src="{{ 'main-bg-mob.webp' |  asset_url }}" alt="">
   {% endif %}
   <!-- CONTENT -->
   <div class="absolute inset-0 bg-black/35"></div>

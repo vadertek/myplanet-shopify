@@ -1,17 +1,16 @@
 {
   "layout": "theme.mp",
   "sections": {
-    "mp-hero": {
-      "type": "mp-hero",
+    "mp-home-hero": {
+      "type": "mp-home-hero",
 
       "settings": {
 
-      }
-    },
-
+      },
+    }
   },
   "order": [
-    "mp-hero",
+    "mp-home-hero",
 
   ]
 }
