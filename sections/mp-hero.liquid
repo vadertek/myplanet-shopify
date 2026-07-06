@@ -1,0 +1,86 @@
+<!-- Hero Section -->
+<section class="relative overflow-hidden">
+  <!-- HERO IMAGE -->
+  {% if section.settings.hero_image != blank %}
+    <img class="md:block hidden max-h-200 w-full object-cover" src="{{ section.settings.hero_image |  image_url  }}" alt="">
+  {% else %}
+    <img class="md:block hidden max-h-200 w-full object-cover" src="{{ 'main-bg.webp' |  asset_url }}" alt="">
+  {% endif %}
+  {% if section.settings.hero_image_mobile != blank %}
+    <img class="md:hidden w-full object-cover" src="{{ section.settings.hero_image_mobile | image_url  }}" alt="">
+  {% else %}
+    <img class="md:hidden w-full object-cover" src="{{ 'main-bg-mob.webp' |  asset_url }}" alt="">
+  {% endif %}
+  <!-- CONTENT -->
+  <div class="absolute inset-0 bg-black/35"></div>
+  <div class="absolute bottom-10 left-4 flex max-w-120 flex-col gap-6 text-white md:bottom-20 md:left-10">
+    <span class="w-fit rounded-full border border-white px-6 py-2 text-sm leading-none">{{ section.settings.hero_tag }}</span>
+    <h1 class="max-w-170 font-montserrat-bold text-[48px] leading-[0.95] font-bold md:text-[64px]">{{ section.settings.hero_title }}</h1>
+    <p class="max-w-180 font-montserrat-reg leading-[1.45] text-sm">{{ section.settings.hero_description }}</p>
+    <a
+      href="{{ section.settings.hero_button_link }}"
+      class="w-fit rounded-2xl bg-white px-8 py-4 font-montserrat-bold text-sm font-bold text-dark-blue transition duration-200 hover:bg-main-blue hover:text-white focus-visible:bg-main-blue focus-visible:text-white"
+    >
+      {{ section.settings.hero_button_text }}
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP Hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "hero_tag",
+      "label": "Hero Tag",
+      "default": "MyPlanet"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Турбота починається на кухні"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_description",
+      "label": "Hero Description",
+      "default": "Безпечні та ефективні засоби для чистоти поверхонь, посуду, фруктів і овочів — для комфортного та здорового простору щодня."
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "url",
+      "id": "hero_button_link",
+      "label": "Hero Button Link"
+    },
+    {
+      "type": "text",
+      "id": "hero_button_text",
+      "label": "Hero Button Text",
+      "default": "Дізнатися більше"
+    }
+  ]
+}
+{% endschema %}
