@@ -1,0 +1,86 @@
+<section class="relative overflow-hidden">
+  <!-- HERO IMAGE -->
+  {% if section.settings.hero_image != blank %}
+    <img loading="eager" class="md:block hidden max-h-180 w-full object-cover" src="{{ section.settings.hero_image |  image_url  }}" alt="">
+  {% else %}
+    <img loading="eager" class="md:block hidden max-h-180 w-full object-cover" src="{{ 'producy-hero-info.webp' |  asset_url }}" alt="">
+  {% endif %}
+  {% if section.settings.hero_image_mobile != blank %}
+    <img loading="eager" class="md:hidden w-full object-cover" src="{{ section.settings.hero_image_mobile | image_url  }}" alt="">
+  {% else %}
+    <img loading="eager" class="md:hidden w-full object-cover" src="{{ 'producy-hero-info-mob.webp' |  asset_url }}" alt="">
+  {% endif %}
+
+  <div class="absolute bottom-10 left-4 flex max-w-150 flex-col gap-4 text-dark-blue md:top-1/2 md:bottom-auto md:left-10 md:-translate-y-1/2">
+    <div class="flex items-center gap-3">
+      <img class="w-28" src="{{ 'blue-stars.webp' |  asset_url }}" alt="Star rating">
+      <span class="font-montserrat-reg text-sm">{{ section.settings.hero_rating }}</span>
+    </div>
+    <h2 class="font-montserrat-bold text-[44px] leading-none font-bold">
+      {{ section.settings.hero_title }}
+    </h2>
+    <p class="max-w-140 font-montserrat-reg text-[20px] leading-[1.1]">{{ section.settings.hero_subtitle }}</p>
+    <a
+      href="{{ section.settings.hero_button_link }}"
+      class="w-fit rounded-2xl bg-main-blue px-6 py-3 font-montserrat-bold text-sm font-bold text-white transition duration-200 hover:bg-dark-blue focus-visible:bg-dark-blue"
+    >
+      {{ section.settings.hero_button_text }}
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP Product Info Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Mobile image"
+    },
+    {
+      "type": "header",
+      "content": "Hero content"
+    },
+    {
+      "type": "text",
+      "id": "hero_rating",
+      "label": "Hero rating",
+      "default": "4.9/5 • 12 000+ покупців"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero title",
+      "default": "Чистота та <br> дезінфекція без хлору"
+    },
+    {
+      "type": "text",
+      "id": "hero_subtitle",
+      "label": "Hero subtitle",
+      "default": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору."
+    },
+    {
+      "type": "url",
+      "id": "hero_button_link",
+      "label": "Hero button link"
+    },
+    {
+      "type": "text",
+      "id": "hero_button_text",
+      "label": "Hero button text",
+      "default": "Замовити зараз"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP Product Info Hero"
+    }
+  ]
+}
+{% endschema %}
