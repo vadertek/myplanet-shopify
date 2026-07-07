@@ -12,6 +12,39 @@
   "sections": {
     "mp-lc-hero": {
       "type": "mp-lc-hero",
+      "blocks": {
+        "bundle_card_G8FyYx": {
+          "type": "bundle_card",
+          "settings": {
+            "title": "My Planet Bundles",
+            "text": "Все необхідне для чистоти та комфорту вашого дому в одному наборі.",
+            "button_link": "",
+            "button_text": "Обрати набір",
+            "background_color": "#cce6f4",
+            "title_color": "#003b5c",
+            "text_color": "#003b5c",
+            "button_text_color": "#008895"
+          }
+        },
+        "bundle_card_84txNB": {
+          "type": "bundle_card",
+          "settings": {
+            "title": "Baby Planet",
+            "text": "Ніжна турбота для малюка та спокій для батьків — у готових комплектах Baby Planet.",
+            "image": "shopify://shop_images/Group_1321316835.png",
+            "button_link": "",
+            "button_text": "Обрати набір",
+            "background_color": "#D2F2F4",
+            "title_color": "#00A6B2",
+            "text_color": "#00A6B2",
+            "button_text_color": "#008895"
+          }
+        }
+      },
+      "block_order": [
+        "bundle_card_G8FyYx",
+        "bundle_card_84txNB"
+      ],
       "settings": {
         "title": "Collections"
       }
