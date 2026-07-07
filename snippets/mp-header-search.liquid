@@ -35,16 +35,9 @@
 >
   <div class="mx-auto flex max-h-[80vh] w-full max-w-[760px] flex-col overflow-hidden rounded-2xl bg-white shadow-xl">
     <div class="flex shrink-0 items-center gap-3 border-b border-[#C0D7ED] px-4 py-4 md:px-5">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-5 h-5 {% if template.suffix != 'nk' %} text-gray-500 {% else %} text-nk-blue {% endif %}"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-          d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
-      </svg>
+      <span
+        class="relative block h-5 w-5 shrink-0 rounded-full border-2 border-main-blue after:absolute after:-right-1.5 after:-bottom-1 after:h-2 after:w-0.5 after:rotate-[-45deg] after:bg-main-blue"
+      ></span>
 
       <form id="mp-header-search-form-{{ section.id }}" action="{{ routes.search_url }}" method="get" class="flex-1">
         <input
@@ -89,10 +82,13 @@
       openBtn.searchReady = true;
 
       function openModal() {
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
         modal.classList.remove('hidden');
         modal.classList.add('flex');
         modal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('overflow-hidden');
+        document.body.style.paddingRight = scrollbarWidth ? scrollbarWidth + 'px' : '';
 
         setTimeout(function () {
           input.focus();
@@ -104,6 +100,7 @@
         modal.classList.remove('flex');
         modal.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('overflow-hidden');
+        document.body.style.paddingRight = '';
         input.value = '';
         grid.innerHTML = '';
         results.classList.add('hidden');

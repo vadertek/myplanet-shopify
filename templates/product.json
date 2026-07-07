@@ -6,10 +6,248 @@
       "settings": {
 
       }
+    },
+    "mp-home-baby": {
+      "type": "mp-home-baby",
+      "settings": {
+        "hero_tag": "MyPlanet",
+        "hero_title": "Безпечна чистота для всього, чого торкається ваш малюк",
+        "hero_description": "Від дитячого одягу та пляшечок до іграшок і поверхонь — Baby Planet допомагає створити чистий і комфортний простір для росту та розвитку дитини.",
+        "hero_button_link": "",
+        "hero_button_text": "Переглянути каталог"
+      }
+    },
+        "mp-home-treasures": {
+      "type": "mp-home-treasures",
+      "blocks": {
+        "item_MKgyMM": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/Family.png",
+            "title": "Турбота про родину",
+            "text": "Безпечні рішення для дому, дітей та щоденного використання."
+          }
+        },
+        "item_BaxmXz": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/home.png",
+            "title": "Турбота про дім",
+            "text": "Ефективні формули для чистоти кожного куточка вашого простору."
+          }
+        },
+        "item_aCWk84": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/Earth.png",
+            "title": "Турбота про планету",
+            "text": "Відповідальні інгредієнти та екологічний підхід на кожному етапі виробництва."
+          }
+        }
+      },
+      "block_order": [
+        "item_MKgyMM",
+        "item_BaxmXz",
+        "item_aCWk84"
+      ],
+      "settings": {
+        "title": "Наші цінності"
+      }
+    },
+        "mp-home-reviews": {
+      "type": "mp-home-reviews",
+      "blocks": {
+        "review_7Dz6xB": {
+          "type": "review",
+          "settings": {
+            "product": "test-product-1",
+            "author": "Олена К.",
+            "badge": "Перевірений покупець",
+            "date": "2025-05-14",
+            "rating": 5,
+            "heading": "Ocean Fresh",
+            "text": "Користуюся універсальним засобом Ocean Fresh вже понад пів року. Чудово справляється з підлогою, кухонними поверхнями та ванною кімнатою. Приємний аромат і жодного відчуття агресивної хімії."
+          }
+        },
+        "review_w7riT9": {
+          "type": "review",
+          "settings": {
+            "product": "test-product-2",
+            "author": "Олена К.",
+            "badge": "Перевірений покупець",
+            "date": "2025-05-14",
+            "rating": 5,
+            "heading": "Чистота без зайвих зусиль",
+            "text": "Користуюся універсальним засобом Ocean Fresh вже понад пів року. Чудово справляється з підлогою, кухонними поверхнями та ванною кімнатою. Приємний аромат і жодного відчуття агресивної хімії."
+          }
+        },
+        "review_acwDEK": {
+          "type": "review",
+          "settings": {
+            "product": "test-product-1",
+            "author": "Марія В",
+            "badge": "Перевірений покупець",
+            "date": "2025-05-14",
+            "rating": 5,
+            "heading": "Ефективно та безпечно",
+            "text": "Veggie Wash став незамінним на кухні. Особливо подобається, що можна ретельно мити овочі та фрукти для дітей без зайвих хвилювань."
+          }
+        },
+        "review_MBwUVD": {
+          "type": "review",
+          "settings": {
+            "product": "test-product-2",
+            "author": "Ірина С.",
+            "badge": "Перевірений покупець",
+            "date": "2025-05-14",
+            "rating": 5,
+            "heading": "Дім сяє чистотою",
+            "text": "Спрей Crystal Ice чудово очищує дзеркала та скло без розводів. Використовую щодня для ванної кімнати та вікон."
+          }
+        }
+      },
+      "block_order": [
+        "review_7Dz6xB",
+        "review_w7riT9",
+        "review_acwDEK",
+        "review_MBwUVD"
+      ],
+      "settings": {
+        "title": "Нам довіряють тисячі родин"
+      }
+    },
+    "mp-home-turtle": {
+      "type": "mp-home-turtle",
+      "blocks": {
+        "link_8Dkfmh": {
+          "type": "link",
+          "settings": {
+            "label": "Baby Planet",
+            "link": ""
+          }
+        },
+        "link_gpejzj": {
+          "type": "link",
+          "settings": {
+            "label": "Гіпоалергенний догляд",
+            "link": ""
+          }
+        },
+        "link_WNQPdF": {
+          "type": "link",
+          "settings": {
+            "label": "Для сім’ї",
+            "link": ""
+          }
+        },
+        "link_y3AJc7": {
+          "type": "link",
+          "settings": {
+            "label": "Для кухні",
+            "link": ""
+          }
+        },
+        "link_mHHpNH": {
+          "type": "link",
+          "settings": {
+            "label": "Для прання",
+            "link": ""
+          }
+        },
+        "link_h8etC6": {
+          "type": "link",
+          "settings": {
+            "label": "Eco Friendly",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "link_8Dkfmh",
+        "link_gpejzj",
+        "link_WNQPdF",
+        "link_y3AJc7",
+        "link_mHHpNH",
+        "link_h8etC6"
+      ],
+      "settings": {
+        "tag": "Обирайте за потребою",
+        "title": "Безпечні рішення для кожного дому"
+      }
+    },
+    "mp-home-community": {
+      "type": "mp-home-community",
+      "settings": {
+        "title": "Станьте частиною спільноти My Planet\n#lifewithmyplanet"
+      }
+    },
+    "mp_faq": {
+      "type": "mp-faq",
+      "blocks": {
+        "faq_JCabPF": {
+          "type": "faq",
+          "settings": {
+            "question": "Чим засоби My Planet відрізняються від звичайних побутових засобів?",
+            "answer": "My Planet поєднує ефективність для щоденного прибирання з уважним ставленням до родини, поверхонь і довкілля."
+          }
+        },
+        "faq_bKxCYK": {
+          "type": "faq",
+          "settings": {
+            "question": "Чи безпечні засоби My Planet для використання в домі з дітьми та домашніми тваринами?",
+            "answer": "Так, засоби підходять для щоденного дому за умови використання згідно з інструкцією на упаковці."
+          }
+        },
+        "faq_xF6gbg": {
+          "type": "faq",
+          "settings": {
+            "question": "Для яких поверхонь підходять універсальні засоби My Planet?",
+            "answer": "Вони підходять для більшості твердих поверхонь: підлоги, кухонних поверхонь, ванної кімнати та інших зон дому."
+          }
+        },
+        "faq_ABx7cC": {
+          "type": "faq",
+          "settings": {
+            "question": "Чи можна використовувати засоби My Planet щодня?",
+            "answer": "Так, формули розраховані на регулярне використання для підтримання чистоти без зайвого навантаження."
+          }
+        },
+        "faq_dT9Nia": {
+          "type": "faq",
+          "settings": {
+            "question": "Чи залишають засоби My Planet різкий хімічний запах?",
+            "answer": "Ні, продукти мають приємні аромати без відчуття агресивної хімії після прибирання."
+          }
+        },
+        "faq_xWHdQk": {
+          "type": "faq",
+          "settings": {
+            "question": "Як обрати правильний засіб My Planet для своїх потреб?",
+            "answer": "Орієнтуйтеся на зону використання: кухня, прання, дитячі речі, скло або універсальний догляд для дому."
+          }
+        }
+      },
+      "block_order": [
+        "faq_JCabPF",
+        "faq_bKxCYK",
+        "faq_xF6gbg",
+        "faq_ABx7cC",
+        "faq_dT9Nia",
+        "faq_xWHdQk"
+      ],
+      "name": "MP FAQ",
+      "settings": {
+        "title": "Часті питання"
+      }
     }
   },
   "order": [
     "mp-product-hero",
-
+    "mp-home-baby",
+    "mp-home-treasures",
+    "mp-home-reviews",
+    "mp-home-turtle",
+    "mp-home-community",
+    "mp_faq"
   ]
 }
