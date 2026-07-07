@@ -1,0 +1,79 @@
+<section class="relative overflow-hidden">
+  <!-- HERO IMAGE -->
+  {% if section.settings.hero_image != blank %}
+    <img loading="eager" class="md:block hidden w-full object-cover" src="{{ section.settings.hero_image |  image_url  }}" alt="">
+  {% else %}
+    <img loading="eager" class="md:block hidden w-full object-cover" src="{{ 'formula-bg.webp' |  asset_url }}" alt="">
+  {% endif %}
+  {% if section.settings.hero_image_mobile != blank %}
+    <img loading="eager" class="md:hidden w-full object-cover" src="{{ section.settings.hero_image_mobile | image_url  }}" alt="">
+  {% else %}
+    <img loading="eager" class="md:hidden w-full object-cover" src="{{ 'formula-bg-mob.webp' |  asset_url }}" alt="">
+  {% endif %}
+
+  <div class="absolute top-10 left-4 flex max-w-150 flex-col gap-4 text-white md:top-1/2 md:left-10 md:-translate-y-1/2">
+    <h2 class="md:text-[64px] text-4xl font-montserrat-extra">{{ section.settings.title }}</h2>
+    <div class="flex flex-col">
+      {%- for block in section.blocks -%}
+        <div class="flex items-center gap-4">
+          {%- if block.settings.icon != blank -%}
+            {{ block.settings.icon | image_url: width: 320 | image_tag: class: 'w-12 h-12', loading: 'lazy', alt: 'Icon' }}
+          {%- else -%}
+            <img class="w-12 h-12" src="{{ 'formula-icon-1.webp' | asset_url  }}" alt="{{ block.settings.logo_alt | escape }}">
+          {%- endif -%}
+
+          <p class="font-montserrat-reg">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP - Formula",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Mobile image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Формула для щоденного використання"
+    }
+  ],
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "icons",
+      "name": "Icons List",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "text",
+          "default": "0% хлору"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP - Formula"
+    }
+  ]
+}
+{% endschema %}

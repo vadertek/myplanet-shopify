@@ -1,0 +1,214 @@
+<section id="mp-prodinfo-perevaga-{{ section.id }}" class="overflow-hidden px-4 py-8 md:px-10 md:py-12">
+  <div class="mx-auto max-w-360">
+    <div class="mb-7 flex items-center justify-between gap-5 md:mb-10">
+      <h2 class="font-montserrat-bold text-[32px] leading-none font-bold text-[#004200] md:whitespace-nowrap md:text-[40px]">
+        {{ section.settings.title }}
+      </h2>
+
+      <div class="hidden h-9 w-22 shrink-0 overflow-hidden rounded-2xl bg-[#82B727]/20 md:flex" aria-label="Гортання переваг">
+        <button
+          id="perevaga-prev-{{ section.id }}"
+          class="grid h-9 w-11 cursor-pointer place-items-center text-[#004200] transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-40"
+          type="button"
+          aria-label="Попередня перевага"
+        >
+          <span class="h-3.5 w-3.5 rotate-45 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+        </button>
+        <button
+          id="perevaga-next-{{ section.id }}"
+          class="grid h-9 w-11 cursor-pointer place-items-center text-[#004200] transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-40"
+          type="button"
+          aria-label="Наступна перевага"
+        >
+          <span class="h-3.5 w-3.5 rotate-225 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="perevaga-swiper-{{ section.id }}" class="swiper -mx-4 flex overflow-hidden px-4 md:mx-0 md:px-0">
+      <div class="swiper-wrapper flex">
+        {%- for block in section.blocks -%}
+          <article class="swiper-slide" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              <img class="aspect-[1.43] w-full rounded-[14px] object-cover" src="{{ block.settings.image | image_url: width: 900 }}" alt="">
+            {%- else -%}
+              <img class="aspect-[1.43] w-full rounded-[14px] object-cover" src="{{ block.settings.fallback_image | asset_url }}" alt="">
+            {%- endif -%}
+
+            <h3 class="mt-3 font-montserrat-bold text-[14px] leading-none font-bold text-[#004200] md:text-[18px]">
+              {{ block.settings.title }}
+            </h3>
+            <p class="mt-3 font-montserrat-bold text-xs leading-tight text-[#004200]">
+              {{ block.settings.text }}
+            </p>
+          </article>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="mt-8 flex h-9 w-22 overflow-hidden rounded-2xl bg-[#82B727]/20 md:hidden" aria-label="Гортання переваг">
+      <button
+        id="perevaga-mobile-prev-{{ section.id }}"
+        class="grid h-9 w-11 cursor-pointer place-items-center text-[#004200] transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-40"
+        type="button"
+        aria-label="Попередня перевага"
+      >
+        <span class="h-3.5 w-3.5 rotate-45 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+      </button>
+      <button
+        id="perevaga-mobile-next-{{ section.id }}"
+        class="grid h-9 w-11 cursor-pointer place-items-center text-[#004200] transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-40"
+        type="button"
+        aria-label="Наступна перевага"
+      >
+        <span class="h-3.5 w-3.5 rotate-225 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    function initPerevagaSwiper() {
+      const swiperEl = document.getElementById('perevaga-swiper-{{ section.id }}');
+      if (!swiperEl || typeof Swiper === 'undefined') return;
+
+      if (swiperEl.swiper) swiperEl.swiper.destroy(true, true);
+
+      new Swiper(swiperEl, {
+        slidesPerView: 1.15,
+        spaceBetween: 16,
+        speed: 350,
+        watchOverflow: true,
+        navigation: {
+          nextEl: '#perevaga-next-{{ section.id }}, #perevaga-mobile-next-{{ section.id }}',
+          prevEl: '#perevaga-prev-{{ section.id }}, #perevaga-mobile-prev-{{ section.id }}',
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 24,
+          },
+          1200: {
+            slidesPerView: 4,
+            spaceBetween: 28,
+          },
+        },
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPerevagaSwiper);
+    } else {
+      initPerevagaSwiper();
+    }
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.target && event.target.querySelector('#perevaga-swiper-{{ section.id }}')) {
+        initPerevagaSwiper();
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MP Product Info Benefits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Переваги"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "fallback_image",
+          "label": "Fallback image",
+          "options": [
+            {
+              "value": "use.webp",
+              "label": "Use"
+            },
+            {
+              "value": "part-1.webp",
+              "label": "Part 1"
+            },
+            {
+              "value": "part-2.webp",
+              "label": "Part 2"
+            },
+            {
+              "value": "product-example.webp",
+              "label": "Product"
+            }
+          ],
+          "default": "use.webp"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Без хлору"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Комфортне використання без різкого запаху."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP Product Info Benefits",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "fallback_image": "use.webp",
+            "title": "Без хлору",
+            "text": "Комфортне використання без різкого запаху."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "fallback_image": "part-1.webp",
+            "title": "Очищує та дезінфікує",
+            "text": "Один засіб для щоденного догляду за домом."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "fallback_image": "product-example.webp",
+            "title": "Для різних поверхонь",
+            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "fallback_image": "part-2.webp",
+            "title": "Свіжий аромат апельсина",
+            "text": "Дарує відчуття чистоти після кожного прибирання."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
