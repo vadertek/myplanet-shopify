@@ -13,14 +13,32 @@
     "mp-collection-hero": {
       "type": "mp-collection-hero",
       "settings": {
-
+        "hero_tag": "MyPlanet",
+        "hero_title": "Турбота починається на кухні",
+        "hero_description": "Безпечні та ефективні засоби для чистоти поверхонь, посуду, фруктів і овочів — для комфортного та здорового простору щодня."
       }
     },
     "mp-collection-grid": {
       "type": "mp-collection-grid",
-      "settings": {
-
-      }
+      "blocks": {
+        "product_tag_then7t": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Всі",
+            "products": [
+              "my-planet-white-fusion-plus-laundry-detergent-54-washes-2-484kg",
+              "my-planet-all-purpose-surface-cleaner-600ml",
+              "my-planet-antibacterial-all-purpose-surface-cleaner-1000ml",
+              "my-planet-green-soap-all-purpose-surface-cleaner-1000ml",
+              "my-planet-ocean-fresh-all-purpose-surface-cleaner-1000ml"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "product_tag_then7t"
+      ],
+      "settings": {}
     }
   },
   "order": [
