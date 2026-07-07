@@ -25,28 +25,24 @@
     "mp-home-trends": {
       "type": "mp-home-trends",
       "blocks": {
-        "collection_XQhDq7": {
-          "type": "collection",
+        "product_tag_wtGGgd": {
+          "type": "product_tag",
           "settings": {
-            "collection": "frontpage",
-            "title": ""
-          }
-        },
-        "collection_YkEVK6": {
-          "type": "collection",
-          "settings": {
-            "collection": "test-2",
-            "title": ""
+            "title": "Універсальні засоби ",
+            "products": [
+              "my-planet-all-purpose-surface-cleaner-600ml",
+              "my-planet-antibacterial-all-purpose-surface-cleaner-1000ml",
+              "my-planet-green-soap-all-purpose-surface-cleaner-1000ml",
+              "my-planet-ocean-fresh-all-purpose-surface-cleaner-1000ml"
+            ]
           }
         }
       },
       "block_order": [
-        "collection_XQhDq7",
-        "collection_YkEVK6"
+        "product_tag_wtGGgd"
       ],
       "settings": {
-        "title": "Зараз в тренді",
-        "products_to_show": 8
+        "title": "Зараз в тренді"
       }
     },
     "mp-home-baby": {
