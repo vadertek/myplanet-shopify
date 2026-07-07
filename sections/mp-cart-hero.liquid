@@ -1,0 +1,165 @@
+{% render 'mp-breadcrumb' %}
+
+<!-- Cart Content -->
+<section id="mp-cart-hero-{{ section.id }}" class="mx-auto max-w-360 bg-white px-1 py-3 md:px-8 md:py-10">
+  <div class="mx-auto max-w-360">
+    <h1 class="mb-7 px-1 font-montserrat-bold text-[24px] leading-none font-bold text-main-blue md:mb-8 md:px-0 md:text-[36px]">Кошик</h1>
+
+    <div
+      id="mp-cart-empty-{{ section.id }}"
+      class="rounded-2xl border border-[#C0D7ED] px-3 py-8 md:px-10 md:py-12{% if cart.item_count > 0 %} hidden{% endif %}"
+    >
+      <p class="font-montserrat-bold text-[20px] leading-tight font-bold text-main-blue md:text-[28px]">Кошик порожній</p>
+      <a
+        class="mt-6 inline-flex min-h-12 items-center justify-center rounded-[10px] bg-main-blue px-6 text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:bg-dark-blue focus-visible:bg-dark-blue md:rounded-[14px] md:text-[14px]"
+        href="{{ routes.all_products_collection_url }}"
+      >
+        Продовжити покупки
+      </a>
+    </div>
+
+    <form
+      id="mp-cart-form-{{ section.id }}"
+      action="{{ routes.cart_url }}"
+      method="post"
+      novalidate
+      class="relative rounded-2xl border border-[#C0D7ED] px-3 py-4 md:px-10 md:py-9{% if cart.item_count == 0 %} hidden{% endif %}"
+    >
+      <div
+        id="mp-cart-loader-{{ section.id }}"
+        class="absolute inset-0 z-20 hidden items-center justify-center rounded-2xl bg-white/70"
+      >
+        <span class="h-10 w-10 animate-spin rounded-full border-4 border-[#C0D7ED] border-t-main-blue"></span>
+      </div>
+
+      <h2 class="font-montserrat-bold text-[16px] leading-none font-bold text-[#236591] md:text-[22px]">Замовлення</h2>
+
+      <div id="mp-cart-items-{{ section.id }}" class="mt-6 flex flex-col gap-8 md:mt-10 md:gap-7">
+        {%- for item in cart.items -%}
+          <article
+            id="mp-cart-row-{{ section.id }}-{{ forloop.index }}"
+            class="grid grid-cols-[88px_minmax(0,1fr)_auto] gap-x-4 gap-y-2 md:grid-cols-[80px_minmax(260px,1fr)_110px_120px_110px_32px] md:items-center md:gap-x-8 md:gap-y-0"
+          >
+            <a href="{{ item.url }}" class="row-span-4 flex h-25 items-start justify-center md:row-auto md:h-20 md:items-center">
+              {%- if item.image -%}
+                <img
+                  class="h-20 w-20 rounded-lg object-contain md:h-auto md:max-h-full md:w-auto md:rounded-none"
+                  src="{{ item.image | image_url: width: 240 }}"
+                  alt="{{ item.image.alt | default: item.product.title | escape }}"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <img class="h-20 w-20 rounded-lg object-contain md:h-auto md:max-h-full md:w-auto md:rounded-none" src="{{ 'product.webp' | asset_url }}" alt="{{ item.product.title | escape }}">
+              {%- endif -%}
+            </a>
+
+            <div class="col-start-2 col-end-4 pr-8 md:col-auto md:pr-0">
+              <a href="{{ item.url }}" class="font-montserrat-bold text-[13px] leading-[1.15] font-bold text-dark-blue transition hover:text-main-blue md:text-[14px]">
+                {{ item.product.title }}
+              </a>
+
+              {%- if item.selling_plan_allocation -%}
+                <p class="mt-1 font-montserrat-reg text-[12px] leading-tight text-main-blue/70 md:text-[12px]">{{ item.selling_plan_allocation.selling_plan.name }}</p>
+              {%- endif -%}
+
+              {%- for property in item.properties -%}
+                {%- unless property.last == blank or property.first contains '_' -%}
+                  <p class="mt-1 font-montserrat-reg text-[12px] leading-tight text-main-blue/70 md:text-[12px]">{{ property.first }}: {{ property.last }}</p>
+                {%- endunless -%}
+              {%- endfor -%}
+            </div>
+
+            <div class="col-start-2 flex flex-wrap gap-1 md:col-auto md:justify-self-center">
+              {%- unless item.product.has_only_default_variant -%}
+                {%- for option in item.options_with_values -%}
+                  <span class="w-fit rounded-lg bg-[#C0D7ED]/20 px-2 py-1 font-montserrat-bold text-[12px] leading-none font-bold text-main-blue/70 md:py-0.5 md:text-[12px]">
+                    {{ option.value }}
+                  </span>
+                {%- endfor -%}
+              {%- endunless -%}
+            </div>
+
+            <div
+              class="col-start-2 flex h-8 w-20 items-center justify-between justify-self-start rounded-full border border-main-blue px-3 font-montserrat-bold text-[12px] leading-none font-bold text-main-blue md:col-auto md:h-8 md:w-auto md:min-w-22 md:px-4 md:text-[12px] md:justify-self-center"
+            >
+              <button
+                class="mp-cart-qty-minus cursor-pointer px-1{% if item.quantity <= 1 %} text-[#C0D7ED]{% endif %}"
+                type="button"
+                value="{{ item.key }}"
+                aria-label="Зменшити кількість"
+              >
+                −
+              </button>
+              <input
+                class="mp-cart-qty-input h-full w-8 appearance-none bg-transparent text-center leading-none outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none md:w-8"
+                type="number"
+                name="updates[{{ item.key }}]"
+                value="{{ item.quantity }}"
+                min="1"
+                inputmode="numeric"
+              >
+              <button class="mp-cart-qty-plus cursor-pointer px-1" type="button" value="{{ item.key }}" aria-label="Збільшити кількість">+</button>
+            </div>
+
+            <p class="mp-cart-line-total col-start-3 row-start-3 self-center whitespace-nowrap font-montserrat-bold text-[16px] leading-none font-bold text-main-blue md:col-auto md:row-auto md:text-[16px] md:justify-self-end">
+              {{ item.final_line_price | money_without_currency | replace: ',00', '' | replace: '.00', '' }} ₴
+            </p>
+
+            <button
+              class="mp-cart-remove col-start-3 row-start-4 grid h-6 w-6 cursor-pointer place-items-center justify-self-end text-main-blue transition hover:text-dark-blue focus-visible:text-dark-blue md:col-auto md:row-auto md:h-8 md:w-8 md:justify-self-end"
+              type="button"
+              value="{{ item.key }}"
+              aria-label="Видалити товар"
+            >
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M9 4h6M4 7h16M18 7l-.7 12.1A2 2 0 0 1 15.3 21H8.7a2 2 0 0 1-2-1.9L6 7M10 11v6M14 11v6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </article>
+        {%- endfor -%}
+      </div>
+
+      <div class="mt-6 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-3 gap-y-1 md:mt-8 md:grid-cols-[minmax(0,1fr)_160px] md:items-end md:gap-y-3">
+        <p class="font-montserrat-reg text-[16px] leading-none text-main-blue md:text-[24px]">Вартість замовлення:</p>
+        <p id="mp-cart-subtotal-{{ section.id }}" class="justify-self-end whitespace-nowrap font-montserrat-reg text-[16px] leading-none text-main-blue md:text-[24px]">
+          {{ cart.items_subtotal_price | money_without_currency | replace: ',00', '' | replace: '.00', '' }} ₴
+        </p>
+        <p class="font-montserrat-bold text-[22px] leading-none font-bold text-[#236591] md:text-[28px]">Сума замовлення:</p>
+        <p id="mp-cart-total-{{ section.id }}" class="justify-self-end whitespace-nowrap font-montserrat-bold text-[22px] leading-none font-bold text-[#236591] md:text-[28px]">
+          {{ cart.total_price | money_without_currency | replace: ',00', '' | replace: '.00', '' }} ₴
+        </p>
+      </div>
+
+      <div id="mp-cart-discounts-{{ section.id }}" class="mt-4 space-y-2{% if cart.total_discount == 0 %} hidden{% endif %}">
+        {%- for discount in cart.cart_level_discount_applications -%}
+          <div class="flex items-center justify-between rounded-lg bg-[#C0D7ED]/20 px-3 py-2 font-montserrat-bold text-[12px] leading-none font-bold text-main-blue">
+            <span>{{ discount.title }}</span>
+            <span class="whitespace-nowrap">-{{ discount.total_allocated_amount | money_without_currency | replace: ',00', '' | replace: '.00', '' }} ₴</span>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <label class="mt-6 flex cursor-pointer items-center gap-2 font-montserrat-reg text-[12px] leading-tight text-[#8E8E8E] md:mt-8 md:text-[14px] md:leading-none">
+        <input class="h-4 w-4 rounded-full border border-[#8E8E8E]" type="checkbox">
+        <span>Вам потрібен рахунок-фактура?</span>
+      </label>
+      <p class="mt-3 font-montserrat-reg text-[12px] leading-tight text-[#8E8E8E] md:text-[14px]">Податки, знижки та вартість доставки розраховуються під час оформлення замовлення.</p>
+
+      <button
+        class="mt-5 flex min-h-12 w-full cursor-pointer items-center justify-center rounded-[10px] bg-main-blue px-6 text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:bg-dark-blue focus-visible:bg-dark-blue md:mt-8 md:rounded-[14px] md:text-[14px]"
+        type="submit"
+        name="checkout"
+      >
+        Оформити замовлення
+      </button>
+    </form>
+  </div>
+</section>
+
+{% render 'mp-cart-js' %}

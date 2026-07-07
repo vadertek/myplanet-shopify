@@ -1,0 +1,227 @@
+<script>
+  (function () {
+    function initCart() {
+      const root = document.getElementById('mp-cart-hero-{{ section.id }}');
+      const form = document.getElementById('mp-cart-form-{{ section.id }}');
+      const empty = document.getElementById('mp-cart-empty-{{ section.id }}');
+      const itemsWrap = document.getElementById('mp-cart-items-{{ section.id }}');
+      const loader = document.getElementById('mp-cart-loader-{{ section.id }}');
+      const subtotal = document.getElementById('mp-cart-subtotal-{{ section.id }}');
+      const total = document.getElementById('mp-cart-total-{{ section.id }}');
+      const discounts = document.getElementById('mp-cart-discounts-{{ section.id }}');
+      let timer;
+
+      if (!root || !form || !itemsWrap || root.cartReady) return;
+      root.cartReady = true;
+
+      function money(cents) {
+        const amount = (Number(cents) || 0) / 100;
+        const hasDecimals = amount % 1 !== 0;
+        const value = new Intl.NumberFormat('{{ request.locale.iso_code }}', {
+          minimumFractionDigits: hasDecimals ? 2 : 0,
+          maximumFractionDigits: hasDecimals ? 2 : 0,
+        }).format(amount);
+
+        return value + ' ₴';
+      }
+
+      function showLoader() {
+        loader?.classList.remove('hidden');
+        loader?.classList.add('flex');
+      }
+
+      function hideLoader() {
+        loader?.classList.add('hidden');
+        loader?.classList.remove('flex');
+      }
+
+      function getKeyFromInput(input) {
+        return input.name.replace('updates[', '').replace(']', '');
+      }
+
+      function renderEmpty() {
+        itemsWrap.innerHTML = '';
+        form.classList.add('hidden');
+        empty?.classList.remove('hidden');
+      }
+
+      function removeRowByKey(key) {
+        const rows = Array.from(itemsWrap.children);
+        const row = rows.find(function (currentRow) {
+          const remove = currentRow.querySelector('.mp-cart-remove');
+          return remove && remove.value === key;
+        });
+
+        row?.remove();
+      }
+
+      function syncRows(cart) {
+        const rows = Array.from(itemsWrap.children);
+
+        rows.forEach(function (row, index) {
+          const item = cart.items[index];
+
+          if (!item) {
+            row.remove();
+            return;
+          }
+
+          const minus = row.querySelector('.mp-cart-qty-minus');
+          const plus = row.querySelector('.mp-cart-qty-plus');
+          const remove = row.querySelector('.mp-cart-remove');
+          const input = row.querySelector('.mp-cart-qty-input');
+          const lineTotal = row.querySelector('.mp-cart-line-total');
+
+          if (minus) {
+            minus.value = item.key;
+            minus.classList.toggle('text-[#C0D7ED]', item.quantity <= 1);
+          }
+
+          if (plus) plus.value = item.key;
+          if (remove) remove.value = item.key;
+
+          if (input) {
+            input.name = 'updates[' + item.key + ']';
+            input.value = item.quantity;
+          }
+
+          if (lineTotal) lineTotal.textContent = money(item.final_line_price);
+        });
+      }
+
+      function renderDiscounts(cart) {
+        if (!discounts) return;
+
+        const applications = cart.cart_level_discount_applications || [];
+
+        if (!applications.length && !cart.total_discount) {
+          discounts.innerHTML = '';
+          discounts.classList.add('hidden');
+          return;
+        }
+
+        discounts.innerHTML = applications.length
+          ? applications
+              .map(function (discount) {
+                return (
+                  '<div class="flex items-center justify-between rounded-lg bg-[#C0D7ED]/20 px-3 py-2 font-montserrat-bold text-[12px] leading-none font-bold text-main-blue">' +
+                  '<span>' +
+                  discount.title +
+                  '</span><span>-' +
+                  money(discount.total_allocated_amount) +
+                  '</span></div>'
+                );
+              })
+              .join('')
+          : '<div class="flex items-center justify-between rounded-lg bg-[#C0D7ED]/20 px-3 py-2 font-montserrat-bold text-[12px] leading-none font-bold text-main-blue"><span>Знижка</span><span>-' +
+            money(cart.total_discount) +
+            '</span></div>';
+
+        discounts.classList.remove('hidden');
+      }
+
+      function applyCart(cart, removedKey) {
+        if (removedKey) removeRowByKey(removedKey);
+
+        if (!cart || Number(cart.item_count || 0) === 0) {
+          renderEmpty();
+          return;
+        }
+
+        empty?.classList.add('hidden');
+        form.classList.remove('hidden');
+        syncRows(cart);
+        renderDiscounts(cart);
+
+        if (subtotal) subtotal.textContent = money(cart.items_subtotal_price);
+        if (total) total.textContent = money(cart.total_price);
+      }
+
+      function changeCart(key, quantity) {
+        showLoader();
+
+        return fetch('/cart/change.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: key, quantity: quantity }),
+        })
+          .then(function (response) {
+            if (!response.ok) throw new Error('Cart update failed');
+            return response.json();
+          })
+          .then(function (cart) {
+            applyCart(cart, quantity === 0 ? key : null);
+          })
+          .catch(function () {
+            window.location.reload();
+          })
+          .finally(hideLoader);
+      }
+
+      function debouncedChange(key, quantity) {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          changeCart(key, quantity);
+        }, 350);
+      }
+
+      root.addEventListener('click', function (event) {
+        const minus = event.target.closest('.mp-cart-qty-minus');
+        const plus = event.target.closest('.mp-cart-qty-plus');
+        const remove = event.target.closest('.mp-cart-remove');
+
+        if (minus) {
+          const input = minus.parentElement.querySelector('.mp-cart-qty-input');
+          const currentQuantity = parseInt(input.value, 10) || 1;
+          const quantity = Math.max(currentQuantity - 1, 1);
+
+          if (currentQuantity <= 1) return;
+
+          input.value = quantity;
+          minus.classList.toggle('text-[#C0D7ED]', quantity <= 1);
+          debouncedChange(minus.value, quantity);
+          return;
+        }
+
+        if (plus) {
+          const input = plus.parentElement.querySelector('.mp-cart-qty-input');
+          const quantity = (parseInt(input.value, 10) || 1) + 1;
+
+          input.value = quantity;
+          plus.parentElement.querySelector('.mp-cart-qty-minus')?.classList.remove('text-[#C0D7ED]');
+          debouncedChange(plus.value, quantity);
+          return;
+        }
+
+        if (remove) {
+          clearTimeout(timer);
+          changeCart(remove.value, 0);
+        }
+      });
+
+      root.addEventListener('input', function (event) {
+        const input = event.target.closest('.mp-cart-qty-input');
+        if (!input) return;
+
+        const quantity = Math.max(parseInt(input.value, 10) || 1, 1);
+        const key = getKeyFromInput(input);
+
+        input.value = quantity;
+        input.parentElement.querySelector('.mp-cart-qty-minus')?.classList.toggle('text-[#C0D7ED]', quantity <= 1);
+        debouncedChange(key, quantity);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCart);
+    } else {
+      initCart();
+    }
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.target && event.target.querySelector('#mp-cart-hero-{{ section.id }}')) {
+        initCart();
+      }
+    });
+  })();
+</script>

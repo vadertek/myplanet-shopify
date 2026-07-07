@@ -1,6 +1,8 @@
-﻿{% form 'product', product, id: 'product-form' %}
+﻿{% render 'mp-breadcrumb' %}
+
+{% form 'product', product, id: 'product-form' %}
   <!-- Product Hero -->
-  <section class="md:pt-10 pb-10  mx-auto max-w-360 flex md:flex-row flex-col">
+  <section class="md:pt-5 pb-10  mx-auto max-w-360 flex md:flex-row flex-col">
     {% render 'mp-product-images' %}
 
     <!-- Information -->

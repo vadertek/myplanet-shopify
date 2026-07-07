@@ -1,0 +1,154 @@
+{% render 'mp-breadcrumb' %}
+
+<section class="px-4 py-8 md:py-10">
+  <div class="mx-auto max-w-340">
+    <h2 class="mb-5 font-montserrat-bold text-[16px] leading-none font-bold text-main-blue uppercase">
+      {{ section.settings.title }}
+    </h2>
+
+    <div class="grid gap-3 md:grid-cols-2 md:gap-4">
+      {%- for block in section.blocks -%}
+        <article
+          class="relative flex flex-col overflow-hidden rounded-2xl px-5 py-5 md:px-10 md:py-10"
+          style="background-color: {{ block.settings.background_color }};"
+          {{ block.shopify_attributes }}
+        >
+          <div class="z-10 flex max-w-70 flex-col items-start md:max-w-107.5">
+            <h3
+              class="font-montserrat-bold text-[32px] leading-none font-bold md:whitespace-nowrap md:text-[40px]"
+              style="color: {{ block.settings.title_color }};"
+            >
+              {{ block.settings.title }}
+            </h3>
+            <p
+              class="mt-3 font-montserrat-reg text-[12px] leading-tight md:max-w-[60%] md:text-[16px]"
+              style="color: {{ block.settings.text_color }};"
+            >
+              {{ block.settings.text }}
+            </p>
+          </div>
+
+          {%- if block.settings.image != blank -%}
+            <img class="h-full object-contain object-bottom-right md:w-full" src="{{ block.settings.image | image_url: width: 900 }}" alt="">
+          {%- else -%}
+            <img class="h-full object-contain object-bottom-right md:w-full" src="{{ 'col.webp' | asset_url }}" alt="">
+          {%- endif -%}
+
+          <a
+            href="{{ block.settings.button_link }}"
+            class="mt-7 flex min-h-12.5 w-full items-center justify-center rounded-2xl bg-white px-10 font-montserrat-bold text-[14px] leading-none font-bold transition md:w-max"
+            style="color: {{ block.settings.button_text_color }};"
+          >
+            {{ block.settings.button_text }}
+          </a>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP LC Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Обирайте готові рішення"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bundle_card",
+      "name": "Bundle card",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "My Planet Bundles"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Все необхідне для чистоти та комфорту вашого дому в одному наборі."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Обрати набір"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background color",
+          "default": "#CCE6F4"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title color",
+          "default": "#003B5C"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#003B5C"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text color",
+          "default": "#008895"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP LC Hero",
+      "blocks": [
+        {
+          "type": "bundle_card",
+          "settings": {
+            "title": "My Planet Bundles",
+            "text": "Все необхідне для чистоти та комфорту вашого дому в одному наборі.",
+            "button_text": "Обрати набір",
+            "background_color": "#CCE6F4",
+            "title_color": "#003B5C",
+            "text_color": "#003B5C",
+            "button_text_color": "#008895"
+          }
+        },
+        {
+          "type": "bundle_card",
+          "settings": {
+            "title": "Baby Planet Bundles",
+            "text": "Ніжна турбота для малюка та спокій для батьків - у готових комплектах Baby Planet.",
+            "button_text": "Обрати набір",
+            "background_color": "#D2F2F4",
+            "title_color": "#00A8B5",
+            "text_color": "#008895",
+            "button_text_color": "#008895"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
