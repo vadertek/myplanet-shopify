@@ -1,0 +1,150 @@
+<div class="mt-6 flex gap-2">
+  <div
+    class="flex h-13 min-w-22 items-center justify-center gap-4 rounded-2xl border border-main-blue px-4 font-montserrat-bold text-[16px] leading-none font-bold text-main-blue"
+  >
+    <button
+      id="mp-product-quantity-minus-{{ product.id }}"
+      class="cursor-pointer text-[#C0D7ED]"
+      type="button"
+      aria-label="Зменшити кількість"
+    >
+      −
+    </button>
+    <input
+      id="mp-product-quantity-{{ product.id }}"
+      class="w-8 appearance-none bg-transparent text-center outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+      type="number"
+      name="quantity"
+      value="1"
+      min="1"
+      inputmode="numeric"
+    >
+    <button
+      id="mp-product-quantity-plus-{{ product.id }}"
+      class="cursor-pointer"
+      type="button"
+      aria-label="Збільшити кількість"
+    >
+      +
+    </button>
+  </div>
+
+  <button
+    id="mp-product-add-{{ product.id }}"
+    class="flex h-13 flex-1 cursor-pointer items-center justify-center rounded-2xl bg-main-blue px-5 font-montserrat-extra text-[16px] leading-none font-bold text-white transition hover:bg-dark-blue focus-visible:bg-dark-blue disabled:pointer-events-none disabled:opacity-50"
+    type="submit"
+    {% if product.available == false or product.selected_or_first_available_variant.price <= 0 %}
+      disabled
+    {% endif %}
+  >
+    {% if product.available and product.selected_or_first_available_variant.price > 0 %}
+      Купити за {{ product.selected_or_first_available_variant.price | money_with_currency }}
+    {% else %}
+      Недоступно
+    {% endif %}
+  </button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const variantInput = document.getElementById('mp-product-variant-id-{{ product.id }}');
+    const priceWrap = document.getElementById('mp-product-price-wrap-{{ product.id }}');
+    const price = document.getElementById('mp-product-price-{{ product.id }}');
+    const comparePrice = document.getElementById('mp-product-compare-price-{{ product.id }}');
+    const quantity = document.getElementById('mp-product-quantity-{{ product.id }}');
+    const minus = document.getElementById('mp-product-quantity-minus-{{ product.id }}');
+    const plus = document.getElementById('mp-product-quantity-plus-{{ product.id }}');
+    const add = document.getElementById('mp-product-add-{{ product.id }}');
+    const variantButtons = document.querySelectorAll('#mp-product-variants-{{ product.id }} button');
+    const variants = {{ product.variants | json }};
+
+    if (!variantInput || !priceWrap || !price || !quantity || !add) return;
+
+    function formatMoney(cents) {
+      return new Intl.NumberFormat('{{ request.locale.iso_code }}', {
+        style: 'currency',
+        currency: '{{ cart.currency.iso_code }}',
+      }).format(cents / 100);
+    }
+
+    function getQuantity() {
+      return Math.max(parseInt(quantity.value, 10) || 1, 1);
+    }
+
+    function getVariant() {
+      return variants.find(function (variant) {
+        return String(variant.id) === String(variantInput.value);
+      });
+    }
+
+    function updateQuantityButtons() {
+      const canDecrease = getQuantity() > 1;
+
+      minus?.classList.toggle('text-main-blue', canDecrease);
+      minus?.classList.toggle('text-[#C0D7ED]', !canDecrease);
+      minus?.setAttribute('aria-disabled', String(!canDecrease));
+    }
+
+    function updatePrice() {
+      const variant = getVariant();
+      const canBuy = variant && variant.available && variant.price > 0;
+      const qty = getQuantity();
+
+      updateQuantityButtons();
+      priceWrap.classList.toggle('hidden', !canBuy);
+      add.disabled = !canBuy;
+
+      if (!canBuy) {
+        add.textContent = 'Недоступно';
+        return;
+      }
+
+      price.textContent = formatMoney(variant.price * qty);
+      add.textContent = 'Купити за ' + formatMoney(variant.price * qty);
+
+      if (comparePrice) {
+        const hasCompare = variant.compare_at_price && variant.compare_at_price > variant.price;
+
+        comparePrice.classList.toggle('hidden', !hasCompare);
+        comparePrice.textContent = hasCompare ? formatMoney(variant.compare_at_price * qty) : '';
+      }
+    }
+
+    function updateVariantButtons() {
+      variantButtons.forEach(function (button) {
+        const active = String(button.value) === String(variantInput.value);
+
+        button.classList.toggle('border-main-blue', active);
+        button.classList.toggle('text-main-blue', active);
+        button.classList.toggle('border-[#C0D7ED]', !active);
+        button.classList.toggle('text-[#C0D7ED]', !active);
+      });
+    }
+
+    variantButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        variantInput.value = button.value;
+        updateVariantButtons();
+        updatePrice();
+      });
+    });
+
+    minus?.addEventListener('click', function () {
+      quantity.value = Math.max(getQuantity() - 1, 1);
+      updatePrice();
+    });
+
+    plus?.addEventListener('click', function () {
+      quantity.value = getQuantity() + 1;
+      updatePrice();
+    });
+
+    quantity.addEventListener('input', function () {
+      quantity.value = getQuantity();
+      updatePrice();
+    });
+
+    updateVariantButtons();
+    updatePrice();
+  });
+</script>

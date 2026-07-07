@@ -1,0 +1,23 @@
+{%- if description != blank -%}
+  <div class="acc-item border-b border-[#C0D7ED]">
+    <button
+      class="acc-head flex w-full cursor-pointer items-center justify-between py-3 text-left font-montserrat-bold text-[14px] leading-none font-bold text-main-blue"
+      type="button"
+      aria-expanded="false"
+    >
+      <span>{{ title }}</span>
+      <span
+        class="acc-icon h-3 w-3 rotate-45 border-r-2 border-b-2 border-main-blue transition duration-200"
+        aria-hidden="true"
+      ></span>
+    </button>
+
+    <div class="acc-wrap grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out">
+      <div class="acc-body overflow-hidden opacity-0 transition-opacity duration-200">
+        <div class="pb-4 font-montserrat-reg text-[14px] leading-tight text-main-blue">
+          {{ description }}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}

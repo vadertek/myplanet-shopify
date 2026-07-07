@@ -1,0 +1,19 @@
+{%- liquid
+  assign product_tag = product.metafields.custom.tag.value | default: product.metafields.custom.tag
+  assign tag_label = 'My Planet'
+  assign tag_bg = '#C0D7ED33'
+  assign tag_text = '#004172'
+
+  if product_tag == 'BabyPlanet'
+    assign tag_label = 'Baby Planet'
+    assign tag_bg = '#D719201A'
+    assign tag_text = '#A6004D'
+  endif
+-%}
+
+<span
+  class="inline-flex h-9 items-center rounded-2xl px-4 font-montserrat-bold text-[14px] leading-none font-bold"
+  style="background-color: {{ tag_bg }}; color: {{ tag_text }};"
+>
+  {{ tag_label }}
+</span>

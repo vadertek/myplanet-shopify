@@ -1,0 +1,60 @@
+{%- if product.description != blank -%}
+  <div class="mt-5 font-montserrat-bold text-[14px] leading-tight font-bold text-main-blue">
+    <p id="product-description-text-{{ product.id }}">{{ product.description | strip_html | strip }}</p>
+
+    <div id="product-description-more-{{ product.id }}" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+      <p class="pt-1"></p>
+    </div>
+
+    <button
+      id="product-description-button-{{ product.id }}"
+      class="mt-2 hidden cursor-pointer font-montserrat-bold text-[14px] leading-none font-bold text-[#C0D7ED] underline"
+      type="button"
+      aria-expanded="false"
+    >
+      Читати більше
+    </button>
+  </div>
+
+  <script>
+    (function () {
+      function initProductDescription() {
+        const text = document.getElementById('product-description-text-{{ product.id }}');
+        const more = document.getElementById('product-description-more-{{ product.id }}');
+        const moreText = more ? more.querySelector('p') : null;
+        const button = document.getElementById('product-description-button-{{ product.id }}');
+        const limit = 119;
+
+        if (!text || !more || !moreText || !button) return;
+
+        const fullText = text.textContent.trim();
+
+        if (fullText.length <= limit) {
+          button.classList.add('hidden');
+          return;
+        }
+
+        text.textContent = fullText.slice(0, limit);
+        moreText.textContent = fullText.slice(limit).trim();
+        button.classList.remove('hidden');
+
+        if (button.dataset.ready === 'true') return;
+        button.dataset.ready = 'true';
+
+        button.addEventListener('click', function () {
+          const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+          button.setAttribute('aria-expanded', String(!isOpen));
+          more.style.maxHeight = isOpen ? '0px' : more.scrollHeight + 'px';
+          button.textContent = isOpen ? 'Читати більше' : 'Згорнути';
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initProductDescription);
+      } else {
+        initProductDescription();
+      }
+    })();
+  </script>
+{%- endif -%}

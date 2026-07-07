@@ -1,0 +1,62 @@
+<div id="mp-product-accordions-{{ product.id }}" class="mt-6">
+  {%
+    render 'mp-accordion-item',
+    title: 'Склад',
+    description: product.metafields.custom.sklad.value | newline_to_br
+  %}
+
+  {%
+    render 'mp-accordion-item',
+    title: 'Спосіб використання',
+    description: product.metafields.custom.uses.value | newline_to_br
+  %}
+
+  {%
+    render 'mp-accordion-item',
+    title: 'Призначення',
+    description: product.metafields.custom.appointment.value | newline_to_br
+  %}
+
+  {%
+    render 'mp-accordion-item',
+    title: 'Переваги',
+    description: product.metafields.custom.perevaga.value | newline_to_br
+  %}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const root = document.getElementById('mp-product-accordions-{{ product.id }}');
+    if (!root) return;
+
+    const items = root.querySelectorAll('.acc-item');
+
+    function setItem(item, open) {
+      const head = item.querySelector('.acc-head');
+      const wrap = item.querySelector('.acc-wrap');
+      const body = item.querySelector('.acc-body');
+      const icon = item.querySelector('.acc-icon');
+
+      head?.setAttribute('aria-expanded', String(open));
+      wrap?.classList.toggle('grid-rows-[1fr]', open);
+      wrap?.classList.toggle('grid-rows-[0fr]', !open);
+      body?.classList.toggle('opacity-100', open);
+      body?.classList.toggle('opacity-0', !open);
+      icon?.classList.toggle('rotate-225', open);
+      icon?.classList.toggle('rotate-45', !open);
+    }
+
+    items.forEach(function (item) {
+      const head = item.querySelector('.acc-head');
+      setItem(item, false);
+
+      head?.addEventListener('click', function () {
+        const open = head.getAttribute('aria-expanded') !== 'true';
+
+        items.forEach(function (currentItem) {
+          setItem(currentItem, currentItem === item && open);
+        });
+      });
+    });
+  });
+</script>
