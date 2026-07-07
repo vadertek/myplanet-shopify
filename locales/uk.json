@@ -31,7 +31,8 @@
       "product_discount_line_top": "Наші знижки",
       "product_discount_line_bot": "на кількість:",
       "preorder": "Передзамовлення",
-      "buy-for": "Купити за"
+      "buy-for": "Купити за",
+      "unavailable": "Недоступно",
     },
     "type": {
       "for_dogs": "Для собак",

@@ -1,0 +1,59 @@
+{%- liquid
+  assign current_title = page_title
+  assign parent_title = blank
+  assign parent_url = blank
+
+  case request.page_type
+    when 'product'
+      assign current_title = product.title
+
+      if collection != blank
+        assign parent_title = collection.title
+        assign parent_url = collection.url
+      elsif product.collections.first != blank
+        assign parent_title = product.collections.first.title
+        assign parent_url = product.collections.first.url
+      endif
+
+    when 'collection'
+      assign current_title = collection.title
+
+    when 'page'
+      assign current_title = page.title
+
+    when 'cart'
+      assign current_title = 'Кошик'
+
+    when 'list-collections'
+      assign current_title = 'Колекції'
+
+    when 'search'
+      assign current_title = 'Пошук'
+
+    when 'blog'
+      assign current_title = blog.title
+
+    when 'article'
+      assign parent_title = blog.title
+      assign parent_url = blog.url
+      assign current_title = article.title
+  endcase
+-%}
+
+<nav class="mx-auto max-w-360 px-4 pt-5 md:px-8" aria-label="Breadcrumb">
+  <ol class="flex flex-wrap items-center gap-1 font-montserrat-reg text-xs leading-none text-[#C0D7ED]">
+    <li>
+      <a class="text-xs transition hover:text-main-blue focus-visible:text-main-blue" href="{{ routes.root_url }}">Головна</a>
+    </li>
+
+    {%- if parent_title != blank and parent_url != blank -%}
+      <li class="text-xs" aria-hidden="true">/</li>
+      <li>
+        <a class="text-xs transition hover:text-main-blue focus-visible:text-main-blue" href="{{ parent_url }}">{{ parent_title }}</a>
+      </li>
+    {%- endif -%}
+
+    <li class="text-xs" aria-hidden="true">/</li>
+    <li class="text-xs text-[#C0D7ED]" aria-current="page">{{ current_title }}</li>
+  </ol>
+</nav>

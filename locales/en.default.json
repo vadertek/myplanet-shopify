@@ -31,7 +31,8 @@
       "product_discount_line_top": "Our discounts",
       "product_discount_line_bot": "for quantity:",
       "preorder": "Preorder",
-      "buy-for": "Купити за" 
+      "buy-for": "Buy for",
+      "unavailable": "Unavailable",
     },
     "password_page": {
       "login_form_heading": "Enter store using password:",
