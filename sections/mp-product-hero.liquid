@@ -1,0 +1,49 @@
+﻿{% form 'product', product, id: 'product-form' %}
+  <!-- Product Hero -->
+  <section class="md:pt-10 pb-10  mx-auto max-w-360 flex md:flex-row flex-col">
+    {% render 'mp-product-images' %}
+
+    <!-- Information -->
+    <div class="px-4 pt-8 md:w-1/2 md:px-10 md:pt-0">
+      <div class="w-full">
+        {% render 'mp-product-tag' %}
+
+        <h1 class="mt-4 font-montserrat-bold text-[32px] leading-none font-bold text-dark-blue md:text-[40px]">{{ product.title }}</h1>
+
+        <div class="mt-2.5 flex min-h-5 items-center gap-1.5 font-montserrat-reg text-[10px] leading-none text-[#C0D7ED] md:gap-2 md:text-[12px]">
+          <img class="w-19 md:w-22.5" src="{{ 'sky-start.webp' |  asset_url }}" alt="Рейтинг 4.9 з 5">
+          <span>{{ section.settings.rating }}</span>
+        </div>
+
+        {% render 'mp-product-description' %}
+
+        {% render 'mp-product-price' %}
+
+        {% render 'mp-product-variants' %}
+
+        {% render 'mp-product-quantity-add' %}
+
+        {% render 'mp-product-accordions' %}
+      </div>
+    </div>
+  </section>
+{% endform %}
+
+<!-- Product Schema's -->
+<script type="application/ld+json">
+  {{ product | structured_data }}
+</script>
+
+{% schema %}
+{
+  "name": "Product Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "rating",
+      "label": "Рейтинг",
+      "default": "4.9 (178)"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,106 @@
+{%- liquid
+  assign gallery_id = product.id | default: section.id
+-%}
+
+<!-- Images -->
+<div class="md:w-1/2">
+  <div class="px-4">
+    <div id="product-gallery-swiper-{{ gallery_id }}" class="swiper flex w-full overflow-hidden">
+      <div class="swiper-wrapper flex">
+        {%- if product.images.size > 0 -%}
+          {%- for image in product.images -%}
+            <div class="swiper-slide">
+              <div class="flex aspect-square items-center justify-center">
+                {{ image | image_url: width: 1000 | image_tag: class: 'max-h-full max-w-full object-contain', loading: 'eager', alt: product.title }}
+              </div>
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          <div class="swiper-slide">
+            <div class="flex aspect-square items-center justify-center">
+              <img class="max-h-full max-w-full object-contain" src="{{ 'product.webp' |  asset_url }}" alt="{{ product.title }}">
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="mt-2 flex items-center justify-between md:mt-4">
+      <div
+        id="product-gallery-pagination-{{ gallery_id }}"
+        class="flex h-7 min-w-17 items-center justify-center rounded-full bg-[#C0D7ED]/20 px-3 font-montserrat-med text-[14px] leading-none font-medium text-main-blue md:h-9 md:min-w-[91px] md:text-[18px]"
+      ></div>
+
+      <div
+        class="flex h-7 w-16 overflow-hidden rounded-full bg-[#C0D7ED]/20 md:h-9 md:w-22"
+        aria-label="Product photo navigation"
+      >
+        <button
+          id="product-gallery-prev-{{ gallery_id }}"
+          class="grid h-7 w-8 cursor-pointer place-items-center text-main-blue transition hover:bg-white/45 focus-visible:bg-white/45 md:h-9 md:w-11 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/45 [&.swiper-button-disabled]:text-[#C0D7ED]"
+          type="button"
+          aria-label="Previous photo"
+        >
+          <span class="h-3 w-3 rotate-45 border-b-2 border-l-2 border-current md:h-4 md:w-4" aria-hidden="true"></span>
+        </button>
+        <button
+          id="product-gallery-next-{{ gallery_id }}"
+          class="grid h-7 w-8 cursor-pointer place-items-center text-main-blue transition hover:bg-white/45 focus-visible:bg-white/45 md:h-9 md:w-11 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/45 [&.swiper-button-disabled]:text-[#C0D7ED]"
+          type="button"
+          aria-label="Next photo"
+        >
+          <span class="h-3 w-3 rotate-225 border-b-2 border-l-2 border-current md:h-4 md:w-4" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Gallery Swiper Script -->
+<script>
+  (function () {
+    function initProductGallerySwiper() {
+      const swiperEl = document.getElementById('product-gallery-swiper-{{ gallery_id }}');
+      if (!swiperEl || typeof Swiper === 'undefined') return;
+
+      if (swiperEl.swiper) swiperEl.swiper.destroy(true, true);
+
+      const formatSlideNumber = function (number) {
+        return String(number).padStart(2, '0');
+      };
+
+      new Swiper(swiperEl, {
+        slidesPerView: 1,
+        speed: 350,
+        watchOverflow: true,
+        navigation: {
+          prevEl: '#product-gallery-prev-{{ gallery_id }}',
+          nextEl: '#product-gallery-next-{{ gallery_id }}',
+        },
+        pagination: {
+          el: '#product-gallery-pagination-{{ gallery_id }}',
+          type: 'fraction',
+          formatFractionCurrent: formatSlideNumber,
+          formatFractionTotal: formatSlideNumber,
+          renderFraction: function (currentClass, totalClass) {
+            return '<span class="' + currentClass + '"></span><span class="px-1 text-[#C0D7ED]">/</span><span class="' + totalClass + '"></span>';
+          },
+        },
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        initProductGallerySwiper();
+      });
+    } else {
+      initProductGallerySwiper();
+    }
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.target && event.target.querySelector('#product-gallery-swiper-{{ gallery_id }}')) {
+        initProductGallerySwiper();
+      }
+    });
+  })();
+</script>

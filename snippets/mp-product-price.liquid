@@ -1,0 +1,18 @@
+<div
+  id="mp-product-price-wrap-{{ product.id }}"
+  class="mt-6 flex items-end gap-3{% if product.available == false or product.selected_or_first_available_variant.price <= 0 %} hidden{% endif %}"
+>
+  <p
+    id="mp-product-price-{{ product.id }}"
+    class="font-montserrat-bold text-[32px] leading-none font-bold text-dark-blue"
+  >
+    {{ product.selected_or_first_available_variant.price | money_with_currency }}
+  </p>
+
+  <p
+    id="mp-product-compare-price-{{ product.id }}"
+    class="pb-1 font-montserrat-bold text-[18px] leading-none font-bold text-[#C0D7ED] line-through{% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %} hidden{% endunless %}"
+  >
+    {{ product.selected_or_first_available_variant.compare_at_price | money_with_currency }}
+  </p>
+</div>
