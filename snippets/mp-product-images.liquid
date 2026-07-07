@@ -10,16 +10,26 @@
         {%- if product.images.size > 0 -%}
           {%- for image in product.images -%}
             <div class="swiper-slide">
-              <div class="flex aspect-square items-center justify-center">
+              <button
+                class="relative flex aspect-square w-full cursor-zoom-in items-center justify-center"
+                type="button"
+                value="{{ forloop.index0 }}"
+                aria-label="Відкрити фото"
+              >
                 {{ image | image_url: width: 1000 | image_tag: class: 'max-h-full max-w-full object-contain', loading: 'eager', alt: product.title }}
-              </div>
+              </button>
             </div>
           {%- endfor -%}
         {%- else -%}
           <div class="swiper-slide">
-            <div class="flex aspect-square items-center justify-center">
-              <img class="max-h-full max-w-full object-contain" src="{{ 'product.webp' |  asset_url }}" alt="{{ product.title }}">
-            </div>
+            <button
+              class="relative flex aspect-square w-full cursor-zoom-in items-center justify-center"
+              type="button"
+              value="0"
+              aria-label="Відкрити фото"
+            >
+              <img class="max-h-full max-w-full object-contain" src="{{ 'product.webp' | asset_url }}" alt="{{ product.title }}">
+            </button>
           </div>
         {%- endif -%}
       </div>
@@ -56,9 +66,129 @@
   </div>
 </div>
 
+<div
+  id="product-gallery-modal-{{ gallery_id }}"
+  class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/70"
+  aria-hidden="true"
+>
+  <div class="relative flex max-h-[94dvh] w-[94vw] flex-col items-center gap-3 px-3 pt-4 pb-3 md:max-h-[92vh] md:w-[min(92vw,1100px)] md:gap-4 md:px-4 md:pt-6 md:pb-4">
+    <button
+      id="product-gallery-modal-close-{{ gallery_id }}"
+      type="button"
+      class="absolute top-0 right-1 z-10 cursor-pointer px-2 font-montserrat-bold text-[42px] leading-none text-white transition hover:scale-110 md:right-2 md:text-[72px]"
+      aria-label="Закрити галерею"
+    >
+      &times;
+    </button>
+
+    <div class="flex aspect-square w-full items-center justify-center bg-transparent pt-8 md:h-[min(68vh,760px)] md:aspect-auto md:pt-10">
+      <img
+        id="product-gallery-modal-image-{{ gallery_id }}"
+        class="max-h-full max-w-full object-contain"
+        src="{% if product.images.size > 0 %}{{ product.images.first | image_url: width: 1800 }}{% else %}{{ 'product.webp' | asset_url }}{% endif %}"
+        alt="{{ product.title }}"
+      >
+    </div>
+
+    <div class="w-full max-w-[760px] overflow-x-auto py-1">
+      <div id="product-gallery-modal-thumbs-{{ gallery_id }}" class="flex items-center justify-start gap-2 md:justify-center md:gap-3">
+        {%- if product.images.size > 0 -%}
+          {%- for image in product.images -%}
+            <button
+              class="h-14 w-14 shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-[#C0D7ED] bg-white p-1 opacity-70 transition md:h-20 md:w-20"
+              type="button"
+              value="{{ image | image_url: width: 1800 }}"
+              aria-label="Фото {{ forloop.index }}"
+            >
+              {{ image | image_url: width: 200 | image_tag: class: 'h-full w-full object-contain', loading: 'lazy', alt: product.title }}
+            </button>
+          {%- endfor -%}
+        {%- else -%}
+          <button
+            class="h-14 w-14 shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-[#C0D7ED] bg-white p-1 opacity-70 transition md:h-20 md:w-20"
+            type="button"
+            value="{{ 'product.webp' | asset_url }}"
+            aria-label="Фото 1"
+          >
+            <img class="h-full w-full object-contain" src="{{ 'product.webp' | asset_url }}" alt="{{ product.title }}">
+          </button>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Product Gallery Swiper Script -->
 <script>
   (function () {
+    function initProductGalleryModal() {
+      const modal = document.getElementById('product-gallery-modal-{{ gallery_id }}');
+      const modalImage = document.getElementById('product-gallery-modal-image-{{ gallery_id }}');
+      const closeBtn = document.getElementById('product-gallery-modal-close-{{ gallery_id }}');
+      const thumbs = Array.from(document.querySelectorAll('#product-gallery-modal-thumbs-{{ gallery_id }} button'));
+      const openButtons = Array.from(document.querySelectorAll('#product-gallery-swiper-{{ gallery_id }} .swiper-slide button'));
+      let activeIndex = 0;
+
+      if (!modal || !modalImage || !thumbs.length) return;
+      if (modal.productGalleryReady) return;
+      modal.productGalleryReady = true;
+
+      function updateActiveThumb() {
+        thumbs.forEach(function (thumb, index) {
+          const active = index === activeIndex;
+
+          thumb.classList.toggle('border-main-blue', active);
+          thumb.classList.toggle('border-[#C0D7ED]', !active);
+          thumb.classList.toggle('opacity-100', active);
+          thumb.classList.toggle('opacity-70', !active);
+        });
+      }
+
+      function openByIndex(index) {
+        const nextIndex = Number(index);
+        if (Number.isNaN(nextIndex) || !thumbs[nextIndex]) return;
+
+        activeIndex = nextIndex;
+        modalImage.src = thumbs[activeIndex].value;
+        updateActiveThumb();
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('overflow-hidden');
+      }
+
+      function closeModal() {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      openButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          openByIndex(button.value);
+        });
+      });
+
+      thumbs.forEach(function (thumb, index) {
+        thumb.addEventListener('click', function () {
+          openByIndex(index);
+        });
+      });
+
+      closeBtn?.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', function (event) {
+        if (event.target === modal) closeModal();
+      });
+
+      document.addEventListener('keyup', function (event) {
+        if (event.key === 'Escape') closeModal();
+      });
+
+      updateActiveThumb();
+    }
+
     function initProductGallerySwiper() {
       const swiperEl = document.getElementById('product-gallery-swiper-{{ gallery_id }}');
       if (!swiperEl || typeof Swiper === 'undefined') return;
@@ -92,14 +222,17 @@
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', function () {
         initProductGallerySwiper();
+        initProductGalleryModal();
       });
     } else {
       initProductGallerySwiper();
+      initProductGalleryModal();
     }
 
     document.addEventListener('shopify:section:load', function (event) {
       if (event.target && event.target.querySelector('#product-gallery-swiper-{{ gallery_id }}')) {
         initProductGallerySwiper();
+        initProductGalleryModal();
       }
     });
   })();

@@ -4,46 +4,114 @@
 </div>
 
 <!-- Header -->
-<header class="mx-auto max-w-360 relative border-t-2 border-main-blue bg-white md:border-t-0">
+<header id="header-{{ section.id }}" class="mx-auto max-w-360 relative border-t-2 border-main-blue bg-white md:border-t-0">
   <div class="flex items-center justify-between px-4 py-3 md:px-7 md:py-4">
     <!-- Logo -->
     <a href="/">
-      <img loading="eager" class="h-8 md:h-10" src="{{ 'header-logo.webp' |  asset_url }}" alt="My Planet">
+      <img loading="eager" class="h-8 md:h-10" src="{{ 'header-logo.webp' | asset_url }}" alt="My Planet">
     </a>
 
     <!-- Desktop Navigation -->
     <nav class="hidden md:block">
       <ul class="flex space-x-6">
-        <li><a href="#" class="text-dark-blue transition duration-200 hover:text-main-blue">Колекції</a></li>
-        <li><a href="#" class="text-dark-blue transition duration-200 hover:text-main-blue">Про нас</a></li>
-        <li><a href="#" class="text-dark-blue transition duration-200 hover:text-main-blue">Де купити</a></li>
-        <li><a href="#" class="text-dark-blue transition duration-200 hover:text-main-blue">Контакти</a></li>
+        {%- for link in linklists['main-menu'].links -%}
+          <li>
+            <a
+              href="{{ link.url }}"
+              class="text-dark-blue transition duration-200 hover:text-main-blue{% if link.current %} text-main-blue{% endif %}"
+            >
+              {{ link.title }}
+            </a>
+          </li>
+        {%- endfor -%}
       </ul>
     </nav>
 
     <!-- Actions -->
     <div class="flex items-center gap-5 md:space-x-4">
-      <a href="#" class="hidden md:block">
-        <img loading="eager" class="h-4" src="{{ 'search-icon.svg' |  asset_url }}" alt="Пошук">
+      {% render 'mp-header-search' %}
+
+      <a href="{{ routes.cart_url }}">
+        <img loading="eager" class="h-5 md:h-4" src="{{ 'cart-icon.svg' | asset_url }}" alt="Кошик">
       </a>
-      <a href="#">
-        <img loading="eager" class="h-5 md:h-4" src="{{ 'cart-icon.svg' |  asset_url }}" alt="Кошик">
-      </a>
-      <button type="button" class="flex h-8 w-8 flex-col items-center justify-center gap-1.5 md:hidden" aria-label="Відкрити меню" aria-expanded="false" data-burger>
-        <span class="h-0.5 w-5 rounded-full bg-main-blue transition duration-200" data-burger-line="top"></span>
-        <span class="h-0.5 w-5 rounded-full bg-main-blue transition duration-200" data-burger-line="middle"></span>
-        <span class="h-0.5 w-5 rounded-full bg-main-blue transition duration-200" data-burger-line="bottom"></span>
+      <button
+        id="header-burger-{{ section.id }}"
+        type="button"
+        class="flex h-8 w-8 flex-col items-center justify-center gap-1.5 md:hidden"
+        aria-label="Відкрити меню"
+        aria-expanded="false"
+      >
+        <span id="header-burger-top-{{ section.id }}" class="h-0.5 w-5 rounded-full bg-main-blue transition duration-200"></span>
+        <span id="header-burger-middle-{{ section.id }}" class="h-0.5 w-5 rounded-full bg-main-blue transition duration-200"></span>
+        <span id="header-burger-bottom-{{ section.id }}" class="h-0.5 w-5 rounded-full bg-main-blue transition duration-200"></span>
       </button>
     </div>
   </div>
 
   <!-- Mobile Navigation -->
-  <nav class="pointer-events-none absolute right-0 left-0 z-20 max-h-0 -translate-y-2 overflow-hidden bg-white px-4 opacity-0 shadow-lg transition-all duration-300 md:hidden" data-mobile-menu>
+  <nav
+    id="header-mobile-menu-{{ section.id }}"
+    class="pointer-events-none absolute right-0 left-0 z-20 max-h-0 -translate-y-2 overflow-hidden bg-white px-4 opacity-0 shadow-lg transition-all duration-300 md:hidden"
+  >
     <ul class="flex flex-col gap-4 py-5">
-      <li><a href="#" class="block text-dark-blue transition duration-200 hover:text-main-blue">Колекції</a></li>
-      <li><a href="#" class="block text-dark-blue transition duration-200 hover:text-main-blue">Про нас</a></li>
-      <li><a href="#" class="block text-dark-blue transition duration-200 hover:text-main-blue">Де купити</a></li>
-      <li><a href="#" class="block text-dark-blue transition duration-200 hover:text-main-blue">Контакти</a></li>
+      {%- for link in linklists['main-menu'].links -%}
+        <li>
+          <a
+            href="{{ link.url }}"
+            class="block text-dark-blue transition duration-200 hover:text-main-blue{% if link.current %} text-main-blue{% endif %}"
+          >
+            {{ link.title }}
+          </a>
+        </li>
+      {%- endfor -%}
     </ul>
   </nav>
 </header>
+
+<script>
+  (function () {
+    function initHeader() {
+      const burger = document.getElementById('header-burger-{{ section.id }}');
+      const menu = document.getElementById('header-mobile-menu-{{ section.id }}');
+      const topLine = document.getElementById('header-burger-top-{{ section.id }}');
+      const middleLine = document.getElementById('header-burger-middle-{{ section.id }}');
+      const bottomLine = document.getElementById('header-burger-bottom-{{ section.id }}');
+
+      if (!burger || !menu || burger.headerReady) return;
+      burger.headerReady = true;
+
+      burger.addEventListener('click', function () {
+        const isOpen = burger.getAttribute('aria-expanded') === 'true';
+
+        burger.setAttribute('aria-expanded', String(!isOpen));
+
+        menu.classList.toggle('max-h-0', isOpen);
+        menu.classList.toggle('max-h-80', !isOpen);
+        menu.classList.toggle('-translate-y-2', isOpen);
+        menu.classList.toggle('translate-y-0', !isOpen);
+        menu.classList.toggle('opacity-0', isOpen);
+        menu.classList.toggle('opacity-100', !isOpen);
+        menu.classList.toggle('pointer-events-none', isOpen);
+        menu.classList.toggle('pointer-events-auto', !isOpen);
+
+        topLine?.classList.toggle('translate-y-2', !isOpen);
+        topLine?.classList.toggle('rotate-45', !isOpen);
+        middleLine?.classList.toggle('opacity-0', !isOpen);
+        bottomLine?.classList.toggle('-translate-y-2', !isOpen);
+        bottomLine?.classList.toggle('-rotate-45', !isOpen);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeader);
+    } else {
+      initHeader();
+    }
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.target && event.target.querySelector('#header-{{ section.id }}')) {
+        initHeader();
+      }
+    });
+  })();
+</script>
