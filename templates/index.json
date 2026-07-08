@@ -206,22 +206,10 @@
     "mp-home-reviews": {
       "type": "mp-home-reviews",
       "blocks": {
-        "review_7Dz6xB": {
-          "type": "review",
-          "settings": {
-            "product": "test-product-1",
-            "author": "Олена К.",
-            "badge": "Перевірений покупець",
-            "date": "2025-05-14",
-            "rating": 5,
-            "heading": "Ocean Fresh",
-            "text": "Користуюся універсальним засобом Ocean Fresh вже понад пів року. Чудово справляється з підлогою, кухонними поверхнями та ванною кімнатою. Приємний аромат і жодного відчуття агресивної хімії."
-          }
-        },
         "review_w7riT9": {
           "type": "review",
           "settings": {
-            "product": "test-product-2",
+            "product": "my-planet-ocean-fresh-all-purpose-surface-cleaner-1000ml",
             "author": "Олена К.",
             "badge": "Перевірений покупець",
             "date": "2025-05-14",
@@ -233,7 +221,7 @@
         "review_acwDEK": {
           "type": "review",
           "settings": {
-            "product": "test-product-1",
+            "product": "my-planet-fruit-and-vegetable-wash-fragrance-free-450ml",
             "author": "Марія В",
             "badge": "Перевірений покупець",
             "date": "2025-05-14",
@@ -245,7 +233,7 @@
         "review_MBwUVD": {
           "type": "review",
           "settings": {
-            "product": "test-product-2",
+            "product": "my-planet-crystal-ice-glass-cleaner-spray-1000ml",
             "author": "Ірина С.",
             "badge": "Перевірений покупець",
             "date": "2025-05-14",
@@ -253,13 +241,25 @@
             "heading": "Дім сяє чистотою",
             "text": "Спрей Crystal Ice чудово очищує дзеркала та скло без розводів. Використовую щодня для ванної кімнати та вікон."
           }
+        },
+        "review_7Dz6xB": {
+          "type": "review",
+          "settings": {
+            "product": "my-planet-ocean-fresh-all-purpose-surface-cleaner-1000ml",
+            "author": "Олена К.",
+            "badge": "Перевірений покупець",
+            "date": "2025-05-14",
+            "rating": 5,
+            "heading": "Ocean Fresh",
+            "text": "Користуюся універсальним засобом Ocean Fresh вже понад пів року. Чудово справляється з підлогою, кухонними поверхнями та ванною кімнатою. Приємний аромат і жодного відчуття агресивної хімії."
+          }
         }
       },
       "block_order": [
-        "review_7Dz6xB",
         "review_w7riT9",
         "review_acwDEK",
-        "review_MBwUVD"
+        "review_MBwUVD",
+        "review_7Dz6xB"
       ],
       "settings": {
         "title": "Нам довіряють тисячі родин"
