@@ -82,7 +82,11 @@
           "type": "product_tag",
           "settings": {
             "title": "Миття посуду",
-            "products": []
+            "products": [
+              "my-planet-blue-hygiene-dishwashing-gel",
+              "my-planet-perle-bio-plus-dishwashing-gel",
+              "my-planet-platinum-plus-enzyme-dishwashing-gel"
+            ]
           }
         },
         "product_tag_qKntWh": {
