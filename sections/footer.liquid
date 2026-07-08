@@ -68,29 +68,15 @@
     </div>
 
     <div>
-      <h4 class="mb-3 font-montserrat-bold font-bold">Про нас</h4>
+      <h4 class="mb-3 font-montserrat-bold font-bold">Меню</h4>
       <ul>
-        <li>
-          <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Наша історія</a>
-        </li>
-        <li>
-          <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Наші цінності</a>
-        </li>
-        <li>
-          <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Безпечні формули</a>
-        </li>
-        <li>
-          <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Турбота про довкілля</a>
-        </li>
-        <li>
-          <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Відгуки покупців</a>
-        </li>
-        <li>
-          <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Блог</a>
-        </li>
-        <li>
-          <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Партнерство</a>
-        </li>
+        {%- for link in linklists['main-menu'].links -%}
+          <li>
+            <a href="{{ link.url }}" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">
+              {{ link.title }}
+            </a>
+          </li>
+        {%- endfor -%}
       </ul>
     </div>
 
