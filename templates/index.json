@@ -46,11 +46,43 @@
               "my-planet-antibacterial-all-purpose-surface-cleaner-1000ml"
             ]
           }
+        },
+        "product_tag_7dtmtD": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Прання",
+            "products": []
+          }
+        },
+        "product_tag_3bXpcR": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Миття посуду",
+            "products": []
+          }
+        },
+        "product_tag_U38f6t": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Спеціальні засоби",
+            "products": []
+          }
+        },
+        "product_tag_gAGUaD": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Посудомийна машина",
+            "products": []
+          }
         }
       },
       "block_order": [
         "product_tag_wtGGgd",
-        "product_tag_jYGEJC"
+        "product_tag_jYGEJC",
+        "product_tag_7dtmtD",
+        "product_tag_3bXpcR",
+        "product_tag_U38f6t",
+        "product_tag_gAGUaD"
       ],
       "settings": {
         "title": "Зараз в тренді"
