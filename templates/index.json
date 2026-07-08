@@ -42,8 +42,8 @@
           "settings": {
             "title": "Скло",
             "products": [
-              "my-planet-all-purpose-surface-cleaner-600ml",
-              "my-planet-antibacterial-all-purpose-surface-cleaner-1000ml"
+              "my-planet-crystal-ice-glass-cleaner-spray-1000ml",
+              "my-planet-vinegar-glass-cleaner-spray-1000ml"
             ]
           }
         },
@@ -51,28 +51,41 @@
           "type": "product_tag",
           "settings": {
             "title": "Прання",
-            "products": []
+            "products": [
+              "my-planet-white-fusion-plus-laundry-detergent-54-washes-2-484kg",
+              "my-planet-cold-fusion-plus-laundry-gel",
+              "my-planet-pure-fusion-plus-laundry-gel"
+            ]
           }
         },
         "product_tag_3bXpcR": {
           "type": "product_tag",
           "settings": {
             "title": "Миття посуду",
-            "products": []
+            "products": [
+              "my-planet-blue-hygiene-dishwashing-gel",
+              "my-planet-perle-bio-plus-dishwashing-gel",
+              "my-planet-platinum-plus-enzyme-dishwashing-gel"
+            ]
           }
         },
         "product_tag_U38f6t": {
           "type": "product_tag",
           "settings": {
             "title": "Спеціальні засоби",
-            "products": []
+            "products": [
+              "my-planet-fruit-and-vegetable-wash-fragrance-free-450ml"
+            ]
           }
         },
         "product_tag_gAGUaD": {
           "type": "product_tag",
           "settings": {
             "title": "Посудомийна машина",
-            "products": []
+            "products": [
+              "my-planet-rinse-and-shine-dishwasher-rinse-aid-100-cycles-400ml",
+              "my-planet-autodishwash-dishwasher-gel-22-cycles-450ml"
+            ]
           }
         }
       },
