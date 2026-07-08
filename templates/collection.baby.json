@@ -1,0 +1,21 @@
+{
+  "layout": "theme.mp",
+  "sections": {
+    "mp-collection-hero-b": {
+      "type": "mp-collection-hero-b",
+      "settings": {
+
+      }
+    },
+    "mp-collection-grid-b": {
+      "type": "mp-collection-grid-b",
+      "settings": {
+
+      }
+    }
+  },
+  "order": [
+    "mp-collection-hero-b",
+    "mp-collection-grid-b"
+  ]
+}
