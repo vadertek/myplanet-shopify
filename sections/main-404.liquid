@@ -1,23 +1,54 @@
-<style type="text/css">
-  .template-404 .title + * {
-    margin-top: 1rem;
-  }
+<!-- 404 Section -->
+<section id="mp-404-{{ section.id }}" class="mx-auto max-w-360 bg-white px-4 py-10 md:px-8 md:py-20">
+  <div class="mx-auto flex max-w-155 flex-col items-center gap-6 rounded-2xl border border-[#C0D7ED] px-4 py-10 text-center md:gap-8 md:px-16 md:py-16">
+    <div class="flex flex-col gap-2 md:gap-4">
+      <span class="font-montserrat-bold text-[64px] leading-none font-bold text-main-blue md:text-[96px]">{{ section.settings.error_code }}</span>
+      <h1 class="font-montserrat-bold text-[22px] leading-tight font-bold text-dark-blue md:text-[32px]">{{ section.settings.title }}</h1>
+      <p class="font-montserrat-reg text-[14px] leading-tight text-main-blue/70 md:text-[16px]">{{ section.settings.description }}</p>
+    </div>
 
-  @media screen and (min-width: 750px) {
-    .template-404 .title + * {
-      margin-top: 2rem;
+    <a
+      href="{{ section.settings.button_link | default: routes.root_url }}"
+      class="mt-2 inline-flex min-h-12 items-center justify-center rounded-[10px] bg-main-blue px-8 text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:bg-dark-blue focus-visible:bg-dark-blue md:rounded-[14px] md:px-10 md:text-[14px]"
+    >
+      {{ section.settings.button_text }}
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP 404",
+  "settings": [
+    {
+      "type": "text",
+      "id": "error_code",
+      "label": "Error code",
+      "default": "404"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Сторінку не знайдено"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "На жаль, ми не змогли знайти сторінку, яку ви шукаєте. Можливо, вона була видалена або адреса вказана з помилкою."
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "На головну"
     }
-  }
-</style>
-
-<div class="template-404 page-width page-margin center">
-  <p>
-    {{ 'templates.404.subtext' | t }}
-  </p>
-  <h1 class="title">
-    {{ 'templates.404.title' | t }}
-  </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="button">
-    {{ 'general.continue_shopping' | t }}
-  </a>
-</div>
+  ]
+}
+{% endschema %}
