@@ -61,14 +61,21 @@
           "type": "product_tag",
           "settings": {
             "title": "Прання",
-            "products": []
+            "products": [
+              "my-planet-white-fusion-plus-laundry-detergent-54-washes-2-484kg",
+              "my-planet-cold-fusion-plus-laundry-gel",
+              "my-planet-pure-fusion-plus-laundry-gel"
+            ]
           }
         },
         "product_tag_UmQRFL": {
           "type": "product_tag",
           "settings": {
             "title": "Скло",
-            "products": []
+            "products": [
+              "my-planet-crystal-ice-glass-cleaner-spray-1000ml",
+              "my-planet-vinegar-glass-cleaner-spray-1000ml"
+            ]
           }
         },
         "product_tag_cBjAeY": {
