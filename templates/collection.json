@@ -93,14 +93,19 @@
           "type": "product_tag",
           "settings": {
             "title": "Спеціальні засоби",
-            "products": []
+            "products": [
+              "my-planet-fruit-and-vegetable-wash-fragrance-free-450ml"
+            ]
           }
         },
         "product_tag_fy433V": {
           "type": "product_tag",
           "settings": {
             "title": "Посудомийна машина",
-            "products": []
+            "products": [
+              "my-planet-rinse-and-shine-dishwasher-rinse-aid-100-cycles-400ml",
+              "my-planet-autodishwash-dishwasher-gel-22-cycles-450ml"
+            ]
           }
         }
       },
