@@ -6,7 +6,7 @@
           {%- for block in section.blocks -%}
             <button
               id="collection-tag-button-{{ section.id }}-{{ block.id }}"
-              class="min-h-6.5 shrink-0 cursor-pointer rounded-full px-3.5 py-1.5 font-montserrat-bold text-[12px] leading-none font-bold transition hover:bg-main-blue hover:text-white focus-visible:bg-main-blue focus-visible:text-white md:min-h-8.5 md:px-4 md:py-2 md:text-[14px]{% if forloop.first %} bg-main-blue text-white{% else %} bg-[#C0D7ED]/30 text-main-blue{% endif %}"
+              class="min-h-6.5 shrink-0 cursor-pointer rounded-full px-3.5 py-1.5 font-montserrat-bold text-[12px] leading-none font-bold transition hover:bg-[#1EBECA] hover:text-white focus-visible:bg-[#1EBECA] focus-visible:text-white md:min-h-8.5 md:px-4 md:py-2 md:text-[14px]{% if forloop.first %} bg-[#1EBECA] text-white{% else %} bg-[#C0D7ED]/30 text-[#1EBECA]{% endif %}"
               type="button"
               aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
               {{ block.shopify_attributes }}
@@ -41,7 +41,7 @@
 
                   <div class="flex flex-1 flex-col items-stretch md:items-start">
                     <a href="{{ product.url }}">
-                      <h3 class="font-montserrat-bold text-[13px] leading-[1.18] font-bold text-dark-blue transition hover:text-main-blue md:min-h-15 md:max-w-75 md:text-[16px]">
+                      <h3 class="font-montserrat-bold text-[13px] leading-[1.18] font-bold text-[#147E86] transition hover:text-[] md:min-h-15 md:max-w-75 md:text-[16px]">
                         {{ product.title }}
                       </h3>
                     </a>
@@ -49,7 +49,7 @@
                     <div class="mt-4 hidden min-h-5 flex-wrap gap-2 md:flex">
                       {%- unless product.has_only_default_variant -%}
                         {%- for variant in product.variants limit: 4 -%}
-                          <span class="rounded-lg bg-[#C0D7ED]/20 px-2 py-0.5 font-montserrat-bold text-[16px] leading-none font-bold text-main-blue/70">
+                          <span class="rounded-lg bg-[#1EBECA]/20 px-2 py-0.5 font-montserrat-bold text-[16px] leading-none font-bold text-[#147E86]">
                             {{ variant.title }}
                           </span>
                         {%- endfor -%}
@@ -57,7 +57,7 @@
                     </div>
 
                     <a
-                      class="mt-4 flex min-h-9 w-full items-center justify-center rounded-[10px] border border-main-blue text-center font-montserrat-bold text-[12px] leading-none font-bold text-main-blue transition hover:-translate-y-0.5 hover:border-dark-blue hover:bg-dark-blue hover:text-white hover:shadow-[0_14px_28px_rgba(0,65,114,0.2)] focus-visible:-translate-y-0.5 focus-visible:border-dark-blue focus-visible:bg-dark-blue focus-visible:text-white md:min-h-13 md:rounded-[14px] md:text-[14px]"
+                      class="mt-4 flex min-h-9 w-full items-center justify-center rounded-[10px] border border-[#1EBECA] text-center font-montserrat-bold text-[12px] leading-none font-bold text-[#1EBECA] transition hover:-translate-y-0.5 hover:border-[#1EBECA] hover:bg-[#1EBECA] hover:text-white hover:shadow-[0_14px_28px_rgba(0,65,114,0.2)] focus-visible:-translate-y-0.5 focus-visible:border-dark-blue focus-visible:bg-dark-blue focus-visible:text-white md:min-h-13 md:rounded-[14px] md:text-[14px]"
                       href="{{ product.url }}"
                     >
                       <span class="hidden md:inline">Детальніше</span>
@@ -68,12 +68,12 @@
               {%- endfor -%}
             </div>
           {%- else -%}
-            <p class="pt-8 font-montserrat-bold text-[16px] leading-tight font-bold text-main-blue">У цьому тегу поки немає продуктів.</p>
+            <p class="pt-8 font-montserrat-bold text-[16px] leading-tight font-bold text-[#1EBECA]">У цьому тегу поки немає продуктів.</p>
           {%- endif -%}
         </div>
       {%- endfor -%}
     {%- else -%}
-      <p class="font-montserrat-bold text-[16px] leading-tight font-bold text-main-blue">Додайте тег і продукти в блоках секції.</p>
+      <p class="font-montserrat-bold text-[16px] leading-tight font-bold text-[#1EBECA]">Додайте тег і продукти в блоках секції.</p>
     {%- endif -%}
   </div>
 </section>
