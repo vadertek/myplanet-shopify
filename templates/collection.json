@@ -45,11 +45,51 @@
               "my-planet-ocean-fresh-all-purpose-surface-cleaner-1000ml"
             ]
           }
+        },
+        "product_tag_P7FBYp": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Прання",
+            "products": []
+          }
+        },
+        "product_tag_UmQRFL": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Скло",
+            "products": []
+          }
+        },
+        "product_tag_cBjAeY": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Миття посуду",
+            "products": []
+          }
+        },
+        "product_tag_qKntWh": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Спеціальні засоби",
+            "products": []
+          }
+        },
+        "product_tag_fy433V": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Посудомийна машина",
+            "products": []
+          }
         }
       },
       "block_order": [
         "product_tag_then7t",
-        "product_tag_yTaHhF"
+        "product_tag_yTaHhF",
+        "product_tag_P7FBYp",
+        "product_tag_UmQRFL",
+        "product_tag_cBjAeY",
+        "product_tag_qKntWh",
+        "product_tag_fy433V"
       ],
       "settings": {}
     }
