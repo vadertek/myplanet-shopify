@@ -20,6 +20,59 @@
     },
     "mp-collection-grid-b": {
       "type": "mp-collection-grid-b",
+      "blocks": {
+        "product_tag_7VPJ7z": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Всі",
+            "products": [
+              "baby-planet-antibacterial-surface-spray-325ml",
+              "baby-planet-baby-dish-and-toy-wash-gel-425ml",
+              "baby-planet-sweet-dreams-cotton-laundry-gel-28-washes-1512ml",
+              "baby-planet-baby-powder-laundry-gel",
+              "baby-planet-kids-and-toddlers-laundry-gel-38-washes-2204ml",
+              "baby-planet-baby-fabric-softener-40-washes-900ml"
+            ]
+          }
+        },
+        "product_tag_BmFqei": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Засоби для дитячих кімнат",
+            "products": [
+              "baby-planet-all-purpose-surface-cleaner-1000ml",
+              "baby-planet-antibacterial-surface-spray-325ml"
+            ]
+          }
+        },
+        "product_tag_tkUfzq": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Засоби для прання",
+            "products": [
+              "baby-planet-baby-fabric-softener-40-washes-900ml",
+              "baby-planet-baby-powder-laundry-gel",
+              "baby-planet-kids-and-toddlers-laundry-gel-38-washes-2204ml",
+              "baby-planet-sweet-dreams-cotton-laundry-gel-28-washes-1512ml"
+            ]
+          }
+        },
+        "product_tag_L8WTzA": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Засоби для миття посуду",
+            "products": [
+              "baby-planet-baby-dish-and-toy-wash-gel-425ml"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "product_tag_7VPJ7z",
+        "product_tag_BmFqei",
+        "product_tag_tkUfzq",
+        "product_tag_L8WTzA"
+      ],
       "settings": {}
     }
   },
