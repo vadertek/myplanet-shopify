@@ -9,6 +9,8 @@
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {% else %}
+      <link rel="icon" type="image/png" href="{{ 'favicon.ico' |  asset_url }}">
     {%- endif -%}
 
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
@@ -42,7 +44,6 @@
 
     <!-- Include custom scripts -->
     <script src="{{ 'swiper.min.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'script.js' | asset_url }}" defer="defer"></script>
 
     {{ content_for_header }}
     <script>

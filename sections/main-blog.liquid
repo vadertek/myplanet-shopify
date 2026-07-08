@@ -1,152 +1,161 @@
-{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+<section class="mx-auto max-w-360 bg-white px-4 py-8 md:px-8 md:py-14">
+  <div class="mx-auto max-w-340">
+    <h1 class="font-montserrat-bold text-[24px] leading-none font-bold text-main-blue md:text-[36px]">{{ blog.title }}</h1>
 
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
-{%- paginate blog.articles by 6 -%}
-  <div class="main-blog page-width section-{{ section.id }}-padding">
-    <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ blog.title | escape }}
-    </h1>
-
-    <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
-      {%- for article in blog.articles -%}
-        <div
-          class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-            style="--animation-order: {{ forloop.index }};"
-          {% endif %}
+    {%- if blog.all_tags.size > 0 -%}
+      <div class="mt-6 flex flex-wrap gap-3 md:mt-8">
+        <a
+          href="{{ blog.url }}"
+          class="min-h-6.5 shrink-0 rounded-full px-3.5 py-1.5 font-montserrat-bold text-[12px] leading-none font-bold transition hover:bg-main-blue hover:text-white md:min-h-8.5 md:px-4 md:py-2 md:text-[14px]{% if current_tags.size == 0 %} bg-main-blue text-white{% else %} bg-[#C0D7ED]/30 text-main-blue{% endif %}"
         >
-          {%- render 'article-card',
-            article: article,
-            media_height: section.settings.image_height,
-            media_aspect_ratio: article.image.aspect_ratio,
-            show_image: section.settings.show_image,
-            show_date: section.settings.show_date,
-            show_author: section.settings.show_author,
-            show_excerpt: true
-          -%}
-        </div>
-      {%- endfor -%}
-    </div>
+          Усі
+        </a>
 
-    {%- if paginate.pages > 1 -%}
-      {%- render 'pagination', paginate: paginate -%}
+        {%- for tag in blog.all_tags -%}
+          <a
+            href="{{ blog.url }}/tagged/{{ tag | handle }}"
+            class="min-h-6.5 shrink-0 rounded-full px-3.5 py-1.5 font-montserrat-bold text-[12px] leading-none font-bold transition hover:bg-main-blue hover:text-white md:min-h-8.5 md:px-4 md:py-2 md:text-[14px]{% if current_tags contains tag %} bg-main-blue text-white{% else %} bg-[#C0D7ED]/30 text-main-blue{% endif %}"
+          >
+            {{ tag }}
+          </a>
+        {%- endfor -%}
+      </div>
     {%- endif -%}
+
+    {%- paginate blog.articles by section.settings.articles_per_page -%}
+      {%- if blog.articles.size > 0 -%}
+        <div class="mt-8 grid grid-cols-1 gap-10 md:mt-10 md:grid-cols-3 md:gap-8">
+          {%- for article in blog.articles -%}
+            <article class="flex flex-col">
+              <a href="{{ article.url }}" class="block overflow-hidden rounded-2xl">
+                {%- if article.image -%}
+                  <img
+                    class="aspect-[1.43] w-full object-cover transition duration-300 hover:scale-105"
+                    src="{{ article.image | image_url: width: 900 }}"
+                    alt="{{ article.image.alt | escape }}"
+                    loading="lazy"
+                  >
+                {%- else -%}
+                  <img class="aspect-[1.43] w-full object-cover" src="{{ 'slide.webp' | asset_url }}" alt="">
+                {%- endif -%}
+              </a>
+
+              <div class="mt-4 flex flex-wrap items-center gap-2">
+                {%- if article.tags.size > 0 -%}
+                  <span class="w-fit rounded-2xl bg-[#C0D7ED4D] px-2 py-1 font-montserrat-bold text-[12px] leading-none font-bold text-dark-blue">
+                    {{ article.tags.first }}
+                  </span>
+                {%- endif -%}
+
+                {%- if section.settings.show_date -%}
+                  <span class="font-montserrat-reg text-[12px] leading-none text-main-blue/70">{{ article.published_at | date: '%d.%m.%Y' }}</span>
+                {%- endif -%}
+
+                {%- if section.settings.show_author -%}
+                  <span class="font-montserrat-reg text-[12px] leading-none text-main-blue/70">{{ article.author }}</span>
+                {%- endif -%}
+              </div>
+
+              <a href="{{ article.url }}">
+                <h2 class="mt-3 font-montserrat-bold text-[18px] leading-[1.2] font-bold text-dark-blue transition hover:text-main-blue">
+                  {{ article.title }}
+                </h2>
+              </a>
+
+              <p class="mt-2 line-clamp-2 font-montserrat-reg text-[14px] leading-tight text-main-blue/70">
+                {{ article.excerpt_or_content | strip_html | truncatewords: 24 }}
+              </p>
+
+              <a
+                href="{{ article.url }}"
+                class="mt-4 inline-flex w-fit items-center gap-1 font-montserrat-bold text-[12px] font-bold text-main-blue transition hover:text-dark-blue"
+              >
+                Читати далі
+                <span aria-hidden="true">→</span>
+              </a>
+            </article>
+          {%- endfor -%}
+        </div>
+
+        {%- if paginate.pages > 1 -%}
+          <nav class="mt-10 flex items-center justify-center gap-2 md:mt-14" aria-label="Пагінація">
+            {%- if paginate.previous -%}
+              <a
+                href="{{ paginate.previous.url }}"
+                class="grid h-10 w-10 place-items-center rounded-full border border-[#C0D7ED] text-main-blue transition hover:border-main-blue hover:bg-main-blue hover:text-white"
+                aria-label="Попередня сторінка"
+                >‹</a
+              >
+            {%- endif -%}
+
+            {%- for part in paginate.parts -%}
+              {%- if part.is_link -%}
+                <a
+                  href="{{ part.url }}"
+                  class="grid h-10 w-10 place-items-center rounded-full border border-[#C0D7ED] font-montserrat-bold text-[14px] font-bold text-main-blue transition hover:border-main-blue hover:bg-main-blue hover:text-white"
+                >
+                  {{ part.title }}
+                </a>
+              {%- else -%}
+                <span class="grid h-10 w-10 place-items-center rounded-full font-montserrat-bold text-[14px] font-bold {% if part.title == paginate.current_page %}bg-main-blue text-white{% else %}text-main-blue{% endif %}">
+                  {{ part.title }}
+                </span>
+              {%- endif -%}
+            {%- endfor -%}
+
+            {%- if paginate.next -%}
+              <a
+                href="{{ paginate.next.url }}"
+                class="grid h-10 w-10 place-items-center rounded-full border border-[#C0D7ED] text-main-blue transition hover:border-main-blue hover:bg-main-blue hover:text-white"
+                aria-label="Наступна сторінка"
+                >›</a
+              >
+            {%- endif -%}
+          </nav>
+        {%- endif -%}
+      {%- else -%}
+        <div class="mx-auto mt-8 flex max-w-155 flex-col items-center gap-6 rounded-2xl border border-[#C0D7ED] px-4 py-10 text-center md:mt-10 md:gap-8 md:px-16 md:py-16">
+          <div class="flex flex-col gap-2 md:gap-4">
+            <h2 class="font-montserrat-bold text-[22px] leading-tight font-bold text-dark-blue md:text-[32px]">Статей поки немає</h2>
+            <p class="font-montserrat-reg text-[14px] leading-tight text-main-blue/70 md:text-[16px]">Скоро тут з'являться корисні матеріали про догляд за домом.</p>
+          </div>
+
+          <a
+            href="{{ routes.root_url }}"
+            class="mt-2 inline-flex min-h-12 items-center justify-center rounded-[10px] bg-main-blue px-8 text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:bg-dark-blue focus-visible:bg-dark-blue md:rounded-[14px] md:px-10 md:text-[14px]"
+          >
+            На головну
+          </a>
+        </div>
+      {%- endif -%}
+    {%- endpaginate -%}
   </div>
-{%- endpaginate -%}
+</section>
 
 {% schema %}
 {
-  "name": "t:sections.main-blog.name",
-  "tag": "section",
-  "class": "section",
+  "name": "MP Blog",
   "settings": [
-    {
-      "type": "header",
-      "content": "t:sections.main-blog.settings.header.content"
-    },
-    {
-      "type": "select",
-      "id": "layout",
-      "options": [
-        {
-          "value": "grid",
-          "label": "t:sections.main-blog.settings.layout.options__1.label"
-        },
-        {
-          "value": "collage",
-          "label": "t:sections.main-blog.settings.layout.options__2.label"
-        }
-      ],
-      "default": "collage",
-      "label": "t:sections.main-blog.settings.layout.label",
-      "info": "t:sections.main-blog.settings.layout.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_image",
-      "default": true,
-      "label": "t:sections.main-blog.settings.show_image.label"
-    },
-    {
-      "type": "select",
-      "id": "image_height",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:sections.main-blog.settings.image_height.options__1.label"
-        },
-        {
-          "value": "small",
-          "label": "t:sections.main-blog.settings.image_height.options__2.label"
-        },
-        {
-          "value": "medium",
-          "label": "t:sections.main-blog.settings.image_height.options__3.label"
-        },
-        {
-          "value": "large",
-          "label": "t:sections.main-blog.settings.image_height.options__4.label"
-        }
-      ],
-      "default": "medium",
-      "label": "t:sections.main-blog.settings.image_height.label",
-      "info": "t:sections.main-blog.settings.image_height.info"
-    },
     {
       "type": "checkbox",
       "id": "show_date",
-      "default": true,
-      "label": "t:sections.main-blog.settings.show_date.label"
+      "label": "Show date",
+      "default": true
     },
     {
       "type": "checkbox",
       "id": "show_author",
-      "default": false,
-      "label": "t:sections.main-blog.settings.show_author.label"
-    },
-    {
-      "type": "paragraph",
-      "content": "t:sections.main-blog.settings.paragraph.content"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "label": "Show author",
+      "default": false
     },
     {
       "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
+      "id": "articles_per_page",
+      "label": "Articles per page",
+      "min": 3,
+      "max": 24,
+      "step": 3,
+      "default": 9
     }
   ]
 }

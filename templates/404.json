@@ -1,4 +1,5 @@
 {
+  "layout": "theme.mp",
   "sections": {
     "main": {
       "type": "main-404"
