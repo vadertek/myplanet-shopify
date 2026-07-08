@@ -120,7 +120,7 @@
             "heading": "My Planet Bundles",
             "text": "Все необхідне для чистоти та комфорту вашого дому в одному наборі.",
             "button_label": "Обрати набір",
-            "button_link": "",
+            "button_link": "shopify://collections/frontpage",
             "color": "#004172"
           }
         },
@@ -130,7 +130,7 @@
             "heading": "Baby Planet Bundles",
             "text": "Ніжна турбота для малюка та спокій для батьків — у готових комплектах Baby Planet.",
             "button_label": "Обрати набір",
-            "button_link": "",
+            "button_link": "shopify://collections/test-2",
             "image": "shopify://shop_images/Group_1321316783.png",
             "color": "#5fb7bd"
           }
@@ -271,7 +271,7 @@
         "hero_tag": "4.9/5 · 12 000+ покупців",
         "hero_title": "ПРОДУКТ 2026 РОКУ!",
         "hero_description": "ColdFusion+ ефективно видаляє складні плями від низьких температур",
-        "hero_button_link": "",
+        "hero_button_link": "shopify://products/my-planet-cold-fusion-plus-laundry-gel",
         "hero_button_text": "Замовити зараз"
       }
     },
