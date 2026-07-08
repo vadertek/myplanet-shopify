@@ -1,6 +1,6 @@
 <!-- Topbar -->
 <div class="hidden h-8 w-full items-center justify-center {% if template.suffix == 'baby' %} bg-[#1EBECA] {% else %} bg-main-blue {% endif %} md:flex">
-  <p class="font-montserrat-reg text-sm text-white">Безкоштовна доставка від 1000 грн</p>
+  <p class="font-montserrat-reg text-sm text-white">{{ section.settings.top_bar }}</p>
 </div>
 
 <!-- Header -->
@@ -115,3 +115,17 @@
     });
   })();
 </script>
+
+{% schema %}
+{
+  "name": "MP - Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "top_bar",
+      "label": "Top Bar Text",
+      "default": "Безкоштовна доставка від 1000 грн"
+    }
+  ]
+}
+{% endschema %}

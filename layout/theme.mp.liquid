@@ -73,6 +73,8 @@
 
     {% comment %} Connecting compiled tailwindcss {% endcomment %}
     {{ 'style.css' | asset_url | stylesheet_tag }}
+
+    {% render 'mp-schema' %}
   </head>
 
   <body class="relative">

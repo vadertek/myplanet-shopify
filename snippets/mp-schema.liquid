@@ -1,0 +1,60 @@
+<!-- Organization Schema -->
+{% unless template.name == 'product' or template.name == 'collection' %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://myplanet.in.ua/#organization",
+      "name": "MyPlanet Ukraine",
+      "url": "https://myplanet.in.ua/",
+      "logo": "https://assets.cdn.filesafe.space/SuQrETGE4W8KsEHrIYT9/media/69c3c52d57fb3b9657f48257.svg",
+      "description": "My Planet - грецький бренд екологічних засобів для прибирання та догляду за домом. Широкий асортимент лінійок охоплює засоби для прання Fusion+, рідини для миття посуду, універсальні очисники, а також засоби для догляду за тканинами та миття фруктів і овочів. Кожен продукт - ефективний, гіпоалергенний і безпечний для здоров'я та природи.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Sichovych Striltsiv Street 4",
+        "addressLocality": "Brovary",
+        "addressRegion": "Kyiv Region",
+        "postalCode": "07400",
+        "addressCountry": {
+          "@type": "Country",
+          "name": "UA"
+        }
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+380977628140",
+          "email": "info@myplanet.in.ua",
+          "areaServed": "UA",
+          "availableLanguage": "uk"
+        }
+      ]
+    }
+  </script>
+{% endunless %}
+
+<!-- Website -->
+{% if template.name == 'index' or template.suffix == 'where-buy' %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://myplanet.in.ua/#website",
+      "url": "https://myplanet.in.ua/",
+      "name": "MyPlanet Ukraine",
+      "alternateName": "Май Планет Україна",
+      "description": "MyPlanet Ukraine - офіційний сайт екологічних засобів My Planet для прибирання, прання, миття посуду, догляду за тканинами та миття фруктів і овочів.",
+      "inLanguage": "uk-UA",
+      "publisher": {
+        "@type": "Thing",
+        "@id": "https://myplanet.in.ua/#organization"
+      }
+    }
+  </script>
+{% endif %}
+
+<!-- FAQ -->
+{% if template.suffix == 'about-us' or template.suffix == 'where-buy' %}
+  {% render 'mp-faq-schema' %}
+{% endif %}

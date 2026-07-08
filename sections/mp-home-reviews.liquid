@@ -36,11 +36,11 @@
           {%- assign review_product = block.settings.product -%}
 
           <article
-            class="swiper-slide flex min-h-75 flex-col rounded-2xl border border-[#82B727] bg-white px-5 py-5 md:min-h-75 md:px-7 md:py-6"
+            class="swiper-slide flex min-h-75 flex-col rounded-2xl border border-[#82B727] bg-white px-4 py-4 md:min-h-75"
             {{ block.shopify_attributes }}
           >
             <div class="flex items-start justify-between gap-4 font-montserrat-bold text-[16px] leading-none font-bold text-[#82B727]">
-              <p class="text-[#325037]/70">
+              <p class="text-[#325037]/70 text-sm">
                 {{ block.settings.author | escape }}
                 {%- if block.settings.badge != blank -%}
                   <span class="text-[#82B727]"> · {{ block.settings.badge | escape }}</span>
@@ -48,7 +48,7 @@
               </p>
 
               {%- if block.settings.date != blank -%}
-                <time datetime="{{ block.settings.date | date: '%Y-%m-%d' }}">
+                <time class="text-sm" datetime="{{ block.settings.date | date: '%Y-%m-%d' }}">
                   {{ block.settings.date | date: '%d.%m.%Y' }}
                 </time>
               {%- endif -%}
