@@ -13,7 +13,7 @@
     "mp-product-hero": {
       "type": "mp-product-hero",
       "settings": {
-
+        "rating": "4.9 (178)"
       }
     },
     "mp-home-baby": {
@@ -26,7 +26,7 @@
         "hero_button_text": "Переглянути каталог"
       }
     },
-        "mp-home-treasures": {
+    "mp-home-treasures": {
       "type": "mp-home-treasures",
       "blocks": {
         "item_MKgyMM": {
@@ -63,7 +63,7 @@
         "title": "Наші цінності"
       }
     },
-        "mp-home-reviews": {
+    "mp-home-reviews": {
       "type": "mp-home-reviews",
       "blocks": {
         "review_7Dz6xB": {
@@ -187,7 +187,7 @@
     "mp-home-community": {
       "type": "mp-home-community",
       "settings": {
-        "title": "Станьте частиною спільноти My Planet\n#lifewithmyplanet"
+        "title": "Станьте частиною спільноти My Planet\n#myplanet"
       }
     },
     "mp_faq": {
