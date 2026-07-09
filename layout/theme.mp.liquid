@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="js" lang="{{ request.locale.iso_code }}">
+<html class="js" lang="{{ request.locale.iso_code }}" data-cart-type="{{ settings.cart_type }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -84,6 +84,12 @@
       {{ content_for_layout }}
     </main>
 
+    {%- if settings.cart_type == 'drawer' -%}
+      {% section 'mp-cart-drawer' %}
+    {%- elsif settings.cart_type == 'notification' -%}
+      {% render 'mp-cart-toast' %}
+    {%- endif -%}
+
     {% section 'footer' %}
 
     <script>
@@ -135,10 +141,10 @@
       {%- if settings.predictive_search_enabled -%}
         <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
       {%- endif -%}
-
-      {%- if settings.cart_type == 'drawer' -%}
-        <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
-      {%- endif -%}
     {% endcomment %}
+
+    {%- if settings.cart_type == 'drawer' or settings.cart_type == 'notification' -%}
+      <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
   </body>
 </html>

@@ -31,7 +31,7 @@
     <div class="flex items-center gap-5 md:space-x-4">
       {% render 'mp-header-search' %}
 
-      <a href="{{ routes.cart_url }}">
+      <a href="{{ routes.cart_url }}" data-cherie-cart-open aria-haspopup="dialog">
         <img loading="eager" class="h-5 md:h-4" src="{{ 'cart-icon.svg' | asset_url }}" alt="Кошик">
       </a>
       <button

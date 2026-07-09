@@ -1,0 +1,213 @@
+<div
+  id="cherie-cart-drawer"
+  class="pointer-events-none fixed inset-0 z-[999] opacity-0 transition-opacity duration-300"
+  aria-hidden="true"
+>
+  <button
+    type="button"
+    class="absolute inset-0 h-full w-full cursor-default bg-dark-blue/55"
+    data-cherie-cart-close
+    aria-label="{{ 'accessibility.close' | t }}"
+  ></button>
+
+  <aside
+    class="absolute top-0 right-0 flex h-full w-full max-w-[420px] translate-x-full flex-col bg-white transition duration-300 md:max-w-[460px]"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cherie-cart-drawer-title"
+  >
+    <div class="flex items-center justify-between border-b border-[#C0D7ED] px-4 py-4 md:px-6">
+      <div>
+        <p id="cherie-cart-drawer-title" class="font-montserrat-bold text-[22px] leading-none font-bold text-main-blue">
+          Кошик
+        </p>
+        <p class="mt-1 font-montserrat-reg text-[12px] leading-none text-main-blue/70">
+          <span data-cherie-cart-count>{{ cart.item_count }}</span>
+          товар(ів)
+        </p>
+      </div>
+
+      <button
+        type="button"
+        class="grid h-9 w-9 cursor-pointer place-items-center rounded-full bg-[#C0D7ED]/20 font-montserrat-bold text-[24px] leading-none text-main-blue transition hover:bg-[#C0D7ED]/35"
+        data-cherie-cart-close
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        &times;
+      </button>
+    </div>
+
+    <div id="cherie-drawer-items" class="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4 md:px-6">
+      {% if cart.item_count == 0 %}
+        <div class="flex flex-1 flex-col items-start justify-center rounded-2xl border border-[#C0D7ED] px-5 py-8">
+          <p class="font-montserrat-bold text-[22px] leading-tight font-bold text-main-blue">Кошик порожній</p>
+          <a
+            class="mt-5 inline-flex min-h-12 items-center justify-center rounded-[10px] bg-main-blue px-6 text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:bg-dark-blue focus-visible:bg-dark-blue md:rounded-[14px] md:text-[14px]"
+            href="{{ routes.all_products_collection_url }}"
+          >
+            Продовжити покупки
+          </a>
+        </div>
+      {% else %}
+        {% for item in cart.items %}
+          <article
+            class="cherie-line relative grid grid-cols-[80px_minmax(0,1fr)_28px] gap-x-3 rounded-2xl border border-[#C0D7ED] bg-white p-3"
+            data-cart-item
+            data-key="{{ item.key | escape }}"
+          >
+            <a href="{{ item.url }}" class="row-span-3 flex h-20 w-20 items-center justify-center rounded-lg bg-[#C0D7ED]/20">
+              {% if item.image %}
+                <img
+                  src="{{ item.image | image_url: width: 200 }}"
+                  alt="{{ item.image.alt | default: item.product.title | escape }}"
+                  class="max-h-full max-w-full object-contain"
+                  loading="lazy"
+                >
+              {% else %}
+                <img
+                  src="{{ 'product.webp' | asset_url }}"
+                  alt="{{ item.product.title | escape }}"
+                  class="max-h-full max-w-full object-contain"
+                  loading="lazy"
+                >
+              {% endif %}
+            </a>
+
+            <div class="min-w-0">
+              <a href="{{ item.url }}" class="line-clamp-2 font-montserrat-bold text-[14px] leading-tight font-bold text-dark-blue transition hover:text-main-blue">
+                {{ item.product.title }}
+              </a>
+
+              {% unless item.product.has_only_default_variant %}
+                <p class="mt-1 truncate font-montserrat-reg text-[12px] leading-tight text-main-blue/70">
+                  {{ item.variant.title }}
+                </p>
+              {% endunless %}
+            </div>
+
+            <button
+              type="button"
+              class="mp-cart-remove grid h-7 w-7 cursor-pointer place-items-center justify-self-end text-main-blue transition hover:text-dark-blue"
+              data-cherie-cart-remove
+              data-key="{{ item.key | escape }}"
+              aria-label="Видалити товар"
+            >
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 4h6M4 7h16M18 7l-.7 12.1A2 2 0 0 1 15.3 21H8.7a2 2 0 0 1-2-1.9L6 7M10 11v6M14 11v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <div class="col-start-2 col-end-4 mt-3 flex items-center justify-between gap-3">
+              <div class="flex h-8 min-w-22 items-center justify-between rounded-full border border-main-blue px-3 font-montserrat-bold text-[12px] leading-none font-bold text-main-blue">
+                <button
+                  type="button"
+                  class="cursor-pointer px-1{% if item.quantity <= 1 %} text-[#C0D7ED]{% endif %}"
+                  data-cherie-qty-dec
+                  data-key="{{ item.key | escape }}"
+                  aria-label="Зменшити кількість"
+                >
+                  -
+                </button>
+                <input
+                  class="w-8 appearance-none bg-transparent text-center outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                  type="number"
+                  min="1"
+                  value="{{ item.quantity }}"
+                  inputmode="numeric"
+                  data-cherie-qty-input
+                  data-key="{{ item.key | escape }}"
+                  aria-label="Кількість"
+                >
+                <button
+                  type="button"
+                  class="cursor-pointer px-1"
+                  data-cherie-qty-inc
+                  data-key="{{ item.key | escape }}"
+                  aria-label="Збільшити кількість"
+                >
+                  +
+                </button>
+              </div>
+
+              <div class="text-right">
+                <p class="font-montserrat-bold text-[16px] leading-none font-bold text-main-blue">
+                  {{ item.final_line_price | money_without_currency | replace: ',00', '' | replace: '.00', '' }} ₴
+                </p>
+                {% if item.original_line_price > item.final_line_price %}
+                  <p class="mt-1 font-montserrat-bold text-[12px] leading-none font-bold text-[#C0D7ED] line-through">
+                    {{ item.original_line_price | money_without_currency | replace: ',00', '' | replace: '.00', '' }} ₴
+                  </p>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="cherie-line-loader pointer-events-none absolute inset-0 hidden items-center justify-center rounded-2xl bg-white/70">
+              <span class="cherie-spinner" aria-hidden="true"></span>
+            </div>
+          </article>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="border-t border-[#C0D7ED] px-4 py-4 md:px-6">
+      <div class="mb-4 flex items-center justify-between gap-4">
+        <p class="font-montserrat-bold text-[18px] leading-none font-bold text-[#236591]">Разом:</p>
+        <p class="font-montserrat-bold text-[22px] leading-none font-bold text-[#236591]" data-cherie-cart-total>
+          {{ cart.total_price | money_without_currency | replace: ',00', '' | replace: '.00', '' }} ₴
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2">
+        <a
+          href="{{ routes.cart_url }}"
+          class="flex min-h-12 items-center justify-center rounded-[10px] border border-main-blue px-4 text-center font-montserrat-bold text-[12px] leading-none font-bold text-main-blue transition hover:bg-main-blue hover:text-white md:rounded-[14px] md:text-[14px]"
+        >
+          До кошика
+        </a>
+        <a
+          href="/checkout"
+          class="flex min-h-12 items-center justify-center rounded-[10px] bg-main-blue px-4 text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:bg-dark-blue focus-visible:bg-dark-blue md:rounded-[14px] md:text-[14px]"
+        >
+          Оформити
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div
+  id="cherie-cart-toast"
+  class="pointer-events-none fixed right-4 bottom-4 z-[1000] rounded-[10px] bg-main-blue px-4 py-3 font-montserrat-bold text-[12px] leading-none font-bold text-white opacity-0 transition-opacity duration-300"
+></div>
+
+<style>
+  #cherie-cart-drawer.is-open {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  #cherie-cart-drawer.is-open aside {
+    --tw-translate-x: 0;
+    translate: 0 0;
+    transform: translateX(0);
+  }
+
+  .is-loading .cherie-line-loader {
+    display: flex;
+  }
+
+  .cherie-spinner {
+    width: 28px;
+    height: 28px;
+    border: 3px solid rgba(192, 215, 237, 0.8);
+    border-top-color: #0080c7;
+    border-radius: 9999px;
+    animation: cherieSpin 0.7s linear infinite;
+  }
+
+  @keyframes cherieSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
