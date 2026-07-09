@@ -13,8 +13,10 @@
     "mp-prodinfo-hero": {
       "type": "mp-prodinfo-hero",
       "settings": {
+        "hero_image": "shopify://shop_images/Hero_Block.png",
+        "hero_image_mobile": "shopify://shop_images/Hero_Block_879a5cd0-841a-4d79-b715-5b7f287c8063.png",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та <br> дезінфекція без хлору",
+        "hero_title": "Чистота та  дезінфекція без хлору",
         "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
         "hero_button_link": "",
         "hero_button_text": "Замовити зараз"
@@ -26,34 +28,34 @@
         "slide_cnkrFR": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_b33a9a5d-2e6f-4614-b67c-c54dded37412.png",
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_96293bb1-dbc2-41bd-bffc-4280cd8bf637.png",
             "fallback_image": "use.webp",
             "title": "Без хлору",
             "text": "Комфортне використання без різкого запаху."
           }
         },
-        "slide_d4H7Wf": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2_9f1d1162-54d8-4fb7-9980-3886e686b7c6.png",
-            "fallback_image": "use.webp",
-            "title": "Очищує та дезінфікує",
-            "text": "Один засіб для щоденного догляду за домом."
-          }
-        },
         "slide_tyykRV": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-2.png",
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_3.png",
             "fallback_image": "use.webp",
             "title": "Для різних поверхонь",
             "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
           }
         },
+        "slide_d4H7Wf": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2_b448b66f-ce3a-4fff-973b-5792d8da004d.png",
+            "fallback_image": "use.webp",
+            "title": "Очищує та дезінфікує",
+            "text": "Один засіб для щоденного догляду за домом."
+          }
+        },
         "slide_wwGtcq": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-1_d1bd65ac-f4ac-464d-88b2-fea1b89a1d9c.png",
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_3-1.png",
             "fallback_image": "use.webp",
             "title": "Свіжий аромат апельсина",
             "text": "Дарує відчуття чистоти після кожного прибирання."
@@ -62,8 +64,8 @@
       },
       "block_order": [
         "slide_cnkrFR",
-        "slide_d4H7Wf",
         "slide_tyykRV",
+        "slide_d4H7Wf",
         "slide_wwGtcq"
       ],
       "settings": {
