@@ -119,6 +119,8 @@
         "icons_h9wWha"
       ],
       "settings": {
+        "hero_image": "shopify://shop_images/Hero_Block_4841a482-26b4-4b23-8977-97a7afe8f138.png",
+        "hero_image_mobile": "shopify://shop_images/Benefits_Block.png",
         "title": "Формула для щоденного використання"
       }
     },
