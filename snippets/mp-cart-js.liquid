@@ -45,6 +45,18 @@
         empty?.classList.remove('hidden');
       }
 
+      function syncHeaderCount(cart) {
+        const itemCount = Number(cart?.item_count || 0);
+
+        document.querySelectorAll('[data-cherie-cart-count]').forEach(function (node) {
+          node.textContent = itemCount;
+        });
+
+        document.querySelectorAll('[data-cherie-cart-count-badge]').forEach(function (node) {
+          node.classList.toggle('hidden', itemCount === 0);
+        });
+      }
+
       function removeRowByKey(key) {
         const rows = Array.from(itemsWrap.children);
         const row = rows.find(function (currentRow) {
@@ -122,6 +134,7 @@
 
       function applyCart(cart, removedKey) {
         if (removedKey) removeRowByKey(removedKey);
+        syncHeaderCount(cart);
 
         if (!cart || Number(cart.item_count || 0) === 0) {
           renderEmpty();

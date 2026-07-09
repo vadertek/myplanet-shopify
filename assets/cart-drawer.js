@@ -278,8 +278,14 @@ customElements.define('cart-drawer-items', CartDrawerItems);
   }
 
   function syncSummary(cart) {
+    const itemCount = Number(cart?.item_count || 0);
+
     document.querySelectorAll('[data-cherie-cart-count]').forEach((node) => {
-      node.textContent = cart?.item_count ?? 0;
+      node.textContent = itemCount;
+    });
+
+    document.querySelectorAll('[data-cherie-cart-count-badge]').forEach((node) => {
+      node.classList.toggle('hidden', itemCount === 0);
     });
 
     document.querySelectorAll('[data-cherie-cart-total]').forEach((node) => {
@@ -459,6 +465,10 @@ customElements.define('cart-drawer-items', CartDrawerItems);
         }
 
         if (cartType === 'notification') showCartToast();
+        if (cartType === 'notification') {
+          const cart = await fetchCart();
+          syncSummary(cart);
+        }
       } catch (error) {
         console.error(error);
         alert(error.message || 'Error');

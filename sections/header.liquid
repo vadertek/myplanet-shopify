@@ -31,8 +31,15 @@
     <div class="flex items-center gap-5 md:space-x-4">
       {% render 'mp-header-search' %}
 
-      <a href="{{ routes.cart_url }}" data-cherie-cart-open aria-haspopup="dialog">
+      <a class="relative inline-flex h-7 w-7 items-center justify-center" href="{{ routes.cart_url }}" data-cherie-cart-open aria-haspopup="dialog">
         <img loading="eager" class="h-5 md:h-4" src="{{ 'cart-icon.svg' | asset_url }}" alt="Кошик">
+        <span
+          class="absolute -top-1 -right-1 grid h-4 min-w-4 place-items-center rounded-full border border-white bg-main-blue px-1 font-montserrat-bold text-[10px] leading-none font-bold text-white shadow-[0_4px_10px_rgba(0,128,199,0.25)]{% if cart.item_count == 0 %} hidden{% endif %}"
+          data-cherie-cart-count-badge
+          aria-hidden="true"
+        >
+          <span data-cherie-cart-count>{{ cart.item_count }}</span>
+        </span>
       </a>
       <button
         id="header-burger-{{ section.id }}"
