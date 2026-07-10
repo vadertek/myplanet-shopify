@@ -13,8 +13,10 @@
     "mp-prodinfo-hero": {
       "type": "mp-prodinfo-hero",
       "settings": {
+        "hero_image": "shopify://shop_images/Hero_Block-1_d5fcc99c-3e45-4d25-9cee-7b99d20d41e6.png",
+        "hero_image_mobile": "shopify://shop_images/Hero_Block_d39ae5fc-d123-4130-8d92-5bada697900f.png",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та <br> дезінфекція без хлору",
+        "hero_title": "Чистота та  дезінфекція без хлору",
         "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
         "hero_button_link": "",
         "hero_button_text": "Замовити зараз"
@@ -26,7 +28,7 @@
         "slide_cnkrFR": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_b33a9a5d-2e6f-4614-b67c-c54dded37412.png",
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_3_3b5af85d-6ad2-4072-a44c-269dc985a83b.png",
             "fallback_image": "use.webp",
             "title": "Без хлору",
             "text": "Комфортне використання без різкого запаху."
@@ -35,7 +37,7 @@
         "slide_d4H7Wf": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2_9f1d1162-54d8-4fb7-9980-3886e686b7c6.png",
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_3-1_06d9cb89-613c-48d0-b542-6034fe39fad5.png",
             "fallback_image": "use.webp",
             "title": "Очищує та дезінфікує",
             "text": "Один засіб для щоденного догляду за домом."
@@ -44,7 +46,7 @@
         "slide_tyykRV": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-2.png",
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_4_417e1804-b052-4075-9dc8-4ed9f8d56f37.png",
             "fallback_image": "use.webp",
             "title": "Для різних поверхонь",
             "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
@@ -53,7 +55,7 @@
         "slide_wwGtcq": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-1_d1bd65ac-f4ac-464d-88b2-fea1b89a1d9c.png",
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_3-2.png",
             "fallback_image": "use.webp",
             "title": "Свіжий аромат апельсина",
             "text": "Дарує відчуття чистоти після кожного прибирання."
@@ -117,6 +119,8 @@
         "icons_h9wWha"
       ],
       "settings": {
+        "hero_image": "shopify://shop_images/Benefits_Block_a6b53f95-84c4-468b-8234-48827a97db94.png",
+        "hero_image_mobile": "shopify://shop_images/Benefits_Block-1_2125115e-773f-472c-af17-ea2ac6c09a2b.png",
         "title": "Формула для щоденного використання"
       }
     },
@@ -207,28 +211,28 @@
         "icons_adPg8V": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1.png",
+            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1_63125e3a-c1eb-4e50-86dd-b6be853a2070.png",
             "text": "Розпиліть засіб на поверхню."
           }
         },
         "icons_6GyUdN": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2.png",
+            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-1_cfbb204e-6292-421e-8aa4-8db9b1e915f1.png",
             "text": "Залиште на кілька хвилин за потреби."
           }
         },
         "icons_mpkNnC": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-1.png",
+            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2_b5fb921c-105e-473d-b728-13adbef64cee.png",
             "text": "Протріть чистою серветкою або губкою."
           }
         },
         "icons_QBdgpb": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-1.png",
+            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-2_02e55764-60d0-4a4c-828b-1665dc4d481f.png",
             "text": "Для поверхонь, що контактують з їжею, змийте водою."
           }
         }
