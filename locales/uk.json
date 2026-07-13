@@ -33,6 +33,9 @@
       "preorder": "Передзамовлення",
       "buy-for": "Купити за",
       "unavailable": "Недоступно",
+      "order": "Замовлення",
+      "total_suma": "Сума замовлення",
+      "order_price": "Вартість замовлення"
     },
     "type": {
       "for_dogs": "Для собак",
@@ -4466,106 +4469,5 @@
     "privacy_banner": {
       "cookie_preferences_link": "Налаштування файлів cookie"
     },
-    "knowledge_base": {
-      "self_serve_returns": {
-        "enabled": "Клієнти можуть самостійно запитувати та керувати поверненнями.",
-        "disabled": "Щоб подати запит на повернення товару, клієнти повинні зв'язатися з продавцем."
-      }
-    },
-    "subscriptions": {
-      "update_payment_instrument": {
-        "title": "Замінити спосіб оплати",
-        "loading": "Завантаження способів оплати",
-        "no_payment_methods_available": "Немає доступних способів оплати",
-        "select_new_payment_method": "Виберіть новий спосіб оплати",
-        "current_method": "Поточний",
-        "cancel": "Скасувати",
-        "save": "Зберегти",
-        "success": "Спосіб оплати оновлено",
-        "use_new_payment_method": "+ Використати новий спосіб оплати"
-      },
-      "subscription_contracts": {
-        "title": "Використовуйте спосіб оплати для повторюваних замовлень",
-        "more_items": {
-          "one": "Ще {{count}} товар",
-          "other": "Ще {{count}} товарів"
-        },
-        "product_count": {
-          "one": "{{count}} товар",
-          "other": "{{count}} товарів"
-        },
-        "subscription_contracts_updated": "Оновлено {{succeeded}} з {{total}} підписок",
-        "product_details": "Деталі продукту",
-        "load_more": "Завантажити більше"
-      },
-      "updating_contracts": {
-        "one": "Оновлення {{count}} договору підписки...",
-        "other": "Оновлення {{count}} контрактів на підписку..."
-      },
-      "contracts_updated": {
-        "one": "Успішно оновлено {{count}} контракт на підписку",
-        "other": "Успішно оновлено {{count}} контрактів на підписку"
-      },
-      "contracts_update_failed": "Не вдалося оновити деякі контракти на підписку",
-      "invalid_wallet_type_error": "Недійсний тип гаманця."
-    },
-    "sign_in": {
-      "brand_logo_alt_text": "Логотип %{shop_name}",
-      "processing": "Обробка…",
-      "step_one": {
-        "page_title": "Увійти - %{shop_name}",
-        "heading": "Увійти",
-        "subheading": "Введіть свою електронну адресу, і ми надішлемо вам код підтвердження",
-        "subheading_with_sign_in_options": "Виберіть, як ви хочете ввійти",
-        "input_field_label": "Електронна пошта",
-        "button": "Продовжити",
-        "or": "або"
-      },
-      "step_two": {
-        "page_title": "Введіть код - %{shop_name}",
-        "heading": "Введіть код",
-        "subheading": "Надіслано на адресу %{email}",
-        "restart_link": "Увійти, використовуючи іншу електронну адресу",
-        "input_field_label": "6-значний код",
-        "button": "Надіслати"
-      },
-      "error": {
-        "invalid": {
-          "invalid_email": "Введіть дійсну адресу електронної пошти",
-          "invalid_code": "Введіть правильний 6-значний код"
-        }
-      }
-    },
-    "navigation_and_structure": {
-      "account_menu": {
-        "hide_accessibility_label": "Приховати меню облікового запису",
-        "label": "Обліковий запис",
-        "show_accessibility_label": "Показати меню облікового запису",
-        "nav_accessibility_label": "Навігація по обліковому запису",
-        "open_menu_accessibility_label": "Відкрити навігацію облікового запису",
-        "close_menu_accessibility_label": "Закрити навігацію облікового запису",
-        "loading_message": "Завантаження навігації облікового запису"
-      },
-      "action_menu_accessibility_label": "Більше дій",
-      "close_menu_accessibility_label": "Закрити основну навігацію",
-      "contact_email_subject": "Контакт з інтернет-магазину {{shopName}}",
-      "contact_link": "Контактна інформація",
-      "delete_confirmation": {
-        "cancel": "Скасувати",
-        "delete": "Видалити"
-      },
-      "dismiss_toast": "Відхилити",
-      "document_title": "{{sectionName}} – {{shopName}} – обліковий запис",
-      "go_to_store_link": "Перейти до магазину",
-      "loading_message": "Завантаження",
-      "loading_policy_content_accessibility_label": "Завантаження вмісту політики",
-      "log_out_link": "Вийти",
-      "logout_overlay_label": "Вихід...",
-      "nav_label_accessibility_label": "Основна навігація",
-      "navigation_accessibility_message": "Ви перейшли до {{sectionName}}",
-      "open_menu_accessibility_label": "Відкрити головну навігацію",
-      "orders_link_label": "Замовлення",
-      "shop_logo_accessibility_label": "Логотип {{shopName}}"
-    }
   }
 }

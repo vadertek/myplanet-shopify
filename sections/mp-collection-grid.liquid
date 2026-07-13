@@ -60,7 +60,7 @@
                       class="mt-4 flex min-h-9 w-full items-center justify-center rounded-[10px] border border-main-blue text-center font-montserrat-bold text-[12px] leading-none font-bold text-main-blue transition hover:-translate-y-0.5 hover:border-dark-blue hover:bg-dark-blue hover:text-white hover:shadow-[0_14px_28px_rgba(0,65,114,0.2)] focus-visible:-translate-y-0.5 focus-visible:border-dark-blue focus-visible:bg-dark-blue focus-visible:text-white md:min-h-13 md:rounded-[14px] md:text-[14px]"
                       href="{{ product.url }}"
                     >
-                      <span class="hidden md:inline">Детальніше</span>
+                      <span class="hidden md:inline">{{ 'general.custom.details' | t }}</span>
                       <img class="h-5 w-5 md:hidden" src="{{ 'cart-icon.svg' | asset_url }}" alt="" aria-hidden="true">
                     </a>
                   </div>
@@ -78,67 +78,7 @@
   </div>
 </section>
 
-<script>
-  (function () {
-    function initCollectionGrid() {
-      const root = document.getElementById('mp-collection-grid-{{ section.id }}');
-      if (!root || root.collectionGridReady) return;
-
-      root.collectionGridReady = true;
-
-      {%- for block in section.blocks -%}
-        const button{{ forloop.index }} = document.getElementById('collection-tag-button-{{ section.id }}-{{ block.id }}');
-        const panel{{ forloop.index }} = document.getElementById('collection-tag-panel-{{ section.id }}-{{ block.id }}');
-      {%- endfor -%}
-
-      const buttons = [
-        {%- for block in section.blocks -%}
-          button{{ forloop.index }}{% unless forloop.last %},{% endunless %}
-        {%- endfor -%}
-      ].filter(Boolean);
-
-      const panels = [
-        {%- for block in section.blocks -%}
-          panel{{ forloop.index }}{% unless forloop.last %},{% endunless %}
-        {%- endfor -%}
-      ].filter(Boolean);
-
-      function setActive(index) {
-        buttons.forEach(function (button, buttonIndex) {
-          const active = buttonIndex === index;
-
-          button.setAttribute('aria-selected', String(active));
-          button.classList.toggle('bg-main-blue', active);
-          button.classList.toggle('text-white', active);
-          button.classList.toggle('bg-[#C0D7ED]/30', !active);
-          button.classList.toggle('text-main-blue', !active);
-        });
-
-        panels.forEach(function (panel, panelIndex) {
-          panel.classList.toggle('hidden', panelIndex !== index);
-        });
-      }
-
-      buttons.forEach(function (button, index) {
-        button.addEventListener('click', function () {
-          setActive(index);
-        });
-      });
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initCollectionGrid);
-    } else {
-      initCollectionGrid();
-    }
-
-    document.addEventListener('shopify:section:load', function (event) {
-      if (event.target && event.target.querySelector('#mp-collection-grid-{{ section.id }}')) {
-        initCollectionGrid();
-      }
-    });
-  })();
-</script>
+{% render 'mp-collections-js', section: section, active_bg_class: 'bg-main-blue', inactive_text_class: 'text-main-blue' %}
 
 {% schema %}
 {
