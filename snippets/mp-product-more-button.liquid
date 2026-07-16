@@ -1,0 +1,22 @@
+{% liquid
+  assign more_info_page = product.metafields.custom.more_info.value
+  assign more_info_url = more_info_page.url
+%}
+
+{% if more_info_url != blank %}
+  <div class="mt-3">
+    <a
+      href="{{ more_info_url }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="
+        flex h-13 w-full cursor-pointer items-center justify-center rounded-2xl bg-main-blue/10 px-5
+        font-montserrat-bold text-[16px] leading-none font-bold text-dark-blue transition duration-200
+        hover:-translate-y-0.5 hover:shadow-[0_14px_28px_rgba(0,65,114,0.2)]
+        focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_28px_rgba(0,65,114,0.2)]
+      "
+    >
+      Дізнатись більше про продукт
+    </a>
+  </div>
+{% endif %}
