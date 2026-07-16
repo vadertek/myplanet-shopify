@@ -5,20 +5,20 @@
   value="{{ product.selected_or_first_available_variant.id }}"
 >
 
-{%- unless product.has_only_default_variant -%}
+{%- assign available_variants = product.variants | where: 'available', true -%}
+
+{%- unless product.has_only_default_variant or available_variants.size == 0 -%}
   <div class="mt-10 flex flex-wrap items-center gap-3">
     <p class="font-montserrat-bold text-[16px] leading-none font-bold text-main-blue">Об’єм</p>
     <div id="mp-product-variants-{{ product.id }}" class="flex flex-wrap gap-2">
-      {%- for variant in product.variants -%}
-        {%- if variant.available -%}
-          <button
-            class="h-9 cursor-pointer rounded-2xl border px-4 font-montserrat-bold text-[16px] leading-none font-bold{% if variant.id == product.selected_or_first_available_variant.id %} border-main-blue text-main-blue{% else %} border-[#C0D7ED] text-[#C0D7ED]{% endif %}"
-            type="button"
-            value="{{ variant.id }}"
-          >
-            {{ variant.title | escape }}
-          </button>
-        {%- endif -%}
+      {%- for variant in available_variants -%}
+        <button
+          class="h-9 cursor-pointer rounded-2xl border px-4 font-montserrat-bold text-[16px] leading-none font-bold{% if variant.id == product.selected_or_first_available_variant.id %} border-main-blue text-main-blue{% else %} border-[#C0D7ED] text-[#C0D7ED]{% endif %}"
+          type="button"
+          value="{{ variant.id }}"
+        >
+          {{ variant.title | escape }}
+        </button>
       {%- endfor -%}
     </div>
   </div>
