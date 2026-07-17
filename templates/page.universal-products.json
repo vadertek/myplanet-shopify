@@ -77,44 +77,28 @@
           "type": "icons",
           "settings": {
             "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "Без петрохімікатів"
           }
         },
         "icons_ADater": {
           "type": "icons",
           "settings": {
             "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "Без EDTA"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
             "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
-          }
-        },
-        "icons_n7VjAJ": {
-          "type": "icons",
-          "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
-          }
-        },
-        "icons_h9wWha": {
-          "type": "icons",
-          "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "Без нітромускусів"
           }
         }
       },
       "block_order": [
         "icons_gzTax9",
         "icons_ADater",
-        "icons_36qyx7",
-        "icons_n7VjAJ",
-        "icons_h9wWha"
+        "icons_36qyx7"
       ],
       "settings": {
         "title": "Формула для щоденного використання"
