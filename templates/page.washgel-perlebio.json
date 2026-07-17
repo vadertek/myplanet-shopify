@@ -30,8 +30,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_3_03e6ae84-ec92-4c98-9709-d0be18f5ff44.png",
             "fallback_image": "use.webp",
-            "title": "Без хлору",
-            "text": "Комфортне використання без різкого запаху."
+            "title": "Для чутливої шкіри",
+            "text": "Збалансований pH допомагає не пересушувати шкіру рук."
           }
         },
         "slide_d4H7Wf": {
@@ -39,8 +39,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_3-1_610bbc1e-6837-4e45-9305-a0e403d0a5ff.png",
             "fallback_image": "use.webp",
-            "title": "Очищує та дезінфікує",
-            "text": "Один засіб для щоденного догляду за домом."
+            "title": "З ромашкою та вітаміном E",
+            "text": "Бетаїни доповнюють формулу делікатним доглядом."
           }
         },
         "slide_tyykRV": {
@@ -48,8 +48,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_4_ff34a919-2e9f-4e29-baad-535697b33069.png",
             "fallback_image": "use.webp",
-            "title": "Для різних поверхонь",
-            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+            "title": "Ефективно видаляє жир",
+            "text": "Допомагає легко очистити навіть сильно забруднений посуд."
           }
         },
         "slide_wwGtcq": {
@@ -57,8 +57,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_3-2_a0b74e9c-d982-4300-b97f-4fc2fdab5b15.png",
             "fallback_image": "use.webp",
-            "title": "Свіжий аромат апельсина",
-            "text": "Дарує відчуття чистоти після кожного прибирання."
+            "title": "Ефективний у холодній воді",
+            "text": "Забезпечує чистоту посуду без використання гарячої води."
           }
         }
       },
@@ -78,36 +78,31 @@
         "icons_gzTax9": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "Органічні екстракти ромашки"
           }
         },
         "icons_ADater": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "Бетаїни та вітамін E"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
+            "text": "Збалансований pH"
           }
         },
         "icons_n7VjAJ": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
+            "text": "Активні компоненти рослинного походження"
           }
         },
         "icons_h9wWha": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "Без петрохімікатів"
           }
         }
       },
@@ -131,49 +126,49 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/Frame_1321317322.png",
-            "text": "Стільниць"
+            "text": "Столових приборів"
           }
         },
         "icons_CEPrBc": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_30.png",
-            "text": "Плитки"
+            "text": "Склянок і келихів"
           }
         },
         "icons_6Y6jVU": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/Frame_1321317321.png",
-            "text": "Раковин"
+            "text": "Мисок"
           }
         },
         "icons_aGxmh3": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_29.png",
-            "text": "Холодильників"
+            "text": "Тарілок"
           }
         },
         "icons_74a8ti": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_31.png",
-            "text": "Столів"
+            "text": "Каструль"
           }
         },
         "icons_iYW8yq": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/Frame_1321317319.png",
-            "text": "Дверних Ручок"
+            "text": "Сковорідок"
           }
         },
         "icons_rhXrEj": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/Frame_1321317320.png",
-            "text": "Ванної Кімнати"
+            "text": "Харчових контейнерів"
           }
         }
       },
@@ -204,28 +199,28 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1_b5d16a37-c9d7-4f40-abdb-5025ee41dd89.png",
-            "text": "Розпиліть засіб на поверхню."
+            "text": "Нанесіть засіб"
           }
         },
         "icons_6GyUdN": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-1_90abda46-dd4e-4589-811d-1880b388eb0a.png",
-            "text": "Залиште на кілька хвилин за потреби."
+            "text": "Спіньте"
           }
         },
         "icons_mpkNnC": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2_861c2b38-6215-4f9d-9986-17aa22ae4287.png",
-            "text": "Протріть чистою серветкою або губкою."
+            "text": "Вимийте посуд"
           }
         },
         "icons_QBdgpb": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-2_8c3ed45a-3ef8-47c7-a47e-99ceec91429b.png",
-            "text": "Для поверхонь, що контактують з їжею, змийте водою."
+            "text": "Змийте водою"
           }
         }
       },
