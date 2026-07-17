@@ -84,29 +84,25 @@
         "icons_ADater": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "Bio+ ензими: амілази, протеази та ліпази"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
+            "text": "Кисневмісний відбілювач та оптичні відбілювачі"
           }
         },
         "icons_n7VjAJ": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
+            "text": "Без нітромускусів, петрохімікатів і мікропластику"
           }
         },
         "icons_h9wWha": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "Дерматологічно протестовано — гіпоалергенний"
           }
         }
       },
@@ -130,49 +126,49 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/05_0149cef3-c6e9-42e1-befa-0f57e58615b2.png",
-            "text": "Кухонних Поверхонь"
+            "text": "Рушників"
           }
         },
         "icons_WG9hBx": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/04_e817569a-0c76-4fa0-bea6-74aa89f1ede2.png",
-            "text": "Стільниць"
+            "text": "Постільної білизни"
           }
         },
         "icons_CEPrBc": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/06_920212d8-b41e-4935-9731-a3ee53fcb783.png",
-            "text": "Плитки"
+            "text": "Домашнього текстилю"
           }
         },
         "icons_6Y6jVU": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/02_c59eca54-efe0-4bdb-b73f-ac3b1abb0135.png",
-            "text": "Раковин"
+            "text": "Нижньої білизни"
           }
         },
         "icons_aGxmh3": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/01_716a539a-a355-4dad-bfd2-fde61b2d3fb9.png",
-            "text": "Холодильників"
+            "text": "Кольорових тканин"
           }
         },
         "icons_74a8ti": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/03_1b3e4993-0dc6-4ad0-a889-346dd7bcfb6d.png",
-            "text": "Столів"
+            "text": "Сорочок і футболок"
           }
         },
         "icons_iYW8yq": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/07_020b3090-7858-4ec7-9c19-79500493cecd.png",
-            "text": "Дверних Ручок"
+            "text": "Білих тканин"
           }
         }
       },
