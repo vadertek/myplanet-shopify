@@ -16,8 +16,8 @@
         "hero_image": "shopify://shop_images/Hero_Block-1_45328274-4812-4654-9286-eb72ee4832b2.png",
         "hero_image_mobile": "shopify://shop_images/Hero_Block_961d55cb-9ab3-4f5e-bad4-a4b17472bfb8.png",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та  дезінфекція без хлору",
-        "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
+        "hero_title": "Чистий посуд без зайвого відтирання",
+        "hero_subtitle": "Ензими допомагають видаляти пригорілий жир, засохлі залишки їжі та інші стійкі забруднення.",
         "hero_button_link": "shopify://products/my-planet-platinum-plus-enzyme-dishwashing-gel",
         "hero_button_text": "Замовити зараз"
       }
@@ -30,8 +30,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_9ac79e1d-48bb-4438-bd04-4df8d7fb2650.png",
             "fallback_image": "use.webp",
-            "title": "Без хлору",
-            "text": "Комфортне використання без різкого запаху."
+            "title": "Проти пригорілого жиру",
+            "text": "Допомагає розщеплювати стійкий жир і засохлі залишки їжі."
           }
         },
         "slide_d4H7Wf": {
@@ -39,8 +39,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2_db77cd50-b7c3-4619-821c-4744d4e484a3.png",
             "fallback_image": "use.webp",
-            "title": "Очищує та дезінфікує",
-            "text": "Один засіб для щоденного догляду за домом."
+            "title": "Сила ензимів",
+            "text": "Ензими допомагають послабити складні забруднення перед миттям."
           }
         },
         "slide_tyykRV": {
@@ -48,8 +48,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_3_398ac11d-4301-4234-be34-fdae8a5c9416.png",
             "fallback_image": "use.webp",
-            "title": "Для різних поверхонь",
-            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+            "title": "2× ефективніше очищення",
+            "text": "Допомагає швидше повернути посуду чистоту без тривалого відтирання."
           }
         },
         "slide_wwGtcq": {
@@ -57,8 +57,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_3-1_5529c385-553e-4c12-9097-f30ce886f291.png",
             "fallback_image": "use.webp",
-            "title": "Свіжий аромат апельсина",
-            "text": "Дарує відчуття чистоти після кожного прибирання."
+            "title": "Менше зусиль",
+            "text": "Після кількох хвилин дії засобу складні забруднення відмиваються легше."
           }
         }
       },
@@ -78,36 +78,31 @@
         "icons_gzTax9": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "Високоефективні ферменти"
           }
         },
         "icons_ADater": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "Аніонні, амфотерні та неіонні поверхнево-активні речовини"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
+            "text": "Без петрохімікатів"
           }
         },
         "icons_n7VjAJ": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
+            "text": "Без EDTA та нітромускусів"
           }
         },
         "icons_h9wWha": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "Без мікропластику"
           }
         }
       },
