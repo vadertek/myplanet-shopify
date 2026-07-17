@@ -14,7 +14,7 @@
       "type": "mp-prodinfo-hero",
       "settings": {
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та  дезінфекція без хлору",
+        "hero_title": "Чистота без хлору",
         "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
         "hero_button_link": "shopify://products/my-planet-all-purpose-surface-cleaner-600ml",
         "hero_button_text": "Замовити зараз"
@@ -37,7 +37,7 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2_9f1d1162-54d8-4fb7-9980-3886e686b7c6.png",
             "fallback_image": "use.webp",
-            "title": "Очищує та дезінфікує",
+            "title": "Дбайливо очищує",
             "text": "Один засіб для щоденного догляду за домом."
           }
         },
@@ -46,8 +46,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-2.png",
             "fallback_image": "use.webp",
-            "title": "Для різних поверхонь",
-            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+            "title": "Свіжий аромат апельсина",
+            "text": "Дарує відчуття чистоти після кожного прибирання."
           }
         },
         "slide_wwGtcq": {
@@ -55,8 +55,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-1_d1bd65ac-f4ac-464d-88b2-fea1b89a1d9c.png",
             "fallback_image": "use.webp",
-            "title": "Свіжий аромат апельсина",
-            "text": "Дарує відчуття чистоти після кожного прибирання."
+            "title": "Для різних поверхонь",
+            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
           }
         }
       },
