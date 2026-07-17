@@ -16,8 +16,8 @@
         "hero_image": "shopify://shop_images/Hero_Block-1_713af470-3493-48d7-a544-263ffcb2af52.png",
         "hero_image_mobile": "shopify://shop_images/Hero_Block_33f5dc95-7db8-4f7b-923f-19ded2c5bdcb.png",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та  дезінфекція без хлору",
-        "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
+        "hero_title": "White Fusion+ чистота з першого прання",
+        "hero_subtitle": "Видаляє складні плями з першого прання та дбайливо пере білі й кольорові тканини вже від 30 °C.",
         "hero_button_link": "shopify://products/my-planet-white-fusion-plus-laundry-detergent-54-washes-2-484kg",
         "hero_button_text": "Замовити зараз"
       }
@@ -30,8 +30,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_9bb44e50-ffe0-479b-b8e5-539d45f76bef.png",
             "fallback_image": "use.webp",
-            "title": "Без хлору",
-            "text": "Комфортне використання без різкого запаху."
+            "title": "З першого прання",
+            "text": "Ефективний результат уже після першого циклу."
           }
         },
         "slide_d4H7Wf": {
@@ -39,8 +39,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-1_77186bea-5ba0-4937-8b09-9ea3c659f202.png",
             "fallback_image": "use.webp",
-            "title": "Очищує та дезінфікує",
-            "text": "Один засіб для щоденного догляду за домом."
+            "title": "Сяюча білизна",
+            "text": "Відбілювальні добавки допомагають підтримувати охайний вигляд білих речей."
           }
         },
         "slide_tyykRV": {
@@ -48,8 +48,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-2_400f89f0-4431-4619-bb57-2df4af3832a6.png",
             "fallback_image": "use.webp",
-            "title": "Для різних поверхонь",
-            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+            "title": "Проти складних плям",
+            "text": "Допомагає видаляти навіть складні забруднення."
           }
         },
         "slide_wwGtcq": {
@@ -57,8 +57,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-3_7c8d7fb6-83b1-4e09-a041-18ac7b046d43.png",
             "fallback_image": "use.webp",
-            "title": "Свіжий аромат апельсина",
-            "text": "Дарує відчуття чистоти після кожного прибирання."
+            "title": "Для білих і кольорових тканин",
+            "text": "Підходить для прання білих речей і безпечний для кольорових тканин."
           }
         }
       },
@@ -78,8 +78,7 @@
         "icons_gzTax9": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "Рослинна основа"
           }
         },
         "icons_ADater": {
