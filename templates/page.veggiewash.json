@@ -16,8 +16,8 @@
         "hero_image": "shopify://shop_images/Hero_Block-1_e0e6408f-23d0-4bfa-95f2-39996c3b870d.png",
         "hero_image_mobile": "shopify://shop_images/Hero_Block_fd93dd07-a16f-4ce1-ac19-bb3f4ddaa94f.png",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та  дезінфекція без хлору",
-        "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
+        "hero_title": "Чисті овочі та фрукти щодня",
+        "hero_subtitle": "Допомагає видаляти бруд, віск, бактерії та залишки пестицидів, легко змивається водою й не залишає смаку чи запаху.",
         "hero_button_link": "shopify://products/my-planet-fruit-and-vegetable-wash-fragrance-free-450ml",
         "hero_button_text": "Замовити зараз"
       }
@@ -30,8 +30,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-6_71f31d02-440f-46bd-8b66-117b9e1465b3.png",
             "fallback_image": "use.webp",
-            "title": "Без хлору",
-            "text": "Комфортне використання без різкого запаху."
+            "title": "Очищає від бруду",
+            "text": "Допомагає змити землю та забруднення з поверхні овочів і фруктів."
           }
         },
         "slide_d4H7Wf": {
@@ -39,8 +39,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2_8743da88-4abb-4c7c-9240-3441eaecde34.png",
             "fallback_image": "use.webp",
-            "title": "Очищує та дезінфікує",
-            "text": "Один засіб для щоденного догляду за домом."
+            "title": "Допомагає змити віск",
+            "text": "Очищає поверхню фруктів від воскового покриття."
           }
         },
         "slide_tyykRV": {
@@ -48,8 +48,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-1_02321106-bebc-4405-bca0-d3f13e4c6b30.png",
             "fallback_image": "use.webp",
-            "title": "Для різних поверхонь",
-            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+            "title": "Проти бактерій і пестицидів",
+            "text": "Допомагає видаляти бактерії та залишки засобів захисту рослин."
           }
         },
         "slide_wwGtcq": {
@@ -57,8 +57,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-2_506d932d-e600-4e90-a94f-158016bdbd0a.png",
             "fallback_image": "use.webp",
-            "title": "Свіжий аромат апельсина",
-            "text": "Дарує відчуття чистоти після кожного прибирання."
+            "title": "Без смаку та запаху",
+            "text": "Легко змивається водою та не змінює природний смак продуктів."
           }
         }
       },
@@ -78,36 +78,31 @@
         "icons_gzTax9": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "Компоненти рослинного походження"
           }
         },
         "icons_ADater": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "Без ароматизаторів і барвників"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
+            "text": "Без петрохімікатів"
           }
         },
         "icons_n7VjAJ": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
+            "text": "Легко змивається водою"
           }
         },
         "icons_h9wWha": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "Не залишає смаку та запаху"
           }
         }
       },
@@ -131,42 +126,42 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-7_ccc7345a-b73e-4576-8b17-c7526c7c40ef.png",
-            "text": "Кухонних Поверхонь"
+            "text": "Грибів"
           }
         },
         "icons_WG9hBx": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-8.png",
-            "text": "Стільниць"
+            "text": "Коренеплодів"
           }
         },
         "icons_CEPrBc": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-10.png",
-            "text": "Плитки"
+            "text": "Зелені"
           }
         },
         "icons_6Y6jVU": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-9.png",
-            "text": "Раковин"
+            "text": "Цитрусових"
           }
         },
         "icons_aGxmh3": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-12.png",
-            "text": "Холодильників"
+            "text": "Винограду та ягід"
           }
         },
         "icons_74a8ti": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-11.png",
-            "text": "Столів"
+            "text": "Овочів"
           }
         }
       },
@@ -196,28 +191,28 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1_8b3a2908-5162-4f5b-8421-d3fe708d6b69.png",
-            "text": "Розпиліть засіб на поверхню."
+            "text": "Наповніть ємність водою"
           }
         },
         "icons_6GyUdN": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-1_2c9d4b87-f681-4a37-bbe4-815fdd4cadfa.png",
-            "text": "Залиште на кілька хвилин за потреби."
+            "text": "Додайте один натиск засобу"
           }
         },
         "icons_mpkNnC": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2_07b3b36a-58ab-402f-8b24-8095838919b6.png",
-            "text": "Протріть чистою серветкою або губкою."
+            "text": "Помийте продукти"
           }
         },
         "icons_QBdgpb": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-2_74ccc7f2-ad72-4f5f-8004-9258a7a4d528.png",
-            "text": "Для поверхонь, що контактують з їжею, змийте водою."
+            "text": "Ретельно сполосніть"
           }
         }
       },
