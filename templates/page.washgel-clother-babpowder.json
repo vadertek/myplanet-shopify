@@ -13,8 +13,10 @@
     "mp-prodinfo-hero": {
       "type": "mp-prodinfo-hero",
       "settings": {
+        "hero_image": "shopify://shop_images/Hero_Block-1_8c0d3d5c-e922-49fb-bcd4-d89242447039.png",
+        "hero_image_mobile": "shopify://shop_images/Hero_Block_3fb75303-541f-4932-8329-528d3c92fd62.png",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та <br> дезінфекція без хлору",
+        "hero_title": "Чистота та  дезінфекція без хлору",
         "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
         "hero_button_link": "",
         "hero_button_text": "Замовити зараз"
@@ -26,7 +28,7 @@
         "slide_cnkrFR": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_b33a9a5d-2e6f-4614-b67c-c54dded37412.png",
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_6c3ea7e3-5dfd-4490-b001-1b549c992167.png",
             "fallback_image": "use.webp",
             "title": "Без хлору",
             "text": "Комфортне використання без різкого запаху."
@@ -35,7 +37,7 @@
         "slide_d4H7Wf": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2_9f1d1162-54d8-4fb7-9980-3886e686b7c6.png",
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-1_816984c8-c658-41fb-84fa-82b3f15a302f.png",
             "fallback_image": "use.webp",
             "title": "Очищує та дезінфікує",
             "text": "Один засіб для щоденного догляду за домом."
@@ -44,7 +46,7 @@
         "slide_tyykRV": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-2.png",
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-2_a8a50603-0af3-45fb-af1b-c81d7de5f1db.png",
             "fallback_image": "use.webp",
             "title": "Для різних поверхонь",
             "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
@@ -53,7 +55,7 @@
         "slide_wwGtcq": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-1_d1bd65ac-f4ac-464d-88b2-fea1b89a1d9c.png",
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-3_7289c35e-ac47-4915-9cf1-09c767f6208e.png",
             "fallback_image": "use.webp",
             "title": "Свіжий аромат апельсина",
             "text": "Дарує відчуття чистоти після кожного прибирання."
@@ -117,6 +119,8 @@
         "icons_h9wWha"
       ],
       "settings": {
+        "hero_image": "shopify://shop_images/Benefits_Block_86d78884-1967-47a2-83e5-2bfc48d96f85.png",
+        "hero_image_mobile": "shopify://shop_images/Benefits_Block-1_d8bef9af-e964-47cc-8cac-18994d3070cb.png",
         "title": "Формула для щоденного використання"
       }
     },
@@ -126,57 +130,50 @@
         "icons_exAKQm": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_8a5c3967-cd60-4f24-abc0-14a524563d0c.png",
-            "text": "Кухонних Поверхонь"
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_37.png",
+            "text": "Дитячого одягу"
           }
         },
         "icons_WG9hBx": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-1_81b7d79c-3d39-45fd-9e7b-8f99c7aefbcb.png",
-            "text": "Стільниць"
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_38.png",
+            "text": "Одягу новонароджених"
           }
         },
         "icons_CEPrBc": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-2_7d4f0a7a-fd05-4521-8a34-5799629a42d8.png",
-            "text": "Плитки"
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_39.png",
+            "text": "Боді, повзунків і піжам"
           }
         },
         "icons_6Y6jVU": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-3_9414ca5e-ce05-42d4-974a-fab68864477e.png",
-            "text": "Раковин"
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_40.png",
+            "text": "Постільної білизни"
           }
         },
         "icons_aGxmh3": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-4.png",
-            "text": "Холодильників"
+            "image": "shopify://shop_images/Frame_1321317329.png",
+            "text": "Ковдр і пледів"
           }
         },
         "icons_74a8ti": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-5.png",
-            "text": "Столів"
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_41.png",
+            "text": "Дитячих рушників"
           }
         },
         "icons_iYW8yq": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-6.png",
-            "text": "Дверних Ручок"
-          }
-        },
-        "icons_rhXrEj": {
-          "type": "icons",
-          "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-7.png",
-            "text": "Ванної Кімнати"
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_42.png",
+            "text": "Пелюшок"
           }
         }
       },
@@ -187,8 +184,7 @@
         "icons_6Y6jVU",
         "icons_aGxmh3",
         "icons_74a8ti",
-        "icons_iYW8yq",
-        "icons_rhXrEj"
+        "icons_iYW8yq"
       ],
       "settings": {
         "title": "Підходить для"
@@ -207,28 +203,28 @@
         "icons_adPg8V": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1.png",
+            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2_aa5315b0-8280-4d95-99c2-7814dec79382.png",
             "text": "Розпиліть засіб на поверхню."
           }
         },
         "icons_6GyUdN": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2.png",
+            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-1_68448f7c-37f6-42ec-9cf4-0ec23b08865d.png",
             "text": "Залиште на кілька хвилин за потреби."
           }
         },
         "icons_mpkNnC": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-1.png",
+            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-2_358478d2-a573-4e7a-b1b7-20caa5ff89ea.png",
             "text": "Протріть чистою серветкою або губкою."
           }
         },
         "icons_QBdgpb": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-1.png",
+            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_3_f26ba94a-3c75-4681-8040-ec0c2918c368.png",
             "text": "Для поверхонь, що контактують з їжею, змийте водою."
           }
         }
