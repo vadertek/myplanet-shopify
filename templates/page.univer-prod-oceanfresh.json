@@ -16,8 +16,8 @@
         "hero_image": "shopify://shop_images/Hero_Block_e4548276-4a25-4dc1-a87d-2d287408f811.png",
         "hero_image_mobile": "shopify://shop_images/Hero_Block-1_15ecaf97-7ceb-4a7e-bc02-a4f60d5860cf.png",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та  дезінфекція без хлору",
-        "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
+        "hero_title": "Чистота та морська свіжість у всьому домі",
+        "hero_subtitle": "Концентрований засіб ефективно очищає підлогу й тверді поверхні та залишає свіжий морський аромат.",
         "hero_button_link": "shopify://products/my-planet-all-purpose-surface-cleaner-600ml",
         "hero_button_text": "Замовити зараз"
       }
@@ -30,8 +30,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_c3b9ebf7-f07e-4acb-ae55-54a8b38ee75a.png",
             "fallback_image": "use.webp",
-            "title": "Без хлору",
-            "text": "Комфортне використання без різкого запаху."
+            "title": "Глибоке очищення",
+            "text": "Допомагає видаляти забруднення з підлоги та різних твердих поверхонь."
           }
         },
         "slide_d4H7Wf": {
@@ -39,8 +39,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2_dc124bd1-7ea6-4ca6-8d34-8726509b5b67.png",
             "fallback_image": "use.webp",
-            "title": "Очищує та дезінфікує",
-            "text": "Один засіб для щоденного догляду за домом."
+            "title": "Концентрована формула",
+            "text": "Для очищення великих поверхонь достатньо 30 мл засобу на 5 л води."
           }
         },
         "slide_tyykRV": {
@@ -48,8 +48,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-1_0f18da4b-7629-40f4-83cc-6e6e7effe535.png",
             "fallback_image": "use.webp",
-            "title": "Для різних поверхонь",
-            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+            "title": "Без змивання",
+            "text": "Після прибирання поверхню не потрібно додатково промивати водою."
           }
         },
         "slide_wwGtcq": {
@@ -57,8 +57,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-2_92c40923-aaab-48ec-9b2c-5bdf150b6ead.png",
             "fallback_image": "use.webp",
-            "title": "Свіжий аромат апельсина",
-            "text": "Дарує відчуття чистоти після кожного прибирання."
+            "title": "Морська свіжість",
+            "text": "Залишає приємний свіжий аромат після прибирання."
           }
         }
       },
@@ -78,36 +78,31 @@
         "icons_gzTax9": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "Аніонні та неіонні очищувальні компоненти"
           }
         },
         "icons_ADater": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "Без хлору"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
+            "text": "Без петрохімікатів"
           }
         },
         "icons_n7VjAJ": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
+            "text": "З ароматом морської свіжості"
           }
         },
         "icons_h9wWha": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "Концентрований склад для економного використання"
           }
         }
       },
