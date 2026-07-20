@@ -14,9 +14,9 @@
       "type": "mp-prodinfo-hero",
       "settings": {
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та <br> дезінфекція без хлору",
+        "hero_title": "Чистота та  дезінфекція без хлору",
         "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
-        "hero_button_link": "",
+        "hero_button_link": "shopify://products/baby-planet-all-purpose-surface-cleaner-1000ml",
         "hero_button_text": "Замовити зараз"
       }
     },
