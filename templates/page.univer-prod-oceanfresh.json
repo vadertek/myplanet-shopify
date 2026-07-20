@@ -126,14 +126,14 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_8a5c3967-cd60-4f24-abc0-14a524563d0c.png",
-            "text": "Кухонних Поверхонь"
+            "text": "Підлоги"
           }
         },
         "icons_WG9hBx": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-1_2ee5e5d1-d42f-4d2f-a8b0-529ef44c2d0a.png",
-            "text": "Стільниць"
+            "text": "Кухонних стільниць"
           }
         },
         "icons_CEPrBc": {
@@ -154,28 +154,21 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-5_05dbb070-3457-45d9-b41f-82d466ea8d51.png",
-            "text": "Холодильників"
+            "text": "Ванн"
           }
         },
         "icons_74a8ti": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-3_80e09fcb-c17a-4dad-876b-f24170d25e13.png",
-            "text": "Столів"
+            "text": "Умивальників"
           }
         },
         "icons_iYW8yq": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-2_c4317d7f-821d-4491-bbbf-69b1aa32da78.png",
-            "text": "Дверних Ручок"
-          }
-        },
-        "icons_rhXrEj": {
-          "type": "icons",
-          "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-4_58cf4ebd-6b38-4243-bbe3-c171a06e84b4.png",
-            "text": "Ванної Кімнати"
+            "text": "Інших твердих поверхонь"
           }
         }
       },
@@ -186,8 +179,7 @@
         "icons_6Y6jVU",
         "icons_aGxmh3",
         "icons_74a8ti",
-        "icons_iYW8yq",
-        "icons_rhXrEj"
+        "icons_iYW8yq"
       ],
       "settings": {
         "title": "Підходить для"
@@ -207,28 +199,28 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1_f116268f-7514-46d9-a639-8e94c060fd2c.png",
-            "text": "Розпиліть засіб на поверхню."
+            "text": "Додайте 30 мл засобу до 5 л теплої води."
           }
         },
         "icons_6GyUdN": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2_86f34f77-74c7-4d65-8d19-2242e61f79d4.png",
-            "text": "Залиште на кілька хвилин за потреби."
+            "text": "Вимийте поверхню шваброю або серветкою."
           }
         },
         "icons_mpkNnC": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-1_97307fa4-3abf-4501-a4a8-fb09349ec16f.png",
-            "text": "Протріть чистою серветкою або губкою."
+            "text": "Для сильних забруднень використовуйте нерозбавленим."
           }
         },
         "icons_QBdgpb": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-1_9436ad70-0824-4d9e-b94f-ad069d82381d.png",
-            "text": "Для поверхонь, що контактують з їжею, змийте водою."
+            "text": "Змивання не потрібне."
           }
         }
       },
