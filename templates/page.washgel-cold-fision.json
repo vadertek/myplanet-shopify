@@ -16,8 +16,8 @@
         "hero_image": "shopify://shop_images/Hero_Block-1_6c4f3da1-1da0-48bf-9f24-7209a00fedc3.png",
         "hero_image_mobile": "shopify://shop_images/Hero_Block_a8191e1d-4fa0-4049-a2f3-09c46f0bdc73.png",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та  дезінфекція без хлору",
-        "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
+        "hero_title": "Чиста білизна з першого прання",
+        "hero_subtitle": "Cold Fusion+ видаляє складні плями вже за 30 °C та підходить для щоденного прання різних тканин.",
         "hero_button_link": "shopify://products/my-planet-cold-fusion-plus-laundry-gel",
         "hero_button_text": "Замовити зараз"
       }
@@ -30,8 +30,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_48cfa343-8eaf-4510-b743-a7a88b65b173.png",
             "fallback_image": "use.webp",
-            "title": "Без хлору",
-            "text": "Комфортне використання без різкого запаху."
+            "title": "Ефективність від 30 °C",
+            "text": "Допомагає якісно прати навіть за низької температури."
           }
         },
         "slide_d4H7Wf": {
@@ -39,8 +39,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-1_7bbc2551-f6cf-490c-961b-31aeb41a368e.png",
             "fallback_image": "use.webp",
-            "title": "Очищує та дезінфікує",
-            "text": "Один засіб для щоденного догляду за домом."
+            "title": "Для різних типів тканин",
+            "text": "Підходить для повсякденного одягу та домашнього текстилю."
           }
         },
         "slide_tyykRV": {
@@ -48,8 +48,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-2_75b58ea3-4326-4751-b5f6-9aa8d4b2ffd3.png",
             "fallback_image": "use.webp",
-            "title": "Для різних поверхонь",
-            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+            "title": "Проти складних плям",
+            "text": "Допомагає видаляти стійкі забруднення вже з першого прання."
           }
         },
         "slide_wwGtcq": {
@@ -57,8 +57,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-3_e0c0a803-9315-4d38-bf82-78d3efc37b06.png",
             "fallback_image": "use.webp",
-            "title": "Свіжий аромат апельсина",
-            "text": "Дарує відчуття чистоти після кожного прибирання."
+            "title": "Для щоденного прання",
+            "text": "Зручний вибір для регулярного догляду за речами всієї родини."
           }
         }
       },
@@ -78,36 +78,37 @@
         "icons_gzTax9": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "Bio+ ензими"
           }
         },
         "icons_ADater": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "Підсилювачі прання"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
+            "text": "Аніонні та неіонні поверхнево-активні речовини"
           }
         },
         "icons_n7VjAJ": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
+            "text": "Мило та фосфонати"
           }
         },
         "icons_h9wWha": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "Без EDTA та CMI/MI"
+          }
+        },
+        "icons_cEnkaM": {
+          "type": "icons",
+          "settings": {
+            "text": "Без мікропластику й петрохімікатів"
           }
         }
       },
@@ -116,7 +117,8 @@
         "icons_ADater",
         "icons_36qyx7",
         "icons_n7VjAJ",
-        "icons_h9wWha"
+        "icons_h9wWha",
+        "icons_cEnkaM"
       ],
       "settings": {
         "hero_image": "shopify://shop_images/Benefits_Block_8047dbb9-9ecb-4ea6-b2d4-018f1eaffe15.png",
@@ -131,56 +133,56 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/01.png",
-            "text": "Кухонних Поверхонь"
+            "text": "Джинсів і штанів"
           }
         },
         "icons_WG9hBx": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/05.png",
-            "text": "Стільниць"
+            "text": "Сорочок і футболок"
           }
         },
         "icons_CEPrBc": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/03.png",
-            "text": "Плитки"
+            "text": "Рушників"
           }
         },
         "icons_6Y6jVU": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_14.png",
-            "text": "Раковин"
+            "text": "Домашнього текстилю"
           }
         },
         "icons_aGxmh3": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_18.png",
-            "text": "Холодильників"
+            "text": "Пледів і м’яких рушників"
           }
         },
         "icons_74a8ti": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/04.png",
-            "text": "Столів"
+            "text": "Постільної білизни"
           }
         },
         "icons_iYW8yq": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/02.png",
-            "text": "Дверних Ручок"
+            "text": "Трикотажу"
           }
         },
         "icons_rhXrEj": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/06.png",
-            "text": "Ванної Кімнати"
+            "text": "Кольорових речей"
           }
         }
       },
@@ -212,28 +214,28 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1_f8b55f00-df70-4115-90c0-c0b837a5bc7f.png",
-            "text": "Розпиліть засіб на поверхню."
+            "text": "Відміряйте засіб"
           }
         },
         "icons_6GyUdN": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2_87763cc7-4fb1-4d34-bbad-1f41f5ed13ef.png",
-            "text": "Залиште на кілька хвилин за потреби."
+            "text": "Завантажте білизну"
           }
         },
         "icons_mpkNnC": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-1_46378a2e-df18-4ceb-8412-6e84cf04254a.png",
-            "text": "Протріть чистою серветкою або губкою."
+            "text": "Оберіть програму для прання"
           }
         },
         "icons_QBdgpb": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-2_45a0fca0-d8e8-418a-a951-c5225602ac47.png",
-            "text": "Для поверхонь, що контактують з їжею, змийте водою."
+            "text": "Запустіть пральну машину"
           }
         }
       },
