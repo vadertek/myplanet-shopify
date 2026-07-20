@@ -1,0 +1,327 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "layout": "theme.mp",
+  "sections": {
+    "mp-prodinfo-hero": {
+      "type": "mp-prodinfo-hero",
+      "settings": {
+        "hero_rating": "4.9/5 • 12 000+ покупців",
+        "hero_title": "Чистота та <br> дезінфекція без хлору",
+        "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
+        "hero_button_link": "",
+        "hero_button_text": "Замовити зараз"
+      }
+    },
+    "mp-prodinfo-perevaga": {
+      "type": "mp-prodinfo-perevaga",
+      "blocks": {
+        "slide_cnkrFR": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_b33a9a5d-2e6f-4614-b67c-c54dded37412.png",
+            "fallback_image": "use.webp",
+            "title": "Без хлору",
+            "text": "Комфортне використання без різкого запаху."
+          }
+        },
+        "slide_d4H7Wf": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2_9f1d1162-54d8-4fb7-9980-3886e686b7c6.png",
+            "fallback_image": "use.webp",
+            "title": "Очищує та дезінфікує",
+            "text": "Один засіб для щоденного догляду за домом."
+          }
+        },
+        "slide_tyykRV": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-2.png",
+            "fallback_image": "use.webp",
+            "title": "Для різних поверхонь",
+            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+          }
+        },
+        "slide_wwGtcq": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-1_d1bd65ac-f4ac-464d-88b2-fea1b89a1d9c.png",
+            "fallback_image": "use.webp",
+            "title": "Свіжий аромат апельсина",
+            "text": "Дарує відчуття чистоти після кожного прибирання."
+          }
+        }
+      },
+      "block_order": [
+        "slide_cnkrFR",
+        "slide_d4H7Wf",
+        "slide_tyykRV",
+        "slide_wwGtcq"
+      ],
+      "settings": {
+        "title": "Переваги"
+      }
+    },
+    "mp-prodinfo-formula": {
+      "type": "mp-prodinfo-formula",
+      "blocks": {
+        "icons_gzTax9": {
+          "type": "icons",
+          "settings": {
+            "icon": "shopify://shop_images/chlorine.png",
+            "text": "0% хлору"
+          }
+        },
+        "icons_ADater": {
+          "type": "icons",
+          "settings": {
+            "icon": "shopify://shop_images/aldehydes.png",
+            "text": "0% альдегідів"
+          }
+        },
+        "icons_36qyx7": {
+          "type": "icons",
+          "settings": {
+            "icon": "shopify://shop_images/oxidants.png",
+            "text": "0% окислювачів"
+          }
+        },
+        "icons_n7VjAJ": {
+          "type": "icons",
+          "settings": {
+            "icon": "shopify://shop_images/odor.png",
+            "text": "Без різкого запаху"
+          }
+        },
+        "icons_h9wWha": {
+          "type": "icons",
+          "settings": {
+            "icon": "shopify://shop_images/various_surfaces.png",
+            "text": "Ефективне очищення різних поверхонь"
+          }
+        }
+      },
+      "block_order": [
+        "icons_gzTax9",
+        "icons_ADater",
+        "icons_36qyx7",
+        "icons_n7VjAJ",
+        "icons_h9wWha"
+      ],
+      "settings": {
+        "title": "Формула для щоденного використання"
+      }
+    },
+    "mp-prodinfo-for": {
+      "type": "mp-prodinfo-for",
+      "blocks": {
+        "icons_exAKQm": {
+          "type": "icons",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_8a5c3967-cd60-4f24-abc0-14a524563d0c.png",
+            "text": "Кухонних Поверхонь"
+          }
+        },
+        "icons_WG9hBx": {
+          "type": "icons",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-1_81b7d79c-3d39-45fd-9e7b-8f99c7aefbcb.png",
+            "text": "Стільниць"
+          }
+        },
+        "icons_CEPrBc": {
+          "type": "icons",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-2_7d4f0a7a-fd05-4521-8a34-5799629a42d8.png",
+            "text": "Плитки"
+          }
+        },
+        "icons_6Y6jVU": {
+          "type": "icons",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-3_9414ca5e-ce05-42d4-974a-fab68864477e.png",
+            "text": "Раковин"
+          }
+        },
+        "icons_aGxmh3": {
+          "type": "icons",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-4.png",
+            "text": "Холодильників"
+          }
+        },
+        "icons_74a8ti": {
+          "type": "icons",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-5.png",
+            "text": "Столів"
+          }
+        },
+        "icons_iYW8yq": {
+          "type": "icons",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-6.png",
+            "text": "Дверних Ручок"
+          }
+        },
+        "icons_rhXrEj": {
+          "type": "icons",
+          "settings": {
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-7.png",
+            "text": "Ванної Кімнати"
+          }
+        }
+      },
+      "block_order": [
+        "icons_exAKQm",
+        "icons_WG9hBx",
+        "icons_CEPrBc",
+        "icons_6Y6jVU",
+        "icons_aGxmh3",
+        "icons_74a8ti",
+        "icons_iYW8yq",
+        "icons_rhXrEj"
+      ],
+      "settings": {
+        "title": "Підходить для"
+      }
+    },
+    "mp-about-bigturtle": {
+      "type": "mp-about-bigturtle",
+      "settings": {
+        "title": "Черепаха — <br> символ My Planet",
+        "description": "Черепаха уособлює мудрість, стабільність, захист і природний ритм життя. <br> Вона нагадує, що справжня турбота проявляється у щоденних діях та рішеннях, які залишаються цінними з часом."
+      }
+    },
+    "mp-prodinfo-simple": {
+      "type": "mp-prodinfo-simple",
+      "blocks": {
+        "icons_adPg8V": {
+          "type": "icons",
+          "settings": {
+            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1.png",
+            "text": "Розпиліть засіб на поверхню."
+          }
+        },
+        "icons_6GyUdN": {
+          "type": "icons",
+          "settings": {
+            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2.png",
+            "text": "Залиште на кілька хвилин за потреби."
+          }
+        },
+        "icons_mpkNnC": {
+          "type": "icons",
+          "settings": {
+            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-1.png",
+            "text": "Протріть чистою серветкою або губкою."
+          }
+        },
+        "icons_QBdgpb": {
+          "type": "icons",
+          "settings": {
+            "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-1.png",
+            "text": "Для поверхонь, що контактують з їжею, змийте водою."
+          }
+        }
+      },
+      "block_order": [
+        "icons_adPg8V",
+        "icons_6GyUdN",
+        "icons_mpkNnC",
+        "icons_QBdgpb"
+      ],
+      "settings": {
+        "title": "Просте використання"
+      }
+    },
+    "mp-home-community": {
+      "type": "mp-home-community",
+      "settings": {
+        "title": "Станьте частиною спільноти My Planet\n#lifewithmyplanet",
+        "small_image_1": "shopify://shop_images/06.jpg",
+        "small_image_2": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_5.png",
+        "small_image_3": "shopify://shop_images/08.jpg",
+        "small_image_4": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_4.png",
+        "main_image": "shopify://shop_images/05.jpg"
+      }
+    },
+    "mp_faq": {
+      "type": "mp-faq",
+      "blocks": {
+        "faq_JCabPF": {
+          "type": "faq",
+          "settings": {
+            "question": "Чим засоби My Planet відрізняються від звичайних побутових засобів?",
+            "answer": "My Planet поєднує ефективність для щоденного прибирання з уважним ставленням до родини, поверхонь і довкілля."
+          }
+        },
+        "faq_bKxCYK": {
+          "type": "faq",
+          "settings": {
+            "question": "Чи безпечні засоби My Planet для використання в домі з дітьми та домашніми тваринами?",
+            "answer": "Так, засоби підходять для щоденного дому за умови використання згідно з інструкцією на упаковці."
+          }
+        },
+        "faq_xF6gbg": {
+          "type": "faq",
+          "settings": {
+            "question": "Для яких поверхонь підходять універсальні засоби My Planet?",
+            "answer": "Вони підходять для більшості твердих поверхонь: підлоги, кухонних поверхонь, ванної кімнати та інших зон дому."
+          }
+        },
+        "faq_ABx7cC": {
+          "type": "faq",
+          "settings": {
+            "question": "Чи можна використовувати засоби My Planet щодня?",
+            "answer": "Так, формули розраховані на регулярне використання для підтримання чистоти без зайвого навантаження."
+          }
+        },
+        "faq_dT9Nia": {
+          "type": "faq",
+          "settings": {
+            "question": "Чи залишають засоби My Planet різкий хімічний запах?",
+            "answer": "Ні, продукти мають приємні аромати без відчуття агресивної хімії після прибирання."
+          }
+        },
+        "faq_xWHdQk": {
+          "type": "faq",
+          "settings": {
+            "question": "Як обрати правильний засіб My Planet для своїх потреб?",
+            "answer": "Орієнтуйтеся на зону використання: кухня, прання, дитячі речі, скло або універсальний догляд для дому."
+          }
+        }
+      },
+      "block_order": [
+        "faq_JCabPF",
+        "faq_bKxCYK",
+        "faq_xF6gbg",
+        "faq_ABx7cC",
+        "faq_dT9Nia",
+        "faq_xWHdQk"
+      ],
+      "name": "MP FAQ",
+      "settings": {
+        "title": "Часті питання"
+      }
+    }
+  },
+  "order": [
+    "mp-prodinfo-hero",
+    "mp-prodinfo-perevaga",
+    "mp-prodinfo-formula",
+    "mp-prodinfo-for",
+    "mp-about-bigturtle",
+    "mp-prodinfo-simple",
+    "mp-home-community",
+    "mp_faq"
+  ]
+}
