@@ -78,36 +78,31 @@
         "icons_gzTax9": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "Посилений комплекс ферментів"
           }
         },
         "icons_ADater": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "Аніонні та неіонні очищувальні компоненти"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
+            "text": "Мило та фосфонати"
           }
         },
         "icons_n7VjAJ": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
+            "text": "Оптичні відбілювачі"
           }
         },
         "icons_h9wWha": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "Гіпоалергенна формула"
           }
         }
       },
