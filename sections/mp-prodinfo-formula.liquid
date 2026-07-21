@@ -18,8 +18,6 @@
         <div class="flex items-center gap-4">
           {%- if block.settings.icon != blank -%}
             {{ block.settings.icon | image_url: width: 320 | image_tag: class: 'w-12 h-12', loading: 'lazy', alt: 'Icon' }}
-          {%- else -%}
-            <img class="w-12 h-12" src="{{ 'formula-icon-1.webp' | asset_url  }}" alt="{{ block.settings.logo_alt | escape }}">
           {%- endif -%}
 
           <p class="font-montserrat-reg">{{ block.settings.text }}</p>

@@ -1,8 +1,27 @@
+{%- liquid
+  assign desktop_columns = section.settings.columns_desktop | default: 8 | plus: 0
+
+  case desktop_columns
+    when 5
+      assign desktop_grid_class = 'md:grid-cols-5'
+    when 6
+      assign desktop_grid_class = 'md:grid-cols-6'
+    when 7
+      assign desktop_grid_class = 'md:grid-cols-7'
+    when 9
+      assign desktop_grid_class = 'md:grid-cols-9'
+    when 10
+      assign desktop_grid_class = 'md:grid-cols-10'
+    else
+      assign desktop_grid_class = 'md:grid-cols-8'
+  endcase
+-%}
+
 <section class="px-4 py-10 md:px-10 md:py-20">
   <div class="mx-auto max-w-360">
     <h2 class="mb-10 font-montserrat-bold text-[32px] leading-none font-bold text-[#3FA11F] md:mb-14 md:text-[40px]">{{ section.settings.title }}</h2>
 
-    <div class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:grid-cols-8 md:gap-x-2 md:gap-y-0">
+    <div class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 {{ desktop_grid_class }} md:gap-x-2">
       {%- for block in section.blocks -%}
         <article class="flex flex-col items-center text-center">
           <div class="flex h-18 w-full items-center justify-center md:h-20">
@@ -28,9 +47,18 @@
       "id": "title",
       "label": "Title",
       "default": "Підходить для"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Desktop columns",
+      "min": 5,
+      "max": 10,
+      "step": 1,
+      "default": 8
     }
   ],
-  "max_blocks": 8,
+  "max_blocks": 10,
   "blocks": [
     {
       "type": "icons",
