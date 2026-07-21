@@ -1,3 +1,13 @@
+{%- liquid
+  assign prodinfo_text_color = page.metafields.custom.prodinfo_text_color.value | default: section.settings.text_color | default: '#004172'
+-%}
+
+<style>
+  :root {
+    --mp-prodinfo-text-color: {{ prodinfo_text_color }};
+  }
+</style>
+
 <section class="relative overflow-hidden">
   <!-- HERO IMAGE -->
   {% if section.settings.hero_image != blank %}
@@ -11,9 +21,15 @@
     <img loading="eager" class="md:hidden w-full object-cover" src="{{ 'producy-hero-info-mob.webp' |  asset_url }}" alt="">
   {% endif %}
 
-  <div class="absolute bottom-10 left-4 flex max-w-150 flex-col gap-4 text-dark-blue md:top-1/2 md:bottom-auto md:left-10 md:-translate-y-1/2">
+  <div class="absolute bottom-10 left-4 flex max-w-150 flex-col gap-4 md:top-1/2 md:bottom-auto md:left-10 md:-translate-y-1/2" style="color: var(--mp-prodinfo-text-color, #004172);">
     <div class="flex items-center gap-3">
-      <img class="w-28" src="{{ 'blue-stars.webp' |  asset_url }}" alt="Star rating">
+      <span class="flex gap-1" aria-hidden="true">
+        {%- for star in (1..5) -%}
+          <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20" focusable="false">
+            <path d="M10 1.5l2.57 5.2 5.74.83-4.15 4.05.98 5.72L10 14.6l-5.14 2.7.98-5.72L1.69 7.53l5.74-.83L10 1.5z"></path>
+          </svg>
+        {%- endfor -%}
+      </span>
       <span class="font-montserrat-reg text-sm">{{ section.settings.hero_rating }}</span>
     </div>
     <h2 class="font-montserrat-bold text-[44px] leading-none font-bold">
@@ -22,7 +38,8 @@
     <p class="max-w-140 font-montserrat-reg text-[20px] leading-[1.1]">{{ section.settings.hero_subtitle }}</p>
     <a
       href="{{ section.settings.hero_button_link }}"
-      class="w-fit rounded-2xl bg-main-blue px-6 py-3 font-montserrat-bold text-sm font-bold text-white transition duration-200 hover:bg-dark-blue focus-visible:bg-dark-blue"
+      class="w-fit rounded-2xl px-6 py-3 font-montserrat-bold text-sm font-bold text-white transition duration-200"
+      style="background-color: {{ section.settings.hero_button_background_color }};"
     >
       {{ section.settings.hero_button_text }}
     </a>
@@ -45,7 +62,23 @@
     },
     {
       "type": "header",
-      "content": "Hero content"
+      "content": "Кольори"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Колір тексту Секцій",
+      "default": "#004172"
+    },
+    {
+      "type": "color",
+      "id": "hero_button_background_color",
+      "label": "Колір Кнопки",
+      "default": "#236591"
+    },
+    {
+      "type": "header",
+      "content": "Інформація"
     },
     {
       "type": "text",

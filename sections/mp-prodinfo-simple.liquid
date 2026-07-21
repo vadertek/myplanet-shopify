@@ -1,6 +1,6 @@
 <section class="px-4 py-10 md:px-10 md:py-20">
   <div class="mx-auto grid max-w-340 gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,860px)] md:items-center md:gap-10">
-    <h2 class="font-montserrat-bold text-[32px] leading-none font-bold text-[#236591] md:text-[36px]">{{ section.settings.title }}</h2>
+    <h2 class="font-montserrat-bold text-[32px] leading-none font-bold md:text-[36px]" style="color: var(--mp-prodinfo-text-color, #004172);">{{ section.settings.title }}</h2>
 
     <div class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
       {%- for block in section.blocks -%}
@@ -11,7 +11,7 @@
             <img class="aspect-square w-full rounded-[14px] object-cover" src="{{ 'use.webp' | asset_url  }}" alt="Item">
           {%- endif -%}
 
-          <h3 class="mt-3 font-montserrat-bold text-[14px] leading-none font-bold text-[#236591]">{{ block.settings.text }}</h3>
+          <h3 class="mt-3 font-montserrat-bold text-[14px] leading-none font-bold" style="color: var(--mp-prodinfo-text-color, #004172);">{{ block.settings.text }}</h3>
         </article>
       {%- endfor -%}
     </div>
