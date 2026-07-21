@@ -16,8 +16,8 @@
         "hero_image": "shopify://shop_images/Hero_Block_68a80d9c-6c0a-4e99-a3b7-bf7ec19f72b3.png",
         "hero_image_mobile": "shopify://shop_images/Hero_Block-2.png",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та  дезінфекція без хлору",
-        "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
+        "hero_title": "Делікатна чистота без розводів",
+        "hero_subtitle": "Засіб із зеленим милом дбайливо очищає дерево, мармур, граніт, плитку та інші делікатні поверхні.",
         "hero_button_link": "shopify://products/my-planet-green-soap-all-purpose-surface-cleaner-1000ml",
         "hero_button_text": "Замовити зараз"
       }
@@ -30,8 +30,8 @@
           "settings": {
             "image": "shopify://shop_images/Benefits_Block_79a53946-790b-42f3-bfab-c09b1ab78d8f.png",
             "fallback_image": "use.webp",
-            "title": "Без хлору",
-            "text": "Комфортне використання без різкого запаху."
+            "title": "Для делікатних поверхонь",
+            "text": "Дбайливо очищає дерево, мармур, граніт, плитку та сланець."
           }
         },
         "slide_d4H7Wf": {
@@ -39,8 +39,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2_3f3939c7-39ad-458e-bb52-a7d780e9b577.png",
             "fallback_image": "use.webp",
-            "title": "Очищує та дезінфікує",
-            "text": "Один засіб для щоденного догляду за домом."
+            "title": "Із зеленим милом",
+            "text": "Формула містить зелене мило на основі оливкової олії."
           }
         },
         "slide_tyykRV": {
@@ -48,8 +48,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-1_e140fe14-0b01-46b4-a252-f7e84aff5d8c.png",
             "fallback_image": "use.webp",
-            "title": "Для різних поверхонь",
-            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+            "title": "Блиск без розводів",
+            "text": "Після прибирання поверхня залишається чистою та блискучою."
           }
         },
         "slide_wwGtcq": {
@@ -57,8 +57,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-2_83dcfdb2-c572-4662-be90-8fa754566ceb.png",
             "fallback_image": "use.webp",
-            "title": "Свіжий аромат апельсина",
-            "text": "Дарує відчуття чистоти після кожного прибирання."
+            "title": "Не потребує змивання",
+            "text": "Після очищення поверхню не потрібно додатково промивати водою."
           }
         }
       },
@@ -78,36 +78,31 @@
         "icons_gzTax9": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "Зелене мило на основі оливкової олії"
           }
         },
         "icons_ADater": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "Активні компоненти рослинного походження"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
+            "text": "Без петрохімікатів"
           }
         },
         "icons_n7VjAJ": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
+            "text": "Без хлору"
           }
         },
         "icons_h9wWha": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "Без EDTA та нітромускусів"
           }
         }
       },
@@ -130,15 +125,15 @@
         "icons_exAKQm": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_8a5c3967-cd60-4f24-abc0-14a524563d0c.png",
-            "text": "Кухонних Поверхонь"
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_fe77dea8-efd9-4e05-afd2-10dbf7357659.png",
+            "text": "Дерев’яної підлоги"
           }
         },
         "icons_WG9hBx": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-1_81b7d79c-3d39-45fd-9e7b-8f99c7aefbcb.png",
-            "text": "Стільниць"
+            "text": "Мармуру"
           }
         },
         "icons_CEPrBc": {
@@ -152,35 +147,21 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-3_9414ca5e-ce05-42d4-974a-fab68864477e.png",
-            "text": "Раковин"
+            "text": "Граніту"
           }
         },
         "icons_aGxmh3": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-4.png",
-            "text": "Холодильників"
+            "text": "Сланцю"
           }
         },
         "icons_74a8ti": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-5.png",
-            "text": "Столів"
-          }
-        },
-        "icons_iYW8yq": {
-          "type": "icons",
-          "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-6.png",
-            "text": "Дверних Ручок"
-          }
-        },
-        "icons_rhXrEj": {
-          "type": "icons",
-          "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-7.png",
-            "text": "Ванної Кімнати"
+            "text": "Делікатних твердих поверхонь"
           }
         }
       },
@@ -190,9 +171,7 @@
         "icons_CEPrBc",
         "icons_6Y6jVU",
         "icons_aGxmh3",
-        "icons_74a8ti",
-        "icons_iYW8yq",
-        "icons_rhXrEj"
+        "icons_74a8ti"
       ],
       "settings": {
         "title": "Підходить для"
@@ -212,28 +191,28 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1_02989e89-2fe2-4f2a-a26c-55fa66439827.png",
-            "text": "Розпиліть засіб на поверхню."
+            "text": "Додайте 30 мл засобу до 5 л теплої води."
           }
         },
         "icons_6GyUdN": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2_061c3939-2e7d-4157-bba1-7c090dd947a4.png",
-            "text": "Залиште на кілька хвилин за потреби."
+            "text": "Вимийте поверхню шваброю або серветкою."
           }
         },
         "icons_mpkNnC": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-1_e140fe14-0b01-46b4-a252-f7e84aff5d8c.png",
-            "text": "Протріть чистою серветкою або губкою."
+            "text": "Для сильних забруднень використовуйте нерозбавленим."
           }
         },
         "icons_QBdgpb": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-1_d6966345-d28f-4f3a-b5b3-fc8ab93213ae.png",
-            "text": "Для поверхонь, що контактують з їжею, змийте водою."
+            "text": "Змивання не потрібне."
           }
         }
       },
