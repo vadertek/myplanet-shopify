@@ -16,8 +16,8 @@
         "hero_image": "shopify://shop_images/Hero_Block-1_3b22e949-c4b4-44a5-8efa-7de27b3a805a.png",
         "hero_image_mobile": "shopify://shop_images/Hero_Block_f9ac0da7-0329-4376-8534-c52898f8aec2.png",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та  дезінфекція без хлору",
-        "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
+        "hero_title": "Ніжне прання для солодких снів",
+        "hero_subtitle": "Гель з екстрактом бавовни допомагає зберігати м’якість дитячих речей і залишає на них приємний аромат.",
         "hero_button_link": "shopify://products/baby-planet-sweet-dreams-cotton-laundry-gel-28-washes-1512ml",
         "hero_button_text": "Замовити зараз"
       }
@@ -30,8 +30,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_f76f372d-e03c-436d-9060-aeffe5b42279.png",
             "fallback_image": "use.webp",
-            "title": "Без хлору",
-            "text": "Комфортне використання без різкого запаху."
+            "title": "З екстрактом бавовни",
+            "text": "Допомагає дбайливо доглядати за дитячими тканинами."
           }
         },
         "slide_d4H7Wf": {
@@ -39,8 +39,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2_ab217dc8-f437-4b79-a12a-81c4c7b506ba.png",
             "fallback_image": "use.webp",
-            "title": "Очищує та дезінфікує",
-            "text": "Один засіб для щоденного догляду за домом."
+            "title": "Зберігає м’якість тканин",
+            "text": "Після прання речі залишаються приємними на дотик."
           }
         },
         "slide_tyykRV": {
@@ -48,8 +48,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-1_23ac61c8-618e-474d-b287-a80da72e4e8b.png",
             "fallback_image": "use.webp",
-            "title": "Для різних поверхонь",
-            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+            "title": "Гіпоалергенна формула",
+            "text": "Дерматологічно протестована для прання дитячих речей."
           }
         },
         "slide_wwGtcq": {
@@ -57,8 +57,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2-2_101dfe19-6c53-409f-9b72-fbdf350b8312.png",
             "fallback_image": "use.webp",
-            "title": "Свіжий аромат апельсина",
-            "text": "Дарує відчуття чистоти після кожного прибирання."
+            "title": "Ніжний аромат Sweet Dreams",
+            "text": "Залишає на чистих речах легкий і приємний аромат."
           }
         }
       },
@@ -78,36 +78,31 @@
         "icons_gzTax9": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "Екстракт бавовни для додаткового догляду"
           }
         },
         "icons_ADater": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "Ферменти для ефективного прання"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
+            "text": "Допомагає зберігати м’якість тканин"
           }
         },
         "icons_n7VjAJ": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
+            "text": "Гіпоалергенна формула"
           }
         },
         "icons_h9wWha": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "Дерматологічно протестовано"
           }
         }
       },
@@ -131,56 +126,56 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_12.png",
-            "text": "Кухонних Поверхонь"
+            "text": "Повсякденного дитячого одягу"
           }
         },
         "icons_WG9hBx": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_14.png",
-            "text": "Стільниць"
+            "text": "Пледів"
           }
         },
         "icons_CEPrBc": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_18.png",
-            "text": "Плитки"
+            "text": "Дитячих рушників"
           }
         },
         "icons_6Y6jVU": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_15.png",
-            "text": "Раковин"
+            "text": "Піжам"
           }
         },
         "icons_aGxmh3": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_16.png",
-            "text": "Холодильників"
+            "text": "Пелюшок"
           }
         },
         "icons_74a8ti": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_13.png",
-            "text": "Столів"
+            "text": "Делікатних тканин"
           }
         },
         "icons_iYW8yq": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_17.png",
-            "text": "Дверних Ручок"
+            "text": "Постільної білизни"
           }
         },
         "icons_rhXrEj": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_19.png",
-            "text": "Ванної Кімнати"
+            "image": "shopify://shop_images/07.png",
+            "text": "Кольорових речей"
           }
         }
       },
@@ -212,28 +207,28 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1_78e423f9-197e-43ea-9b22-c24677fdc5e1.png",
-            "text": "Розпиліть засіб на поверхню."
+            "text": "Налийте 58 мл гелю у відсік пральної машини."
           }
         },
         "icons_6GyUdN": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-1_17f0bb54-b6eb-4e2c-8706-1acc86e0cd75.png",
-            "text": "Залиште на кілька хвилин за потреби."
+            "text": "Оберіть відповідну програму прання."
           }
         },
         "icons_mpkNnC": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2_4c5218b6-be59-4bc6-b990-9b4ad115f7f7.png",
-            "text": "Протріть чистою серветкою або губкою."
+            "text": "Запустіть цикл."
           }
         },
         "icons_QBdgpb": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-2_c49ffefd-9ac1-4427-89ff-e352332909d0.png",
-            "text": "Для поверхонь, що контактують з їжею, змийте водою."
+            "text": "Насолоджуйтесь чистою білизною."
           }
         }
       },
