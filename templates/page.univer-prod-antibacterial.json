@@ -30,8 +30,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_96293bb1-dbc2-41bd-bffc-4280cd8bf637.png",
             "fallback_image": "use.webp",
-            "title": "Без хлору",
-            "text": "Комфортне використання без різкого запаху."
+            "title": "Очищує та дезінфікує",
+            "text": "Поєднує щоденне очищення поверхонь із антибактеріальною дією."
           }
         },
         "slide_tyykRV": {
@@ -39,8 +39,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_3.png",
             "fallback_image": "use.webp",
-            "title": "Для різних поверхонь",
-            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+            "title": "Висока ефективність",
+            "text": "Знищує 99,9% бактерій і вірусів на твердих поверхнях."
           }
         },
         "slide_d4H7Wf": {
@@ -48,8 +48,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_2_b448b66f-ce3a-4fff-973b-5792d8da004d.png",
             "fallback_image": "use.webp",
-            "title": "Очищує та дезінфікує",
-            "text": "Один засіб для щоденного догляду за домом."
+            "title": "Без змивання",
+            "text": "Після обробки достатньо протерти поверхню серветкою."
           }
         },
         "slide_wwGtcq": {
@@ -57,8 +57,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_3-1.png",
             "fallback_image": "use.webp",
-            "title": "Свіжий аромат апельсина",
-            "text": "Дарує відчуття чистоти після кожного прибирання."
+            "title": "Для дитячих поверхонь",
+            "text": "Підходить для іграшок, пеленальних столиків і дитячих стільчиків."
           }
         }
       },
@@ -78,36 +78,31 @@
         "icons_gzTax9": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "95% активних компонентів рослинного походження"
           }
         },
         "icons_ADater": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "Без хлору"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
+            "text": "Без четвертинних амонієвих сполук"
           }
         },
         "icons_n7VjAJ": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
+            "text": "Без CMI/MI, окисників та альдегідів"
           }
         },
         "icons_h9wWha": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "Без нітромускусів"
           }
         }
       },
@@ -166,7 +161,7 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-5.png",
-            "text": "Столів"
+            "text": "Пеленальних столиків"
           }
         },
         "icons_iYW8yq": {
@@ -212,28 +207,28 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1_883bf6c0-bdfe-45bf-9439-ea4808645813.png",
-            "text": "Розпиліть засіб на поверхню."
+            "text": "Розпорошіть засіб на поверхню."
           }
         },
         "icons_6GyUdN": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2_41ecf86f-24c2-4e5f-bc11-6f070036a64d.png",
-            "text": "Залиште на кілька хвилин за потреби."
+            "text": "Залиште на 1–2 хвилини."
           }
         },
         "icons_mpkNnC": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-1_3e291717-5c11-4553-9b10-1520eb5fc7dd.png",
-            "text": "Протріть чистою серветкою або губкою."
+            "text": "Протріть поверхню серветкою."
           }
         },
         "icons_QBdgpb": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-2.png",
-            "text": "Для поверхонь, що контактують з їжею, змийте водою."
+            "text": "Змивання не потрібне."
           }
         }
       },
