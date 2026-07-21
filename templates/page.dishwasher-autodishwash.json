@@ -16,8 +16,8 @@
         "hero_image": "shopify://shop_images/Hero_Block-1_506c7a06-ca06-45e6-8638-80be98602225.png",
         "hero_image_mobile": "shopify://shop_images/Hero_Block_bd77ebaf-4d5b-43e7-932b-16e22d4de9a2.png",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та  дезінфекція без хлору",
-        "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
+        "hero_title": "Чистий посуд навіть після складних забруднень",
+        "hero_subtitle": "Активний гель з ензимами розщеплює пригорілий жир, надає посуду блиску та працює в ЕКО- і коротких програмах.",
         "hero_button_link": "shopify://products/my-planet-autodishwash-dishwasher-gel-22-cycles-450ml",
         "hero_button_text": "Замовити зараз"
       }
@@ -30,8 +30,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_a6171d29-269a-4a82-afd4-285b6ed842f8.png",
             "fallback_image": "use.webp",
-            "title": "Без хлору",
-            "text": "Комфортне використання без різкого запаху."
+            "title": "Проти пригорілого жиру",
+            "text": "Ензими допомагають розщеплювати стійкі залишки їжі."
           }
         },
         "slide_d4H7Wf": {
@@ -39,8 +39,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-1_6e74a53f-cd84-4c95-94bd-5f280643cbd6.png",
             "fallback_image": "use.webp",
-            "title": "Очищує та дезінфікує",
-            "text": "Один засіб для щоденного догляду за домом."
+            "title": "Блискучий посуд",
+            "text": "Допомагає зберігати склянки та келихи чистими й прозорими."
           }
         },
         "slide_tyykRV": {
@@ -48,8 +48,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-2_bbe064f3-f91b-4fca-9aa2-63db15aba42c.png",
             "fallback_image": "use.webp",
-            "title": "Для різних поверхонь",
-            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+            "title": "Без нальоту після миття",
+            "text": "Гель швидко розчиняється під час циклу та не залишає помітних слідів на посуді."
           }
         },
         "slide_wwGtcq": {
@@ -57,8 +57,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-3_909a659d-109e-48b8-bedb-46c35edfcd20.png",
             "fallback_image": "use.webp",
-            "title": "Свіжий аромат апельсина",
-            "text": "Дарує відчуття чистоти після кожного прибирання."
+            "title": "Для ЕКО та коротких програм",
+            "text": "Ефективно працює за низьких температур і під час швидких циклів."
           }
         }
       },
@@ -78,36 +78,31 @@
         "icons_gzTax9": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "Активні компоненти рослинного походження"
           }
         },
         "icons_ADater": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "Ензими для розщеплення пригорілого жиру"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
+            "text": "Рідка формула, що швидко розчиняється"
           }
         },
         "icons_n7VjAJ": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
+            "text": "Без зайвих хімічних компонентів"
           }
         },
         "icons_h9wWha": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "Веганський продукт"
           }
         }
       },
@@ -130,50 +125,50 @@
         "icons_exAKQm": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_8a5c3967-cd60-4f24-abc0-14a524563d0c.png",
-            "text": "Кухонних Поверхонь"
+            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_31.png",
+            "text": "Каструль"
           }
         },
         "icons_WG9hBx": {
           "type": "icons",
           "settings": {
-            "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_31.png",
-            "text": "Стільниць"
+            "image": "shopify://shop_images/Frame_1321317319.png",
+            "text": "Сковорідок"
           }
         },
         "icons_CEPrBc": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/Frame_1321317320.png",
-            "text": "Плитки"
+            "text": "Харчових контейнерів"
           }
         },
         "icons_6Y6jVU": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_29.png",
-            "text": "Раковин"
+            "text": "Тарілок"
           }
         },
         "icons_aGxmh3": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/Frame_1321317321.png",
-            "text": "Холодильників"
+            "text": "Мисок"
           }
         },
         "icons_74a8ti": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_30.png",
-            "text": "Столів"
+            "text": "Склянок і келихів"
           }
         },
         "icons_iYW8yq": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/Frame_1321317322.png",
-            "text": "Дверних Ручок"
+            "text": "Столових приборів"
           }
         }
       },
@@ -204,28 +199,28 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1_048e4eb0-7035-48cb-b046-e45551eed472.png",
-            "text": "Розпиліть засіб на поверхню."
+            "text": "Відкрийте відсік для мийного засобу."
           }
         },
         "icons_6GyUdN": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-1_283d561c-d167-4283-92e1-1528f4ee7b26.png",
-            "text": "Залиште на кілька хвилин за потреби."
+            "text": "Налийте приблизно 20–25 мл гелю."
           }
         },
         "icons_mpkNnC": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-2_8646788b-b4f6-44ef-bc5a-c28155644022.png",
-            "text": "Протріть чистою серветкою або губкою."
+            "text": "Оберіть потрібну програму миття."
           }
         },
         "icons_QBdgpb": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_1-3_a70d043e-9f42-4b71-bd60-123da9dc6b7c.png",
-            "text": "Для поверхонь, що контактують з їжею, змийте водою."
+            "text": "Закрийте машину та запустіть цикл."
           }
         }
       },
