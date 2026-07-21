@@ -16,8 +16,8 @@
         "hero_image": "shopify://shop_images/Hero_Block-1_74b0ecdb-7566-4826-9ace-72c29a82bfba.png",
         "hero_image_mobile": "shopify://shop_images/Hero_Block_43aaaf80-0fbe-4401-a1f5-575c1029216c.png",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та  дезінфекція без хлору",
-        "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
+        "hero_title": "Чистота без плям і неприємних запахів",
+        "hero_subtitle": "Гель із технологією Pure Fusion+ допомагає видаляти складні забруднення, пригнічувати ріст бактерій і підтримувати гігієнічну чистоту речей.",
         "hero_button_link": "shopify://products/my-planet-pure-fusion-plus-laundry-gel",
         "hero_button_text": "Замовити зараз"
       }
@@ -30,8 +30,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_82b425e2-906b-46f9-80cb-8cdc2137942f.png",
             "fallback_image": "use.webp",
-            "title": "Без хлору",
-            "text": "Комфортне використання без різкого запаху."
+            "title": "Подвійна дія",
+            "text": "Допомагає видаляти плями та забезпечувати гігієнічну чистоту речей."
           }
         },
         "slide_d4H7Wf": {
@@ -39,8 +39,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-1_caae71c0-1d9f-40eb-b8b6-29fee11db8c0.png",
             "fallback_image": "use.webp",
-            "title": "Очищує та дезінфікує",
-            "text": "Один засіб для щоденного догляду за домом."
+            "title": "Антибактеріальна дія",
+            "text": "Формула допомагає пригнічувати ріст бактерій на тканинах."
           }
         },
         "slide_tyykRV": {
@@ -48,8 +48,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-2_0ce2b1b7-1c4d-4e22-8ac4-3c2b326708d5.png",
             "fallback_image": "use.webp",
-            "title": "Для різних поверхонь",
-            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+            "title": "Green+ ензими",
+            "text": "Допомагають розщеплювати складні забруднення під час прання."
           }
         },
         "slide_wwGtcq": {
@@ -57,8 +57,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-3_2822a4f2-ed97-4f54-8fd3-4ca80ae660bc.png",
             "fallback_image": "use.webp",
-            "title": "Свіжий аромат апельсина",
-            "text": "Дарує відчуття чистоти після кожного прибирання."
+            "title": "Проти неприємних запахів",
+            "text": "Допомагає повертати речам чистоту та свіжість."
           }
         }
       },
@@ -78,36 +78,31 @@
         "icons_gzTax9": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "Green+ ензими для видалення плям"
           }
         },
         "icons_ADater": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "Wash Boosters для посилення очищення"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
+            "text": "Без EDTA, CMI/MI та барвників"
           }
         },
         "icons_n7VjAJ": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
+            "text": "Без нітромускусів"
           }
         },
         "icons_h9wWha": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "Гіпоалергенна, дерматологічно протестована формула"
           }
         }
       },
@@ -131,56 +126,56 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_14.png",
-            "text": "Кухонних Поверхонь"
+            "text": "Пледів"
           }
         },
         "icons_WG9hBx": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_18.png",
-            "text": "Стільниць"
+            "text": "Рушників"
           }
         },
         "icons_CEPrBc": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/07.png",
-            "text": "Плитки"
+            "text": "Темного одягу"
           }
         },
         "icons_6Y6jVU": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/04.png",
-            "text": "Раковин"
+            "text": "Світлих тканин"
           }
         },
         "icons_aGxmh3": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/06.png",
-            "text": "Холодильників"
+            "text": "Кольорових речей"
           }
         },
         "icons_74a8ti": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/02.png",
-            "text": "Столів"
+            "text": "Трикотажу"
           }
         },
         "icons_iYW8yq": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/01.png",
-            "text": "Дверних Ручок"
+            "text": "Джинсового одягу"
           }
         },
         "icons_rhXrEj": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/05.png",
-            "text": "Ванної Кімнати"
+            "text": "Сорочок і футболок"
           }
         }
       },
@@ -212,28 +207,28 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2_e997763c-069f-4732-b8cf-3f2d80de5bac.png",
-            "text": "Розпиліть засіб на поверхню."
+            "text": "Відміряйте необхідну кількість гелю відповідно до рекомендацій на упаковці."
           }
         },
         "icons_6GyUdN": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-1_2dd9f51f-6f43-4ab7-953f-9c265bb01429.png",
-            "text": "Залиште на кілька хвилин за потреби."
+            "text": "Завантажте речі та налийте засіб у відсік пральної машини."
           }
         },
         "icons_mpkNnC": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-2_f84c071a-3059-4e70-9dfd-c20e689cea3c.png",
-            "text": "Протріть чистою серветкою або губкою."
+            "text": "Оберіть програму й температуру відповідно до типу тканини."
           }
         },
         "icons_QBdgpb": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-3.png",
-            "text": "Для поверхонь, що контактують з їжею, змийте водою."
+            "text": "Запустіть цикл прання."
           }
         }
       },
