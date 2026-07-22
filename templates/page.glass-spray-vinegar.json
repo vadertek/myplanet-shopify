@@ -15,9 +15,11 @@
       "settings": {
         "hero_image": "shopify://shop_images/Hero_Block-1_adda195c-a087-41b1-ae2e-54ffaef66a94.png",
         "hero_image_mobile": "shopify://shop_images/Hero_Block_3ba9304c-8d1b-4b39-8784-2f449361ba1b.png",
+        "text_color": "#004172",
+        "hero_button_background_color": "#236591",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та  дезінфекція без хлору",
-        "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
+        "hero_title": "Чисте скло без розводів",
+        "hero_subtitle": "Спрей з оцтом допомагає видаляти вапняний наліт, жирні сліди та плями, залишаючи вікна й дзеркала прозорими та блискучими.",
         "hero_button_link": "shopify://products/my-planet-vinegar-glass-cleaner-spray-1000ml",
         "hero_button_text": "Замовити зараз"
       }
@@ -30,8 +32,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_3a066f4c-08ac-4989-bba7-131b4e9907e6.png",
             "fallback_image": "use.webp",
-            "title": "Без хлору",
-            "text": "Комфортне використання без різкого запаху."
+            "title": "Формула з оцтом",
+            "text": "Допомагає ефективно очищати скляні поверхні від повсякденних забруднень."
           }
         },
         "slide_d4H7Wf": {
@@ -39,8 +41,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-1_e8611571-0ba7-4e8b-beff-95678e48c3c2.png",
             "fallback_image": "use.webp",
-            "title": "Очищує та дезінфікує",
-            "text": "Один засіб для щоденного догляду за домом."
+            "title": "Проти вапняного нальоту",
+            "text": "Видаляє сліди води та вапняні відкладення зі скла й дзеркал."
           }
         },
         "slide_tyykRV": {
@@ -48,8 +50,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-2_81fce3a6-f526-429e-827c-16b78384fb47.png",
             "fallback_image": "use.webp",
-            "title": "Для різних поверхонь",
-            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+            "title": "Без розводів",
+            "text": "Після очищення поверхні залишаються прозорими та блискучими."
           }
         },
         "slide_wwGtcq": {
@@ -57,8 +59,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-1_e8611571-0ba7-4e8b-beff-95678e48c3c2.png",
             "fallback_image": "use.webp",
-            "title": "Свіжий аромат апельсина",
-            "text": "Дарує відчуття чистоти після кожного прибирання."
+            "title": "Без аміаку",
+            "text": "Очищує скло без використання аміаку у формулі."
           }
         }
       },
@@ -78,36 +80,31 @@
         "icons_gzTax9": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "- Оцтова кислота для видалення нальоту"
           }
         },
         "icons_ADater": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "- Очищувальні компоненти проти жиру та плям"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
+            "text": "- Допомагає не залишати розводів"
           }
         },
         "icons_n7VjAJ": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
+            "text": "- Без аміаку"
           }
         },
         "icons_h9wWha": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "- Без EDTA"
           }
         }
       },
@@ -121,7 +118,9 @@
       "settings": {
         "hero_image": "shopify://shop_images/Benefits_Block_0679e33e-5f4b-4aad-8d4e-82f5c125382a.png",
         "hero_image_mobile": "shopify://shop_images/Benefits_Block-1_0b6b9b87-6df6-4fbf-8486-3889949438cf.png",
-        "title": "Формула для щоденного використання"
+        "title": "Формула для щоденного використання",
+        "enable_custom_text_color": false,
+        "text_color": "#ffffff"
       }
     },
     "mp-prodinfo-for": {
@@ -187,7 +186,8 @@
         "icons_iYW8yq"
       ],
       "settings": {
-        "title": "Підходить для"
+        "title": "Підходить для",
+        "columns_desktop": 8
       }
     },
     "mp-about-bigturtle": {
@@ -211,21 +211,21 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-1_8b0ba942-9411-41a1-ae68-8a5340bb7306.png",
-            "text": "Залиште на кілька хвилин за потреби."
+            "text": "Протріть сухою серветкою або мікрофіброю."
           }
         },
         "icons_mpkNnC": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-2_386f7b05-bdb5-47ae-ad91-0ce72593f1a8.png",
-            "text": "Протріть чистою серветкою або губкою."
+            "text": "Особливу увагу приділіть ділянкам із нальотом і жирними слідами."
           }
         },
         "icons_QBdgpb": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-3_38408662-d341-40da-9508-e81fa862a00f.png",
-            "text": "Для поверхонь, що контактують з їжею, змийте водою."
+            "text": "За потреби повторіть очищення."
           }
         }
       },
