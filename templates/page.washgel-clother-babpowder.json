@@ -15,10 +15,12 @@
       "settings": {
         "hero_image": "shopify://shop_images/Hero_Block-1_8c0d3d5c-e922-49fb-bcd4-d89242447039.png",
         "hero_image_mobile": "shopify://shop_images/Hero_Block_3fb75303-541f-4932-8329-528d3c92fd62.png",
+        "text_color": "#004172",
+        "hero_button_background_color": "#236591",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та  дезінфекція без хлору",
-        "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
-        "hero_button_link": "",
+        "hero_title": "Дбайливе прання дитячих речей",
+        "hero_subtitle": "Гель із ферментами допомагає видаляти повсякденні плями та залишає на тканинах ніжний пудровий аромат Baby Powder.",
+        "hero_button_link": "shopify://products/baby-planet-baby-powder-laundry-gel",
         "hero_button_text": "Замовити зараз"
       }
     },
@@ -121,7 +123,9 @@
       "settings": {
         "hero_image": "shopify://shop_images/Benefits_Block_86d78884-1967-47a2-83e5-2bfc48d96f85.png",
         "hero_image_mobile": "shopify://shop_images/Benefits_Block-1_d8bef9af-e964-47cc-8cac-18994d3070cb.png",
-        "title": "Формула для щоденного використання"
+        "title": "Формула для щоденного використання",
+        "enable_custom_text_color": false,
+        "text_color": "#ffffff"
       }
     },
     "mp-prodinfo-for": {
@@ -187,7 +191,8 @@
         "icons_iYW8yq"
       ],
       "settings": {
-        "title": "Підходить для"
+        "title": "Підходить для",
+        "columns_desktop": 8
       }
     },
     "mp-about-bigturtle": {
