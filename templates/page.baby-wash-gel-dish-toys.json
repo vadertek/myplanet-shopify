@@ -15,10 +15,12 @@
       "settings": {
         "hero_image": "shopify://shop_images/Hero_Block-1_badc6435-7fff-425c-8b6e-50d3affe92f0.png",
         "hero_image_mobile": "shopify://shop_images/Hero_Block_5d7094e3-0837-41a2-8536-78223f17c19b.png",
+        "text_color": "#004172",
+        "hero_button_background_color": "#236591",
         "hero_rating": "4.9/5 • 12 000+ покупців",
         "hero_title": "Чистота та  дезінфекція без хлору",
         "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
-        "hero_button_link": "",
+        "hero_button_link": "shopify://products/baby-planet-baby-dish-and-toy-wash-gel-425ml",
         "hero_button_text": "Замовити зараз"
       }
     },
@@ -121,7 +123,9 @@
       "settings": {
         "hero_image": "shopify://shop_images/Benefits_Block_e50648ed-9225-4aa5-86c6-e3e9fe8b0a8f.png",
         "hero_image_mobile": "shopify://shop_images/Benefits_Block-1_7e3d843f-c1cc-44db-9ec0-80319638d7ae.png",
-        "title": "Формула для щоденного використання"
+        "title": "Формула для щоденного використання",
+        "enable_custom_text_color": false,
+        "text_color": "#ffffff"
       }
     },
     "mp-prodinfo-for": {
@@ -187,7 +191,8 @@
         "icons_iYW8yq"
       ],
       "settings": {
-        "title": "Підходить для"
+        "title": "Підходить для",
+        "columns_desktop": 8
       }
     },
     "mp-about-bigturtle": {
