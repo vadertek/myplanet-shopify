@@ -18,8 +18,8 @@
         "text_color": "#004172",
         "hero_button_background_color": "#236591",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та  дезінфекція без хлору",
-        "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
+        "hero_title": "Чистота дитячого посуду без зайвих слідів",
+        "hero_subtitle": "Гель м’яко видаляє залишки їжі з пляшечок, сосок, дитячого посуду та іграшок і легко змивається проточною водою.",
         "hero_button_link": "shopify://products/baby-planet-baby-dish-and-toy-wash-gel-425ml",
         "hero_button_text": "Замовити зараз"
       }
@@ -32,8 +32,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1_a91b4d32-4942-4682-ba7b-9d546d74ffa9.png",
             "fallback_image": "use.webp",
-            "title": "Без хлору",
-            "text": "Комфортне використання без різкого запаху."
+            "title": "Легко змивається",
+            "text": "Після ретельного ополіскування не залишає помітних слідів мийного засобу."
           }
         },
         "slide_d4H7Wf": {
@@ -41,8 +41,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-1_89baaf97-c124-4a04-b5b7-47a6d27ce91a.png",
             "fallback_image": "use.webp",
-            "title": "Очищує та дезінфікує",
-            "text": "Один засіб для щоденного догляду за домом."
+            "title": "М’яко видаляє забруднення",
+            "text": "Допомагає очищати дитячий посуд від залишків їжі та повсякденного бруду."
           }
         },
         "slide_tyykRV": {
@@ -50,8 +50,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-2_bf547877-9682-4483-987d-a962ce5771bd.png",
             "fallback_image": "use.webp",
-            "title": "Для різних поверхонь",
-            "text": "Підходить для кухні, ванної кімнати та інших твердих поверхонь."
+            "title": "Для посуду та іграшок",
+            "text": "Підходить для миття пляшечок, сосок, дитячого посуду й твердих іграшок."
           }
         },
         "slide_wwGtcq": {
@@ -59,8 +59,8 @@
           "settings": {
             "image": "shopify://shop_images/magnific_professional-product-adve_VdycniwMMU_1-3_565e42e0-a4ed-4854-8e66-f7ecddad2749.png",
             "fallback_image": "use.webp",
-            "title": "Свіжий аромат апельсина",
-            "text": "Дарує відчуття чистоти після кожного прибирання."
+            "title": "Для дитячих аксесуарів",
+            "text": "Спеціально розроблений для предметів, які використовує дитина щодня."
           }
         }
       },
@@ -80,36 +80,31 @@
         "icons_gzTax9": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "- Допомагає видаляти залишки їжі"
           }
         },
         "icons_ADater": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "- Розроблена для регулярного ручного миття"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
+            "text": "- 5–15% аніонних поверхнево-активних речовин"
           }
         },
         "icons_n7VjAJ": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
+            "text": "- Менше ніж 5% неіонних поверхнево-активних речовин"
           }
         },
         "icons_h9wWha": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "- Амфотерні поверхнево-активні речовини"
           }
         }
       },
@@ -209,28 +204,28 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2_dc285a4f-e3a4-40bb-bc92-b3229357d96b.png",
-            "text": "Розпиліть засіб на поверхню."
+            "text": "Додайте невелику кількість гелю в теплу воду або нанесіть на щітку."
           }
         },
         "icons_6GyUdN": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-1_ef84ed2a-2e56-4aac-9769-dbe78d1adf90.png",
-            "text": "Залиште на кілька хвилин за потреби."
+            "text": "Ретельно вимийте пляшечку, соску, посуд чи аксесуар."
           }
         },
         "icons_mpkNnC": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-2_2c322c59-68dc-408e-802a-847ad59d8785.png",
-            "text": "Протріть чистою серветкою або губкою."
+            "text": "Добре промийте чистою проточною водою."
           }
         },
         "icons_QBdgpb": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-3_5a9e4ec5-0266-47f1-a73f-1c8f9f7999ce.png",
-            "text": "Для поверхонь, що контактують з їжею, змийте водою."
+            "text": "Залиште до повного висихання."
           }
         }
       },
