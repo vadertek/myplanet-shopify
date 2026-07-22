@@ -15,10 +15,12 @@
       "settings": {
         "hero_image": "shopify://shop_images/Hero_Block_e4548276-4a25-4dc1-a87d-2d287408f811.png",
         "hero_image_mobile": "shopify://shop_images/Hero_Block-1_15ecaf97-7ceb-4a7e-bc02-a4f60d5860cf.png",
+        "text_color": "#004172",
+        "hero_button_background_color": "#236591",
         "hero_rating": "4.9/5 • 12 000+ покупців",
         "hero_title": "Чистота та морська свіжість у всьому домі",
         "hero_subtitle": "Концентрований засіб ефективно очищає підлогу й тверді поверхні та залишає свіжий морський аромат.",
-        "hero_button_link": "shopify://products/my-planet-all-purpose-surface-cleaner-600ml",
+        "hero_button_link": "shopify://products/my-planet-ocean-fresh-all-purpose-surface-cleaner-1000ml",
         "hero_button_text": "Замовити зараз"
       }
     },
@@ -116,7 +118,9 @@
       "settings": {
         "hero_image": "shopify://shop_images/Hero_Block-2_e34d5ed9-fd93-413e-8861-054403b81a64.png",
         "hero_image_mobile": "shopify://shop_images/Benefits_Block_cec848c9-b02a-40b1-87ea-dfccc7b554d9.png",
-        "title": "Формула для щоденного використання"
+        "title": "Формула для щоденного використання",
+        "enable_custom_text_color": false,
+        "text_color": "#ffffff"
       }
     },
     "mp-prodinfo-for": {
@@ -182,7 +186,8 @@
         "icons_iYW8yq"
       ],
       "settings": {
-        "title": "Підходить для"
+        "title": "Підходить для",
+        "columns_desktop": 8
       }
     },
     "mp-about-bigturtle": {
