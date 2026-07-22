@@ -15,10 +15,12 @@
       "settings": {
         "hero_image": "shopify://shop_images/Hero_Block-1_91c97ff6-e39e-4de8-94b6-bbda43db2b6e.png",
         "hero_image_mobile": "shopify://shop_images/Hero_Block_51e8f8d5-06d0-46ae-97a1-c945db97089b.png",
+        "text_color": "#004172",
+        "hero_button_background_color": "#236591",
         "hero_rating": "4.9/5 • 12 000+ покупців",
-        "hero_title": "Чистота та  дезінфекція без хлору",
-        "hero_subtitle": "Ефективно очищує поверхні та допомагає підтримувати гігієну в домі без різкого запаху хлору.",
-        "hero_button_link": "",
+        "hero_title": "М’які дитячі речі після кожного прання",
+        "hero_subtitle": "Кондиціонер-пом’якшувач делікатно доглядає за тканинами та підходить для дитячої білизни від народження.",
+        "hero_button_link": "shopify://products/baby-planet-baby-fabric-softener-40-washes-900ml",
         "hero_button_text": "Замовити зараз"
       }
     },
@@ -121,7 +123,9 @@
       "settings": {
         "hero_image": "shopify://shop_images/Benefits_Block_0c54dca2-9382-43a0-a9c9-5aab107c8c9d.png",
         "hero_image_mobile": "shopify://shop_images/Benefits_Block-1_66cb764d-2942-4ebb-99e4-af092b909ca2.png",
-        "title": "Формула для щоденного використання"
+        "title": "Формула для щоденного використання",
+        "enable_custom_text_color": false,
+        "text_color": "#ffffff"
       }
     },
     "mp-prodinfo-for": {
@@ -187,7 +191,8 @@
         "icons_iYW8yq"
       ],
       "settings": {
-        "title": "Підходить для"
+        "title": "Підходить для",
+        "columns_desktop": 8
       }
     },
     "mp-about-bigturtle": {
