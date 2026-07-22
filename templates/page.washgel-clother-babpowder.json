@@ -80,36 +80,31 @@
         "icons_gzTax9": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/chlorine.png",
-            "text": "0% хлору"
+            "text": "- 5–15% аніонних поверхнево-активних речовин"
           }
         },
         "icons_ADater": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/aldehydes.png",
-            "text": "0% альдегідів"
+            "text": "- Менше ніж 5% неіонних поверхнево-активних речовин"
           }
         },
         "icons_36qyx7": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/oxidants.png",
-            "text": "0% окислювачів"
+            "text": "- Мило"
           }
         },
         "icons_n7VjAJ": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/odor.png",
-            "text": "Без різкого запаху"
+            "text": "- Ферменти"
           }
         },
         "icons_h9wWha": {
           "type": "icons",
           "settings": {
-            "icon": "shopify://shop_images/various_surfaces.png",
-            "text": "Ефективне очищення різних поверхонь"
+            "text": "- Оптичні відбілювачі"
           }
         }
       },
@@ -209,28 +204,28 @@
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2_aa5315b0-8280-4d95-99c2-7814dec79382.png",
-            "text": "Розпиліть засіб на поверхню."
+            "text": "Відміряйте 58 мл гелю на 4–5 кг білизни."
           }
         },
         "icons_6GyUdN": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-1_68448f7c-37f6-42ec-9cf4-0ec23b08865d.png",
-            "text": "Залиште на кілька хвилин за потреби."
+            "text": "Налийте засіб у відповідний відсік пральної машини."
           }
         },
         "icons_mpkNnC": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_2-2_358478d2-a573-4e7a-b1b7-20caa5ff89ea.png",
-            "text": "Протріть чистою серветкою або губкою."
+            "text": "Оберіть програму відповідно до типу тканини та запустіть прання."
           }
         },
         "icons_QBdgpb": {
           "type": "icons",
           "settings": {
             "image": "shopify://shop_images/magnific_create-four-vertical-card_EqdfQKnuuO_1_3_f26ba94a-3c75-4681-8040-ec0c2918c368.png",
-            "text": "Для поверхонь, що контактують з їжею, змийте водою."
+            "text": "Отримуйте чисту ароматну білизну."
           }
         }
       },
