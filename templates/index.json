@@ -98,7 +98,8 @@
         "product_tag_gAGUaD"
       ],
       "settings": {
-        "title": "Зараз в тренді"
+        "title": "Зараз в тренді",
+        "products_to_show": 8
       }
     },
     "mp-home-baby": {
@@ -151,7 +152,7 @@
           "type": "link",
           "settings": {
             "label": "Baby Planet",
-            "link": ""
+            "link": "shopify://collections/test-2"
           }
         },
         "link_gpejzj": {
