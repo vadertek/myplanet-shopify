@@ -19,7 +19,7 @@
     <div class="flex items-center justify-between border-b border-[#C0D7ED] px-4 py-4 md:px-6">
       <div>
         <p id="cherie-cart-drawer-title" class="font-montserrat-bold text-[22px] leading-none font-bold text-main-blue">
-          Кошик
+          {{ 'sections.cart.title' | t }}
         </p>
         <p class="mt-1 font-montserrat-reg text-[12px] leading-none text-main-blue/70">
           <span data-cherie-cart-count>{{ cart.item_count }}</span>
@@ -40,12 +40,12 @@
     <div id="cherie-drawer-items" class="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4 md:px-6">
       {% if cart.item_count == 0 %}
         <div class="flex flex-1 flex-col items-start justify-center rounded-2xl border border-[#C0D7ED] px-5 py-8">
-          <p class="font-montserrat-bold text-[22px] leading-tight font-bold text-main-blue">Кошик порожній</p>
+          <p class="font-montserrat-bold text-[22px] leading-tight font-bold text-main-blue">{{ 'sections.cart.empty' | t }}</p>
           <a
             class="mt-5 inline-flex min-h-12 items-center justify-center rounded-[10px] bg-main-blue px-6 text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:bg-dark-blue focus-visible:bg-dark-blue md:rounded-[14px] md:text-[14px]"
             href="{{ routes.all_products_collection_url }}"
           >
-            Продовжити покупки
+            {{ 'general.continue_shopping' | t }}
           </a>
         </div>
       {% else %}
@@ -130,9 +130,7 @@
               </div>
 
               <div class="text-right">
-                <p class="font-montserrat-bold text-[16px] leading-none font-bold text-main-blue">
-                  {{ item.final_line_price | money_without_currency | replace: ',00', '' | replace: '.00', '' }} ₴
-                </p>
+                <p class="font-montserrat-bold text-[16px] leading-none font-bold text-main-blue">{{ item.final_line_price | money_without_currency | replace: ',00', '' | replace: '.00', '' }} ₴</p>
                 {% if item.original_line_price > item.final_line_price %}
                   <p class="mt-1 font-montserrat-bold text-[12px] leading-none font-bold text-[#C0D7ED] line-through">
                     {{ item.original_line_price | money_without_currency | replace: ',00', '' | replace: '.00', '' }} ₴
@@ -162,13 +160,13 @@
           href="{{ routes.cart_url }}"
           class="flex min-h-12 items-center justify-center rounded-[10px] border border-main-blue px-4 text-center font-montserrat-bold text-[12px] leading-none font-bold text-main-blue transition hover:bg-main-blue hover:text-white md:rounded-[14px] md:text-[14px]"
         >
-          До кошика
+          {{ 'return' }}
         </a>
         <a
           href="/checkout"
           class="flex min-h-12 items-center justify-center rounded-[10px] bg-main-blue px-4 text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:bg-dark-blue focus-visible:bg-dark-blue md:rounded-[14px] md:text-[14px]"
         >
-          Оформити
+          {{ 'sections.cart.checkout' | t }}
         </a>
       </div>
     </div>

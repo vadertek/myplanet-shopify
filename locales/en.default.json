@@ -34,8 +34,12 @@
         "buy-for": "Buy for",
         "unavailable": "Unavailable",
         "order": "Order",
-        "total_suma": "Сума замовлення",
-        "order_price": "Order price"
+        "total_suma": "Order Total",
+        "order_price": "Order price",
+        "to_cart": "To cart",
+        "total": "Total",
+        "read_more": "Read More",
+        "result": "Result"
     },
     "password_page": {
       "login_form_heading": "Enter store using password:",
@@ -319,6 +323,16 @@
       "sold-out": "Немає в наявності",
       "units": "шт",
       "no-discount": "Без знижки"
+    },
+    "product-information": {
+      "kv": "Можливі KV",
+      "topology": "Топологія",
+      "magnits": "Магніти",
+      "warmer": "Жаростійка обмотка",
+      "test-result": "Результат тестування",
+      "articul": "Артикул",
+      "catalog": "Каталог",
+      "home": "Головна"
     },
     "announcements": {
       "previous_announcement": "Previous announcement",

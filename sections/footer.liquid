@@ -22,7 +22,7 @@
   <div class="grid w-full grid-cols-1 gap-8 text-[14px] md:w-1/2 md:grid-cols-3 md:gap-12">
     <div class="flex flex-col gap-6">
       <div>
-        <h4 class="mb-3 font-montserrat-bold font-bold">Baby Planet</h4>
+        <h4 class="mb-3 font-montserrat-bold font-bold">{{ section.settings.baby_title }}</h4>
         <ul>
           <li>
             <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Для прання дитячих речей</a>
@@ -43,7 +43,7 @@
       </div>
 
       <div>
-        <h4 class="mb-3 font-montserrat-bold font-bold">My Planet</h4>
+        <h4 class="mb-3 font-montserrat-bold font-bold">{{ section.settings.my_title }}</h4>
         <ul>
           <li>
             <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Універсальні засоби</a>
@@ -68,7 +68,7 @@
     </div>
 
     <div>
-      <h4 class="mb-3 font-montserrat-bold font-bold">Меню</h4>
+      <h4 class="mb-3 font-montserrat-bold font-bold">{{ section.settings.menu_title }}</h4>
       <ul>
         {%- for link in linklists['main-menu'].links -%}
           <li>
@@ -118,6 +118,24 @@
       "id": "footer_title",
       "label": "Footer Title",
       "default": "Підпишіться на новини та спеціальні пропозиції"
+    },
+    {
+      "type": "text",
+      "id": "my_title",
+      "label": "My Planet Title",
+      "default": "My Planet"
+    },
+    {
+      "type": "text",
+      "id": "baby_title",
+      "label": "Baby Planet Title",
+      "default": "Baby Planet"
+    },
+    {
+      "type": "text",
+      "id": "menu_title",
+      "label": "Menu Title",
+      "default": "Меню"
     }
   ]
 }

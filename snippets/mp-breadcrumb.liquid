@@ -43,7 +43,9 @@
 <nav class="mx-auto max-w-360 px-4 pt-5 md:px-8" aria-label="Breadcrumb">
   <ol class="flex flex-wrap items-center gap-1 font-montserrat-reg text-xs leading-none text-[#C0D7ED]">
     <li>
-      <a class="text-xs transition hover:text-main-blue focus-visible:text-main-blue" href="{{ routes.root_url }}">Головна</a>
+      <a class="text-xs transition hover:text-main-blue focus-visible:text-main-blue" href="{{ routes.root_url }}">
+        {{ 'sections.product-information.home' | t }}
+      </a>
     </li>
 
     {%- if parent_title != blank and parent_url != blank -%}
