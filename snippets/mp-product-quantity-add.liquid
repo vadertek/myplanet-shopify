@@ -38,9 +38,10 @@
     {% endif %}
   >
     {% if product.available and product.selected_or_first_available_variant.price > 0 %}
-      Купити за {{ product.selected_or_first_available_variant.price | money_with_currency }}
+      {{ 'general.custom.buy-for' | t }}
+      {{ product.selected_or_first_available_variant.price | money_with_currency }}
     {% else %}
-      Недоступно
+      {{ 'general.custom.unavailable' | t }}
     {% endif %}
   </button>
 </div>
