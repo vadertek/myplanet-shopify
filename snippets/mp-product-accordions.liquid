@@ -1,27 +1,11 @@
 <div id="mp-product-accordions-{{ product.id }}" class="mt-6">
-  {%
-    render 'mp-accordion-item',
-    title: 'Склад',
-    description: product.metafields.custom.sklad.value | newline_to_br
-  %}
+  {% render 'mp-accordion-item', title: 'Склад', description: product.metafields.custom.sklad.value %}
 
-  {%
-    render 'mp-accordion-item',
-    title: 'Спосіб використання',
-    description: product.metafields.custom.uses.value | newline_to_br
-  %}
+  {% render 'mp-accordion-item', title: 'Спосіб використання', description: product.metafields.custom.uses.value %}
 
-  {%
-    render 'mp-accordion-item',
-    title: 'Призначення',
-    description: product.metafields.custom.appointment.value | newline_to_br
-  %}
+  {% render 'mp-accordion-item', title: 'Призначення', description: product.metafields.custom.appointment.value %}
 
-  {%
-    render 'mp-accordion-item',
-    title: 'Переваги',
-    description: product.metafields.custom.perevaga.value | newline_to_br
-  %}
+  {% render 'mp-accordion-item', title: 'Переваги', description: product.metafields.custom.perevaga.value %}
 </div>
 
 <script>
@@ -60,3 +44,46 @@
     });
   });
 </script>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%
+        render 'mp-accordion-item',
+        title: 'Склад',
+        description: product.metafields.custom.sklad.value | newline_to_br
+      %}
+  to: "{% render 'mp-accordion-item', title: 'Склад', description: product.metafields.custom.sklad.value
+    %}"
+  position: 65..165
+- from: |-
+    {%
+        render 'mp-accordion-item',
+        title: 'Спосіб використання',
+        description: product.metafields.custom.uses.value | newline_to_br
+      %}
+  to: "{% render 'mp-accordion-item', title: 'Спосіб використання', description: product.metafields.custom.uses.value
+    %}"
+  position: 169..282
+- from: |-
+    {%
+        render 'mp-accordion-item',
+        title: 'Призначення',
+        description: product.metafields.custom.appointment.value | newline_to_br
+      %}
+  to: "{% render 'mp-accordion-item', title: 'Призначення', description: product.metafields.custom.appointment.value
+    %}"
+  position: 286..398
+- from: |-
+    {%
+        render 'mp-accordion-item',
+        title: 'Переваги',
+        description: product.metafields.custom.perevaga.value | newline_to_br
+      %}
+  to: "{% render 'mp-accordion-item', title: 'Переваги', description: product.metafields.custom.perevaga.value
+    %}"
+  position: 402..508
+{% endcomment %}
