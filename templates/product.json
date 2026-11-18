@@ -16,6 +16,41 @@
         "rating": "4.9 (178)"
       }
     },
+    "mp-product-care": {
+      "type": "mp-product-care",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "label": "Для прання",
+            "link": ""
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "label": "Для миття посуду",
+            "link": ""
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "label": "Для чистоти всього дому",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3"
+      ],
+      "settings": {
+        "title": "Свій догляд для кожного куточка",
+        "text": "Кожен куточок дому потребує свого догляду. Саме тому My Planet створює засоби для прання, миття посуду, очищення поверхонь, скла та підлоги, допомагаючи підтримувати чистоту без зайвих зусиль."
+      }
+    },
     "mp-home-baby": {
       "type": "mp-home-baby",
       "settings": {
@@ -252,6 +287,7 @@
   },
   "order": [
     "mp-product-hero",
+    "mp-product-care",
     "mp-home-baby",
     "mp-home-treasures",
     "mp-home-reviews",

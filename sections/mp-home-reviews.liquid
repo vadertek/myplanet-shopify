@@ -29,15 +29,27 @@
     </div>
   </div>
 
-  <div class="mx-auto max-w-[1440px] px-4 py-8 md:px-10 md:py-10">
-    <div id="reviews-swiper-{{ section.id }}" class="swiper flex w-full items-center overflow-hidden">
-      <div class="swiper-wrapper flex">
+  {%- liquid
+    comment
+      Loop mode needs enough slides to fill the edges, so short lists are repeated.
+    endcomment
+    assign blocks_count = section.blocks.size
+    assign repeat = 1
+    if blocks_count > 0 and blocks_count < 12
+      assign repeat = 11 | plus: blocks_count | divided_by: blocks_count
+    endif
+  -%}
+
+  <div class="-mx-4 py-8 md:-mx-10 md:py-10">
+    <div id="reviews-swiper-{{ section.id }}" class="swiper w-full overflow-hidden min-[1200px]:[mask-image:linear-gradient(to_right,transparent_calc(50%-880px),#000_calc(50%-680px),#000_calc(50%+680px),transparent_calc(50%+880px))] min-[1200px]:[-webkit-mask-image:linear-gradient(to_right,transparent_calc(50%-880px),#000_calc(50%-680px),#000_calc(50%+680px),transparent_calc(50%+880px))]">
+      <div class="swiper-wrapper flex min-[1200px]:-ml-[226px]">
+        {%- for i in (1..repeat) -%}
         {%- for block in section.blocks -%}
           {%- assign review_product = block.settings.product -%}
 
           <article
-            class="swiper-slide flex min-h-75 flex-col rounded-2xl border border-[#82B727] bg-white px-4 py-4 md:min-h-75"
-            {{ block.shopify_attributes }}
+            class="swiper-slide flex h-auto min-h-75 shrink-0 flex-col min-[1200px]:min-h-[335px] min-[1200px]:w-[444px]! rounded-2xl border border-[#82B727] bg-white px-4 py-4 md:min-h-75"
+            {% if i == 1 %}{{ block.shopify_attributes }}{% endif %}
           >
             <div class="flex items-start justify-between gap-4 font-montserrat-bold text-[16px] leading-none font-bold text-[#82B727]">
               <p class="text-[#325037]/70 text-sm">
@@ -86,6 +98,7 @@
             {%- endif -%}
           </article>
         {%- endfor -%}
+        {%- endfor -%}
       </div>
     </div>
   </div>
@@ -122,22 +135,29 @@
       if (swiperEl.swiper) swiperEl.swiper.destroy(true, true);
 
       new Swiper(swiperEl, {
-        slidesPerView: 1.08,
+        slidesPerView: 1.15,
+        centeredSlides: true,
         spaceBetween: 10,
         speed: 350,
-        watchOverflow: true,
+        loop: true,
         navigation: {
           nextEl: '#reviews-next-{{ section.id }}, #reviews-mobile-next-{{ section.id }}',
           prevEl: '#reviews-prev-{{ section.id }}, #reviews-mobile-prev-{{ section.id }}',
         },
         breakpoints: {
           768: {
-            slidesPerView: 2.35,
+            slidesPerView: 2.4,
+            centeredSlides: true,
             spaceBetween: 8,
           },
+          // Fixed 444px cards. Active card is centered, then the wrapper is shifted
+          // left by half a card (+ half gap) so the middle pair is centered.
+          // Cards fade out from ~680px to 880px from the center (mask on the swiper).
           1200: {
-            slidesPerView: 3.35,
+            slidesPerView: 'auto',
+            centeredSlides: true,
             spaceBetween: 8,
+            loopAdditionalSlides: 2,
           },
         },
       });

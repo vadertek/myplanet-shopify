@@ -1,10 +1,10 @@
-<div class="mt-5 flex gap-2">
+<div class="mt-6 flex gap-2 font-nunito">
   <div
-    class="flex h-13 min-w-22 items-center justify-center gap-4 rounded-2xl border border-main-blue px-4 font-montserrat-bold text-[16px] leading-none font-bold text-main-blue"
+    class="flex h-[59px] min-w-22 items-center justify-center gap-4 rounded-2xl border border-(--pdp-accent) px-4 text-base leading-none font-bold text-(--pdp-accent)"
   >
     <button
       id="mp-product-quantity-minus-{{ product.id }}"
-      class="cursor-pointer text-[#C0D7ED]"
+      class="cursor-pointer text-(--pdp-muted)"
       type="button"
       aria-label="Зменшити кількість"
     >
@@ -31,7 +31,7 @@
 
   <button
     id="mp-product-add-{{ product.id }}"
-    class="flex h-13 flex-1 cursor-pointer items-center justify-center rounded-2xl bg-main-blue px-5 font-montserrat-extra text-[16px] leading-none font-bold text-white transition hover:bg-dark-blue focus-visible:bg-dark-blue disabled:pointer-events-none disabled:opacity-50"
+    class="flex h-[59px] flex-1 cursor-pointer items-center justify-center rounded-2xl bg-(--add-btn-bg) px-5 text-xl leading-none font-normal text-(--add-btn-text) transition hover:opacity-85 focus-visible:opacity-85 disabled:pointer-events-none disabled:opacity-50"
     type="submit"
     {% if product.available == false or product.selected_or_first_available_variant.price <= 0 %}
       disabled
@@ -81,8 +81,8 @@
     function updateQuantityButtons() {
       const canDecrease = getQuantity() > 1;
 
-      minus?.classList.toggle('text-main-blue', canDecrease);
-      minus?.classList.toggle('text-[#C0D7ED]', !canDecrease);
+      minus?.classList.toggle('text-(--pdp-accent)', canDecrease);
+      minus?.classList.toggle('text-(--pdp-muted)', !canDecrease);
       minus?.setAttribute('aria-disabled', String(!canDecrease));
     }
 
@@ -115,10 +115,10 @@
       variantButtons.forEach(function (button) {
         const active = String(button.value) === String(variantInput.value);
 
-        button.classList.toggle('border-main-blue', active);
-        button.classList.toggle('text-main-blue', active);
-        button.classList.toggle('border-[#C0D7ED]', !active);
-        button.classList.toggle('text-[#C0D7ED]', !active);
+        button.classList.toggle('border-(--pdp-accent)', active);
+        button.classList.toggle('text-(--pdp-accent)', active);
+        button.classList.toggle('border-(--pdp-muted)', !active);
+        button.classList.toggle('text-(--pdp-muted)', !active);
       });
     }
 

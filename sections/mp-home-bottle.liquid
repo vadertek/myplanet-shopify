@@ -13,18 +13,25 @@
   {% endif %}
 
   <div class="absolute inset-0 mx-auto max-w-[1440px]">
-    <div class="absolute top-1/2 left-4 flex max-w-110 -translate-y-1/2 flex-col gap-4 text-dark-blue md:left-10">
+    <div
+      class="absolute top-1/2 right-4 left-4 flex max-w-[633px] -translate-y-1/2 flex-col font-nunito text-dark-blue md:right-auto md:left-10"
+      style="--bottle-btn-bg: {{ section.settings.button_bg }}; --bottle-btn-text: {{ section.settings.button_text_color }};"
+    >
       <div class="flex items-center gap-3">
-        <img class="w-28" src="{{ 'blue-stars.webp' |  asset_url }}" alt="">
-        <span class="font-montserrat-reg text-sm">{{ section.settings.hero_tag }}</span>
+        <img class="w-28" src="{{ 'blue-stars.webp' | asset_url }}" alt="">
+        <span class="text-sm leading-none">{{ section.settings.hero_tag | escape }}</span>
       </div>
-      <h2 class="font-montserrat-bold text-[44px] leading-none font-bold">{{ section.settings.hero_title }}</h2>
-      <p class="max-w-100 font-montserrat-reg text-[20px] leading-[1.1]">{{ section.settings.hero_description }}</p>
+      <h2 class="mt-3 text-[32px] leading-[0.96] font-extrabold uppercase md:text-[48px]">
+        {{ section.settings.hero_title | escape }}
+      </h2>
+      <p class="mt-4 text-lg leading-none font-semibold md:text-2xl">
+        {{ section.settings.hero_description | escape }}
+      </p>
       <a
-        href="{{ section.settings.hero_button_link }}"
-        class="w-fit rounded-2xl bg-main-blue px-6 py-3 font-montserrat-bold text-sm font-bold text-white transition duration-200 hover:bg-dark-blue focus-visible:bg-dark-blue"
+        href="{{ section.settings.hero_button_link | default: '#' }}"
+        class="mt-6 flex w-full items-center justify-center rounded-2xl bg-(--bottle-btn-bg) py-4 text-xl leading-[1.35] font-normal text-(--bottle-btn-text) transition duration-200 hover:opacity-85 focus-visible:opacity-85 sm:w-80"
       >
-        {{ section.settings.hero_button_text }}
+        {{ section.settings.hero_button_text | escape }}
       </a>
     </div>
   </div>
@@ -68,7 +75,7 @@
       "type": "textarea",
       "id": "hero_description",
       "label": "Hero Description",
-      "default": "ColdFusion+ ефективно видаляє складні плями від низьких температур"
+      "default": "ColdFusion+ ефективно видаляє складні плями за низьких температур."
     },
     {
       "type": "header",
@@ -83,7 +90,19 @@
       "type": "text",
       "id": "hero_button_text",
       "label": "Hero Button Text",
-      "default": "Дізнатися більше"
+      "default": "Замовити зараз"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button background",
+      "default": "#3FA11F"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#FFFFFF"
     }
   ]
 }

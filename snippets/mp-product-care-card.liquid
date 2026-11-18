@@ -1,0 +1,45 @@
+{%- comment -%}
+  Photo card for mp-product-care.
+  Accepts: block, fallback (asset file name), ratio (classes for the image box), widths, sizes
+{%- endcomment -%}
+
+{%- liquid
+  assign label = block.settings.label
+  assign link = block.settings.link
+  if link != blank
+    assign tag = 'a'
+  else
+    assign tag = 'div'
+  endif
+-%}
+
+<{{ tag }}
+  {% if link != blank %}href="{{ link }}"{% endif %}
+  class="group flex h-full flex-col"
+>
+  <div class="relative overflow-hidden rounded-2xl {{ ratio }}">
+    {%- if block.settings.image != blank -%}
+      {{
+        block.settings.image
+        | image_url: width: 1352
+        | image_tag:
+          loading: 'lazy',
+          widths: widths,
+          sizes: sizes,
+          alt: label,
+          class: 'absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none'
+      }}
+    {%- else -%}
+      <img
+        src="{{ fallback | asset_url }}"
+        alt="{{ label | escape }}"
+        loading="lazy"
+        class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none"
+      >
+    {%- endif -%}
+  </div>
+
+  {%- if label != blank -%}
+    <p class="mt-2 min-h-7 text-sm leading-[1.3] font-bold md:text-base">{{ label | escape }}</p>
+  {%- endif -%}
+</{{ tag }}>
