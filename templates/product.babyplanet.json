@@ -209,25 +209,22 @@
         "item_MKgyMM": {
           "type": "item",
           "settings": {
-            "icon": "shopify://shop_images/Family.png",
             "title": "Турбота про родину",
-            "text": "Безпечні рішення для дому, дітей та щоденного використання."
+            "text": "Безпечні рішення для\nдому й дітей — на щодень."
           }
         },
         "item_BaxmXz": {
           "type": "item",
           "settings": {
-            "icon": "shopify://shop_images/home.png",
             "title": "Турбота про дім",
-            "text": "Ефективні формули для чистоти кожного куточка вашого простору."
+            "text": "Чистота й затишок у кожному\nкуточку вашого дому."
           }
         },
         "item_aCWk84": {
           "type": "item",
           "settings": {
-            "icon": "shopify://shop_images/Earth.png",
             "title": "Турбота про планету",
-            "text": "Відповідальні інгредієнти та екологічний підхід на кожному етапі виробництва."
+            "text": "Компоненти рослинного походження та пакування,\nна 100% придатне до переробки."
           }
         }
       },
@@ -371,7 +368,7 @@
     "mp-home-community": {
       "type": "mp-home-community",
       "settings": {
-        "title": "Станьте частиною спільноти My Planet\n#myplanet"
+        "title": "Життя між прибираннями — в <strong>Instagram</strong>"
       }
     },
     "mp_faq": {

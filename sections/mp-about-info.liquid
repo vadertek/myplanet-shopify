@@ -1,10 +1,44 @@
-<!-- Info Section -->
-<section class="text-[#325037] md:py-20 md:px-10 px-4 py-10 flex justify-end">
-  <div class="flex flex-col gap-6 md:w-3/4">
-    <h2 class="font-montserrat-med text-[40px] leading-[100%]">{{ section.settings.info_title }}</h2>
-    <p class="font-montserrat-reg">
-      {{ section.settings.info_description }}
-    </p>
+{%- comment -%}
+  "Over 78 years of care": illustration (turtle + 78) on the left as a full-width background,
+  text on the right. Mobile: illustration on top, text below.
+{%- endcomment -%}
+
+{%- liquid
+  assign image = section.settings.image
+  assign image_mobile = section.settings.image_mobile
+-%}
+
+<section class="bg-white font-nunito text-[#325037]">
+  <div class="relative mx-auto max-w-[1440px] overflow-hidden">
+  <!-- DESKTOP ILLUSTRATION -->
+  <div class="absolute inset-0 hidden md:block" aria-hidden="true">
+    {%- if image != blank -%}
+      {{ image | image_url: width: 2880 | image_tag: loading: 'lazy', widths: '1024, 1440, 2160, 2880', sizes: '100vw', alt: '', class: 'h-full w-full object-cover object-left' }}
+    {%- else -%}
+      <img src="{{ '78.webp' | asset_url }}" alt="" loading="lazy" class="h-full w-full object-cover object-left">
+    {%- endif -%}
+  </div>
+
+  <!-- MOBILE ILLUSTRATION -->
+  <div class="md:hidden" aria-hidden="true">
+    {%- if image_mobile != blank -%}
+      {{ image_mobile | image_url: width: 790 | image_tag: loading: 'lazy', widths: '395, 600, 790', sizes: '100vw', alt: '', class: 'block h-auto w-full' }}
+    {%- else -%}
+      <img src="{{ '78-mob.webp' | asset_url }}" alt="" loading="lazy" class="block h-auto w-full">
+    {%- endif -%}
+  </div>
+
+  <!-- CONTENT -->
+  <div class="relative grid md:aspect-[1440/302] md:min-h-[260px]">
+    <div class="flex flex-col justify-center px-4 pb-10 md:pr-10 md:pb-0 md:pl-[44%]">
+      {%- if section.settings.info_title != blank -%}
+        <h2 class="text-[40px] leading-none font-bold">{{ section.settings.info_title | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.info_description != blank -%}
+        <p class="mt-6 max-w-[738px] text-base leading-[1.3]">{{ section.settings.info_description | escape | newline_to_br }}</p>
+      {%- endif -%}
+    </div>
+  </div>
   </div>
 </section>
 
@@ -22,7 +56,23 @@
       "type": "textarea",
       "id": "info_description",
       "label": "Info Description",
-      "default": "Ми створюємо засоби для дому, щоб ви могли менше думати про прибирання і більше часу присвячувати тому, що справді важливо — родині, дому та щоденним моментам. Ми віримо, що чистота — це не лише про порядок у домі, а й про спокій у серці. Тому ми прагнемо створювати продукти, які допомагають вам насолоджуватися життям без зайвого клопоту."
+      "default": "My Planet народився в Греції й поєднує досвід поколінь та відповідальний підхід, створюючи ефективні рішення для щоденної чистоти."
+    },
+    {
+      "type": "header",
+      "content": "Illustration"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop image",
+      "info": "1440 × 302 (2880 × 604 for retina). Illustration on the left, right side empty for the text. If empty, the built-in one is used."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile image",
+      "info": "395 × 302 (790 × 604 for retina). Shown above the text."
     }
   ]
 }
