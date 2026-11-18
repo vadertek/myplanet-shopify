@@ -13,6 +13,7 @@
     "mp-collection-hero-b": {
       "type": "mp-collection-hero-b",
       "settings": {
+        "hero_image_mobile": "shopify://shop_images/Frame_1321317184.png",
         "hero_tag": "BabyPlanet",
         "hero_title": "Безпечна чистота для всього, чого торкається ваш малюк",
         "hero_description": "Від дитячого одягу та пляшечок до іграшок і поверхонь — Baby Planet допомагає створити чистий і комфортний простір для росту та розвитку дитини."
