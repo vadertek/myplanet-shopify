@@ -53,49 +53,13 @@
     },
     "mp-home-baby": {
       "type": "mp-home-baby",
+      "disabled": true,
       "settings": {
         "hero_tag": "MyPlanet",
         "hero_title": "Безпечна чистота для всього, чого торкається ваш малюк",
         "hero_description": "Від дитячого одягу та пляшечок до іграшок і поверхонь — Baby Planet допомагає створити чистий і комфортний простір для росту та розвитку дитини.",
         "hero_button_link": "",
         "hero_button_text": "Переглянути каталог"
-      }
-    },
-    "mp-home-treasures": {
-      "type": "mp-home-treasures",
-      "blocks": {
-        "item_MKgyMM": {
-          "type": "item",
-          "settings": {
-            "icon": "shopify://shop_images/Family.png",
-            "title": "Турбота про родину",
-            "text": "Безпечні рішення для дому, дітей та щоденного використання."
-          }
-        },
-        "item_BaxmXz": {
-          "type": "item",
-          "settings": {
-            "icon": "shopify://shop_images/home.png",
-            "title": "Турбота про дім",
-            "text": "Ефективні формули для чистоти кожного куточка вашого простору."
-          }
-        },
-        "item_aCWk84": {
-          "type": "item",
-          "settings": {
-            "icon": "shopify://shop_images/Earth.png",
-            "title": "Турбота про планету",
-            "text": "Відповідальні інгредієнти та екологічний підхід на кожному етапі виробництва."
-          }
-        }
-      },
-      "block_order": [
-        "item_MKgyMM",
-        "item_BaxmXz",
-        "item_aCWk84"
-      ],
-      "settings": {
-        "title": "Наші цінності"
       }
     },
     "mp-home-reviews": {
@@ -289,7 +253,6 @@
     "mp-product-hero",
     "mp-product-care",
     "mp-home-baby",
-    "mp-home-treasures",
     "mp-home-reviews",
     "mp-home-turtle",
     "mp-home-community",
