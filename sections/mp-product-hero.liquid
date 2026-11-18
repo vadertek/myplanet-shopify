@@ -1,18 +1,33 @@
-﻿{% render 'mp-breadcrumb' %}
+﻿{%- liquid
+  # Color palette per product template
+  assign pdp_title = '#004172'
+  assign pdp_accent = '#0080C7'
+  assign pdp_muted = '#C0D7ED'
+  assign pdp_button = '#3FA11F'
+  assign pdp_tag = ''
+  if template.suffix == 'babyplanet'
+    assign pdp_title = '#325037'
+    assign pdp_accent = '#1EBECA'
+    assign pdp_muted = '#A5E5EA'
+    assign pdp_button = '#1EBECA'
+    assign pdp_tag = '#1EBECA'
+  endif
+-%}
+{% render 'mp-breadcrumb' %}
 
 {% form 'product', product, id: 'product-form' %}
   <!-- Product Hero -->
-  <section class="md:pt-5 pb-10  mx-auto max-w-360 flex md:flex-row flex-col">
+  <section class="mx-auto flex max-w-360 flex-col pb-10 md:flex-row md:pt-5" style="--pdp-title: {{ pdp_title }}; --pdp-accent: {{ pdp_accent }}; --pdp-muted: {{ pdp_muted }}; --add-btn-bg: {{ pdp_button }}; --add-btn-text: #FFFFFF;">
     {% render 'mp-product-images' %}
 
     <!-- Information -->
     <div class="px-4 pt-8 md:w-1/2 md:px-10 md:pt-0">
       <div class="w-full">
-        {% render 'mp-product-tag' %}
+        {% render 'mp-product-tag', tag_color: pdp_tag %}
 
-        <h1 class="mt-4 font-montserrat-bold text-[32px] leading-none font-bold text-dark-blue md:text-[40px]">{{ product.title }}</h1>
+        <h1 class="mt-4 font-nunito text-[32px] leading-none font-bold text-(--pdp-title) md:text-[40px]">{{ product.title }}</h1>
 
-        <div class="mt-2.5 flex min-h-5 items-center gap-1.5 font-montserrat-reg text-[10px] leading-none text-[#C0D7ED] md:gap-2 md:text-[12px]">
+        <div class="mt-2.5 flex min-h-5 items-center gap-1.5 font-nunito text-[10px] leading-none text-[#C0D7ED] md:gap-2 md:text-[12px]">
           <img class="w-19 md:w-22.5" src="{{ 'sky-start.webp' |  asset_url }}" alt="Рейтинг 4.9 з 5">
           <span>{{ section.settings.rating }}</span>
         </div>
@@ -20,8 +35,6 @@
         {% render 'mp-product-description' %}
 
         {% render 'mp-product-price' %}
-
-        {% render 'mp-product-more-button' %}
 
         {% render 'mp-product-variants' %}
 
@@ -47,12 +60,6 @@
       "id": "rating",
       "label": "Рейтинг",
       "default": "4.9 (178)"
-    },
-    {
-      "type": "text",
-      "id": "more_info",
-      "label": "Більше Інформації",
-      "default": "Дізнатись більше про продукт"
     }
   ]
 }

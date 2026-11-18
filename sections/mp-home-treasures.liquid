@@ -1,46 +1,155 @@
-<style>
-  .bg-treasure {
-    background-image: url('{{ 'ocean.webp' |  asset_url }}');
-  }
-  @media (max-width: 768px) {
-    .bg-treasure {
-      background-image: url('{{ 'ocean-mob.webp' |  asset_url }}');
-    }
-  }
-</style>
+{%- comment -%}
+  Our values: 3 columns on desktop, icon slider on mobile
+  (active icon is bigger, its title + text are shown below).
+{%- endcomment -%}
 
-<!-- Our Treasures -->
-<section class="px-4 py-10 md:px-10">
-  <div class="mx-auto max-w-360">
+{%- liquid
+  assign fallback_icons = 'icon-people.webp,icon-house.webp,icon-planet.webp' | split: ','
+  assign blocks_count = section.blocks.size
+  assign repeat = 1
+  if blocks_count > 0 and blocks_count < 9
+    assign repeat = 8 | plus: blocks_count | divided_by: blocks_count
+  endif
+-%}
+
+<section id="mp-home-treasures-{{ section.id }}" class="px-4 py-10 font-nunito text-main-blue md:px-10 md:py-16">
+  <div class="mx-auto max-w-340">
     {%- if section.settings.title != blank -%}
-      <h2 class="mb-8 text-center font-montserrat-bold text-[40px] leading-none font-bold text-main-blue">
+      <h2 class="mb-8 text-center text-[40px] leading-none font-bold text-main-blue/60 md:mb-12">
         {{ section.settings.title | escape }}
       </h2>
     {%- endif -%}
 
-    <div class="grid gap-8 rounded-lg bg-treasure bg-cover bg-center px-5 py-8 text-center text-white md:grid-cols-3 md:px-10">
-      {%- for block in section.blocks limit: 3 -%}
+    <!-- DESKTOP -->
+    <div class="hidden gap-8 text-center md:grid md:grid-cols-3">
+      {%- for block in section.blocks -%}
         <div class="flex flex-col items-center" {{ block.shopify_attributes }}>
           {%- if block.settings.icon != blank -%}
-            {{ block.settings.icon | image_url: width: 56 | image_tag: class: 'mb-4 h-7 w-7', loading: 'lazy', alt: 'Icon' }}
+            {{ block.settings.icon | image_url: width: 196 | image_tag: class: 'mb-6 h-20 w-20 object-contain', loading: 'lazy', alt: '' }}
+          {%- elsif fallback_icons[forloop.index0] -%}
+            <img class="mb-6 h-20 w-20 object-contain" src="{{ fallback_icons[forloop.index0] | asset_url }}" alt="" loading="lazy">
           {%- endif -%}
 
           {%- if block.settings.title != blank -%}
-            <h3 class="mb-4 font-montserrat-bold text-[24px] leading-none font-bold">
-              {{ block.settings.title | escape }}
-            </h3>
+            <h3 class="text-[32px] leading-none font-bold">{{ block.settings.title | escape }}</h3>
           {%- endif -%}
 
           {%- if block.settings.text != blank -%}
-            <p class="max-w-95 font-montserrat-reg text-[16px] leading-tight">
-              {{ block.settings.text | escape }}
-            </p>
+            <p class="mt-4 text-base leading-[1.3]">{{ block.settings.text | escape | newline_to_br }}</p>
           {%- endif -%}
         </div>
       {%- endfor -%}
     </div>
+
+    <!-- MOBILE -->
+    {%- if blocks_count > 0 -%}
+      <div class="md:hidden">
+        <div id="treasures-swiper-{{ section.id }}" class="swiper mx-auto max-w-[300px] overflow-hidden">
+          <div class="swiper-wrapper flex">
+            {%- for i in (1..repeat) -%}
+              {%- for block in section.blocks -%}
+                <div
+                  class="swiper-slide flex h-32 shrink-0 items-center justify-center [&.swiper-slide-active_.treasure-icon]:scale-[1.45] [&.swiper-slide-active_.treasure-icon]:opacity-100"
+                  data-index="{{ forloop.index0 }}"
+                >
+                  {%- if block.settings.icon != blank -%}
+                    {{ block.settings.icon | image_url: width: 196 | image_tag: class: 'treasure-icon h-16 w-16 object-contain opacity-80 transition duration-300', loading: 'lazy', alt: '' }}
+                  {%- elsif fallback_icons[forloop.index0] -%}
+                    <img class="treasure-icon h-16 w-16 object-contain opacity-80 transition duration-300" src="{{ fallback_icons[forloop.index0] | asset_url }}" alt="" loading="lazy">
+                  {%- endif -%}
+                </div>
+              {%- endfor -%}
+            {%- endfor -%}
+          </div>
+        </div>
+
+        <div class="mt-6 text-center" aria-live="polite">
+          {%- for block in section.blocks -%}
+            <div class="treasure-text{% unless forloop.first %} hidden{% endunless %}" data-index="{{ forloop.index0 }}">
+              {%- if block.settings.title != blank -%}
+                <h3 class="text-[32px] leading-none font-bold">{{ block.settings.title | escape }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <p class="mt-4 text-base leading-[1.3]">{{ block.settings.text | escape | newline_to_br }}</p>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {%- if blocks_count > 1 -%}
+          <div class="mx-auto mt-8 flex h-9 w-22 overflow-hidden rounded-full bg-main-blue/8" aria-label="Values navigation">
+            <button
+              id="treasures-prev-{{ section.id }}"
+              class="grid h-9 w-11 cursor-pointer place-items-center text-main-blue/80 transition hover:bg-white/45 focus-visible:bg-white/45"
+              type="button"
+              aria-label="Previous"
+            >
+              <span class="h-3.5 w-3.5 rotate-45 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+            </button>
+            <button
+              id="treasures-next-{{ section.id }}"
+              class="grid h-9 w-11 cursor-pointer place-items-center text-main-blue/80 transition hover:bg-white/45 focus-visible:bg-white/45"
+              type="button"
+              aria-label="Next"
+            >
+              <span class="h-3.5 w-3.5 rotate-225 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+            </button>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
   </div>
 </section>
+
+<script>
+  (function () {
+    var sectionId = '{{ section.id }}';
+
+    function showText(swiper) {
+      var root = document.getElementById('mp-home-treasures-' + sectionId);
+      var active = swiper.slides[swiper.activeIndex];
+      if (!root || !active) return;
+      var index = active.getAttribute('data-index');
+      root.querySelectorAll('.treasure-text').forEach(function (el) {
+        el.classList.toggle('hidden', el.getAttribute('data-index') !== index);
+      });
+    }
+
+    function initTreasuresSwiper() {
+      var swiperEl = document.getElementById('treasures-swiper-' + sectionId);
+      if (!swiperEl || typeof Swiper === 'undefined') return;
+      if (swiperEl.swiper) swiperEl.swiper.destroy(true, true);
+
+      var slidesCount = swiperEl.querySelectorAll('.swiper-slide').length;
+
+      new Swiper(swiperEl, {
+        slidesPerView: 3,
+        centeredSlides: true,
+        loop: slidesCount > 3,
+        speed: 400,
+        slideToClickedSlide: true,
+        navigation: {
+          nextEl: '#treasures-next-' + sectionId,
+          prevEl: '#treasures-prev-' + sectionId,
+        },
+        on: {
+          init: showText,
+          slideChange: showText,
+        },
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTreasuresSwiper);
+    } else {
+      initTreasuresSwiper();
+    }
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.detail && event.detail.sectionId === sectionId) initTreasuresSwiper();
+    });
+  })();
+</script>
 
 {% schema %}
 {
@@ -62,7 +171,8 @@
         {
           "type": "image_picker",
           "id": "icon",
-          "label": "Icon"
+          "label": "Icon",
+          "info": "Square image, 196 × 196 px. If empty, the built-in icon is used (family, house, planet)."
         },
         {
           "type": "text",
@@ -74,7 +184,8 @@
           "type": "textarea",
           "id": "text",
           "label": "Text",
-          "default": "Безпечні рішення для дому, дітей та щоденного використання."
+          "default": "Безпечні рішення для\nдому й дітей — на щодень.",
+          "info": "Line breaks are kept."
         }
       ]
     }
@@ -90,14 +201,14 @@
           "type": "item",
           "settings": {
             "title": "Турбота про дім",
-            "text": "Ефективні формули для чистоти кожного куточка вашого простору."
+            "text": "Чистота й затишок у кожному\nкуточку вашого дому."
           }
         },
         {
           "type": "item",
           "settings": {
             "title": "Турбота про планету",
-            "text": "Відповідальні інгредієнти та екологічний підхід на кожному етапі виробництва."
+            "text": "Компоненти рослинного походження та пакування,\nна 100% придатне до переробки."
           }
         }
       ]

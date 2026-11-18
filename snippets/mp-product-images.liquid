@@ -38,16 +38,16 @@
     <div class="mt-2 flex items-center justify-between md:mt-4">
       <div
         id="product-gallery-pagination-{{ gallery_id }}"
-        class="flex h-7 min-w-17 items-center justify-center rounded-full bg-[#C0D7ED]/20 px-3 font-montserrat-med text-[14px] leading-none font-medium text-main-blue md:h-9 md:min-w-[91px] md:text-[18px]"
+        class="flex h-7 min-w-17 items-center justify-center rounded-full bg-(--pdp-muted,#C0D7ED)/20 px-3 font-nunito text-[14px] leading-none font-normal text-(--pdp-accent,#0080C7) md:h-9 md:min-w-[91px] md:text-[16px]"
       ></div>
 
       <div
-        class="flex h-7 w-16 overflow-hidden rounded-full bg-[#C0D7ED]/20 md:h-9 md:w-22"
+        class="flex h-7 w-16 overflow-hidden rounded-full bg-(--pdp-muted,#C0D7ED)/20 md:h-9 md:w-22"
         aria-label="Product photo navigation"
       >
         <button
           id="product-gallery-prev-{{ gallery_id }}"
-          class="grid h-7 w-8 cursor-pointer place-items-center text-main-blue transition hover:bg-white/45 focus-visible:bg-white/45 md:h-9 md:w-11 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/45 [&.swiper-button-disabled]:text-[#C0D7ED]"
+          class="grid h-7 w-8 cursor-pointer place-items-center text-(--pdp-accent,#0080C7) transition hover:bg-white/45 focus-visible:bg-white/45 md:h-9 md:w-11 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/45 [&.swiper-button-disabled]:text-(--pdp-muted,#C0D7ED)"
           type="button"
           aria-label="Previous photo"
         >
@@ -55,7 +55,7 @@
         </button>
         <button
           id="product-gallery-next-{{ gallery_id }}"
-          class="grid h-7 w-8 cursor-pointer place-items-center text-main-blue transition hover:bg-white/45 focus-visible:bg-white/45 md:h-9 md:w-11 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/45 [&.swiper-button-disabled]:text-[#C0D7ED]"
+          class="grid h-7 w-8 cursor-pointer place-items-center text-(--pdp-accent,#0080C7) transition hover:bg-white/45 focus-visible:bg-white/45 md:h-9 md:w-11 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/45 [&.swiper-button-disabled]:text-(--pdp-muted,#C0D7ED)"
           type="button"
           aria-label="Next photo"
         >
@@ -95,7 +95,7 @@
         {%- if product.images.size > 0 -%}
           {%- for image in product.images -%}
             <button
-              class="h-14 w-14 shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-[#C0D7ED] bg-white p-1 opacity-70 transition md:h-20 md:w-20"
+              class="h-14 w-14 shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-(--pdp-muted,#C0D7ED) bg-white p-1 opacity-70 transition md:h-20 md:w-20"
               type="button"
               value="{{ image | image_url: width: 1800 }}"
               aria-label="Фото {{ forloop.index }}"
@@ -105,7 +105,7 @@
           {%- endfor -%}
         {%- else -%}
           <button
-            class="h-14 w-14 shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-[#C0D7ED] bg-white p-1 opacity-70 transition md:h-20 md:w-20"
+            class="h-14 w-14 shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-(--pdp-muted,#C0D7ED) bg-white p-1 opacity-70 transition md:h-20 md:w-20"
             type="button"
             value="{{ 'product.webp' | asset_url }}"
             aria-label="Фото 1"
@@ -137,8 +137,8 @@
         thumbs.forEach(function (thumb, index) {
           const active = index === activeIndex;
 
-          thumb.classList.toggle('border-main-blue', active);
-          thumb.classList.toggle('border-[#C0D7ED]', !active);
+          thumb.classList.toggle('border-(--pdp-accent,#0080C7)', active);
+          thumb.classList.toggle('border-(--pdp-muted,#C0D7ED)', !active);
           thumb.classList.toggle('opacity-100', active);
           thumb.classList.toggle('opacity-70', !active);
         });
@@ -213,7 +213,7 @@
           formatFractionCurrent: formatSlideNumber,
           formatFractionTotal: formatSlideNumber,
           renderFraction: function (currentClass, totalClass) {
-            return '<span class="' + currentClass + '"></span><span class="px-1 text-[#C0D7ED]">/</span><span class="' + totalClass + '"></span>';
+            return '<span class="' + currentClass + '"></span><span class="px-1 text-(--pdp-muted,#C0D7ED)">/</span><span class="' + totalClass + '"></span>';
           },
         },
       });
