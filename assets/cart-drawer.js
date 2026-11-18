@@ -215,16 +215,12 @@ customElements.define('cart-drawer-items', CartDrawerItems);
 
   function renderEmpty(cart) {
     const count = Number(cart?.item_count || 0);
+    const template = document.getElementById('cherie-empty-template');
+    const markup = template
+      ? template.innerHTML
+      : '<div class="flex flex-1 flex-col items-center justify-center py-10 text-center"><p class="text-2xl font-bold text-dark-blue">Кошик порожній</p><a class="mt-6 text-main-blue underline" href="/collections/all">Продовжити покупки</a></div>';
 
-    return `
-      <div class="flex flex-1 flex-col items-start justify-center rounded-2xl border border-[#C0D7ED] px-5 py-8">
-        <p class="font-montserrat-bold text-[22px] leading-tight font-bold text-main-blue">Кошик порожній</p>
-        <a class="mt-5 inline-flex min-h-12 items-center justify-center rounded-[10px] bg-main-blue px-6 text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:bg-dark-blue focus-visible:bg-dark-blue md:rounded-[14px] md:text-[14px]" href="/collections/all">
-          Продовжити покупки
-        </a>
-        <span class="hidden" data-cherie-empty-count>${count}</span>
-      </div>
-    `;
+    return `${markup}<span class="hidden" data-cherie-empty-count>${count}</span>`;
   }
 
   function renderItem(item, cart) {
@@ -296,6 +292,11 @@ customElements.define('cart-drawer-items', CartDrawerItems);
   function renderDrawer(cart) {
     const root = document.getElementById(ITEMS_ID);
     if (!root) return;
+
+    const isEmpty = !cart.items || cart.items.length === 0;
+    document.querySelectorAll('[data-cherie-drawer-footer]').forEach((node) => {
+      node.classList.toggle('hidden', isEmpty);
+    });
 
     if (!cart.items || cart.items.length === 0) {
       root.innerHTML = renderEmpty(cart);

@@ -51,14 +51,155 @@
         "text": "Одяг, іграшки, пляшечки й посуд малюка потребують особливого догляду. Baby Planet створює гіпоалергенні засоби, які бережно очищують усе, чого торкається ваша дитина."
       }
     },
-    "mp-home-baby": {
-      "type": "mp-home-baby",
+    "mp-product-picks": {
+      "type": "mp-product-picks",
       "settings": {
-        "hero_tag": "MyPlanet",
-        "hero_title": "Безпечна чистота для всього, чого торкається ваш малюк",
-        "hero_description": "Від дитячого одягу та пляшечок до іграшок і поверхонь — Baby Planet допомагає створити чистий і комфортний простір для росту та розвитку дитини.",
-        "hero_button_link": "",
-        "hero_button_text": "Переглянути каталог"
+        "title": "Засоби для чистого дому",
+        "columns": "5",
+        "button_text": "Переглянути всі засоби",
+        "button_link": "shopify://collections/all"
+      },
+      "blocks": {
+        "product_1": {
+          "type": "product",
+          "settings": {
+            "product": "baby-planet-kids-and-toddlers-laundry-gel-38-washes-2204ml"
+          }
+        },
+        "product_2": {
+          "type": "product",
+          "settings": {
+            "product": "baby-planet-baby-fabric-softener-40-washes-900ml"
+          }
+        },
+        "product_3": {
+          "type": "product",
+          "settings": {
+            "product": "baby-planet-baby-dish-and-toy-wash-gel-425ml"
+          }
+        },
+        "product_4": {
+          "type": "product",
+          "settings": {
+            "product": "baby-planet-all-purpose-surface-cleaner-1000ml"
+          }
+        },
+        "product_5": {
+          "type": "product",
+          "settings": {
+            "product": "baby-planet-antibacterial-surface-spray-325ml"
+          }
+        }
+      },
+      "block_order": [
+        "product_1",
+        "product_2",
+        "product_3",
+        "product_4",
+        "product_5"
+      ]
+    },
+    "mp-product-trust": {
+      "type": "mp-product-trust",
+      "settings": {
+        "title": "Турбота, якій можна довіряти",
+        "text": "Baby Planet допомагає підтримувати чистоту там, де це найважливіше: у дитячій кімнаті, на кухні, під час прання та щоденного догляду за малюком."
+      }
+    },
+    "mp-product-inside": {
+      "type": "mp-product-inside",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "label": "Гіпоалергенні формули"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "label": "Без хлору"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "label": "Без EDTA"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "label": "Без барвників"
+          }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "label": "Без нітромускусів"
+          }
+        },
+        "item_6": {
+          "type": "item",
+          "settings": {
+            "label": "Для щоденного використання"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4",
+        "item_5",
+        "item_6"
+      ],
+      "settings": {
+        "title": "Усе важливе — всередині",
+        "text": "Формули Baby Planet створені для ефективного очищення та дбайливого догляду за дитячими речами."
+      }
+    },
+    "mp-product-sets": {
+      "type": "mp-product-sets",
+      "settings": {
+        "title": "Усе необхідне в одному наборі",
+        "text": "Набори Baby Planet об’єднують найнеобхідніші засоби для щоденного догляду за дитячим одягом, посудом і поверхнями. Зручне рішення для першої покупки або практичний подарунок для молодих батьків.",
+        "button_text": "Переглянути набори",
+        "button_link": "shopify://collections/test-2"
+      }
+    },
+    "mp-product-places": {
+      "type": "mp-product-places",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "label": "Для іграшок і поверхонь",
+            "link": ""
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "label": "Для посуду",
+            "link": ""
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "label": "Для прання",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3"
+      ],
+      "settings": {
+        "title": "Турбота для кожного куточка дому"
       }
     },
     "mp-home-treasures": {
@@ -158,6 +299,12 @@
       ],
       "settings": {
         "title": "Нам довіряють тисячі родин"
+      }
+    },
+    "mp-product-philosophy": {
+      "type": "mp-product-philosophy",
+      "settings": {
+        "title": "Наша філософія"
       }
     },
     "mp-home-turtle": {
@@ -288,9 +435,14 @@
   "order": [
     "mp-product-hero",
     "mp-product-care",
-    "mp-home-baby",
+    "mp-product-picks",
+    "mp-product-trust",
+    "mp-product-inside",
+    "mp-product-sets",
+    "mp-product-places",
     "mp-home-treasures",
     "mp-home-reviews",
+    "mp-product-philosophy",
     "mp-home-turtle",
     "mp-home-community",
     "mp_faq"

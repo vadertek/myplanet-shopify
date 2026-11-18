@@ -1,0 +1,46 @@
+{%- comment -%}
+  Card for mp-product-picks. Accepts: block (product block), sizes
+  Custom image / title from the block win over the product's own.
+{%- endcomment -%}
+
+{%- liquid
+  assign item = block.settings.product
+  assign image = block.settings.image | default: item.featured_image
+  assign title = block.settings.title | default: item.title
+  if item != blank
+    assign tag = 'a'
+  else
+    assign tag = 'div'
+  endif
+-%}
+
+<{{ tag }}
+  {% if item != blank %}href="{{ item.url }}"{% endif %}
+  class="group flex h-full flex-col"
+>
+  <div class="relative aspect-[7/9] overflow-hidden rounded-2xl bg-[#F2F2F7]">
+    {%- if image != blank -%}
+      {%- liquid
+        if block.settings.image != blank
+          assign img_class = 'absolute inset-0 h-full w-full object-cover'
+        else
+          assign img_class = 'absolute inset-0 h-full w-full object-contain p-4'
+        endif
+        assign img_class = img_class | append: ' transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none'
+      -%}
+      {{
+        image
+        | image_url: width: 800
+        | image_tag: loading: 'lazy', widths: '300, 400, 540, 800', sizes: sizes, alt: title, class: img_class
+      }}
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag: 'absolute inset-0 h-full w-full p-6 opacity-40' }}
+    {%- endif -%}
+  </div>
+
+  {%- if title != blank -%}
+    <p class="mx-auto mt-3 line-clamp-2 max-w-[90%] text-center text-base leading-[1.3] font-bold">
+      {{ title | escape }}
+    </p>
+  {%- endif -%}
+</{{ tag }}>

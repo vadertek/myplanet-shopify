@@ -5,17 +5,8 @@
   <div class="mx-auto max-w-360">
     <h1 class="mb-7 px-1 font-montserrat-bold text-[24px] leading-none font-bold text-main-blue md:mb-8 md:px-0 md:text-[36px]">{{ 'sections.cart.title' | t }}</h1>
 
-    <div
-      id="mp-cart-empty-{{ section.id }}"
-      class="rounded-2xl border border-[#C0D7ED] px-3 py-8 md:px-10 md:py-12{% if cart.item_count > 0 %} hidden{% endif %}"
-    >
-      <p class="font-montserrat-bold text-[20px] leading-tight font-bold text-main-blue md:text-[28px]">{{ 'general.cart.view_empty_cart' | t }}</p>
-      <a
-        class="mt-6 inline-flex min-h-12 items-center justify-center rounded-[10px] bg-main-blue px-6 text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:bg-dark-blue focus-visible:bg-dark-blue md:rounded-[14px] md:text-[14px]"
-        href="{{ routes.all_products_collection_url }}"
-      >
-        {{ 'general.continue_shopping' | t }}
-      </a>
+    <div id="mp-cart-empty-{{ section.id }}" class="flex{% if cart.item_count > 0 %} hidden{% endif %}">
+      {% render 'mp-cart-empty', variant: 'page' %}
     </div>
 
     <form

@@ -10,6 +10,9 @@
 {
   "general": {
     "custom": {
+      "cart-empty-title": "Ваш кошик порожній",
+      "cart-empty-text": "Додайте улюблені засоби My Planet, щоб подбати про чистоту вдома.",
+      "cart-empty-button": "Перейти до покупок",
       "navigation": "Навігація",
       "follow-us": "Слідкуйте за нами",
       "check-products": "Переглянути продукти",

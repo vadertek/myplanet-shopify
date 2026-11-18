@@ -1,0 +1,215 @@
+{%- comment -%}
+  "Products for a clean home": picked products (image + title + link) and a button.
+  Desktop: grid of 4 or 5. Mobile: centered slider.
+  Colors follow the product template (product.babyplanet → Baby Planet palette).
+{%- endcomment -%}
+
+{%- liquid
+  assign title_color = '#236591'
+  assign bg_color = '#C0D7ED'
+  if template.suffix == 'babyplanet'
+    assign title_color = '#325037'
+    assign bg_color = '#D3E2E3'
+  endif
+
+  assign columns = section.settings.columns | plus: 0
+  if columns == 5
+    assign grid_class = 'md:grid-cols-3 lg:grid-cols-5'
+  else
+    assign grid_class = 'md:grid-cols-4'
+  endif
+
+  assign cards_count = section.blocks.size
+  if cards_count > columns
+    assign cards_count = columns
+  endif
+-%}
+
+<section
+  id="mp-product-picks-{{ section.id }}"
+  class="overflow-hidden px-4 py-10 font-nunito md:px-10 md:py-12"
+  style="background-color: {{ bg_color }}; color: {{ title_color }}; --picks-color: {{ title_color }};"
+>
+  <div class="mx-auto max-w-340">
+    {%- if section.settings.title != blank -%}
+      <h2 class="text-center text-[40px] leading-none font-bold">{{ section.settings.title | escape }}</h2>
+    {%- endif -%}
+
+    {%- if cards_count > 0 -%}
+      <!-- DESKTOP -->
+      <div class="mt-10 hidden gap-4 md:grid {{ grid_class }}">
+        {%- for block in section.blocks limit: columns -%}
+          <div {{ block.shopify_attributes }}>
+            {% render 'mp-product-picks-card', block: block, sizes: '(min-width: 1440px) 270px, 22vw' %}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <!-- MOBILE -->
+      <div class="mt-8 md:hidden">
+        <div id="picks-swiper-{{ section.id }}" class="swiper overflow-visible">
+          <div class="swiper-wrapper flex">
+            {%- for block in section.blocks limit: columns -%}
+              <div class="swiper-slide w-full shrink-0">
+                {% render 'mp-product-picks-card', block: block, sizes: '70vw' %}
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+
+        {%- if cards_count > 1 -%}
+          <div class="mx-auto mt-4 flex h-9 w-22 overflow-hidden rounded-full bg-white/30" aria-label="Products navigation">
+            <button
+              id="picks-prev-{{ section.id }}"
+              class="grid h-9 w-11 cursor-pointer place-items-center text-(--picks-color) transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-40"
+              type="button"
+              aria-label="Previous"
+            >
+              <span class="h-3.5 w-3.5 rotate-45 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+            </button>
+            <button
+              id="picks-next-{{ section.id }}"
+              class="grid h-9 w-11 cursor-pointer place-items-center text-(--picks-color) transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-40"
+              type="button"
+              aria-label="Next"
+            >
+              <span class="h-3.5 w-3.5 rotate-225 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+            </button>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- elsif request.design_mode -%}
+      <p class="mt-10 text-center opacity-70">Додайте блоки «Product» у налаштуваннях секції.</p>
+    {%- endif -%}
+
+    {%- if section.settings.button_text != blank -%}
+      <div class="mt-8 flex justify-center md:mt-10">
+        <a
+          href="{{ section.settings.button_link | default: routes.all_products_collection_url }}"
+          class="flex w-full items-center justify-center rounded-2xl bg-[#008E47] py-4 text-xl leading-[1.35] font-normal text-white transition duration-200 hover:opacity-85 focus-visible:opacity-85 sm:w-80"
+        >
+          {{ section.settings.button_text | escape }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<script>
+  (function () {
+    var sectionId = '{{ section.id }}';
+
+    function initPicksSwiper() {
+      var swiperEl = document.getElementById('picks-swiper-' + sectionId);
+      if (!swiperEl || typeof Swiper === 'undefined') return;
+      if (swiperEl.swiper) swiperEl.swiper.destroy(true, true);
+
+      var count = swiperEl.querySelectorAll('.swiper-slide').length;
+
+      new Swiper(swiperEl, {
+        slidesPerView: 1.55,
+        centeredSlides: true,
+        initialSlide: Math.min(1, count - 1),
+        spaceBetween: 16,
+        speed: 350,
+        navigation: {
+          nextEl: '#picks-next-' + sectionId,
+          prevEl: '#picks-prev-' + sectionId,
+        },
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPicksSwiper);
+    } else {
+      initPicksSwiper();
+    }
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.detail && event.detail.sectionId === sectionId) initPicksSwiper();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MP Product picks",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Colors follow the product template: Baby Planet for product.babyplanet, My Planet for others."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Засоби для чистого дому"
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Products to show",
+      "options": [
+        { "value": "4", "label": "4" },
+        { "value": "5", "label": "5" }
+      ],
+      "default": "5"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Переглянути всі засоби"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "info": "If empty, leads to all products."
+    }
+  ],
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product",
+          "info": "Image, title and link are taken from the product."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom image",
+          "info": "Optional. Replaces the product photo. Portrait 7:9, e.g. 540 × 694 px."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Custom title",
+          "info": "Optional. Replaces the product title."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP Product picks",
+      "blocks": [
+        { "type": "product" },
+        { "type": "product" },
+        { "type": "product" },
+        { "type": "product" },
+        { "type": "product" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,119 @@
+{%- comment -%}
+  "Care you can trust": full-width photo with text on the left (desktop),
+  text + rounded photo on a light background (mobile).
+  Colors and fallback photo follow the product template (product.babyplanet → Baby Planet).
+{%- endcomment -%}
+
+{%- liquid
+  assign text_color = '#004172'
+  assign mobile_bg = '#E6F3FA'
+  assign fallback = 'care-1.webp'
+  if template.suffix == 'babyplanet'
+    assign text_color = '#325037'
+    assign mobile_bg = '#EDF3F3'
+    assign fallback = 'care-2.webp'
+  endif
+
+  assign image = section.settings.image
+  assign image_mobile = section.settings.image_mobile | default: image
+-%}
+
+<section
+  id="mp-product-trust-{{ section.id }}"
+  class="relative overflow-hidden px-4 pt-8 pb-4 font-nunito lg:p-0"
+  style="color: {{ text_color }}; background-color: {{ mobile_bg }};"
+>
+  <!-- DESKTOP PHOTO -->
+  <div class="absolute inset-0 hidden lg:block" aria-hidden="true">
+    {%- if image != blank -%}
+      {{
+        image
+        | image_url: width: 2752
+        | image_tag:
+          loading: 'lazy',
+          widths: '1024, 1376, 1920, 2752',
+          sizes: '100vw',
+          alt: '',
+          class: 'h-full w-full object-cover'
+      }}
+    {%- else -%}
+      <img src="{{ fallback | asset_url }}" alt="" loading="lazy" class="h-full w-full object-cover">
+    {%- endif -%}
+  </div>
+
+  <!-- CONTENT -->
+  <div class="relative mx-auto flex max-w-[1440px] items-center lg:aspect-[1376/768] lg:max-h-[860px] lg:min-h-[520px] lg:px-10">
+    <div class="max-w-[560px]">
+      {%- if section.settings.title != blank -%}
+        <h2 class="text-[48px] leading-[0.9] font-bold xl:text-[64px]">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <p class="mt-4 max-w-[480px] text-base leading-[1.3]">{{ section.settings.text | escape | newline_to_br }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <!-- MOBILE PHOTO -->
+  <div class="relative mt-8 aspect-square overflow-hidden rounded-2xl md:aspect-[16/10] lg:hidden">
+    {%- if image_mobile != blank -%}
+      {{
+        image_mobile
+        | image_url: width: 1200
+        | image_tag:
+          loading: 'lazy',
+          widths: '400, 600, 800, 1200',
+          sizes: '100vw',
+          alt: section.settings.title,
+          class: 'absolute inset-0 h-full w-full object-cover object-[70%_center]'
+      }}
+    {%- else -%}
+      <img
+        src="{{ fallback | asset_url }}"
+        alt="{{ section.settings.title | escape }}"
+        loading="lazy"
+        class="absolute inset-0 h-full w-full object-cover object-[70%_center]"
+      >
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP Product trust",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Colors and the default photo follow the product template: Baby Planet for product.babyplanet, My Planet for others."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Турбота, якій можна довіряти"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "My Planet допомагає підтримувати чистоту там, де це найважливіше: на кухні, у ванній, під час прання та прибирання."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop image",
+      "info": "2752 × 1536 px. Keep the left side calm and light for the text. If empty, the built-in photo is used."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile image",
+      "info": "Optional, square. Falls back to the desktop image."
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP Product trust"
+    }
+  ]
+}
+{% endschema %}
