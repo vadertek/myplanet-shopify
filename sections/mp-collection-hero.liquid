@@ -18,6 +18,14 @@
       <span class="w-fit rounded-full border border-white px-6 py-2 text-sm leading-none">{{ section.settings.hero_tag }}</span>
       <h1 class="max-w-170 font-montserrat-bold text-[48px] leading-[0.95] font-bold md:text-[64px]">{{ section.settings.hero_title }}</h1>
       <p class="max-w-180 font-montserrat-reg leading-[1.45] text-sm">{{ section.settings.hero_description }}</p>
+      {%- if section.settings.button_text != blank -%}
+        <a
+          href="{{ section.settings.button_link | default: '#' }}"
+          class="flex h-10 w-60 items-center justify-center rounded-2xl bg-white/80 px-6 py-3 font-nunito text-sm leading-none font-semibold text-dark-blue backdrop-blur-sm transition duration-200 hover:bg-white focus-visible:bg-white"
+        >
+          {{ section.settings.button_text | escape }}
+        </a>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -63,6 +71,22 @@
       "id": "hero_description",
       "label": "Hero Description",
       "default": "Безпечні та ефективні засоби для чистоти поверхонь, посуду, фруктів і овочів — для комфортного та здорового простору щодня."
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Про My Planet",
+      "info": "Leave empty to hide the button."
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
     }
   ]
 }

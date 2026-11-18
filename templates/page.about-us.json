@@ -21,41 +21,38 @@
       "type": "mp-about-info",
       "settings": {
         "info_title": "Понад 78 років турботи",
-        "info_description": "Ми створюємо засоби для дому, щоб ви могли менше думати про прибирання і більше часу присвячувати тому, що справді важливо — родині, дому та щоденним моментам. Ми віримо, що чистота — це не лише про порядок у домі, а й про спокій у серці. Тому ми прагнемо створювати продукти, які допомагають вам насолоджуватися життям без зайвого клопоту."
+        "info_description": "My Planet народився в Греції й поєднує досвід поколінь та відповідальний підхід, створюючи ефективні рішення для щоденної чистоти."
       }
     },
-    "mp-home-treasures": {
-      "type": "mp-home-treasures",
+    "mp-about-values": {
+      "type": "mp-about-values",
       "blocks": {
-        "item_MKgyMM": {
+        "value_1": {
           "type": "item",
           "settings": {
-            "icon": "shopify://shop_images/Family.png",
-            "title": "Турбота про родину",
-            "text": "Безпечні рішення для дому, дітей та щоденного використання."
+            "title": "Для родини",
+            "text": "Безпечні рішення для щоденного використання."
           }
         },
-        "item_BaxmXz": {
+        "value_2": {
           "type": "item",
           "settings": {
-            "icon": "shopify://shop_images/home.png",
-            "title": "Турбота про дім",
-            "text": "Ефективні формули для чистоти кожного куточка вашого простору."
+            "title": "Для дому",
+            "text": "Ефективні формули для чистоти вашого дому."
           }
         },
-        "item_aCWk84": {
+        "value_3": {
           "type": "item",
           "settings": {
-            "icon": "shopify://shop_images/Earth.png",
             "title": "Турбота про планету",
-            "text": "Відповідальні інгредієнти та екологічний підхід на кожному етапі виробництва."
+            "text": "Відповідальні інгредієнти та екологічний підхід."
           }
         }
       },
       "block_order": [
-        "item_MKgyMM",
-        "item_BaxmXz",
-        "item_aCWk84"
+        "value_1",
+        "value_2",
+        "value_3"
       ],
       "settings": {
         "title": "Наші цінності"
@@ -174,7 +171,7 @@
   "order": [
     "mp-about-hero",
     "mp-about-info",
-    "mp-home-treasures",
+    "mp-about-values",
     "mp-about-bigturtle",
     "mp-about-uses",
     "mp_faq_Vm3LMW"

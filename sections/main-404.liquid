@@ -1,18 +1,52 @@
-<!-- 404 Section -->
-<section id="mp-404-{{ section.id }}" class="mx-auto max-w-360 bg-white px-4 py-10 md:px-8 md:py-20">
-  <div class="mx-auto flex max-w-155 flex-col items-center gap-6 rounded-2xl border border-[#C0D7ED] px-4 py-10 text-center md:gap-8 md:px-16 md:py-16">
-    <div class="flex flex-col gap-2 md:gap-4">
-      <span class="font-montserrat-bold text-[64px] leading-none font-bold text-main-blue md:text-[96px]">{{ section.settings.error_code }}</span>
-      <h1 class="font-montserrat-bold text-[22px] leading-tight font-bold text-dark-blue md:text-[32px]">{{ section.settings.title }}</h1>
-      <p class="font-montserrat-reg text-[14px] leading-tight text-main-blue/70 md:text-[16px]">{{ section.settings.description }}</p>
-    </div>
+{%- comment -%}
+  404: full-width turtle photo, "404" + text + outlined button on the left.
+  Height follows the photo (1440 × 560); on narrow screens it grows and the photo covers.
+{%- endcomment -%}
 
-    <a
-      href="{{ section.settings.button_link | default: routes.root_url }}"
-      class="mt-2 inline-flex min-h-12 items-center justify-center rounded-[10px] bg-main-blue px-8 text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:bg-dark-blue focus-visible:bg-dark-blue md:rounded-[14px] md:px-10 md:text-[14px]"
-    >
-      {{ section.settings.button_text }}
-    </a>
+{%- liquid
+  assign image = section.settings.image
+  assign image_mobile = section.settings.image_mobile | default: image
+-%}
+
+<section id="mp-404-{{ section.id }}" class="relative grid overflow-hidden bg-dark-blue font-nunito text-white">
+  <div class="absolute inset-0" aria-hidden="true">
+    {%- if image != blank -%}
+      {{ image | image_url: width: 2880 | image_tag: loading: 'eager', widths: '1024, 1440, 2160, 2880', sizes: '100vw', alt: '', class: 'hidden h-full w-full object-cover md:block' }}
+    {%- else -%}
+      <img src="{{ 'big-turtle.webp' | asset_url }}" alt="" loading="eager" class="hidden h-full w-full object-cover md:block">
+    {%- endif -%}
+    {%- if image_mobile != blank -%}
+      {{ image_mobile | image_url: width: 1200 | image_tag: loading: 'eager', widths: '400, 600, 800, 1200', sizes: '100vw', alt: '', class: 'h-full w-full object-cover md:hidden' }}
+    {%- else -%}
+      <img src="{{ 'big-turtle.webp' | asset_url }}" alt="" loading="eager" class="h-full w-full object-cover object-[45%_center] md:hidden">
+    {%- endif -%}
+  </div>
+
+  <!-- spacer keeps the photo proportions -->
+  <div class="col-start-1 row-start-1 min-h-[466px] w-full md:aspect-[1440/560] md:min-h-[420px]" aria-hidden="true"></div>
+
+  <div class="relative col-start-1 row-start-1 mx-auto flex w-full max-w-[1440px] items-start px-4 py-8 md:items-center md:px-10 md:py-10">
+    <div class="flex w-full flex-col items-center text-center md:max-w-[640px] md:items-start md:text-left">
+      <h1>
+        <span class="block text-[64px] leading-none font-bold">{{ section.settings.error_code | escape }}</span>
+        {%- if section.settings.title != blank -%}
+          <span class="sr-only">{{ section.settings.title | escape }}</span>
+        {%- endif -%}
+      </h1>
+
+      {%- if section.settings.description != blank -%}
+        <p class="mt-4 text-base leading-[1.3] md:mt-6">{{ section.settings.description | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.button_text != blank -%}
+        <a
+          href="{{ section.settings.button_link | default: routes.root_url }}"
+          class="mt-6 flex w-full items-center justify-center rounded-2xl border border-white px-6 py-3 md:w-auto md:border-2 text-base leading-[1.3] font-bold text-white transition duration-200 hover:bg-white hover:text-dark-blue focus-visible:bg-white focus-visible:text-dark-blue"
+        >
+          {{ section.settings.button_text | escape }}
+        </a>
+      {%- endif -%}
+    </div>
   </div>
 </section>
 
@@ -29,14 +63,14 @@
     {
       "type": "text",
       "id": "title",
-      "label": "Title",
+      "label": "Title (for screen readers)",
       "default": "Сторінку не знайдено"
     },
     {
       "type": "textarea",
       "id": "description",
       "label": "Description",
-      "default": "На жаль, ми не змогли знайти сторінку, яку ви шукаєте. Можливо, вона була видалена або адреса вказана з помилкою."
+      "default": "На цій сторінці черепахи не плавають. Схоже, сторінки не існує або адресу змінено."
     },
     {
       "type": "url",
@@ -47,7 +81,19 @@
       "type": "text",
       "id": "button_text",
       "label": "Button text",
-      "default": "На головну"
+      "default": "Повернутися на головну сторінку"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image",
+      "info": "1440 × 560 (2880 × 1120 for retina). Keep the left side calm for the text. If empty, the built-in turtle photo is used."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile background image",
+      "info": "Portrait, e.g. 790 × 932. Keep the top calm for the text. Falls back to the desktop image."
     }
   ]
 }

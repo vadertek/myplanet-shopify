@@ -56,13 +56,29 @@
                       {%- endunless -%}
                     </div>
 
-                    <a
-                      class="mt-4 flex min-h-9 w-full items-center justify-center rounded-[10px] border border-[#1EBECA] text-center font-montserrat-bold text-[12px] leading-none font-bold text-[#1EBECA] transition hover:-translate-y-0.5 hover:border-[#1EBECA] hover:bg-[#1EBECA] hover:text-white hover:shadow-[0_14px_28px_rgba(0,65,114,0.2)] focus-visible:-translate-y-0.5 focus-visible:border-dark-blue focus-visible:bg-dark-blue focus-visible:text-white md:min-h-13 md:rounded-[14px] md:text-[14px]"
-                      href="{{ product.url }}"
-                    >
-                      <span class="hidden md:inline">{{ 'general.custom.details' | t }}</span>
-                      <img class="h-5 w-5 md:hidden" src="{{ 'cart-icon.svg' | asset_url }}" alt="" aria-hidden="true">
-                    </a>
+                    {%- liquid
+                      assign buy_variant = product.selected_or_first_available_variant
+                      assign can_buy = false
+                      if product.available and buy_variant.price > 0
+                        assign can_buy = true
+                      endif
+                    -%}
+                    <form action="{{ routes.cart_add_url }}" method="post" class="mt-4 w-full">
+                      <input type="hidden" name="id" value="{{ buy_variant.id }}">
+                      <input type="hidden" name="quantity" value="1">
+                      <button
+                        type="submit"
+                        class="flex min-h-9 w-full cursor-pointer items-center justify-center rounded-[10px] bg-[#1EBECA] px-3 text-center font-nunito text-[12px] leading-none font-semibold text-white transition hover:-translate-y-0.5 hover:opacity-90 hover:shadow-[0_14px_28px_rgba(0,0,0,0.12)] focus-visible:-translate-y-0.5 focus-visible:opacity-90 disabled:pointer-events-none disabled:opacity-50 md:min-h-13 md:rounded-[14px] md:text-[14px]"
+                        {% unless can_buy %}disabled{% endunless %}
+                      >
+                        {%- if can_buy -%}
+                          <span class="hidden md:inline">{{ 'products.product.add_to_cart' | t }}</span>
+                          <img class="h-5 w-5 brightness-0 invert md:hidden" src="{{ 'cart-icon.svg' | asset_url }}" alt="{{ 'products.product.add_to_cart' | t | escape }}">
+                        {%- else -%}
+                          {{ 'general.custom.unavailable' | t }}
+                        {%- endif -%}
+                      </button>
+                    </form>
                   </div>
                 </article>
               {%- endfor -%}
