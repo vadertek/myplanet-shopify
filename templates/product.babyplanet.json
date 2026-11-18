@@ -53,41 +53,37 @@
     },
     "mp-product-picks": {
       "type": "mp-product-picks",
-      "settings": {
-        "title": "Засоби для чистого дому",
-        "columns": "5",
-        "button_text": "Переглянути всі засоби",
-        "button_link": "shopify://collections/all"
-      },
       "blocks": {
         "product_1": {
           "type": "product",
           "settings": {
-            "product": "baby-planet-kids-and-toddlers-laundry-gel-38-washes-2204ml"
+            "product": "baby-planet-kids-and-toddlers-laundry-gel-38-washes-2204ml",
+            "image": "shopify://shop_images/Frame_1321317391_c6a2d4b4-30a9-4e42-814c-95cc9503cf8e.png",
+            "title": ""
           }
         },
         "product_2": {
           "type": "product",
           "settings": {
-            "product": "baby-planet-baby-fabric-softener-40-washes-900ml"
+            "product": "baby-planet-baby-fabric-softener-40-washes-900ml",
+            "image": "shopify://shop_images/Frame_1321317391-1_9f998ff1-b699-4c0b-a47f-a58c416fbacb.png",
+            "title": ""
           }
         },
         "product_3": {
           "type": "product",
           "settings": {
-            "product": "baby-planet-baby-dish-and-toy-wash-gel-425ml"
+            "product": "baby-planet-baby-dish-and-toy-wash-gel-425ml",
+            "image": "shopify://shop_images/Frame_1321317391-2_302c0fbb-203d-456e-88ea-0d3dbedd5481.png",
+            "title": ""
           }
         },
         "product_4": {
           "type": "product",
           "settings": {
-            "product": "baby-planet-all-purpose-surface-cleaner-1000ml"
-          }
-        },
-        "product_5": {
-          "type": "product",
-          "settings": {
-            "product": "baby-planet-antibacterial-surface-spray-325ml"
+            "product": "baby-planet-all-purpose-surface-cleaner-1000ml",
+            "image": "shopify://shop_images/Frame_1321317391-3_adf411f5-6c54-4d9f-8967-79e052f55dec.png",
+            "title": ""
           }
         }
       },
@@ -95,9 +91,14 @@
         "product_1",
         "product_2",
         "product_3",
-        "product_4",
-        "product_5"
-      ]
+        "product_4"
+      ],
+      "settings": {
+        "title": "Засоби для чистого дому",
+        "columns": "4",
+        "button_text": "Переглянути всі засоби",
+        "button_link": "shopify://collections/all"
+      }
     },
     "mp-product-trust": {
       "type": "mp-product-trust",
@@ -304,7 +305,8 @@
     "mp-product-philosophy": {
       "type": "mp-product-philosophy",
       "settings": {
-        "title": "Наша філософія"
+        "title": "Наша філософія",
+        "text": "<p>У світі, що постійно змінюється, незмінними залишаються речі, які справді важливі: дім, родина та комфорт.</p><p>Саме тому My Planet уже понад 78 років розробляє продукти, що поєднують ефективність, безпечні формули та відповідальне ставлення до ресурсів.</p><p><strong>Ми віримо, що довіра формується роками, а якість підтверджується щодня.</strong></p>"
       }
     },
     "mp-home-turtle": {
