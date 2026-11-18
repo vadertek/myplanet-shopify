@@ -1,0 +1,213 @@
+{%- comment -%}
+  "Clean where it's needed": a row of photo cards with a label pill under each.
+  Desktop: all cards in one row (columns = number of blocks). Mobile: centered slider.
+  Colors and fallback photos follow the product template
+  (product.babyplanet → Baby Planet palette and bpn-*.webp, otherwise mpn-*.webp).
+{%- endcomment -%}
+
+{%- liquid
+  assign text_color = '#236591'
+  assign pill_bg = 'rgba(0, 128, 199, 0.1)'
+  assign label_weight = 'font-normal'
+  assign img_prefix = 'mpn-'
+  assign fallback_max = 5
+  if template.suffix == 'babyplanet'
+    assign text_color = '#325037'
+    assign pill_bg = 'rgba(30, 190, 202, 0.2)'
+    assign label_weight = 'font-semibold'
+    assign img_prefix = 'bpn-'
+    assign fallback_max = 3
+  endif
+
+  case section.blocks.size
+    when 1
+      assign cols = 'md:grid-cols-1'
+    when 2
+      assign cols = 'md:grid-cols-2'
+    when 3
+      assign cols = 'md:grid-cols-3'
+    when 4
+      assign cols = 'md:grid-cols-4'
+    when 5
+      assign cols = 'md:grid-cols-3 lg:grid-cols-5'
+    else
+      assign cols = 'md:grid-cols-3 lg:grid-cols-6'
+  endcase
+-%}
+
+<section
+  id="mp-product-places-{{ section.id }}"
+  class="overflow-hidden px-4 py-10 font-nunito md:px-10 md:py-16"
+  style="color: {{ text_color }}; --places-color: {{ text_color }}; --places-pill: {{ pill_bg }};"
+>
+  <div class="mx-auto max-w-340">
+    {%- if section.settings.title != blank -%}
+      <h2 class="text-[40px] leading-none font-bold">{{ section.settings.title | escape }}</h2>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div id="places-swiper-{{ section.id }}" class="swiper mt-8 overflow-visible md:mt-10 md:overflow-hidden">
+        <div class="swiper-wrapper flex md:grid md:gap-2 {{ cols }}">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign fallback = ''
+              if forloop.index <= fallback_max
+                assign fallback = img_prefix | append: forloop.index | append: '.webp'
+              endif
+              assign link = block.settings.link
+            -%}
+            <div class="swiper-slide w-full shrink-0" {{ block.shopify_attributes }}>
+              {%- if link != blank -%}<a href="{{ link }}" class="group flex flex-col">{%- else -%}<div class="group flex flex-col">{%- endif -%}
+                <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-[#F2F2F7] md:aspect-auto md:h-[300px] lg:h-[360px]">
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 900
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '300, 450, 600, 900',
+                        sizes: '(min-width: 1024px) 30vw, 70vw',
+                        alt: block.settings.label,
+                        class: 'absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none'
+                    }}
+                  {%- elsif fallback != blank -%}
+                    <img
+                      src="{{ fallback | asset_url }}"
+                      alt="{{ block.settings.label | escape }}"
+                      loading="lazy"
+                      class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none"
+                    >
+                  {%- endif -%}
+                </div>
+
+                {%- if block.settings.label != blank -%}
+                  <p class="mt-2 flex min-h-[53px] items-center justify-center rounded-2xl bg-(--places-pill) px-4 py-4 text-center text-base leading-[1.3] {{ label_weight }}">
+                    {{ block.settings.label | escape }}
+                  </p>
+                {%- endif -%}
+              {%- if link != blank -%}</a>{%- else -%}</div>{%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      {%- if section.blocks.size > 1 -%}
+        <div class="mx-auto mt-8 flex h-9 w-22 overflow-hidden rounded-full bg-(--places-pill) md:hidden" aria-label="Navigation">
+          <button
+            id="places-prev-{{ section.id }}"
+            class="grid h-9 w-11 cursor-pointer place-items-center text-(--places-color) transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-40"
+            type="button"
+            aria-label="Previous"
+          >
+            <span class="h-3.5 w-3.5 rotate-45 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+          </button>
+          <button
+            id="places-next-{{ section.id }}"
+            class="grid h-9 w-11 cursor-pointer place-items-center text-(--places-color) transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-40"
+            type="button"
+            aria-label="Next"
+          >
+            <span class="h-3.5 w-3.5 rotate-225 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+          </button>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+
+<script>
+  (function () {
+    var sectionId = '{{ section.id }}';
+    var mq = window.matchMedia('(min-width: 768px)');
+
+    function initPlacesSwiper() {
+      var swiperEl = document.getElementById('places-swiper-' + sectionId);
+      if (!swiperEl || typeof Swiper === 'undefined') return;
+
+      if (swiperEl.swiper) swiperEl.swiper.destroy(true, true);
+      if (mq.matches) return; // desktop: plain grid
+
+      var count = swiperEl.querySelectorAll('.swiper-slide').length;
+
+      new Swiper(swiperEl, {
+        slidesPerView: 1.45,
+        centeredSlides: true,
+        initialSlide: Math.min(2, count - 1),
+        spaceBetween: 8,
+        speed: 350,
+        navigation: {
+          nextEl: '#places-next-' + sectionId,
+          prevEl: '#places-prev-' + sectionId,
+        },
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPlacesSwiper);
+    } else {
+      initPlacesSwiper();
+    }
+
+    if (mq.addEventListener) mq.addEventListener('change', initPlacesSwiper);
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.detail && event.detail.sectionId === sectionId) initPlacesSwiper();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MP Product places",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Colors and default photos follow the product template: Baby Planet for product.babyplanet, My Planet for others. Desktop shows all cards in one row."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Чистота там, де вона потрібна"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Height 720 px (e.g. 532 × 720 for 5 cards, 896 × 720 for 3). If empty, the built-in photo is used."
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Кухня"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP Product places",
+      "blocks": [
+        { "type": "card", "settings": { "label": "Скло та дзеркала" } },
+        { "type": "card", "settings": { "label": "Кухня" } },
+        { "type": "card", "settings": { "label": "Прання" } },
+        { "type": "card", "settings": { "label": "Універсальне прибирання" } },
+        { "type": "card", "settings": { "label": "Ванна кімната" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

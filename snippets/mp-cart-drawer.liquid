@@ -37,17 +37,11 @@
       </button>
     </div>
 
+    <template id="cherie-empty-template">{% render 'mp-cart-empty' %}</template>
+
     <div id="cherie-drawer-items" class="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4 md:px-6">
       {% if cart.item_count == 0 %}
-        <div class="flex flex-1 flex-col items-start justify-center rounded-2xl border border-[#C0D7ED] px-5 py-8">
-          <p class="font-montserrat-bold text-[22px] leading-tight font-bold text-main-blue">{{ 'sections.cart.empty' | t }}</p>
-          <a
-            class="mt-5 inline-flex min-h-12 items-center justify-center rounded-[10px] bg-main-blue px-6 text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:bg-dark-blue focus-visible:bg-dark-blue md:rounded-[14px] md:text-[14px]"
-            href="{{ routes.all_products_collection_url }}"
-          >
-            {{ 'general.continue_shopping' | t }}
-          </a>
-        </div>
+        {% render 'mp-cart-empty' %}
       {% else %}
         {% for item in cart.items %}
           <article
@@ -147,7 +141,7 @@
       {% endif %}
     </div>
 
-    <div class="border-t border-[#C0D7ED] px-4 py-4 md:px-6">
+    <div class="border-t border-[#C0D7ED] px-4 py-4 md:px-6{% if cart.item_count == 0 %} hidden{% endif %}" data-cherie-drawer-footer>
       <div class="mb-4 flex items-center justify-between gap-4">
         <p class="font-montserrat-bold text-[18px] leading-none font-bold text-[#236591]">Разом:</p>
         <p class="font-montserrat-bold text-[22px] leading-none font-bold text-[#236591]" data-cherie-cart-total>

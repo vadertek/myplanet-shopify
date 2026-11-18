@@ -1,0 +1,145 @@
+{%- comment -%}
+  "Everything you need in one set": full-width photo with text + button on the left (desktop),
+  text + button, then the photo fading in from white (mobile).
+  Colors and fallback photo follow the product template (product.babyplanet → Baby Planet).
+{%- endcomment -%}
+
+{%- liquid
+  assign text_color = '#236591'
+  assign fallback = 'all-1.webp'
+  if template.suffix == 'babyplanet'
+    assign text_color = '#325037'
+    assign fallback = 'all-2.webp'
+  endif
+
+  assign image = section.settings.image
+  assign image_mobile = section.settings.image_mobile | default: image
+-%}
+
+<section
+  id="mp-product-sets-{{ section.id }}"
+  class="relative overflow-hidden bg-white pt-8 font-nunito lg:p-0"
+  style="color: {{ text_color }};"
+>
+  <!-- DESKTOP PHOTO -->
+  <div class="absolute inset-0 hidden lg:block" aria-hidden="true">
+    {%- if image != blank -%}
+      {{
+        image
+        | image_url: width: 2752
+        | image_tag:
+          loading: 'lazy',
+          widths: '1024, 1440, 2048, 2752',
+          sizes: '100vw',
+          alt: '',
+          class: 'h-full w-full object-cover object-right'
+      }}
+    {%- else -%}
+      <img src="{{ fallback | asset_url }}" alt="" loading="lazy" class="h-full w-full object-cover object-right">
+    {%- endif -%}
+  </div>
+
+  <!-- CONTENT -->
+  <div class="relative mx-auto flex max-w-[1440px] items-center px-4 lg:aspect-[2048/1152] lg:max-h-[810px] lg:min-h-[520px] lg:px-10">
+    <div class="w-full max-w-[560px]">
+      {%- if section.settings.title != blank -%}
+        <h2 class="text-[48px] leading-[0.9] font-bold xl:text-[64px]">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <p class="mt-4 max-w-[480px] text-base leading-[1.3] opacity-90">{{ section.settings.text | escape | newline_to_br }}</p>
+      {%- endif -%}
+      {%- if section.settings.button_text != blank -%}
+        <a
+          href="{{ section.settings.button_link | default: routes.all_products_collection_url }}"
+          class="mt-6 flex w-full items-center justify-center rounded-2xl bg-[#008E47] py-4 text-xl leading-[1.35] font-normal text-white transition duration-200 hover:opacity-85 focus-visible:opacity-85 sm:w-80 lg:mt-8"
+        >
+          {{ section.settings.button_text | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <!-- MOBILE PHOTO (fades in from white at the top) -->
+  <div class="relative mt-2 aspect-[4/3] lg:hidden [mask-image:linear-gradient(to_bottom,transparent,#000_30%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,#000_30%)]">
+    {%- if image_mobile != blank -%}
+      {{
+        image_mobile
+        | image_url: width: 1200
+        | image_tag:
+          loading: 'lazy',
+          widths: '400, 600, 800, 1200',
+          sizes: '100vw',
+          alt: section.settings.title,
+          class: 'absolute inset-0 h-full w-full object-cover object-[75%_center]'
+      }}
+    {%- else -%}
+      <img
+        src="{{ fallback | asset_url }}"
+        alt="{{ section.settings.title | escape }}"
+        loading="lazy"
+        class="absolute inset-0 h-full w-full object-cover object-[75%_center]"
+      >
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP Product sets",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Colors and the default photo follow the product template: Baby Planet for product.babyplanet, My Planet for others."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Усе необхідне в одному наборі"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Набори My Planet поєднують засоби для різних хатніх справ. Зручне рішення для першої покупки або для щоденного використання."
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Переглянути набори"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "info": "If empty, leads to all products."
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop image",
+      "info": "2048 × 1152 px. Keep the left side white/light for the text. If empty, the built-in photo is used."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile image",
+      "info": "Optional, 4:3. Falls back to the desktop image."
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP Product sets"
+    }
+  ]
+}
+{% endschema %}

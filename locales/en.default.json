@@ -10,6 +10,9 @@
 {
   "general": {
       "custom": {
+        "cart-empty-title": "Your cart is empty",
+        "cart-empty-text": "Add your favourite My Planet products to take care of your home.",
+        "cart-empty-button": "Start shopping",
         "navigation": "Navigation",
         "follow-us": "Follow us",
         "check-products": "Check products",

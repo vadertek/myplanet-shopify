@@ -1,0 +1,156 @@
+{%- comment -%}
+  "Everything important is inside": title, subtitle and a row of icon + label items.
+  Desktop: one row. Mobile: slider.
+{%- endcomment -%}
+
+{%- liquid
+  assign fallback_icons = 'cc-09.webp,cc-08.webp,cc-07.webp,cc-06.webp,cc-05.webp,cc-04.webp' | split: ','
+  assign items_count = section.blocks.size
+-%}
+
+<section id="mp-product-inside-{{ section.id }}" class="overflow-hidden px-4 py-10 font-nunito md:px-10 md:py-16">
+  <div class="mx-auto max-w-340 text-center">
+    {%- if section.settings.title != blank -%}
+      <h2 class="text-[48px] leading-none font-bold text-main-blue md:text-[40px]">{{ section.settings.title | escape }}</h2>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <p class="mx-auto mt-4 max-w-[760px] text-base leading-[1.3] text-main-blue md:mt-3">
+        {{ section.settings.text | escape | newline_to_br }}
+      </p>
+    {%- endif -%}
+
+    {%- if items_count > 0 -%}
+      <div id="inside-swiper-{{ section.id }}" class="swiper mt-8 overflow-visible md:mt-12 md:overflow-hidden">
+        <div class="swiper-wrapper flex md:grid md:grid-cols-3 md:gap-y-10 lg:grid-cols-6">
+          {%- for block in section.blocks -%}
+            <div class="swiper-slide flex w-full shrink-0 flex-col items-center" {{ block.shopify_attributes }}>
+              {%- if block.settings.icon != blank -%}
+                {{ block.settings.icon | image_url: width: 372 | image_tag: class: 'h-28 w-28 object-contain md:h-24 md:w-24', loading: 'lazy', alt: '' }}
+              {%- elsif fallback_icons[forloop.index0] -%}
+                <img class="h-28 w-28 object-contain md:h-24 md:w-24" src="{{ fallback_icons[forloop.index0] | asset_url }}" alt="" loading="lazy">
+              {%- endif -%}
+
+              {%- if block.settings.label != blank -%}
+                <p class="mt-4 max-w-[180px] text-base leading-[1.3] font-bold text-[#236591] md:text-sm">
+                  {{ block.settings.label | escape }}
+                </p>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      {%- if items_count > 2 -%}
+        <div class="mx-auto mt-6 flex h-9 w-22 overflow-hidden rounded-full bg-main-blue/8 md:hidden" aria-label="Navigation">
+          <button
+            id="inside-prev-{{ section.id }}"
+            class="grid h-9 w-11 cursor-pointer place-items-center text-main-blue/80 transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-40"
+            type="button"
+            aria-label="Previous"
+          >
+            <span class="h-3.5 w-3.5 rotate-45 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+          </button>
+          <button
+            id="inside-next-{{ section.id }}"
+            class="grid h-9 w-11 cursor-pointer place-items-center text-main-blue/80 transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-40"
+            type="button"
+            aria-label="Next"
+          >
+            <span class="h-3.5 w-3.5 rotate-225 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+          </button>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+
+<script>
+  (function () {
+    var sectionId = '{{ section.id }}';
+    var mq = window.matchMedia('(min-width: 768px)');
+
+    function initInsideSwiper() {
+      var swiperEl = document.getElementById('inside-swiper-' + sectionId);
+      if (!swiperEl || typeof Swiper === 'undefined') return;
+
+      if (swiperEl.swiper) swiperEl.swiper.destroy(true, true);
+      if (mq.matches) return; // desktop: plain grid
+
+      new Swiper(swiperEl, {
+        slidesPerView: 2.3,
+        spaceBetween: 8,
+        speed: 350,
+        navigation: {
+          nextEl: '#inside-next-' + sectionId,
+          prevEl: '#inside-prev-' + sectionId,
+        },
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initInsideSwiper);
+    } else {
+      initInsideSwiper();
+    }
+
+    if (mq.addEventListener) mq.addEventListener('change', initInsideSwiper);
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.detail && event.detail.sectionId === sectionId) initInsideSwiper();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MP Product inside",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Усе важливе — всередині"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Формули My Planet створені для ефективного очищення та дбайливого догляду за вашим домом."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon",
+          "info": "Square, 372 × 372 px. If empty, the built-in icon for this position is used."
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Гіпоалергенні формули"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP Product inside",
+      "blocks": [
+        { "type": "item", "settings": { "label": "Гіпоалергенні формули" } },
+        { "type": "item", "settings": { "label": "Без хлору" } },
+        { "type": "item", "settings": { "label": "Без EDTA" } },
+        { "type": "item", "settings": { "label": "Без барвників" } },
+        { "type": "item", "settings": { "label": "Без нітромускусів" } },
+        { "type": "item", "settings": { "label": "Для щоденного використання" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
