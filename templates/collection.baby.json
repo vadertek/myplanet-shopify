@@ -13,6 +13,7 @@
     "mp-collection-hero-b": {
       "type": "mp-collection-hero-b",
       "settings": {
+        "hero_image": "shopify://shop_images/Action_Block.png",
         "hero_image_mobile": "shopify://shop_images/Frame_1321317184.png",
         "hero_tag": "BabyPlanet",
         "hero_title": "Безпечна чистота для всього, чого торкається ваш малюк",
