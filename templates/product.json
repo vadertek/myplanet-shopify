@@ -53,41 +53,45 @@
     },
     "mp-product-picks": {
       "type": "mp-product-picks",
-      "settings": {
-        "title": "Засоби для чистого дому",
-        "columns": "5",
-        "button_text": "Переглянути всі засоби",
-        "button_link": "shopify://collections/all"
-      },
       "blocks": {
         "product_1": {
           "type": "product",
           "settings": {
-            "product": "my-planet-cold-fusion-plus-laundry-gel"
+            "product": "my-planet-cold-fusion-plus-laundry-gel",
+            "image": "shopify://shop_images/Frame_1321317391.png",
+            "title": ""
           }
         },
         "product_2": {
           "type": "product",
           "settings": {
-            "product": "my-planet-perle-bio-plus-dishwashing-gel"
+            "product": "my-planet-perle-bio-plus-dishwashing-gel",
+            "image": "shopify://shop_images/Frame_1321317391-1.png",
+            "title": ""
           }
         },
         "product_3": {
           "type": "product",
           "settings": {
-            "product": "my-planet-rinse-and-shine-dishwasher-rinse-aid-100-cycles-400ml"
+            "product": "my-planet-rinse-and-shine-dishwasher-rinse-aid-100-cycles-400ml",
+            "image": "shopify://shop_images/Frame_1321317391-2.png",
+            "title": ""
           }
         },
         "product_4": {
           "type": "product",
           "settings": {
-            "product": "my-planet-green-soap-all-purpose-surface-cleaner-1000ml"
+            "product": "my-planet-green-soap-all-purpose-surface-cleaner-1000ml",
+            "image": "shopify://shop_images/Frame_1321317391-3.png",
+            "title": ""
           }
         },
         "product_5": {
           "type": "product",
           "settings": {
-            "product": "my-planet-crystal-ice-glass-cleaner-spray-1000ml"
+            "product": "my-planet-crystal-ice-glass-cleaner-spray-1000ml",
+            "image": "shopify://shop_images/Frame_1321317391-4.png",
+            "title": ""
           }
         }
       },
@@ -97,7 +101,13 @@
         "product_3",
         "product_4",
         "product_5"
-      ]
+      ],
+      "settings": {
+        "title": "Засоби для чистого дому",
+        "columns": "5",
+        "button_text": "Переглянути всі засоби",
+        "button_link": "shopify://collections/all"
+      }
     },
     "mp-product-trust": {
       "type": "mp-product-trust",
@@ -283,7 +293,8 @@
     "mp-product-philosophy": {
       "type": "mp-product-philosophy",
       "settings": {
-        "title": "Наша філософія"
+        "title": "Наша філософія",
+        "text": "<p>У світі, що постійно змінюється, незмінними залишаються речі, які справді важливі: дім, родина та комфорт.</p><p>Саме тому My Planet уже понад 78 років розробляє продукти, що поєднують ефективність, безпечні формули та відповідальне ставлення до ресурсів.</p><p><strong>Ми віримо, що довіра формується роками, а якість підтверджується щодня.</strong></p>"
       }
     },
     "mp-home-turtle": {
