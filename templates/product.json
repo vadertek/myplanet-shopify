@@ -234,7 +234,7 @@
         "review_7Dz6xB": {
           "type": "review",
           "settings": {
-            "product": "test-product-1",
+            "product": "my-planet-ocean-fresh-all-purpose-surface-cleaner-1000ml",
             "author": "Олена К.",
             "badge": "Перевірений покупець",
             "date": "2025-05-14",
@@ -246,7 +246,7 @@
         "review_w7riT9": {
           "type": "review",
           "settings": {
-            "product": "test-product-2",
+            "product": "my-planet-ocean-fresh-all-purpose-surface-cleaner-1000ml",
             "author": "Олена К.",
             "badge": "Перевірений покупець",
             "date": "2025-05-14",
@@ -258,7 +258,7 @@
         "review_acwDEK": {
           "type": "review",
           "settings": {
-            "product": "test-product-1",
+            "product": "my-planet-fruit-and-vegetable-wash-fragrance-free-450ml",
             "author": "Марія В",
             "badge": "Перевірений покупець",
             "date": "2025-05-14",
@@ -270,7 +270,7 @@
         "review_MBwUVD": {
           "type": "review",
           "settings": {
-            "product": "test-product-2",
+            "product": "my-planet-crystal-ice-glass-cleaner-spray-1000ml",
             "author": "Ірина С.",
             "badge": "Перевірений покупець",
             "date": "2025-05-14",
@@ -359,7 +359,9 @@
     "mp-home-community": {
       "type": "mp-home-community",
       "settings": {
-        "title": "Життя між прибираннями — в <strong>Instagram</strong>"
+        "title": "Життя між прибираннями — в <strong>Instagram</strong>",
+        "button_text": "Підписатися",
+        "button_link": ""
       }
     },
     "mp_faq": {
