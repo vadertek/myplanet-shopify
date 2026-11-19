@@ -237,13 +237,13 @@
         "title": "Наші цінності"
       }
     },
-    "mp-home-reviews": {
+    "mp_home_reviews_9L9UEn": {
       "type": "mp-home-reviews",
       "blocks": {
-        "review_7Dz6xB": {
+        "review_mnNrmc": {
           "type": "review",
           "settings": {
-            "product": "test-product-1",
+            "product": "my-planet-ocean-fresh-all-purpose-surface-cleaner-1000ml",
             "author": "Олена К.",
             "badge": "Перевірений покупець",
             "date": "2025-05-14",
@@ -252,10 +252,10 @@
             "text": "Користуюся універсальним засобом Ocean Fresh вже понад пів року. Чудово справляється з підлогою, кухонними поверхнями та ванною кімнатою. Приємний аромат і жодного відчуття агресивної хімії."
           }
         },
-        "review_w7riT9": {
+        "review_4PHR4w": {
           "type": "review",
           "settings": {
-            "product": "test-product-2",
+            "product": "my-planet-ocean-fresh-all-purpose-surface-cleaner-1000ml",
             "author": "Олена К.",
             "badge": "Перевірений покупець",
             "date": "2025-05-14",
@@ -264,10 +264,10 @@
             "text": "Користуюся універсальним засобом Ocean Fresh вже понад пів року. Чудово справляється з підлогою, кухонними поверхнями та ванною кімнатою. Приємний аромат і жодного відчуття агресивної хімії."
           }
         },
-        "review_acwDEK": {
+        "review_ppKMjT": {
           "type": "review",
           "settings": {
-            "product": "test-product-1",
+            "product": "my-planet-fruit-and-vegetable-wash-fragrance-free-450ml",
             "author": "Марія В",
             "badge": "Перевірений покупець",
             "date": "2025-05-14",
@@ -276,10 +276,10 @@
             "text": "Veggie Wash став незамінним на кухні. Особливо подобається, що можна ретельно мити овочі та фрукти для дітей без зайвих хвилювань."
           }
         },
-        "review_MBwUVD": {
+        "review_gqrmEi": {
           "type": "review",
           "settings": {
-            "product": "test-product-2",
+            "product": "my-planet-crystal-ice-glass-cleaner-spray-1000ml",
             "author": "Ірина С.",
             "badge": "Перевірений покупець",
             "date": "2025-05-14",
@@ -290,10 +290,10 @@
         }
       },
       "block_order": [
-        "review_7Dz6xB",
-        "review_w7riT9",
-        "review_acwDEK",
-        "review_MBwUVD"
+        "review_mnNrmc",
+        "review_4PHR4w",
+        "review_ppKMjT",
+        "review_gqrmEi"
       ],
       "settings": {
         "title": "Нам довіряють тисячі родин"
@@ -368,7 +368,9 @@
     "mp-home-community": {
       "type": "mp-home-community",
       "settings": {
-        "title": "Життя між прибираннями — в <strong>Instagram</strong>"
+        "title": "Життя між прибираннями — в <strong>Instagram</strong>",
+        "button_text": "Підписатися",
+        "button_link": ""
       }
     },
     "mp_faq": {
@@ -440,7 +442,7 @@
     "mp-product-sets",
     "mp-product-places",
     "mp-home-treasures",
-    "mp-home-reviews",
+    "mp_home_reviews_9L9UEn",
     "mp-product-philosophy",
     "mp-home-turtle",
     "mp-home-community",
