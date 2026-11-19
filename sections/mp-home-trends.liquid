@@ -18,7 +18,7 @@
           {%- for block in section.blocks -%}
             <button
               id="trends-tag-button-{{ section.id }}-{{ block.id }}"
-              class="min-h-6.5 shrink-0 cursor-pointer rounded-full px-3.5 py-1.5 font-montserrat-bold text-[12px] leading-none font-bold transition hover:bg-main-blue hover:text-white focus-visible:bg-main-blue focus-visible:text-white md:min-h-8.5 md:px-4 md:py-2 md:text-[14px]{% if forloop.first %} bg-main-blue text-white{% else %} bg-[#C0D7ED]/30 text-main-blue{% endif %}"
+              class="inline-flex h-8.5 shrink-0 cursor-pointer items-center rounded-2xl px-4 font-nunito text-[14px] leading-none font-semibold transition hover:bg-[#0080C7] hover:text-white focus-visible:bg-[#0080C7] focus-visible:text-white{% if forloop.first %} bg-[#0080C7] text-white{% else %} bg-[#C0D7ED]/30 text-[#0080C7]{% endif %}"
               type="button"
               aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
               {{ block.shopify_attributes }}
@@ -83,10 +83,10 @@
                         <a href="{{ product.url }}">{{ product.title | escape }}</a>
                       </h3>
 
-                      <div class="mt-4 hidden min-h-7 flex-wrap gap-2 md:flex">
+                      <div class="mt-4 hidden min-h-7 flex-wrap gap-x-3 gap-y-1 md:flex">
                         {%- unless product.has_only_default_variant -%}
                           {%- for variant in product.variants limit: 4 -%}
-                            <span class="rounded-lg bg-[#C0D7ED]/20 px-2 py-0.5 font-montserrat-bold text-[16px] leading-none font-bold text-main-blue/70">
+                            <span class="font-nunito text-[16px] leading-none font-semibold text-[#004172]/70">
                               {{ variant.title }}
                             </span>
                           {%- endfor -%}
@@ -104,12 +104,11 @@
                           <input type="hidden" name="quantity" value="1">
 
                           <button
-                            class="flex min-h-9 w-full cursor-pointer items-center justify-center rounded-[10px] border border-main-blue bg-main-blue text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:-translate-y-0.5 hover:border-dark-blue hover:bg-dark-blue hover:shadow-[0_14px_28px_rgba(0,65,114,0.2)] focus-visible:-translate-y-0.5 focus-visible:border-dark-blue focus-visible:bg-dark-blue md:min-h-13 md:rounded-[14px] md:text-[14px]"
+                            class="flex min-h-9 w-full cursor-pointer items-center justify-center rounded-[10px] border border-[#3FA11F] bg-[#3FA11F] text-center font-montserrat-bold text-[12px] leading-none font-bold text-white transition hover:-translate-y-0.5 hover:border-[#358A1A] hover:bg-[#358A1A] hover:shadow-[0_14px_28px_rgba(63,161,31,0.25)] focus-visible:-translate-y-0.5 focus-visible:border-[#358A1A] focus-visible:bg-[#358A1A] md:min-h-13 md:rounded-[14px] md:text-[14px]"
                             type="submit"
-                            aria-label="{{ 'general.custom.buy-for' | t }} {{ product.title | escape }}"
+                            aria-label="{{ 'products.product.add_to_cart' | t }}: {{ product.title | escape }}"
                           >
-                            {{ 'general.custom.buy-for' | t }}
-                            {{ buy_variant.price | money_without_currency | replace: ',00', '' | replace: '.00', '' }} ₴
+                            {{ 'products.product.add_to_cart' | t }}
                           </button>
                         </form>
                       {%- else -%}
@@ -218,10 +217,10 @@
           const active = buttonIndex === index;
 
           button.setAttribute('aria-selected', String(active));
-          button.classList.toggle('bg-main-blue', active);
+          button.classList.toggle('bg-[#0080C7]', active);
           button.classList.toggle('text-white', active);
           button.classList.toggle('bg-[#C0D7ED]/30', !active);
-          button.classList.toggle('text-main-blue', !active);
+          button.classList.toggle('text-[#0080C7]', !active);
         });
 
         panels.forEach(function (panel, panelIndex) {

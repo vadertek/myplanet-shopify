@@ -1,11 +1,20 @@
 {%- comment -%}
   "Everything important is inside": title, subtitle and a row of icon + label items.
+  Items come from the product metafield custom.benefits (list of product_benefits
+  metaobjects: title + icon). If it is empty, the section blocks are used instead.
   Desktop: one row. Mobile: slider.
 {%- endcomment -%}
 
 {%- liquid
   assign fallback_icons = 'cc-09.webp,cc-08.webp,cc-07.webp,cc-06.webp,cc-05.webp,cc-04.webp' | split: ','
-  assign items_count = section.blocks.size
+  assign benefits = product.metafields.custom.benefits.value
+  if benefits != blank and benefits.size > 0
+    assign use_benefits = true
+    assign items_count = benefits.size
+  else
+    assign use_benefits = false
+    assign items_count = section.blocks.size
+  endif
 -%}
 
 <section id="mp-product-inside-{{ section.id }}" class="overflow-hidden px-4 py-10 font-nunito md:px-10 md:py-16">
@@ -21,9 +30,26 @@
 
     {%- if items_count > 0 -%}
       <div id="inside-swiper-{{ section.id }}" class="swiper mt-8 overflow-visible md:mt-12 md:overflow-hidden">
-        <div class="swiper-wrapper flex md:grid md:grid-cols-3 md:gap-y-10 lg:grid-cols-6">
+        <div class="swiper-wrapper flex md:flex-wrap md:justify-center md:gap-y-10">
+          {%- if use_benefits -%}
+            {%- for benefit in benefits -%}
+              {%- assign benefit_icon = benefit.icon.value -%}
+              {%- assign benefit_title = benefit.title.value -%}
+              <div class="swiper-slide flex w-full shrink-0 flex-col items-center md:w-1/3 lg:w-1/6">
+                {%- if benefit_icon != blank -%}
+                  {{ benefit_icon | image_url: width: 372 | image_tag: class: 'h-28 w-28 object-contain md:h-24 md:w-24', loading: 'lazy', alt: '' }}
+                {%- endif -%}
+
+                {%- if benefit_title != blank -%}
+                  <p class="mt-4 max-w-[180px] text-base leading-[1.3] font-bold text-[#236591] md:text-sm">
+                    {{ benefit_title | escape }}
+                  </p>
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          {%- else -%}
           {%- for block in section.blocks -%}
-            <div class="swiper-slide flex w-full shrink-0 flex-col items-center" {{ block.shopify_attributes }}>
+            <div class="swiper-slide flex w-full shrink-0 flex-col items-center md:w-1/3 lg:w-1/6" {{ block.shopify_attributes }}>
               {%- if block.settings.icon != blank -%}
                 {{ block.settings.icon | image_url: width: 372 | image_tag: class: 'h-28 w-28 object-contain md:h-24 md:w-24', loading: 'lazy', alt: '' }}
               {%- elsif fallback_icons[forloop.index0] -%}
@@ -37,6 +63,7 @@
               {%- endif -%}
             </div>
           {%- endfor -%}
+          {%- endif -%}
         </div>
       </div>
 
@@ -80,6 +107,7 @@
         slidesPerView: 2.3,
         spaceBetween: 8,
         speed: 350,
+        centerInsufficientSlides: true,
         navigation: {
           nextEl: '#inside-next-' + sectionId,
           prevEl: '#inside-prev-' + sectionId,

@@ -1,0 +1,209 @@
+{%- comment -%}
+  Awareness landing hero (My Planet / Baby Planet).
+  Full-width image with title, text, benefit blocks (icon + title + text) and a button.
+  Desktop: content on the left, vertically centered. Mobile: content on top, button at the bottom.
+{%- endcomment -%}
+
+{%- liquid
+  assign fallback_image = 'landing-' | append: section.settings.brand | append: '.webp'
+  assign fallback_image_mobile = 'landing-' | append: section.settings.brand | append: '-mob.webp'
+  assign fallback_icons = 'cc-09.webp,cc-08.webp,cc-05.webp,cc-07.webp,cc-06.webp,cc-04.webp' | split: ','
+  assign image_mobile = section.settings.image_mobile | default: section.settings.image
+-%}
+
+<section
+  id="mp-awareness-hero-{{ section.id }}"
+  class="relative overflow-hidden font-nunito"
+  style="--hero-text: {{ section.settings.text_color }}; --hero-btn-bg: {{ section.settings.button_bg }}; --hero-btn-text: {{ section.settings.button_text_color }};"
+>
+  <!-- BACKGROUND -->
+  {%- if section.settings.image != blank -%}
+    {{
+      section.settings.image
+      | image_url: width: 2880
+      | image_tag:
+        loading: 'eager',
+        widths: '1200, 1600, 2000, 2880',
+        sizes: '100vw',
+        alt: '',
+        class: 'hidden w-full object-cover md:block md:min-h-[560px]'
+    }}
+  {%- else -%}
+    <img loading="eager" class="hidden w-full object-cover md:block md:min-h-[560px]" src="{{ fallback_image | asset_url }}" alt="">
+  {%- endif -%}
+
+  {%- if image_mobile != blank -%}
+    {{
+      image_mobile
+      | image_url: width: 1200
+      | image_tag:
+        loading: 'eager',
+        widths: '400, 600, 800, 1200',
+        sizes: '100vw',
+        alt: '',
+        class: 'w-full object-cover md:hidden'
+    }}
+  {%- else -%}
+    <img loading="eager" class="w-full object-cover md:hidden" src="{{ fallback_image_mobile | asset_url }}" alt="">
+  {%- endif -%}
+
+  <!-- CONTENT -->
+  <div class="absolute inset-0 mx-auto max-w-360">
+    <div class="absolute inset-x-4 top-8 bottom-6 flex flex-col text-(--hero-text) md:inset-x-auto md:top-1/2 md:bottom-auto md:left-10 md:w-[533px] md:-translate-y-1/2">
+      {%- if section.settings.title != blank -%}
+        <h1 class="text-[40px] leading-[0.9] font-bold md:text-[64px]">
+          {{ section.settings.title | escape }}
+        </h1>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <p class="mt-5 text-[14px] leading-[1.5] font-semibold md:mt-6 md:text-[16px]">
+          {{ section.settings.text | escape }}
+        </p>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <ul class="mt-6 flex flex-col gap-3 md:mt-8 md:gap-4">
+          {%- for block in section.blocks -%}
+            <li class="flex items-center gap-4 md:gap-5" {{ block.shopify_attributes }}>
+              {%- if block.settings.icon != blank -%}
+                {{ block.settings.icon | image_url: width: 180 | image_tag: class: 'h-12 w-12 shrink-0 object-contain md:h-[59px] md:w-[59px]', loading: 'lazy', alt: '' }}
+              {%- elsif fallback_icons[forloop.index0] -%}
+                <img class="h-12 w-12 shrink-0 object-contain md:h-[59px] md:w-[59px]" src="{{ fallback_icons[forloop.index0] | asset_url }}" alt="" loading="lazy">
+              {%- endif -%}
+
+              <p class="text-[14px] leading-[1.5] md:max-w-[441px] md:text-[16px]">
+                {%- if block.settings.title != blank -%}
+                  <span class="block font-bold">{{ block.settings.title | escape }}</span>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <span class="block font-normal">{{ block.settings.text | escape }}</span>
+                {%- endif -%}
+              </p>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- if section.settings.button_text != blank -%}
+        <a
+          href="{{ section.settings.button_link | default: '#' }}"
+          class="mt-auto flex w-full items-center justify-center rounded-2xl bg-(--hero-btn-bg) py-4 text-xl leading-[1.35] font-normal text-(--hero-btn-text) transition duration-200 hover:opacity-85 focus-visible:opacity-85 md:mt-10 md:w-80"
+        >
+          {{ section.settings.button_text | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP Awareness hero",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "select",
+      "id": "brand",
+      "label": "Brand (fallback images)",
+      "options": [
+        { "value": "mp", "label": "My Planet" },
+        { "value": "bp", "label": "Baby Planet" }
+      ],
+      "default": "mp"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image (desktop)",
+      "info": "If empty, the built-in image for the selected brand is used."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image (mobile)"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Чистота, що працює щодня"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Від прання та миття посуду до догляду за кухнею, ванною кімнатою й усім домом — My Planet пропонує широкий асортимент засобів для ефективного та безпечного прибирання."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Обрати засоби"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#236591"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button background",
+      "default": "#008E47"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon",
+          "info": "Square. If empty, the built-in icon for this position is used."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Гіпоалергенні формули"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Делікатний догляд для всієї родини."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP Awareness hero",
+      "blocks": [
+        { "type": "benefit", "settings": { "title": "Гіпоалергенні формули", "text": "Делікатний догляд для всієї родини." } },
+        { "type": "benefit", "settings": { "title": "Без хлору", "text": "Ефективне очищення без різкого запаху." } },
+        { "type": "benefit", "settings": { "title": "Без нітромускусів", "text": "Менше зайвих компонентів — більше впевненості." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -8,7 +8,7 @@
         </h2>
       {%- endif -%}
 
-      <div class="hidden h-9 w-22 shrink-0 overflow-hidden rounded-full bg-[#CFEFAC] md:flex" aria-label="Reviews navigation">
+      <div class="hidden h-9 w-22 shrink-0 overflow-hidden rounded-2xl bg-[#82B727]/30 opacity-80 md:flex" aria-label="Reviews navigation">
         <button
           id="reviews-prev-{{ section.id }}"
           class="grid h-9 w-11 cursor-pointer place-items-center text-[#82B727] transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/45 [&.swiper-button-disabled]:opacity-60"
@@ -51,7 +51,7 @@
             class="swiper-slide flex h-auto min-h-75 shrink-0 flex-col min-[1200px]:min-h-[335px] min-[1200px]:w-[444px]! rounded-2xl border border-[#82B727] bg-white px-4 py-4 md:min-h-75"
             {% if i == 1 %}{{ block.shopify_attributes }}{% endif %}
           >
-            <div class="flex items-start justify-between gap-4 font-montserrat-bold text-[16px] leading-none font-bold text-[#82B727]">
+            <div class="flex items-start justify-between gap-4 font-montserrat-reg text-[16px] leading-none font-normal text-[#82B727]">
               <p class="text-[#325037]/70 text-sm">
                 {{ block.settings.author | escape }}
                 {%- if block.settings.badge != blank -%}
@@ -81,13 +81,13 @@
             {%- endif -%}
 
             {%- if block.settings.text != blank -%}
-              <p class="mt-5 font-montserrat-bold text-[16px] leading-none font-bold text-[#325037]">
+              <p class="mt-5 font-nunito text-[16px] leading-none font-semibold text-[#325037]">
                 {{ block.settings.text | escape }}
               </p>
             {%- endif -%}
 
             {%- if review_product != blank -%}
-              <a class="mt-auto flex items-center gap-5 pt-7 font-montserrat-bold text-[16px] leading-none font-bold text-[#82B727]" href="{{ review_product.url }}">
+              <a class="mt-auto flex items-center gap-5 pt-7 font-montserrat-reg text-[16px] leading-[1.2] font-normal text-[#82B727]" href="{{ review_product.url }}">
                 {%- if review_product.featured_image -%}
                   {{ review_product.featured_image | image_url: width: 120 | image_tag: class: 'h-14 w-10 shrink-0 object-contain', loading: 'lazy', alt: '' }}
                 {%- else -%}
@@ -104,7 +104,7 @@
   </div>
 
   <div class="mx-auto max-w-340">
-    <div class="mx-auto mt-8 flex h-9 w-22 overflow-hidden rounded-full bg-[#CFEFAC] md:hidden" aria-label="Reviews navigation">
+    <div class="mx-auto mt-8 flex h-9 w-22 overflow-hidden rounded-2xl bg-[#82B727]/30 opacity-80 md:hidden" aria-label="Reviews navigation">
       <button
         id="reviews-mobile-prev-{{ section.id }}"
         class="grid h-9 w-11 cursor-pointer place-items-center text-[#82B727] transition hover:bg-white/45 focus-visible:bg-white/45 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/45 [&.swiper-button-disabled]:opacity-60"

@@ -44,13 +44,15 @@
       <button
         id="header-burger-{{ section.id }}"
         type="button"
-        class="flex h-8 w-8 flex-col items-center justify-center gap-1.5 md:hidden"
+        class="flex h-8 w-8 flex-col items-center justify-center md:hidden"
         aria-label="Відкрити меню"
         aria-expanded="false"
       >
-        <span id="header-burger-top-{{ section.id }}" class="h-0.5 w-5 rounded-full bg-main-blue transition duration-200"></span>
-        <span id="header-burger-middle-{{ section.id }}" class="h-0.5 w-5 rounded-full bg-main-blue transition duration-200"></span>
-        <span id="header-burger-bottom-{{ section.id }}" class="h-0.5 w-5 rounded-full bg-main-blue transition duration-200"></span>
+        <span class="flex w-5 flex-col items-end gap-1.5">
+          <span id="header-burger-top-{{ section.id }}" class="h-0.5 w-5 rounded-full bg-[#0080C7] transition-all duration-200"></span>
+          <span id="header-burger-middle-{{ section.id }}" class="h-0.5 w-5 rounded-full bg-[#0080C7] transition-all duration-200"></span>
+          <span id="header-burger-bottom-{{ section.id }}" class="h-0.5 w-2.5 rounded-full bg-[#0080C7] transition-all duration-200"></span>
+        </span>
       </button>
     </div>
   </div>
@@ -105,6 +107,8 @@
         topLine?.classList.toggle('rotate-45', !isOpen);
         middleLine?.classList.toggle('opacity-0', !isOpen);
         bottomLine?.classList.toggle('-translate-y-2', !isOpen);
+        bottomLine?.classList.toggle('w-2.5', isOpen);
+        bottomLine?.classList.toggle('w-5', !isOpen);
         bottomLine?.classList.toggle('-rotate-45', !isOpen);
       });
     }
