@@ -47,139 +47,195 @@
       ],
       "settings": {}
     },
-    "mp-lc-collections": {
+    "mp_lc_collections_akXtx7": {
       "type": "mp-lc-collections",
       "blocks": {
-        "card_1": {
+        "card_NGmX7m": {
           "type": "card",
           "settings": {
-            "title": "Для дерева та каменю"
+            "image": "shopify://shop_images/132.png",
+            "title": "Для дерева та каменю",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_2": {
+        "card_eeMcXL": {
           "type": "card",
           "settings": {
-            "title": "Для кухні"
+            "image": "shopify://shop_images/image_205_488231a7-8f86-4731-b98c-fe8312756f28.png",
+            "title": "Для кухні",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_3": {
+        "card_PMEQGp": {
           "type": "card",
           "settings": {
-            "title": "Для підлоги та поверхонь"
+            "image": "shopify://shop_images/image_205_26e57036-0d4e-47c7-8f40-35831fc9263a.png",
+            "title": "Для підлоги та поверхонь",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_4": {
+        "card_FWW3yV": {
           "type": "card",
           "settings": {
-            "title": "Для ванної кімнати"
+            "image": "shopify://shop_images/image_205_fadd5f7e-d59c-4d8f-b8f3-bea457db4bd3.png",
+            "title": "Для ванної кімнати",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_5": {
+        "card_q3Fb7R": {
           "type": "card",
           "settings": {
-            "title": "Для вікон та дзеркал"
+            "image": "shopify://shop_images/image_206_5784af29-6624-4dca-87d6-bfc62397c9c2.png",
+            "title": "Для вікон та дзеркал",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_6": {
+        "card_Ybe9zx": {
           "type": "card",
           "settings": {
-            "title": "Для дитячих поверхонь та іграшок"
+            "image": "shopify://shop_images/image_205_95e3d9c5-7a62-431c-849a-4e8e4be0ec29.png",
+            "title": "Для дитячих поверхонь та іграшок",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_7": {
+        "card_4wtLtg": {
           "type": "card",
           "settings": {
-            "title": "Великі формати для родини"
+            "image": "shopify://shop_images/image_205_4869b3b9-3573-4d7e-a2f3-fe625d5e0a88.png",
+            "title": "Великі формати для родини",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_8": {
+        "card_dmNeC6": {
           "type": "card",
           "settings": {
-            "title": "Гіпоалергенні формули"
+            "image": "shopify://shop_images/image_205-1.png",
+            "title": "Гіпоалергенні формули",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_9": {
+        "card_nEXpBR": {
           "type": "card",
           "settings": {
-            "title": "Антибактеріальні засоби"
+            "image": "shopify://shop_images/image_205-2.png",
+            "title": "Антибактеріальні засоби",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_10": {
+        "card_nBEMd7": {
           "type": "card",
           "settings": {
-            "title": "Ензимні засоби"
+            "image": "shopify://shop_images/image_205-3.png",
+            "title": "Ензимні засоби",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_11": {
+        "card_yjWMMJ": {
           "type": "card",
           "settings": {
-            "title": "Універсальні засоби"
+            "image": "shopify://shop_images/image_205-4.png",
+            "title": "Універсальні засоби",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_12": {
+        "card_NpJeVN": {
           "type": "card",
           "settings": {
-            "title": "Для посудомийної машини"
+            "image": "shopify://shop_images/image_205-5.png",
+            "title": "Для посудомийної машини",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_13": {
+        "card_ddFUQ3": {
           "type": "card",
           "settings": {
-            "title": "Догляд за дитячими речами та простором"
+            "image": "shopify://shop_images/image_205-6.png",
+            "title": "Догляд за дитячими речами та простором",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_14": {
+        "card_d6zgLe": {
           "type": "card",
           "settings": {
-            "title": "Ручне миття посуду"
+            "image": "shopify://shop_images/image_205-7.png",
+            "title": "Ручне миття посуду",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_15": {
+        "card_hB4mCg": {
           "type": "card",
           "settings": {
-            "title": "Від перших днів життя"
+            "image": "shopify://shop_images/image_205-8.png",
+            "title": "Від перших днів життя",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_16": {
+        "card_gtHxgE": {
           "type": "card",
           "settings": {
-            "title": "Для овочів та фруктів"
+            "image": "shopify://shop_images/image_206.png",
+            "title": "Для овочів та фруктів",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_17": {
+        "card_Lfe37m": {
           "type": "card",
           "settings": {
-            "title": "Для прання"
+            "image": "shopify://shop_images/image_205-9.png",
+            "title": "Для прання",
+            "link": "",
+            "collection": ""
           }
         },
-        "card_18": {
+        "card_aCN9wi": {
           "type": "card",
           "settings": {
-            "title": "Для складних забруднень"
+            "image": "shopify://shop_images/image_205-10.png",
+            "title": "Для складних забруднень",
+            "link": "",
+            "collection": ""
           }
         }
       },
       "block_order": [
-        "card_1",
-        "card_2",
-        "card_3",
-        "card_4",
-        "card_5",
-        "card_6",
-        "card_7",
-        "card_8",
-        "card_9",
-        "card_10",
-        "card_11",
-        "card_12",
-        "card_13",
-        "card_14",
-        "card_15",
-        "card_16",
-        "card_17",
-        "card_18"
+        "card_NGmX7m",
+        "card_eeMcXL",
+        "card_PMEQGp",
+        "card_FWW3yV",
+        "card_q3Fb7R",
+        "card_Ybe9zx",
+        "card_4wtLtg",
+        "card_dmNeC6",
+        "card_nEXpBR",
+        "card_nBEMd7",
+        "card_yjWMMJ",
+        "card_NpJeVN",
+        "card_ddFUQ3",
+        "card_d6zgLe",
+        "card_hB4mCg",
+        "card_gtHxgE",
+        "card_Lfe37m",
+        "card_aCN9wi"
       ],
+      "name": "MP LC Collections",
       "settings": {}
+    },
     "mp_about_bigturtle_mfghfQ": {
       "type": "mp-about-bigturtle",
       "settings": {
@@ -190,10 +246,7 @@
   },
   "order": [
     "mp-lc-hero",
-
-    "mp-lc-collections",
-
+    "mp_lc_collections_akXtx7",
     "mp_about_bigturtle_mfghfQ"
-
   ]
 }
