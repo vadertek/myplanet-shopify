@@ -47,6 +47,139 @@
       ],
       "settings": {}
     },
+    "mp-lc-collections": {
+      "type": "mp-lc-collections",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "title": "Для дерева та каменю"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "title": "Для кухні"
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "title": "Для підлоги та поверхонь"
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "title": "Для ванної кімнати"
+          }
+        },
+        "card_5": {
+          "type": "card",
+          "settings": {
+            "title": "Для вікон та дзеркал"
+          }
+        },
+        "card_6": {
+          "type": "card",
+          "settings": {
+            "title": "Для дитячих поверхонь та іграшок"
+          }
+        },
+        "card_7": {
+          "type": "card",
+          "settings": {
+            "title": "Великі формати для родини"
+          }
+        },
+        "card_8": {
+          "type": "card",
+          "settings": {
+            "title": "Гіпоалергенні формули"
+          }
+        },
+        "card_9": {
+          "type": "card",
+          "settings": {
+            "title": "Антибактеріальні засоби"
+          }
+        },
+        "card_10": {
+          "type": "card",
+          "settings": {
+            "title": "Ензимні засоби"
+          }
+        },
+        "card_11": {
+          "type": "card",
+          "settings": {
+            "title": "Універсальні засоби"
+          }
+        },
+        "card_12": {
+          "type": "card",
+          "settings": {
+            "title": "Для посудомийної машини"
+          }
+        },
+        "card_13": {
+          "type": "card",
+          "settings": {
+            "title": "Догляд за дитячими речами та простором"
+          }
+        },
+        "card_14": {
+          "type": "card",
+          "settings": {
+            "title": "Ручне миття посуду"
+          }
+        },
+        "card_15": {
+          "type": "card",
+          "settings": {
+            "title": "Від перших днів життя"
+          }
+        },
+        "card_16": {
+          "type": "card",
+          "settings": {
+            "title": "Для овочів та фруктів"
+          }
+        },
+        "card_17": {
+          "type": "card",
+          "settings": {
+            "title": "Для прання"
+          }
+        },
+        "card_18": {
+          "type": "card",
+          "settings": {
+            "title": "Для складних забруднень"
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4",
+        "card_5",
+        "card_6",
+        "card_7",
+        "card_8",
+        "card_9",
+        "card_10",
+        "card_11",
+        "card_12",
+        "card_13",
+        "card_14",
+        "card_15",
+        "card_16",
+        "card_17",
+        "card_18"
+      ],
+      "settings": {}
     "mp_about_bigturtle_mfghfQ": {
       "type": "mp-about-bigturtle",
       "settings": {
@@ -57,6 +190,10 @@
   },
   "order": [
     "mp-lc-hero",
+
+    "mp-lc-collections",
+
     "mp_about_bigturtle_mfghfQ"
+
   ]
 }
