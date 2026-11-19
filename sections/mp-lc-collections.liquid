@@ -1,0 +1,102 @@
+{%- comment -%}
+  Collection list: grid of cards (image + title + link), 2 columns on all screens.
+{%- endcomment -%}
+
+<section id="mp-lc-collections-{{ section.id }}" class="px-4 pb-8 font-nunito md:pb-10">
+  <div class="mx-auto max-w-340">
+    <div class="grid grid-cols-2 gap-x-2 gap-y-5 md:gap-x-4 md:gap-y-8">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign card_title = block.settings.title
+          if card_title == blank and block.settings.collection != blank
+            assign card_title = block.settings.collection.title
+          endif
+          assign card_link = block.settings.link
+          if card_link == blank and block.settings.collection != blank
+            assign card_link = block.settings.collection.url
+          endif
+          assign card_image = block.settings.image
+          if card_image == blank and block.settings.collection != blank
+            assign card_image = block.settings.collection.featured_image
+          endif
+        -%}
+
+        <a
+          href="{{ card_link | default: '#' }}"
+          class="group flex min-w-0 flex-col"
+          {{ block.shopify_attributes }}
+        >
+          <span class="block aspect-[2/1] w-full overflow-hidden rounded-lg bg-[#C0D7ED]/20 md:rounded-2xl">
+            {%- if card_image != blank -%}
+              {{
+                card_image
+                | image_url: width: 1400
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '400, 700, 1000, 1400',
+                  sizes: '(min-width: 1360px) 672px, 50vw',
+                  alt: card_title,
+                  class: 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100'
+              }}
+            {%- endif -%}
+          </span>
+
+          {%- if card_title != blank -%}
+            <h3 class="mt-2 text-[14px] leading-[1.2] font-bold text-[#004172] md:mt-3 md:text-[32px] md:leading-none">
+              {{ card_title | escape }}
+            </h3>
+          {%- endif -%}
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP LC Collections",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Collection card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "2:1, e.g. 1344 × 672 px. If empty, the collection image is used."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "If empty, the collection title is used."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "If empty, the collection link is used."
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MP LC Collections",
+      "blocks": [
+        { "type": "card", "settings": { "title": "Для дерева та каменю" } },
+        { "type": "card", "settings": { "title": "Для кухні" } },
+        { "type": "card", "settings": { "title": "Для підлоги та поверхонь" } },
+        { "type": "card", "settings": { "title": "Для ванної кімнати" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
