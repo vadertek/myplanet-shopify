@@ -1,0 +1,15 @@
+{
+  "layout": "theme.mp",
+  "sections": {
+    "mp-policy": {
+      "type": "mp-policy",
+      "settings": {
+        "title": "Політика конфіденційності",
+        "content": ""
+      }
+    }
+  },
+  "order": [
+    "mp-policy"
+  ]
+}
