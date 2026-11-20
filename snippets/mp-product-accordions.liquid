@@ -1,11 +1,17 @@
 <div id="mp-product-accordions-{{ product.id }}" class="mt-6">
-  {% render 'mp-accordion-item', title: 'Склад', description: product.metafields.custom.sklad.value %}
+  {%- liquid
+    assign title_composition = 'general.custom.composition' | t
+    assign title_usage = 'general.custom.usage' | t
+    assign title_purpose = 'general.custom.purpose' | t
+    assign title_benefits = 'general.custom.benefits' | t
+  -%}
+  {% render 'mp-accordion-item', title: title_composition, description: product.metafields.custom.sklad.value %}
 
-  {% render 'mp-accordion-item', title: 'Спосіб використання', description: product.metafields.custom.uses.value %}
+  {% render 'mp-accordion-item', title: title_usage, description: product.metafields.custom.uses.value %}
 
-  {% render 'mp-accordion-item', title: 'Призначення', description: product.metafields.custom.appointment.value %}
+  {% render 'mp-accordion-item', title: title_purpose, description: product.metafields.custom.appointment.value %}
 
-  {% render 'mp-accordion-item', title: 'Переваги', description: product.metafields.custom.perevaga.value %}
+  {% render 'mp-accordion-item', title: title_benefits, description: product.metafields.custom.perevaga.value %}
 </div>
 
 <script>

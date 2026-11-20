@@ -48,6 +48,7 @@
 
     <!-- Include custom scripts -->
     <script src="{{ 'swiper.min.js' | asset_url }}" defer="defer"></script>
+    {% render 'mp-money-js' %}
 
     {{ content_for_header }}
     <script>
@@ -109,6 +110,11 @@
       window.cartStrings = {
         error: `{{ 'sections.cart.cart_error' | t }}`,
         quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
+        itemAdded: {{ 'general.cart.item_added' | t | json }},
+        addError: {{ 'general.custom.cart-add-error' | t | json }},
+        updateError: {{ 'sections.cart.cart_error' | t | json }},
+        emptyTitle: {{ 'general.custom.cart-empty-title' | t | json }},
+        emptyButton: {{ 'general.custom.cart-empty-button' | t | json }},
       };
 
       window.variantStrings = {

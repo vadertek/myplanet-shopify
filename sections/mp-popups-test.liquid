@@ -1,0 +1,52 @@
+{%- comment -%}
+  TEMPORARY: test section with buttons that open all MP popups.
+  Remove before release.
+{%- endcomment -%}
+
+<section id="mp-popups-test-{{ section.id }}" class="px-4 py-10 font-nunito md:px-10">
+  <div class="mx-auto flex max-w-340 flex-col items-center gap-4 rounded-2xl border-2 border-dashed border-[#C0D7ED] p-6 text-center">
+    <p class="text-[20px] leading-none font-bold text-[#004172]">Тест попапів (тимчасова секція)</p>
+
+    <div class="flex flex-wrap justify-center gap-3">
+      <button
+        type="button"
+        class="h-12 cursor-pointer rounded-2xl bg-[#0080C7] px-6 text-[16px] font-bold text-white transition hover:opacity-85"
+        onclick="window.mpOrderPopup && window.mpOrderPopup.open()"
+      >
+        Дякуємо за замовлення
+      </button>
+
+      <button
+        type="button"
+        class="h-12 cursor-pointer rounded-2xl bg-[#004172] px-6 text-[16px] font-bold text-white transition hover:opacity-85"
+        onclick="window.mpDiscountPopup && window.mpDiscountPopup.open()"
+      >
+        Знижка 25%
+      </button>
+
+      <button
+        type="button"
+        class="h-12 cursor-pointer rounded-2xl bg-[#1EBECA] px-6 text-[16px] font-bold text-white transition hover:opacity-85"
+        onclick="window.mpJoinPopup && window.mpJoinPopup.open()"
+      >
+        Дізнавайтеся першими
+      </button>
+    </div>
+  </div>
+</section>
+
+{% render 'mp-order-popup' %}
+{% render 'mp-discount-popup' %}
+{% render 'mp-join-popup' %}
+
+{% schema %}
+{
+  "name": "MP Popups test (temp)",
+  "settings": [],
+  "presets": [
+    {
+      "name": "MP Popups test (temp)"
+    }
+  ]
+}
+{% endschema %}

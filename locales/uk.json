@@ -10,6 +10,24 @@
 {
   "general": {
     "custom": {
+      "composition": "Склад",
+      "usage": "Спосіб використання",
+      "purpose": "Призначення",
+      "benefits": "Переваги",
+      "read_less": "Згорнути",
+      "volume": "Об’єм",
+      "cart-items": "товар(ів)",
+      "cart-total": "Разом",
+      "cart-add-error": "Не вдалося додати товар до кошика",
+      "search": "Пошук",
+      "search-no-results": "Нічого не знайдено",
+      "collections": "Колекції",
+      "tag-empty": "У цьому тегу поки немає продуктів.",
+      "email": "Ел. пошта",
+      "your-email": "Ваш e-mail",
+      "email-error": "Перевірте адресу електронної пошти.",
+      "phone": "Телефон",
+      "message": "Повідомлення",
       "cart-empty-title": "Ваш кошик порожній",
       "cart-empty-text": "Додайте улюблені засоби My Planet, щоб подбати про чистоту вдома.",
       "cart-empty-button": "Перейти до покупок",
@@ -4475,6 +4493,6 @@
     },
     "privacy_banner": {
       "cookie_preferences_link": "Налаштування файлів cookie"
-    },
+    }
   }
 }

@@ -1465,5 +1465,134 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "MP Popups",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Success popup — message sent"
+      },
+      {
+        "type": "text",
+        "id": "mp_popup_message_title",
+        "label": "Title",
+        "default": "Ми отримали ваше повідомлення"
+      },
+      {
+        "type": "textarea",
+        "id": "mp_popup_message_text",
+        "label": "Text",
+        "default": "Дякуємо, що зв’язалися з My Planet. Ми опрацюємо ваш запит і відповімо вам якомога швидше."
+      },
+      {
+        "type": "text",
+        "id": "mp_popup_message_button",
+        "label": "Button text",
+        "default": "Повернутися на сайт"
+      },
+      {
+        "type": "header",
+        "content": "Success popup — order placed"
+      },
+      {
+        "type": "text",
+        "id": "mp_popup_order_title",
+        "label": "Title",
+        "default": "Дякуємо, що обрали My Planet"
+      },
+      {
+        "type": "textarea",
+        "id": "mp_popup_order_text",
+        "label": "Text",
+        "default": "Ваше замовлення вже в роботі. Ми зробимо все, щоб ви отримали його якомога швидше."
+      },
+      {
+        "type": "text",
+        "id": "mp_popup_order_button",
+        "label": "Button text",
+        "default": "Продовжити покупки"
+      },
+      {
+        "type": "header",
+        "content": "Discount popup"
+      },
+      {
+        "type": "text",
+        "id": "mp_popup_discount_badge",
+        "label": "Badge",
+        "default": "-25%"
+      },
+      {
+        "type": "text",
+        "id": "mp_popup_discount_title",
+        "label": "Title",
+        "default": "Ваша знижка 25%"
+      },
+      {
+        "type": "textarea",
+        "id": "mp_popup_discount_text",
+        "label": "Text",
+        "default": "Підпишіться, щоб отримати промокод. Діє на будь-який товар."
+      },
+      {
+        "type": "text",
+        "id": "mp_popup_discount_button",
+        "label": "Button text",
+        "default": "Отримати знижку"
+      },
+      {
+        "type": "textarea",
+        "id": "mp_popup_discount_disclaimer",
+        "label": "Consent text",
+        "default": "Надсилаючи адресу, я погоджуюся отримувати рекламні листи від My Planet"
+      },
+      {
+        "type": "textarea",
+        "id": "mp_popup_discount_success",
+        "label": "Success message",
+        "default": "Дякуємо! Промокод уже летить на вашу пошту."
+      },
+      {
+        "type": "header",
+        "content": "Join the list popup"
+      },
+      {
+        "type": "text",
+        "id": "mp_popup_join_title",
+        "label": "Title",
+        "default": "Дізнавайтеся першими"
+      },
+      {
+        "type": "textarea",
+        "id": "mp_popup_join_text",
+        "label": "Text",
+        "default": "Залиште пошту, щоб першими дізнаватися про пропозиції та новинки"
+      },
+      {
+        "type": "text",
+        "id": "mp_popup_join_button",
+        "label": "Button text",
+        "default": "Підписатися"
+      },
+      {
+        "type": "text",
+        "id": "mp_popup_join_decline",
+        "label": "Decline button text",
+        "default": "Ні, дякую"
+      },
+      {
+        "type": "textarea",
+        "id": "mp_popup_join_disclaimer",
+        "label": "Consent text",
+        "default": "Надсилаючи форму, ви приймаєте Умови використання та Політику конфіденційності й погоджуєтеся отримувати листи від My Planet про продукти, новинки та акції. Згода не є умовою покупки."
+      },
+      {
+        "type": "textarea",
+        "id": "mp_popup_join_success",
+        "label": "Success message",
+        "default": "Дякуємо! Ви підписалися на новини My Planet."
+      }
+    ]
   }
 ]

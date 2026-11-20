@@ -142,7 +142,13 @@ customElements.define('cart-drawer-items', CartDrawerItems);
   const ITEMS_ID = 'cherie-drawer-items';
 
   let addBusy = false;
-  const lineState = new Map();
+
+  // key -> desired quantity not yet sent to the server
+  const pendingQty = new Map();
+  // key -> number of queued/running requests that touch this line
+  const inFlightKeys = new Map();
+  let flushTimer = null;
+  let cartQueue = Promise.resolve();
 
   function getDrawer() {
     return document.getElementById(DRAWER_ID);
@@ -194,6 +200,9 @@ customElements.define('cart-drawer-items', CartDrawerItems);
   }
 
   function moneyFromCents(cents, currency) {
+    // Same format as `money_with_currency` in Liquid (see snippets/mp-money-js.liquid).
+    if (typeof window.mpFormatMoney === 'function') return window.mpFormatMoney(cents);
+
     const locale = document.documentElement.lang || undefined;
     const currentCurrency = currency || window?.Shopify?.currency?.active || window?.Shopify?.currency?.shop || 'UAH';
 
@@ -202,6 +211,11 @@ customElements.define('cart-drawer-items', CartDrawerItems);
       currency: currentCurrency,
       maximumFractionDigits: 0,
     }).format((Number(cents) || 0) / 100);
+  }
+
+  // Texts come from window.cartStrings (layout/theme.mp.liquid → locales); the second argument is a fallback.
+  function cartString(key, fallback) {
+    return (window.cartStrings && window.cartStrings[key]) || fallback;
   }
 
   function escapeHtml(value) {
@@ -218,7 +232,7 @@ customElements.define('cart-drawer-items', CartDrawerItems);
     const template = document.getElementById('cherie-empty-template');
     const markup = template
       ? template.innerHTML
-      : '<div class="flex flex-1 flex-col items-center justify-center py-10 text-center"><p class="text-2xl font-bold text-dark-blue">Кошик порожній</p><a class="mt-6 text-main-blue underline" href="/collections/all">Продовжити покупки</a></div>';
+      : `<div class="flex flex-1 flex-col items-center justify-center py-10 text-center"><p class="text-2xl font-bold text-dark-blue">${escapeHtml(cartString('emptyTitle', 'Кошик порожній'))}</p><a class="mt-6 text-main-blue underline" href="/collections/all">${escapeHtml(cartString('emptyButton', 'Продовжити покупки'))}</a></div>`;
 
     return `${markup}<span class="hidden" data-cherie-empty-count>${count}</span>`;
   }
@@ -307,9 +321,22 @@ customElements.define('cart-drawer-items', CartDrawerItems);
     root.innerHTML = cart.items.map((item) => renderItem(item, cart)).join('');
     syncSummary(cart);
 
-    for (const [key, state] of lineState.entries()) {
-      if (state?.running) setItemBusy(key, true);
+    // Keep quantities the user changed while a request was running.
+    for (const [key, qty] of pendingQty.entries()) {
+      const input = getLineInput(key);
+      if (input && qty > 0) input.value = String(qty);
+      setItemBusy(key, true);
     }
+
+    for (const key of inFlightKeys.keys()) {
+      setItemBusy(key, true);
+    }
+  }
+
+  function getLineInput(key) {
+    if (!key || typeof CSS === 'undefined' || !CSS.escape) return null;
+
+    return document.querySelector(`[data-cart-item][data-key="${CSS.escape(key)}"] [data-cherie-qty-input]`);
   }
 
   async function addToCartAjax(form) {
@@ -320,7 +347,7 @@ customElements.define('cart-drawer-items', CartDrawerItems);
     });
 
     if (!response.ok) {
-      let message = 'Не вдалося додати товар до кошика';
+      let message = cartString('addError', 'Не вдалося додати товар до кошика');
       try {
         const json = await response.json();
         message = json?.description || json?.message || message;
@@ -331,45 +358,68 @@ customElements.define('cart-drawer-items', CartDrawerItems);
     document.dispatchEvent(new CustomEvent('cart:updated'));
   }
 
-  function queueChangeDebounced(key, desiredQty, delayMs = 250) {
-    const qty = Math.max(1, parseInt(desiredQty || '1', 10));
-    const state = lineState.get(key) || { desiredQty: qty, running: false, timerId: null };
+  async function sendUpdates(updates) {
+    const keys = Object.keys(updates);
+    let cart = null;
 
-    state.desiredQty = qty;
-    if (state.timerId) clearTimeout(state.timerId);
+    try {
+      const response = await fetch('/cart/update.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ updates }),
+      });
+
+      if (!response.ok) throw new Error(cartString('updateError', 'Не вдалося оновити кошик'));
+
+      cart = await response.json();
+      document.dispatchEvent(new CustomEvent('cart:updated'));
+    } catch (error) {
+      console.error(error);
+      try {
+        cart = await fetchCart();
+      } catch (fetchError) {
+        console.error(fetchError);
+      }
+    } finally {
+      keys.forEach((key) => {
+        const count = (inFlightKeys.get(key) || 1) - 1;
+        if (count > 0) {
+          inFlightKeys.set(key, count);
+        } else {
+          inFlightKeys.delete(key);
+          if (!pendingQty.has(key)) setItemBusy(key, false);
+        }
+      });
+    }
+
+    if (cart) renderDrawer(cart);
+  }
+
+  function flushChanges() {
+    clearTimeout(flushTimer);
+    flushTimer = null;
+    if (!pendingQty.size) return;
+
+    const updates = Object.fromEntries(pendingQty);
+    pendingQty.clear();
+
+    Object.keys(updates).forEach((key) => {
+      inFlightKeys.set(key, (inFlightKeys.get(key) || 0) + 1);
+    });
+
+    // One request at a time so an older response never overwrites a newer one.
+    cartQueue = cartQueue.then(() => sendUpdates(updates));
+  }
+
+  function queueChangeDebounced(key, desiredQty, delayMs = 250) {
+    if (!key) return;
+
+    const qty = Math.max(1, parseInt(desiredQty || '1', 10) || 1);
+    pendingQty.set(key, qty);
     setItemBusy(key, true);
 
-    state.timerId = setTimeout(async () => {
-      if (state.running) return;
-
-      state.running = true;
-      lineState.set(key, state);
-
-      try {
-        const response = await fetch('/cart/change.js', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({ id: key, quantity: state.desiredQty }),
-        });
-
-        if (!response.ok) throw new Error('Не вдалося оновити кошик');
-
-        const cart = await response.json();
-        renderDrawer(cart);
-        document.dispatchEvent(new CustomEvent('cart:updated'));
-      } catch (error) {
-        console.error(error);
-        const cart = await fetchCart();
-        renderDrawer(cart);
-      } finally {
-        state.running = false;
-        state.timerId = null;
-        lineState.set(key, state);
-        setItemBusy(key, false);
-      }
-    }, delayMs);
-
-    lineState.set(key, state);
+    clearTimeout(flushTimer);
+    flushTimer = setTimeout(flushChanges, delayMs);
   }
 
   function bumpQtyFromUI(key, delta) {
@@ -384,39 +434,15 @@ customElements.define('cart-drawer-items', CartDrawerItems);
     queueChangeDebounced(key, next);
   }
 
-  async function removeLine(key) {
-    const state = lineState.get(key) || { desiredQty: 0, running: false, timerId: null };
-    if (state.timerId) clearTimeout(state.timerId);
+  function removeLine(key) {
+    if (!key) return;
 
-    state.running = true;
-    lineState.set(key, state);
+    pendingQty.set(key, 0);
     setItemBusy(key, true);
-
-    try {
-      const response = await fetch('/cart/change.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ id: key, quantity: 0 }),
-      });
-
-      if (!response.ok) throw new Error('Не вдалося оновити кошик');
-
-      const cart = await response.json();
-      renderDrawer(cart);
-      document.dispatchEvent(new CustomEvent('cart:updated'));
-    } catch (error) {
-      console.error(error);
-      const cart = await fetchCart();
-      renderDrawer(cart);
-    } finally {
-      state.running = false;
-      state.timerId = null;
-      lineState.set(key, state);
-      setItemBusy(key, false);
-    }
+    flushChanges();
   }
 
-  function showCartToast(text = 'Товар додано до кошика') {
+  function showCartToast(text = cartString('itemAdded', 'Товар додано до кошика')) {
     const toast = getToast();
     if (!toast) return;
 

@@ -14,98 +14,138 @@
 
 <section class="site-footer flex md:flex-row flex-col md:px-10 px-4 md:py-20 py-10 text-main-blue">
   <!-- Left Column -->
-  <div class="md:w-1/2 w-full flex flex-col gap-5 md:pb-0 pb-5">
-    <h3 class="font-montserrat-bold font-bold md:max-w-5/12 md:text-2xl text-xl">{{ section.settings.footer_title }}</h3>
-    <input type="text" class="border border-black rounded-full bg-white h-13 md:w-100 w-full pl-5">
+  {%- liquid
+    assign instagram_url = section.settings.instagram_url | default: settings.social_instagram_link | default: '#'
+    assign facebook_url = section.settings.facebook_url | default: settings.social_facebook_link | default: '#'
+  -%}
+  <div class="md:w-1/2 w-full flex flex-col md:justify-between gap-10 md:gap-12 md:pb-0 pb-10">
+    <div class="flex flex-col gap-5">
+      <h3 class="font-montserrat-bold font-bold md:max-w-5/12 md:text-2xl text-xl">{{ section.settings.footer_title }}</h3>
+      {%- form 'customer', id: 'mp-footer-newsletter-form', class: 'w-full md:w-100' -%}
+        {%- if form.posted_successfully? -%}
+          <p class="flex min-h-13 items-center rounded-full border border-main-blue bg-white px-5 font-nunito text-[16px] leading-[1.3] text-[#3FA11F]" role="status">
+            {{ section.settings.newsletter_success | escape }}
+          </p>
+        {%- else -%}
+          <input type="hidden" name="contact[tags]" value="newsletter,footer">
+
+          <div class="relative">
+            <label class="sr-only" for="mp-footer-newsletter-email">{{ 'general.custom.your-email' | t }}</label>
+            <input
+              id="mp-footer-newsletter-email"
+              class="h-13 w-full rounded-full border border-main-blue bg-white pr-14 pl-5 font-nunito text-[16px] leading-[1.3] text-dark-blue outline-none placeholder:text-main-blue focus-visible:ring-2 focus-visible:ring-main-blue/40"
+              type="email"
+              name="contact[email]"
+              autocomplete="email"
+              autocapitalize="off"
+              spellcheck="false"
+              placeholder="{{ 'general.custom.your-email' | t | escape }}"
+              required
+              value="{{ form.email }}"
+              {% if form.errors contains 'email' %}aria-invalid="true"{% endif %}
+            >
+            <button
+              type="submit"
+              class="absolute top-1/2 right-2 grid h-9 w-9 -translate-y-1/2 cursor-pointer place-items-center rounded-full bg-[#979797]/10 text-main-blue opacity-80 transition hover:opacity-100 focus-visible:opacity-100"
+              aria-label="Підписатися"
+            >
+              <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          {%- if form.errors -%}
+            <p class="mt-2 pl-5 font-nunito text-[12px] leading-[1.3] text-[#D71920]" role="alert">
+              {%- if form.errors contains 'email' -%}
+                {{ 'general.custom.email-error' | t }}
+              {%- else -%}
+                {{ form.errors | default_errors }}
+              {%- endif -%}
+            </p>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+
+    <!-- Logo + Socials -->
+    <div class="flex w-full items-center justify-between md:w-100">
+      <a href="{{ routes.root_url }}" class="shrink-0" aria-label="My Planet">
+        <img class="h-16 w-auto" src="{{ 'header-logo.webp' | asset_url }}" alt="My Planet" width="165" height="64" loading="lazy">
+      </a>
+
+      <div class="flex items-center gap-4">
+        <a
+          href="{{ instagram_url }}"
+          class="block h-6 w-6 transition hover:opacity-70 focus-visible:opacity-70"
+          {% unless instagram_url == '#' %}target="_blank" rel="noopener"{% endunless %}
+          aria-label="Instagram"
+        >
+          <img class="h-6 w-6" src="{{ 'insta.svg' | asset_url }}" alt="" width="24" height="24" loading="lazy">
+        </a>
+        <a
+          href="{{ facebook_url }}"
+          class="block h-6 w-6 transition hover:opacity-70 focus-visible:opacity-70"
+          {% unless facebook_url == '#' %}target="_blank" rel="noopener"{% endunless %}
+          aria-label="Facebook"
+        >
+          <img class="h-6 w-6" src="{{ 'fb.svg' | asset_url }}" alt="" width="24" height="24" loading="lazy">
+        </a>
+      </div>
+    </div>
   </div>
   <!-- Right Column -->
+  {%- liquid
+    assign baby_menu = section.settings.baby_menu
+    if baby_menu == blank
+      assign baby_menu = linklists['footer']
+    endif
+
+    assign my_menu = section.settings.my_menu
+    if my_menu == blank
+      assign my_menu = linklists['myplanet-menu']
+    endif
+
+    assign main_menu = section.settings.main_menu
+    if main_menu == blank
+      assign main_menu = linklists['main-menu']
+    endif
+
+    assign help_menu = section.settings.help_menu
+    if help_menu == blank
+      assign help_menu = linklists['help-menu']
+    endif
+  -%}
   <div class="grid w-full grid-cols-1 gap-8 text-[14px] md:w-1/2 md:grid-cols-3 md:gap-12">
     <div class="flex flex-col gap-6">
+      {%- if baby_menu.links.size > 0 -%}
+        <div>
+          <h4 class="mb-3 font-montserrat-bold font-bold">{{ section.settings.baby_title }}</h4>
+          {% render 'mp-footer-menu', menu: baby_menu %}
+        </div>
+      {%- endif -%}
+
+      {%- if my_menu.links.size > 0 -%}
+        <div>
+          <h4 class="mb-3 font-montserrat-bold font-bold">{{ section.settings.my_title }}</h4>
+          {% render 'mp-footer-menu', menu: my_menu %}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if main_menu.links.size > 0 -%}
       <div>
-        <h4 class="mb-3 font-montserrat-bold font-bold">{{ section.settings.baby_title }}</h4>
-        <ul>
-          <li>
-            <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Для прання дитячих речей</a>
-          </li>
-          <li>
-            <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Для дитячого посуду та іграшок</a>
-          </li>
-          <li>
-            <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Для дитячих поверхонь</a>
-          </li>
-          <li>
-            <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Для підлоги</a>
-          </li>
-          <li>
-            <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Подарункові набори</a>
-          </li>
-        </ul>
+        <h4 class="mb-3 font-montserrat-bold font-bold">{{ section.settings.menu_title }}</h4>
+        {% render 'mp-footer-menu', menu: main_menu %}
       </div>
+    {%- endif -%}
 
+    {%- if help_menu.links.size > 0 -%}
       <div>
-        <h4 class="mb-3 font-montserrat-bold font-bold">{{ section.settings.my_title }}</h4>
-        <ul>
-          <li>
-            <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Універсальні засоби</a>
-          </li>
-          <li>
-            <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Засоби для миття посуду</a>
-          </li>
-          <li>
-            <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Засоби для скла</a>
-          </li>
-          <li>
-            <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Засоби для прання</a>
-          </li>
-          <li>
-            <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Засоби для посудомийних машин</a>
-          </li>
-          <li>
-            <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Спеціальні засоби</a>
-          </li>
-        </ul>
+        <h4 class="mb-3 font-montserrat-bold font-bold">{{ section.settings.help_title }}</h4>
+        {% render 'mp-footer-menu', menu: help_menu %}
       </div>
-    </div>
-
-    <div>
-      <h4 class="mb-3 font-montserrat-bold font-bold">{{ section.settings.menu_title }}</h4>
-      <ul>
-        {%- for link in linklists['main-menu'].links -%}
-          <li>
-            <a href="{{ link.url }}" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">
-              {{ link.title }}
-            </a>
-          </li>
-        {%- endfor -%}
-      </ul>
-    </div>
-
-    <div>
-      <h4 class="mb-3 font-montserrat-bold font-bold">Допомога</h4>
-      <ul>
-        <li>
-          <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Звʼязатися з нами</a>
-        </li>
-        <li>
-          <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Доставка та оплата</a>
-        </li>
-        <li>
-          <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Поширені запитання</a>
-        </li>
-        <li>
-          <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Політика конфіденційності</a>
-        </li>
-        <li>
-          <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Умови використання</a>
-        </li>
-        <li>
-          <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Повернення товарів</a>
-        </li>
-        <li>
-          <a href="#" class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline">Карта сайту</a>
-        </li>
-      </ul>
-    </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -118,6 +158,12 @@
       "id": "footer_title",
       "label": "Footer Title",
       "default": "Підпишіться на новини та спеціальні пропозиції"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_success",
+      "label": "Newsletter success message",
+      "default": "Дякуємо! Ви підписалися на новини My Planet."
     },
     {
       "type": "text",
@@ -136,6 +182,56 @@
       "id": "menu_title",
       "label": "Menu Title",
       "default": "Меню"
+    },
+    {
+      "type": "text",
+      "id": "help_title",
+      "label": "Help Title",
+      "default": "Допомога"
+    },
+    {
+      "type": "header",
+      "content": "Menus"
+    },
+    {
+      "type": "link_list",
+      "id": "baby_menu",
+      "label": "Baby Planet menu",
+      "info": "If empty, the menu with handle \"footer\" is used."
+    },
+    {
+      "type": "link_list",
+      "id": "my_menu",
+      "label": "My Planet menu",
+      "info": "If empty, the menu with handle \"myplanet-menu\" is used."
+    },
+    {
+      "type": "link_list",
+      "id": "main_menu",
+      "label": "Main menu",
+      "info": "If empty, the menu with handle \"main-menu\" is used."
+    },
+    {
+      "type": "link_list",
+      "id": "help_menu",
+      "label": "Help menu",
+      "info": "If empty, the menu with handle \"help-menu\" is used."
+    },
+    {
+      "type": "header",
+      "content": "Social media"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram link",
+      "info": "If empty, the link from Theme settings → Social media is used."
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook link",
+      "info": "If empty, the link from Theme settings → Social media is used."
     }
   ]
 }

@@ -22,13 +22,13 @@
       assign current_title = page.title
 
     when 'cart'
-      assign current_title = 'Кошик'
+      assign current_title = 'templates.cart.cart' | t
 
     when 'list-collections'
-      assign current_title = 'Колекції'
+      assign current_title = 'general.custom.collections' | t
 
     when 'search'
-      assign current_title = 'Пошук'
+      assign current_title = 'general.custom.search' | t
 
     when 'blog'
       assign current_title = blog.title

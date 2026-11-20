@@ -46,7 +46,7 @@
 
           button.setAttribute('aria-expanded', String(!isOpen));
           more.style.maxHeight = isOpen ? '0px' : more.scrollHeight + 'px';
-          button.textContent = isOpen ? 'Читати більше' : 'Згорнути';
+          button.textContent = isOpen ? {{ 'general.custom.read_more' | t | json }} : {{ 'general.custom.read_less' | t | json }};
         });
       }
 

@@ -71,14 +71,14 @@
         {%- endif -%}
 
         <div class="flex flex-col gap-2">
-          <label class="sr-only" for="ContactForm-name-{{ section.id }}">Ім’я</label>
+          <label class="sr-only" for="ContactForm-name-{{ section.id }}">{{ 'templates.contact.form.name' | t }}</label>
           <input
             id="ContactForm-name-{{ section.id }}"
             class="w-full rounded-lg bg-white px-4 py-2 text-[16px] leading-[1.3] text-[#004172] outline-none placeholder:text-[#0080C7] focus-visible:ring-2 focus-visible:ring-[#0080C7]/40"
             type="text"
             name="contact[name]"
             autocomplete="name"
-            placeholder="Ім’я"
+            placeholder="{{ 'templates.contact.form.name' | t | escape }}"
             value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
           >
 
@@ -86,7 +86,7 @@
             class="flex w-full cursor-text items-center justify-between gap-4 rounded-lg bg-white px-4 py-2 text-[16px] leading-[1.3] focus-within:ring-2 focus-within:ring-[#0080C7]/40"
             for="ContactForm-phone-{{ section.id }}"
           >
-            <span class="shrink-0 text-[#0080C7]">Телефон*</span>
+            <span class="shrink-0 text-[#0080C7]">{{ 'general.custom.phone' | t }}*</span>
             <input
               id="ContactForm-phone-{{ section.id }}"
               class="min-w-0 flex-1 bg-transparent text-right text-[#004172] outline-none placeholder:text-[#004172]"
@@ -100,7 +100,7 @@
             >
           </label>
 
-          <label class="sr-only" for="ContactForm-email-{{ section.id }}">Ел. пошта</label>
+          <label class="sr-only" for="ContactForm-email-{{ section.id }}">{{ 'general.custom.email' | t }}</label>
           <input
             id="ContactForm-email-{{ section.id }}"
             class="w-full rounded-lg bg-white px-4 py-2 text-[16px] leading-[1.3] text-[#004172] outline-none placeholder:text-[#0080C7] focus-visible:ring-2 focus-visible:ring-[#0080C7]/40"
@@ -109,17 +109,17 @@
             autocomplete="email"
             autocapitalize="off"
             spellcheck="false"
-            placeholder="Ел. пошта"
+            placeholder="{{ 'general.custom.email' | t | escape }}"
             required
             value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
           >
 
-          <label class="sr-only" for="ContactForm-body-{{ section.id }}">Повідомлення</label>
+          <label class="sr-only" for="ContactForm-body-{{ section.id }}">{{ 'general.custom.message' | t }}</label>
           <textarea
             id="ContactForm-body-{{ section.id }}"
             class="h-38 w-full resize-none rounded-lg bg-white px-4 py-2 text-[16px] leading-[1.3] text-[#004172] outline-none placeholder:text-[#0080C7] focus-visible:ring-2 focus-visible:ring-[#0080C7]/40"
             name="contact[body]"
-            placeholder="Повідомлення"
+            placeholder="{{ 'general.custom.message' | t | escape }}"
           >{{- form.body -}}</textarea>
         </div>
 

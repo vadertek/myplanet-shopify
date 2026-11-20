@@ -1,0 +1,43 @@
+{%- comment -%}
+  window.mpFormatMoney(cents): formats a price in JS exactly like the Liquid
+  `money_with_currency` filter, using the store's currency format
+  (Settings → Store details → Currency formatting).
+{%- endcomment -%}
+<script>
+  (function () {
+    const FORMAT = {{ shop.money_with_currency_format | strip_html | json }};
+
+    function formatWithDelimiters(cents, precision, thousands, decimal) {
+      const value = (Number(cents) || 0) / 100;
+      const parts = value.toFixed(precision).split('.');
+      const integer = parts[0].replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1' + thousands);
+
+      return parts[1] ? integer + decimal + parts[1] : integer;
+    }
+
+    window.mpFormatMoney = function (cents) {
+      return FORMAT.replace(/\{\{\s*(\w+)\s*\}\}/, function (match, placeholder) {
+        switch (placeholder) {
+          case 'amount':
+            return formatWithDelimiters(cents, 2, ',', '.');
+          case 'amount_no_decimals':
+            return formatWithDelimiters(cents, 0, ',', '.');
+          case 'amount_with_comma_separator':
+            return formatWithDelimiters(cents, 2, '.', ',');
+          case 'amount_no_decimals_with_comma_separator':
+            return formatWithDelimiters(cents, 0, '.', ',');
+          case 'amount_with_apostrophe_separator':
+            return formatWithDelimiters(cents, 2, "'", '.');
+          case 'amount_no_decimals_with_space_separator':
+            return formatWithDelimiters(cents, 0, ' ', '.');
+          case 'amount_with_space_separator':
+            return formatWithDelimiters(cents, 2, ' ', ',');
+          case 'amount_with_period_and_space_separator':
+            return formatWithDelimiters(cents, 2, ' ', '.');
+          default:
+            return formatWithDelimiters(cents, 2, ',', '.');
+        }
+      });
+    };
+  })();
+</script>
