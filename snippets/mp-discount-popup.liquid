@@ -1,0 +1,196 @@
+{%- comment -%}
+  Discount popup ("Ваша знижка 25%") with a newsletter sign-up form.
+  Not connected anywhere yet.
+
+  Usage:
+    {% render 'mp-discount-popup' %}                → rendered hidden
+    {% render 'mp-discount-popup', open: true %}    → rendered open
+
+  Texts: Theme settings → MP Popups → Discount popup.
+  Optional params (override theme settings): badge, title, text, button_text, disclaimer, success_text, tags.
+
+  The form is a Shopify newsletter form: the email is saved as a customer
+  with the "newsletter" tag (+ `tags`). After submit the page reloads and the popup
+  opens by itself with the success / error message.
+
+  JS:
+    window.mpDiscountPopup.open();
+    window.mpDiscountPopup.close();
+
+  Desktop: 728×376 — image left, content right.
+  Mobile: image on top, content below.
+{%- endcomment -%}
+
+{%- liquid
+  assign popup_badge = badge | default: settings.mp_popup_discount_badge
+  assign popup_title = title | default: settings.mp_popup_discount_title
+  assign popup_text = text | default: settings.mp_popup_discount_text
+  assign popup_button_text = button_text | default: settings.mp_popup_discount_button
+  assign popup_disclaimer = disclaimer | default: settings.mp_popup_discount_disclaimer
+  assign popup_success_text = success_text | default: settings.mp_popup_discount_success
+  assign popup_tags = 'newsletter,popup-discount'
+  if tags != blank
+    assign popup_tags = popup_tags | append: ',' | append: tags
+  endif
+-%}
+
+{%- capture popup_form -%}
+  {%- form 'customer', id: 'mp-discount-popup-form', class: 'mt-6 flex w-full flex-col' -%}
+    {%- if form.posted_successfully? -%}
+      <p class="rounded-2xl bg-white px-4 py-3 text-[16px] leading-[1.3] font-medium text-[#3FA11F]" role="status">
+        {{ popup_success_text | escape }}
+      </p>
+    {%- else -%}
+      <input type="hidden" name="contact[tags]" value="{{ popup_tags | escape }}">
+
+      {%- if form.errors -%}
+        <p class="mb-2 text-[12px] leading-[1.3] font-medium text-[#D71920]" role="alert">
+          {%- if form.errors contains 'email' -%}
+            {{ 'general.custom.email-error' | t }}
+          {%- else -%}
+            {{ form.errors | default_errors }}
+          {%- endif -%}
+        </p>
+      {%- endif -%}
+
+      <label class="sr-only" for="mp-discount-popup-email">{{ 'general.custom.email' | t }}</label>
+      <input
+        id="mp-discount-popup-email"
+        class="h-12 w-full rounded-2xl bg-white px-4 py-2 text-[16px] leading-[1.3] font-medium text-[#004172] outline-none placeholder:text-[#0080C7] focus-visible:ring-2 focus-visible:ring-[#0080C7]/40"
+        type="email"
+        name="contact[email]"
+        autocomplete="email"
+        autocapitalize="off"
+        spellcheck="false"
+        placeholder="{{ 'general.custom.email' | t | escape }}"
+        required
+        value="{{ form.email }}"
+        {% if form.errors contains 'email' %}aria-invalid="true"{% endif %}
+      >
+
+      <button
+        type="submit"
+        class="mt-2 flex h-12 w-full cursor-pointer items-center justify-center rounded-2xl bg-[#0080C7] px-4 text-[16px] leading-none font-bold text-white transition hover:opacity-85 focus-visible:opacity-85"
+      >
+        {{ popup_button_text | escape }}
+      </button>
+
+      <p class="mt-3 text-[12px] leading-[1.3] font-medium text-[#236591]">
+        {{ popup_disclaimer | escape }}
+      </p>
+    {%- endif -%}
+  {%- endform -%}
+{%- endcapture -%}
+
+{%- liquid
+  assign popup_open = false
+  if open or popup_form contains 'role="status"' or popup_form contains 'role="alert"'
+    assign popup_open = true
+  endif
+-%}
+
+<div
+  id="mp-discount-popup"
+  class="fixed inset-0 z-[10000] {% if popup_open %}flex{% else %}hidden{% endif %} items-center justify-center overflow-y-auto bg-black/70 p-4"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="mp-discount-popup-title"
+  aria-hidden="{% if popup_open %}false{% else %}true{% endif %}"
+  data-mp-discount-popup
+  {% if popup_open and open != true %}data-opened-by-form{% endif %}
+>
+  <div class="relative flex w-full max-w-91 flex-col gap-4 rounded-2xl bg-[#C0D7ED] p-4 font-nunito md:max-w-182 md:flex-row">
+    <!-- Close -->
+    <button
+      type="button"
+      class="absolute top-4 right-4 z-10 grid h-8 w-8 cursor-pointer place-items-center rounded-full bg-[#C0D7ED] text-[#0080C7] transition hover:opacity-70 focus-visible:opacity-70 md:h-6 md:w-6 md:bg-transparent"
+      aria-label="Закрити"
+      data-mp-discount-popup-close
+    >
+      <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <!-- Image -->
+    <div class="relative aspect-[336/200] w-full shrink-0 overflow-hidden rounded-lg bg-white md:aspect-square md:w-86">
+      <img
+        class="h-full w-full object-cover"
+        src="{{ 'your-sale.webp' | asset_url }}"
+        alt=""
+        aria-hidden="true"
+        width="688"
+        height="688"
+        loading="lazy"
+      >
+
+      {%- if popup_badge != blank -%}
+        <span class="absolute top-3 left-3 rounded-full bg-[#7AB929] px-2 py-1 text-[12px] leading-none font-bold text-white">
+          {{ popup_badge | escape }}
+        </span>
+      {%- endif -%}
+    </div>
+
+    <!-- Content -->
+    <div class="flex w-full flex-col justify-center md:w-84 md:shrink-0">
+      <h2 id="mp-discount-popup-title" class="pr-8 text-[32px] leading-[1.3] font-bold text-[#004172] md:pr-0">
+        {{ popup_title | escape }}
+      </h2>
+
+      <p class="text-[16px] leading-[1.3] font-medium text-[#236591]">
+        {{ popup_text | escape }}
+      </p>
+
+      {{ popup_form }}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const popup = document.getElementById('mp-discount-popup');
+    if (!popup || popup.dataset.ready === 'true') return;
+    popup.dataset.ready = 'true';
+
+    let lastFocused = null;
+
+    function open() {
+      lastFocused = document.activeElement;
+      popup.classList.remove('hidden');
+      popup.classList.add('flex');
+      popup.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('overflow-hidden');
+
+      setTimeout(function () {
+        (popup.querySelector('#mp-discount-popup-email') || popup.querySelector('[data-mp-discount-popup-close]'))?.focus();
+      }, 50);
+    }
+
+    function close() {
+      popup.classList.add('hidden');
+      popup.classList.remove('flex');
+      popup.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('overflow-hidden');
+      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    }
+
+    popup.addEventListener('click', function (event) {
+      if (event.target === popup || event.target.closest('[data-mp-discount-popup-close]')) close();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !popup.classList.contains('hidden')) close();
+    });
+
+    // Another newsletter form on the page was submitted (its id is in the URL hash): stay closed.
+    if (popup.hasAttribute('data-opened-by-form') && window.location.hash && window.location.hash !== '#mp-discount-popup-form') {
+      popup.classList.add('hidden');
+      popup.classList.remove('flex');
+      popup.setAttribute('aria-hidden', 'true');
+    }
+
+    if (!popup.classList.contains('hidden')) document.body.classList.add('overflow-hidden');
+
+    window.mpDiscountPopup = { open: open, close: close };
+  })();
+</script>

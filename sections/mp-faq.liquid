@@ -36,6 +36,43 @@
   </div>
 </section>
 
+<!-- FAQ Schema: built from the same blocks that are shown on the page -->
+{%- liquid
+  assign faq_has_items = false
+  for block in section.blocks
+    if block.settings.question != blank and block.settings.answer != blank
+      assign faq_has_items = true
+      break
+    endif
+  endfor
+-%}
+{%- if faq_has_items -%}
+  {%- assign faq_first = true -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": {{ canonical_url | append: '#faq' | json }},
+      "mainEntity": [
+        {%- for block in section.blocks -%}
+          {%- if block.settings.question != blank and block.settings.answer != blank -%}
+            {%- unless faq_first -%},{%- endunless -%}
+            {%- assign faq_first = false -%}
+            {
+              "@type": "Question",
+              "name": {{ block.settings.question | strip | json }},
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": {{ block.settings.answer | strip | json }}
+              }
+            }
+          {%- endif -%}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}
+
 <!-- FAQ Script -->
 <script>
   (function () {

@@ -45,7 +45,7 @@
           class="w-full bg-transparent font-montserrat-reg text-[16px] leading-none text-main-blue outline-none placeholder:text-[#C0D7ED]"
           type="search"
           name="q"
-          placeholder="Пошук"
+          placeholder="{{ 'general.custom.search' | t | escape }}"
           autocomplete="off"
         >
       </form>
@@ -106,16 +106,23 @@
         results.classList.add('hidden');
       }
 
+      // window.mpFormatMoney is loaded only in layout/theme.mp.liquid; other layouts get a simple fallback.
+      function formatPrice(cents) {
+        if (typeof window.mpFormatMoney === 'function') return window.mpFormatMoney(cents);
+        return (cents / 100).toFixed(2) + ' {{ cart.currency.iso_code }}';
+      }
+
       function renderProducts(products) {
         if (!products.length) {
-          grid.innerHTML = '<p class="font-montserrat-reg text-[14px] leading-tight text-[#C0D7ED] md:col-span-3">Нічого не знайдено</p>';
+          grid.innerHTML = '<p class="font-montserrat-reg text-[14px] leading-tight text-[#C0D7ED] md:col-span-3">' + {{ 'general.custom.search-no-results' | t | json }} + '</p>';
           results.classList.remove('hidden');
           return;
         }
 
         grid.innerHTML = products
           .map(function (product) {
-            const price = Number(product.price);
+            // suggest.json returns the price in major units ("199.00")
+            const price = Math.round(parseFloat(product.price) * 100);
             const hasPrice = Number.isFinite(price) && price > 0;
             const image = product.image
               ? '<img class="h-full w-full object-contain transition group-hover:scale-[1.03]" src="' + product.image + '" alt="' + product.title + '" loading="lazy">'
@@ -132,7 +139,7 @@
               '<p class="line-clamp-2 font-montserrat-bold text-[14px] leading-tight font-bold text-main-blue">' +
               product.title +
               '</p>' +
-              (hasPrice ? '<p class="mt-2 font-montserrat-bold text-[14px] leading-none font-bold text-dark-blue">' + price + ' {{ cart.currency.iso_code }}</p>' : '') +
+              (hasPrice ? '<p class="mt-2 font-montserrat-bold text-[14px] leading-none font-bold text-dark-blue">' + formatPrice(price) + '</p>' : '') +
               '</div>' +
               '</a>'
             );

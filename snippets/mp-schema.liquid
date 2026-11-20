@@ -7,7 +7,7 @@
       "@id": "https://myplanet.in.ua/#organization",
       "name": "MyPlanet Ukraine",
       "url": "https://myplanet.in.ua/",
-      "logo": "https://assets.cdn.filesafe.space/SuQrETGE4W8KsEHrIYT9/media/69c3c52d57fb3b9657f48257.svg",
+      "logo": "https://cdn.shopify.com/s/files/1/1021/6223/5769/files/header-logo.webp?v=1783512044",
       "description": "My Planet - грецький бренд екологічних засобів для прибирання та догляду за домом. Широкий асортимент лінійок охоплює засоби для прання Fusion+, рідини для миття посуду, універсальні очисники, а також засоби для догляду за тканинами та миття фруктів і овочів. Кожен продукт - ефективний, гіпоалергенний і безпечний для здоров'я та природи.",
       "address": {
         "@type": "PostalAddress",
@@ -54,7 +54,4 @@
   </script>
 {% endif %}
 
-<!-- FAQ -->
-{% if template.suffix == 'about-us' or template.suffix == 'where-buy' %}
-  {% render 'mp-faq-schema' %}
-{% endif %}
+{% comment %} FAQPage schema is rendered by the mp-faq section itself, from its blocks. {% endcomment %}

@@ -23,7 +23,7 @@
         </p>
         <p class="mt-1 font-montserrat-reg text-[12px] leading-none text-main-blue/70">
           <span data-cherie-cart-count>{{ cart.item_count }}</span>
-          товар(ів)
+          {{ 'general.custom.cart-items' | t }}
         </p>
       </div>
 
@@ -124,10 +124,10 @@
               </div>
 
               <div class="text-right">
-                <p class="font-montserrat-bold text-[16px] leading-none font-bold text-main-blue">{{ item.final_line_price | money_without_currency | replace: ',00', '' | replace: '.00', '' }} ₴</p>
+                <p class="font-montserrat-bold text-[16px] leading-none font-bold text-main-blue">{{ item.final_line_price | money_with_currency }}</p>
                 {% if item.original_line_price > item.final_line_price %}
                   <p class="mt-1 font-montserrat-bold text-[12px] leading-none font-bold text-[#C0D7ED] line-through">
-                    {{ item.original_line_price | money_without_currency | replace: ',00', '' | replace: '.00', '' }} ₴
+                    {{ item.original_line_price | money_with_currency }}
                   </p>
                 {% endif %}
               </div>
@@ -143,9 +143,9 @@
 
     <div class="border-t border-[#C0D7ED] px-4 py-4 md:px-6{% if cart.item_count == 0 %} hidden{% endif %}" data-cherie-drawer-footer>
       <div class="mb-4 flex items-center justify-between gap-4">
-        <p class="font-montserrat-bold text-[18px] leading-none font-bold text-[#236591]">Разом:</p>
+        <p class="font-montserrat-bold text-[18px] leading-none font-bold text-[#236591]">{{ 'general.custom.cart-total' | t }}:</p>
         <p class="font-montserrat-bold text-[22px] leading-none font-bold text-[#236591]" data-cherie-cart-total>
-          {{ cart.total_price | money_without_currency | replace: ',00', '' | replace: '.00', '' }} ₴
+          {{ cart.total_price | money_with_currency }}
         </p>
       </div>
 
@@ -154,7 +154,7 @@
           href="{{ routes.cart_url }}"
           class="flex min-h-12 items-center justify-center rounded-[10px] border border-main-blue px-4 text-center font-montserrat-bold text-[12px] leading-none font-bold text-main-blue transition hover:bg-main-blue hover:text-white md:rounded-[14px] md:text-[14px]"
         >
-          {{ 'return' }}
+          {{ 'sections.quick_order_list.view_cart' | t }}
         </a>
         <a
           href="/checkout"
