@@ -19,7 +19,7 @@
 
 <section
   id="mp-product-philosophy-{{ section.id }}"
-  class="relative overflow-hidden bg-white font-nunito text-[#325037]"
+  class="relative overflow-hidden bg-[#DCDCDC] font-nunito text-[#325037] lg:bg-white"
 >
   <!-- DESKTOP PHOTO -->
   <div class="absolute inset-0 hidden lg:block" aria-hidden="true">
@@ -57,7 +57,7 @@
   </div>
 
   <!-- MOBILE PHOTO -->
-  <div class="relative mt-8 aspect-[4/3] lg:hidden">
+  <div class="relative mt-8 aspect-[4/3] lg:hidden [mask-image:linear-gradient(to_bottom,transparent,#000_15%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,#000_15%)]">
     {%- if image_mobile != blank -%}
       {{
         image_mobile

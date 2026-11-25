@@ -1,19 +1,24 @@
 <!-- Section Map -->
-<section class="w-full mt-10">
+{%- comment -%}
+  Google My Maps embed. The top 70px of the iframe (My Maps header bar) is hidden
+  under a white overlay, so the iframe is 70px taller than the visible map.
+  Mobile: square, edge to edge. Desktop: 560px high.
+{%- endcomment -%}
+<section class="mt-10 w-full">
   <div id="s-contacts-map" class="w-full">
-    <div class="mapouter mx-auto">
-      <div class="gmap_canvas -mt-17.5">
-        <div class="h-17.5 w-full bg-white absolute"></div>
-        <iframe
-          class="gmap_iframe md:h-140"
-          width="100%"
-          frameborder="0"
-          scrolling="no"
-          marginheight="0"
-          marginwidth="0"
-          src="{{ section.settings.map_url }}"
-        ></iframe>
-      </div>
+    <div class="relative -mt-17.5 w-full overflow-hidden">
+      <div class="absolute inset-x-0 top-0 z-10 h-17.5 bg-white" aria-hidden="true"></div>
+      <iframe
+        class="block h-[calc(100vw+70px)] w-full border-0 md:h-140"
+        width="100%"
+        frameborder="0"
+        scrolling="no"
+        marginheight="0"
+        marginwidth="0"
+        loading="lazy"
+        title="Карта магазинів"
+        src="{{ section.settings.map_url }}"
+      ></iframe>
     </div>
   </div>
 </section>

@@ -73,7 +73,13 @@
 
               {%- comment -%} Mobile media {%- endcomment -%}
               <div class="absolute inset-x-0 top-0 lg:hidden [mask-image:linear-gradient(to_bottom,#000_calc(100%-28px),transparent)] [-webkit-mask-image:linear-gradient(to_bottom,#000_calc(100%-28px),transparent)]">
-                {%- assign video_mobile = block.settings.video_mobile | default: block.settings.video -%}
+                {%- liquid
+                  # Mobile priority: mobile video > mobile image > desktop video > desktop image > fallback
+                  assign video_mobile = block.settings.video_mobile
+                  if video_mobile == blank and block.settings.image_mobile == blank
+                    assign video_mobile = block.settings.video
+                  endif
+                -%}
                 {%- if video_mobile != blank -%}
                   {{ video_mobile | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, image_size: '1080x', class: 'block aspect-[1185/987] w-full object-cover' }}
                 {%- elsif image_mobile != blank -%}

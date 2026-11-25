@@ -11,17 +11,26 @@
       {%- for block in section.blocks limit: 2 -%}
         {%- liquid
           assign image = block.settings.image
-          assign image_mobile = block.settings.image_mobile | default: image
+          assign image_mobile = block.settings.image_mobile
           assign fallback = 'bundle-' | append: forloop.index | append: '.webp'
+
+          # Dedicated mobile image is shown as is; desktop/fallback image is cropped to the right side
+          if image_mobile != blank
+            assign mobile_position = 'object-center'
+          else
+            assign image_mobile = image
+            assign mobile_position = 'object-right'
+          endif
         -%}
 
         <article
-          class="group relative isolate flex aspect-square flex-col overflow-hidden rounded-2xl bg-[#E9E7E8] p-6 font-nunito md:aspect-[2016/1200]"
+          class="group relative isolate flex aspect-[1200/1587] flex-col overflow-hidden rounded-2xl bg-[#E9E7E8] p-6 font-nunito md:aspect-[2016/1200]"
           style="--choice-text: {{ block.settings.text_color }}; --choice-btn-bg: {{ block.settings.button_bg }}; --choice-btn-text: {{ block.settings.button_text_color }};"
           {{ block.shopify_attributes }}
         >
           <!-- BACKGROUND -->
           <div class="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100" aria-hidden="true">
+            {%- comment -%} Desktop {%- endcomment -%}
             {%- if image != blank -%}
               {{
                 image
@@ -33,6 +42,13 @@
                   alt: '',
                   class: 'hidden h-full w-full object-cover md:block'
               }}
+            {%- else -%}
+              <img src="{{ fallback | asset_url }}" alt="" loading="lazy" class="hidden h-full w-full object-cover md:block">
+            {%- endif -%}
+
+            {%- comment -%} Mobile {%- endcomment -%}
+            {%- if image_mobile != blank -%}
+              {%- assign mobile_class = 'h-full w-full object-cover md:hidden ' | append: mobile_position -%}
               {{
                 image_mobile
                 | image_url: width: 1200
@@ -41,15 +57,10 @@
                   widths: '400, 600, 800, 1000, 1200',
                   sizes: '100vw',
                   alt: '',
-                  class: 'h-full w-full object-cover object-right md:hidden'
+                  class: mobile_class
               }}
-            {%- elsif forloop.index <= 2 -%}
-              <img
-                src="{{ fallback | asset_url }}"
-                alt=""
-                loading="lazy"
-                class="h-full w-full object-cover object-right md:object-center"
-              >
+            {%- else -%}
+              <img src="{{ fallback | asset_url }}" alt="" loading="lazy" class="h-full w-full object-cover object-right md:hidden">
             {%- endif -%}
           </div>
 
@@ -144,7 +155,7 @@
           "type": "image_picker",
           "id": "image_mobile",
           "label": "Mobile image",
-          "info": "Optional. Falls back to the desktop image (cropped to the right side)."
+          "info": "1200 × 1587 px. Optional. Falls back to the desktop image (cropped to the right side)."
         },
         {
           "type": "header",

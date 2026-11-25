@@ -1,31 +1,12 @@
 <!-- Stores -->
 <section id="mp-where-stores-{{ section.id }}" class="overflow-hidden bg-white px-4 py-10 md:px-10 md:py-14">
   <div class="mx-auto max-w-340">
-    <div class="mb-10 flex items-center justify-between gap-6">
+    <div class="mb-10">
       {%- if section.settings.title != blank -%}
         <h2 class="font-montserrat-bold text-[32px] leading-none font-bold text-main-blue md:text-[40px]">
           {{ section.settings.title | escape }}
         </h2>
       {%- endif -%}
-
-      <div class="flex h-9 w-22 shrink-0 overflow-hidden rounded-full bg-[#C0D7ED]/20" aria-label="Stores navigation">
-        <button
-          id="stores-prev-{{ section.id }}"
-          class="grid h-9 w-11 cursor-pointer place-items-center text-main-blue transition hover:bg-main-blue/10 focus-visible:bg-main-blue/10 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-60"
-          type="button"
-          aria-label="Previous stores"
-        >
-          <span class="h-2.5 w-2.5 rotate-45 border-b border-l border-current" aria-hidden="true"></span>
-        </button>
-        <button
-          id="stores-next-{{ section.id }}"
-          class="grid h-9 w-11 cursor-pointer place-items-center text-main-blue transition hover:bg-main-blue/10 focus-visible:bg-main-blue/10 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-60"
-          type="button"
-          aria-label="Next stores"
-        >
-          <span class="h-2.5 w-2.5 rotate-225 border-b border-l border-current" aria-hidden="true"></span>
-        </button>
-      </div>
     </div>
 
     <div id="stores-swiper-{{ section.id }}" class="swiper flex w-full items-center overflow-hidden">
@@ -51,6 +32,25 @@
           </article>
         {%- endfor -%}
       </div>
+    </div>
+
+    <div class="mt-6 ml-auto flex h-9 w-22 shrink-0 overflow-hidden rounded-full bg-[#C0D7ED]/20" aria-label="Stores navigation">
+      <button
+        id="stores-prev-{{ section.id }}"
+        class="grid h-9 w-11 cursor-pointer place-items-center text-main-blue transition hover:bg-main-blue/10 focus-visible:bg-main-blue/10 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-60"
+        type="button"
+        aria-label="Previous stores"
+      >
+        {% render 'mp-slider-arrow', direction: 'prev' %}
+      </button>
+      <button
+        id="stores-next-{{ section.id }}"
+        class="grid h-9 w-11 cursor-pointer place-items-center text-main-blue transition hover:bg-main-blue/10 focus-visible:bg-main-blue/10 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:opacity-60"
+        type="button"
+        aria-label="Next stores"
+      >
+        {% render 'mp-slider-arrow', direction: 'next' %}
+      </button>
     </div>
   </div>
 </section>
