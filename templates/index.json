@@ -19,7 +19,11 @@
             "title": "Black Friday",
             "description": "Безпечні та ефективні засоби для чистоти поверхонь, посуду, фруктів і овочів — для комфортного та здорового простору щодня.",
             "button_text": "Дізнатися більше",
-            "button_link": "shopify://collections"
+            "button_link": "shopify://collections",
+            "bg_color": "#ffffff",
+            "text_color": "#000000",
+            "button_bg": "#000000",
+            "button_text_color": "#ffffff"
           }
         },
         "slide_2": {
@@ -28,11 +32,18 @@
             "title": "Baby Planet",
             "description": "Безпечні та ефективні засоби для чистоти поверхонь, посуду, фруктів і овочів — для комфортного та здорового простору щодня.",
             "button_text": "Дізнатися більше",
-            "button_link": "shopify://collections"
+            "button_link": "shopify://collections",
+            "bg_color": "#ffffff",
+            "text_color": "#000000",
+            "button_bg": "#000000",
+            "button_text_color": "#ffffff"
           }
         }
       },
-      "block_order": ["slide_1", "slide_2"],
+      "block_order": [
+        "slide_1",
+        "slide_2"
+      ],
       "settings": {
         "autoplay_speed": 5,
         "show_pagination": false,
@@ -115,7 +126,7 @@
         "product_tag_gAGUaD"
       ],
       "settings": {
-        "title": "Зараз в тренді",
+        "title": "Зараз обирають",
         "products_to_show": 8
       }
     },
@@ -385,7 +396,9 @@
     "mp-home-community": {
       "type": "mp-home-community",
       "settings": {
-        "title": "Життя між прибираннями — в <strong>Instagram</strong>"
+        "title": "Життя між прибираннями — в <strong>Instagram</strong>",
+        "button_text": "Підписатися",
+        "button_link": ""
       }
     },
     "mp_faq_Vm3LMW": {
