@@ -134,6 +134,7 @@
       "type": "mp-home-baby",
       "settings": {
         "hero_tag": "Baby Planet",
+        "hero_tag_link": "",
         "hero_title": "Безпечна чистота для всього, чого торкається ваш малюк",
         "hero_description": "Від дитячого одягу та пляшечок до іграшок і поверхонь — Baby Planet допомагає створити чистий і комфортний простір для зростання та розвитку дитини.",
         "hero_button_link": "shopify://collections",
@@ -150,6 +151,7 @@
             "text": "Усе необхідне для чистоти та комфорту вашого дому в одному наборі.",
             "button_label": "Обрати набір",
             "button_link": "shopify://collections/frontpage",
+            "image_mobile": "shopify://shop_images/mp.png",
             "text_color": "#004172",
             "button_bg": "#008e47",
             "button_text_color": "#ffffff"
@@ -162,6 +164,7 @@
             "text": "Ніжна турбота про малюка та спокій для батьків — у готових наборах Baby Planet.",
             "button_label": "Обрати набір",
             "button_link": "shopify://collections/test-2",
+            "image_mobile": "shopify://shop_images/bp.png",
             "text_color": "#00a6b2",
             "button_bg": "#1ebeca",
             "button_text_color": "#ffffff"
