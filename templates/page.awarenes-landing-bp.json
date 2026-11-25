@@ -42,13 +42,14 @@
       ],
       "settings": {
         "brand": "bp",
+        "image_mobile": "shopify://shop_images/magnific_expand_WDINl6XcXe_1.png",
         "title": "Чистота, що працює щодня",
         "text": "Від прання та миття посуду до догляду за кухнею, ванною кімнатою й усім домом — My Planet пропонує широкий асортимент засобів для ефективного та безпечного прибирання.",
         "button_text": "Обрати засоби",
         "button_link": "",
         "text_color": "#325037",
-        "button_bg": "#008E47",
-        "button_text_color": "#FFFFFF"
+        "button_bg": "#008e47",
+        "button_text_color": "#ffffff"
       }
     },
     "mp-product-care": {
@@ -403,7 +404,9 @@
     "mp-home-community": {
       "type": "mp-home-community",
       "settings": {
-        "title": "Життя між прибираннями — в <strong>Instagram</strong>"
+        "title": "Життя між прибираннями — в <strong>Instagram</strong>",
+        "button_text": "Підписатися",
+        "button_link": ""
       }
     },
     "mp_faq": {
