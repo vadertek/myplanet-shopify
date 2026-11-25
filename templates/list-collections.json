@@ -18,10 +18,11 @@
           "settings": {
             "title": "My Planet Bundles",
             "text": "Все необхідне для чистоти та комфорту вашого дому в одному наборі.",
+            "image": "shopify://shop_images/Frame_1321317403.png",
             "button_link": "shopify://collections/frontpage",
             "background_color": "#cce6f4",
-            "title_color": "#003b5c",
-            "text_color": "#003b5c"
+            "title_color": "#004172",
+            "text_color": "#004172"
           }
         },
         "bundle_card_84txNB": {
@@ -29,11 +30,11 @@
           "settings": {
             "title": "Baby Planet",
             "text": "Ніжна турбота для малюка та спокій для батьків — у готових комплектах Baby Planet.",
-            "image": "shopify://shop_images/Group_1321316835.png",
+            "image": "shopify://shop_images/Frame_1321317404.png",
             "button_link": "shopify://collections/test-2",
             "background_color": "#d2f2f4",
-            "title_color": "#00a6b2",
-            "text_color": "#00a6b2"
+            "title_color": "#004172",
+            "text_color": "#004172"
           }
         }
       },
