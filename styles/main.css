@@ -13,6 +13,18 @@
     --font-montserrat-extra: 'Montserrat-ExtraBold', sans-serif;
     --font-nunito: 'Nunito Sans', sans-serif;
 
+    /* Animations */
+    --animate-shake: shake 0.6s ease-in-out;
+
+    @keyframes shake {
+        0%, 100% { transform: rotate(0deg); }
+        15% { transform: rotate(-10deg); }
+        30% { transform: rotate(8deg); }
+        45% { transform: rotate(-6deg); }
+        60% { transform: rotate(4deg); }
+        75% { transform: rotate(-2deg); }
+    }
+
 }
 
 /* CUSTOM CSS GOES HERE */
