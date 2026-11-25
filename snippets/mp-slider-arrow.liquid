@@ -1,0 +1,13 @@
+{%- comment -%}
+  Slider arrow icon (8×15), colored via currentColor.
+  Params: direction ('prev' | 'next'), class (optional extra classes).
+{%- endcomment -%}
+<svg
+  class="h-[15px] w-2 shrink-0{% if direction == 'next' %} rotate-180{% endif %}{% if class != blank %} {{ class }}{% endif %}"
+  viewBox="0 0 8 15"
+  fill="none"
+  aria-hidden="true"
+  focusable="false"
+>
+  <path d="M7.80469 13.8359C8.06498 14.1022 8.06487 14.5335 7.80469 14.7998C7.54434 15.0661 7.12265 15.0661 6.8623 14.7998L0.195313 7.98242C-0.0650425 7.71615 -0.0650425 7.28385 0.195312 7.01758L6.8623 0.199219C7.12259 -0.0665844 7.54444 -0.0666465 7.80469 0.199219C8.06503 0.465483 8.06503 0.897798 7.80469 1.16406L1.60938 7.5L7.80469 13.8359Z" fill="currentColor"/>
+</svg>

@@ -24,8 +24,8 @@
   }
 </style>
 
-<button id="mp-header-search-open-{{ section.id }}" class="hidden cursor-pointer md:block" type="button" aria-label="Пошук">
-  <img loading="eager" class="h-4" src="{{ 'search-icon.svg' | asset_url }}" alt="Пошук">
+<button id="mp-header-search-open-{{ section.id }}" class="group hidden cursor-pointer md:block" type="button" aria-label="Пошук">
+  <img loading="eager" class="h-4 transition-transform duration-200 group-hover:scale-150" src="{{ 'search-icon.svg' | asset_url }}" alt="Пошук">
 </button>
 
 <div

@@ -7,7 +7,7 @@
     <li>
       <a
         href="{{ link.url }}"
-        class="inline-block transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline{% if link.current %} text-dark-blue{% endif %}"
+        class="inline-block text-main-blue transition-all duration-200 hover:text-dark-blue hover:underline focus-visible:text-dark-blue focus-visible:underline"
         {% if link.current %}aria-current="page"{% endif %}
       >
         {{ link.title | escape }}

@@ -75,7 +75,7 @@
             type="button"
             aria-label="Previous"
           >
-            <span class="h-3.5 w-3.5 rotate-45 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+            {% render 'mp-slider-arrow', direction: 'prev' %}
           </button>
           <button
             id="inside-next-{{ section.id }}"
@@ -83,7 +83,7 @@
             type="button"
             aria-label="Next"
           >
-            <span class="h-3.5 w-3.5 rotate-225 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+            {% render 'mp-slider-arrow', direction: 'next' %}
           </button>
         </div>
       {%- endif -%}

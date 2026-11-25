@@ -18,7 +18,11 @@
       style="--bottle-btn-bg: {{ section.settings.button_bg }}; --bottle-btn-text: {{ section.settings.button_text_color }};"
     >
       <div class="flex items-center gap-3">
-        <img class="w-28" src="{{ 'blue-stars.webp' | asset_url }}" alt="">
+        <div class="flex items-center gap-1" aria-hidden="true">
+          {%- for i in (1..5) -%}
+            <img class="h-4 w-[17px]" src="{{ 'blue-star.svg' | asset_url }}" alt="" width="17" height="16">
+          {%- endfor -%}
+        </div>
         <span class="text-sm leading-none">{{ section.settings.hero_tag | escape }}</span>
       </div>
       <h2 class="mt-3 max-w-[363px] text-[48px] leading-[46px] font-extrabold uppercase md:max-w-none">
