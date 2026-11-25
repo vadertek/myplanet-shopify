@@ -1,8 +1,8 @@
 {%- liquid
   assign product_tag = product.metafields.custom.tag.value | default: product.metafields.custom.tag
   assign tag_label = 'My Planet'
-  assign tag_bg = '#C0D7ED33'
-  assign tag_text = '#004172'
+  assign tag_bg = '#0080C7'
+  assign tag_text = '#FFFFFF'
 
   if product_tag == 'BabyPlanet'
     assign tag_label = 'Baby Planet'

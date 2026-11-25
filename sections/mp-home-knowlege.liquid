@@ -3,12 +3,12 @@
   <div class="mx-auto max-w-360">
     <div class="mb-6 flex items-center justify-between gap-5 md:mb-8">
       {%- if section.settings.title != blank -%}
-        <h2 class="font-montserrat-bold text-[40px] leading-none font-bold text-dark-blue">
+        <h2 class="font-nunito text-[32px] leading-none font-bold text-[#1EBECA] md:text-[40px]">
           {{ section.settings.title | escape }}
         </h2>
       {%- endif -%}
 
-      <div class="hidden h-9 w-22 shrink-0 overflow-hidden rounded-full bg-[#C0D7ED4D] md:flex" aria-label="Materials navigation">
+      <div class="hidden h-9 w-22 shrink-0 overflow-hidden rounded-full bg-[#C0D7ED4D] md:flex" aria-label="Materials navigation" data-knowlege-nav>
         <button
           id="knowlege-prev-{{ section.id }}"
           class="grid h-9 w-11 cursor-pointer place-items-center text-main-blue transition hover:bg-white/55 focus-visible:bg-white/55 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/55 [&.swiper-button-disabled]:opacity-60"
@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <div class="mx-auto mt-6 flex h-9 w-22 overflow-hidden rounded-2xl bg-[#1EBECA]/20 opacity-80 md:hidden" aria-label="Materials navigation">
+    <div class="mx-auto mt-6 flex h-9 w-22 overflow-hidden rounded-2xl bg-[#1EBECA]/20 opacity-80 md:hidden" aria-label="Materials navigation" data-knowlege-nav>
       <button
         id="knowlege-mobile-prev-{{ section.id }}"
         class="grid h-9 w-11 cursor-pointer place-items-center text-[#1EBECA] transition hover:bg-white/55 focus-visible:bg-white/55 [&.swiper-button-disabled]:cursor-default [&.swiper-button-disabled]:bg-white/55 [&.swiper-button-disabled]:opacity-60"
@@ -92,11 +92,27 @@
 
       if (swiperEl.swiper) swiperEl.swiper.destroy(true, true);
 
+      const sectionEl = document.getElementById('mp-home-knowlege-{{ section.id }}');
+      const navEls = sectionEl ? sectionEl.querySelectorAll('[data-knowlege-nav]') : [];
+
+      // Hide arrows when all slides fit on screen (nothing to scroll)
+      function toggleNav(swiper) {
+        navEls.forEach(function (el) {
+          el.style.display = swiper.isLocked ? 'none' : '';
+        });
+      }
+
       new Swiper(swiperEl, {
         slidesPerView: 1.05,
         spaceBetween: 8,
         speed: 350,
         watchOverflow: true,
+        on: {
+          init: toggleNav,
+          lock: toggleNav,
+          unlock: toggleNav,
+          breakpoint: toggleNav,
+        },
         navigation: {
           nextEl: '#knowlege-next-{{ section.id }}, #knowlege-mobile-next-{{ section.id }}',
           prevEl: '#knowlege-prev-{{ section.id }}, #knowlege-mobile-prev-{{ section.id }}',
@@ -110,7 +126,7 @@
             slidesPerView: 3,
             spaceBetween: 8,
           },
-          1450: {
+          1280: {
             slidesPerView: 4,
             spaceBetween: 8,
           },
