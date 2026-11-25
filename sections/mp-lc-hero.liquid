@@ -4,8 +4,19 @@
   <div class="mx-auto max-w-340">
     <div class="grid gap-3 md:grid-cols-2 md:gap-4">
       {%- for block in section.blocks -%}
-        <article
-          class="relative flex flex-col overflow-hidden rounded-2xl px-5 py-5 md:px-10 md:py-10"
+        {%- liquid
+          assign card_link = block.settings.button_link
+          if card_link != blank
+            assign card_tag = 'a'
+          else
+            assign card_tag = 'article'
+          endif
+        -%}
+        <{{ card_tag }}
+          {% if card_link != blank %}
+            href="{{ card_link }}"
+          {% endif %}
+          class="group relative isolate flex aspect-square flex-col overflow-hidden rounded-2xl px-5 py-5 md:px-10 md:py-10{% if card_link != blank %} transition-shadow duration-300 hover:shadow-[0_10px_30px_rgba(0,65,114,0.15)] focus-visible:shadow-[0_10px_30px_rgba(0,65,114,0.15)]{% endif %}"
           style="background-color: {{ block.settings.background_color }};"
           {{ block.shopify_attributes }}
         >
@@ -24,20 +35,18 @@
             </p>
           </div>
 
+          {%- liquid
+            assign img_class = 'absolute inset-0 -z-10 h-full w-full object-cover'
+            if card_link != blank
+              assign img_class = img_class | append: ' transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transition-none'
+            endif
+          -%}
           {%- if block.settings.image != blank -%}
-            <img class="h-full object-contain object-bottom-right md:w-full" src="{{ block.settings.image | image_url: width: 900 }}" alt="">
+            <img class="{{ img_class }}" src="{{ block.settings.image | image_url: width: 1400 }}" alt="" loading="eager">
           {%- else -%}
-            <img class="h-full object-contain object-bottom-right md:w-full" src="{{ 'col.webp' | asset_url }}" alt="">
+            <img class="{{ img_class }}" src="{{ 'col.webp' | asset_url }}" alt="">
           {%- endif -%}
-
-          <a
-            href="{{ block.settings.button_link }}"
-            class="mt-7 flex min-h-12.5 w-full items-center justify-center rounded-2xl bg-white px-10 font-montserrat-bold text-[14px] leading-none font-bold transition md:w-max"
-            style="color: {{ block.settings.button_text_color }};"
-          >
-            {{ block.settings.button_text }}
-          </a>
-        </article>
+        </{{ card_tag }}>
       {%- endfor -%}
     </div>
   </div>
@@ -74,13 +83,8 @@
         {
           "type": "url",
           "id": "button_link",
-          "label": "Button link"
-        },
-        {
-          "type": "text",
-          "id": "button_text",
-          "label": "Button text",
-          "default": "Обрати набір"
+          "label": "Card link",
+          "info": "The whole card becomes a link"
         },
         {
           "type": "color",
@@ -99,12 +103,6 @@
           "id": "text_color",
           "label": "Text color",
           "default": "#003B5C"
-        },
-        {
-          "type": "color",
-          "id": "button_text_color",
-          "label": "Button text color",
-          "default": "#008895"
         }
       ]
     }
@@ -118,11 +116,9 @@
           "settings": {
             "title": "My Planet Bundles",
             "text": "Все необхідне для чистоти та комфорту вашого дому в одному наборі.",
-            "button_text": "Обрати набір",
             "background_color": "#CCE6F4",
             "title_color": "#003B5C",
-            "text_color": "#003B5C",
-            "button_text_color": "#008895"
+            "text_color": "#003B5C"
           }
         },
         {
@@ -130,11 +126,9 @@
           "settings": {
             "title": "Baby Planet Bundles",
             "text": "Ніжна турбота для малюка та спокій для батьків - у готових комплектах Baby Planet.",
-            "button_text": "Обрати набір",
             "background_color": "#D2F2F4",
             "title_color": "#00A8B5",
-            "text_color": "#008895",
-            "button_text_color": "#008895"
+            "text_color": "#008895"
           }
         }
       ]
