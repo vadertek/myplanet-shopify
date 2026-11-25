@@ -13,7 +13,7 @@
           type="button"
           aria-label="Попередня перевага"
         >
-          <span class="h-3.5 w-3.5 rotate-45 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+          {% render 'mp-slider-arrow', direction: 'prev' %}
         </button>
         <button
           id="perevaga-next-{{ section.id }}"
@@ -22,7 +22,7 @@
           type="button"
           aria-label="Наступна перевага"
         >
-          <span class="h-3.5 w-3.5 rotate-225 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+          {% render 'mp-slider-arrow', direction: 'next' %}
         </button>
       </div>
     </div>
@@ -56,7 +56,7 @@
         type="button"
         aria-label="Попередня перевага"
       >
-        <span class="h-3.5 w-3.5 rotate-45 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+        {% render 'mp-slider-arrow', direction: 'prev' %}
       </button>
       <button
         id="perevaga-mobile-next-{{ section.id }}"
@@ -65,7 +65,7 @@
         type="button"
         aria-label="Наступна перевага"
       >
-        <span class="h-3.5 w-3.5 rotate-225 border-b-2 border-l-2 border-current" aria-hidden="true"></span>
+        {% render 'mp-slider-arrow', direction: 'next' %}
       </button>
     </div>
   </div>

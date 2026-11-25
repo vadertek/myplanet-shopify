@@ -44,7 +44,7 @@
       <button
         id="header-burger-{{ section.id }}"
         type="button"
-        class="flex h-8 w-8 flex-col items-center justify-center md:hidden"
+        class="flex h-8 w-8 cursor-pointer flex-col items-center justify-center rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-main-blue/40 md:hidden"
         aria-label="Відкрити меню"
         aria-expanded="false"
       >
@@ -60,20 +60,35 @@
   <!-- Mobile Navigation -->
   <nav
     id="header-mobile-menu-{{ section.id }}"
-    class="pointer-events-none absolute right-0 left-0 z-20 max-h-0 -translate-y-2 overflow-hidden bg-white px-4 opacity-0 shadow-lg transition-all duration-300 md:hidden"
+    class="pointer-events-none absolute right-0 left-0 z-20 max-h-0 -translate-y-2 overflow-hidden rounded-b-3xl border-t border-[#C0D7ED]/40 bg-white px-4 opacity-0 shadow-[0_16px_32px_rgba(0,65,114,0.12)] transition-all duration-300 md:hidden"
+    aria-label="Мобільне меню"
   >
-    <ul class="flex flex-col gap-4 py-5">
+    <ul class="flex flex-col pt-2">
       {%- for link in linklists['main-menu'].links -%}
-        <li>
+        <li class="border-b border-[#C0D7ED]/40 last:border-b-0">
           <a
             href="{{ link.url }}"
-            class="block text-dark-blue transition duration-200 hover:text-main-blue{% if link.current %} text-main-blue{% endif %}"
+            class="group flex items-center justify-between py-4 font-montserrat-med text-[17px] leading-none transition duration-200 hover:text-main-blue focus-visible:text-main-blue{% if link.current %} text-main-blue{% else %} text-dark-blue{% endif %}"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
           >
-            {{ link.title }}
+            <span>{{ link.title }}</span>
+            <span class="grid h-8 w-8 place-items-center rounded-full bg-[#C0D7ED]/25 text-main-blue transition duration-200 group-hover:translate-x-0.5 group-hover:bg-[#C0D7ED]/50">
+              {% render 'mp-slider-arrow', direction: 'next' %}
+            </span>
           </a>
         </li>
       {%- endfor -%}
     </ul>
+
+    {%- if section.settings.top_bar != blank -%}
+      <p class="mt-2 mb-5 rounded-2xl {% if template.suffix == 'baby' or template.suffix == 'babyplanet' %}bg-[#1EBECA]/10 text-[#1EBECA]{% else %}bg-main-blue/8 text-main-blue{% endif %} px-4 py-3 text-center font-montserrat-med text-[13px] leading-tight">
+        {{ section.settings.top_bar }}
+      </p>
+    {%- else -%}
+      <div class="h-3"></div>
+    {%- endif -%}
   </nav>
 </header>
 
@@ -89,13 +104,14 @@
       if (!burger || !menu || burger.headerReady) return;
       burger.headerReady = true;
 
-      burger.addEventListener('click', function () {
-        const isOpen = burger.getAttribute('aria-expanded') === 'true';
+      function setMenu(open) {
+        const isOpen = !open;
 
-        burger.setAttribute('aria-expanded', String(!isOpen));
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Закрити меню' : 'Відкрити меню');
 
         menu.classList.toggle('max-h-0', isOpen);
-        menu.classList.toggle('max-h-80', !isOpen);
+        menu.classList.toggle('max-h-[80vh]', !isOpen);
         menu.classList.toggle('-translate-y-2', isOpen);
         menu.classList.toggle('translate-y-0', !isOpen);
         menu.classList.toggle('opacity-0', isOpen);
@@ -110,6 +126,21 @@
         bottomLine?.classList.toggle('w-2.5', isOpen);
         bottomLine?.classList.toggle('w-5', !isOpen);
         bottomLine?.classList.toggle('-rotate-45', !isOpen);
+      }
+
+      burger.addEventListener('click', function () {
+        setMenu(burger.getAttribute('aria-expanded') !== 'true');
+      });
+
+      // Close on outside click and Escape
+      document.addEventListener('click', function (event) {
+        if (burger.getAttribute('aria-expanded') !== 'true') return;
+        if (menu.contains(event.target) || burger.contains(event.target)) return;
+        setMenu(false);
+      });
+
+      document.addEventListener('keyup', function (event) {
+        if (event.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') setMenu(false);
       });
     }
 

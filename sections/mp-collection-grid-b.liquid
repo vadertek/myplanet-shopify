@@ -6,7 +6,7 @@
           {%- for block in section.blocks -%}
             <button
               id="collection-tag-button-{{ section.id }}-{{ block.id }}"
-              class="min-h-6.5 shrink-0 cursor-pointer rounded-full px-3.5 py-1.5 font-montserrat-bold text-[12px] leading-none font-bold transition hover:bg-[#1EBECA] hover:text-white focus-visible:bg-[#1EBECA] focus-visible:text-white md:min-h-8.5 md:px-4 md:py-2 md:text-[14px]{% if forloop.first %} bg-[#1EBECA] text-white{% else %} bg-[#C0D7ED]/30 text-[#1EBECA]{% endif %}"
+              class="min-h-6.5 shrink-0 cursor-pointer rounded-full px-3.5 py-1.5 font-montserrat-reg text-[12px] leading-none font-normal transition hover:bg-[#1EBECA] hover:text-white focus-visible:bg-[#1EBECA] focus-visible:text-white md:min-h-8.5 md:px-4 md:py-2 md:text-[14px]{% if forloop.first %} bg-[#1EBECA] text-white{% else %} bg-[#C0D7ED]/30 text-[#1EBECA]{% endif %}"
               type="button"
               aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
               {{ block.shopify_attributes }}

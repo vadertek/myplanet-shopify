@@ -18,12 +18,14 @@
     {%- if section.blocks.size > 0 -%}
       <div class="grid gap-3 md:grid-cols-4 md:gap-2">
         {%- for block in section.blocks -%}
-          <article {{ block.shopify_attributes }}>
-            {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 720 | image_tag: class: 'w-full rounded-lg object-cover', loading: 'lazy', alt: '' }}
-            {%- else -%}
-              <img class="w-full rounded-lg object-cover" src="/img/use.webp" alt="">
-            {%- endif -%}
+          <article class="group" {{ block.shopify_attributes }}>
+            <div class="overflow-hidden rounded-lg">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 720 | image_tag: class: 'block w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none', loading: 'lazy', alt: '' }}
+              {%- else -%}
+                <img class="block w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none" src="/img/use.webp" alt="">
+              {%- endif -%}
+            </div>
 
             {%- if block.settings.text != blank -%}
               <h3 class="mt-3 font-montserrat-bold text-[14px] leading-none font-bold text-[#325037] md:text-[18px]">

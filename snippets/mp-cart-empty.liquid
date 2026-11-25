@@ -14,23 +14,14 @@
   class="flex flex-1 flex-col items-center justify-center text-center font-nunito text-dark-blue {% if is_page %}rounded-2xl bg-[#F3F8FC] px-4 py-14 md:py-20{% else %}px-2 py-10{% endif %}"
   data-mp-cart-empty
 >
-  <div class="relative mb-6 grid h-28 w-28 place-items-center rounded-full bg-main-blue/8">
-    <span class="absolute inset-3 rounded-full bg-main-blue/8" aria-hidden="true"></span>
-    <svg
-      class="relative h-12 w-12 text-main-blue"
-      viewBox="0 0 48 48"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2.4"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M10 16h28l-2.4 22.2A4 4 0 0 1 31.6 42H16.4a4 4 0 0 1-4-3.8L10 16Z"/>
-      <path d="M17 16v-2a7 7 0 0 1 14 0v2"/>
-      <path d="M19.5 28.5c1.2 1.4 2.7 2.1 4.5 2.1s3.3-.7 4.5-2.1"/>
-    </svg>
-  </div>
+  <img
+    class="mb-6 h-28 w-28 object-contain"
+    src="{{ 'empty-cart.webp' | asset_url }}"
+    alt=""
+    width="112"
+    height="112"
+    loading="lazy"
+  >
 
   <p class="{% if is_page %}text-[32px] md:text-[40px]{% else %}text-2xl{% endif %} leading-none font-bold">
     {{ 'general.custom.cart-empty-title' | t }}

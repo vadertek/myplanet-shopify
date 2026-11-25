@@ -79,7 +79,7 @@
                     </a>
 
                     <div class="flex flex-1 flex-col items-stretch md:items-start">
-                      <h3 class="max-w-58 font-montserrat-bold text-[13px] leading-[1.18] font-bold text-dark-blue md:min-h-15 md:max-w-75 md:text-[16px]">
+                      <h3 class="max-w-58 font-nunito text-[13px] leading-none font-bold text-dark-blue md:min-h-12 md:max-w-75 md:text-[16px]">
                         <a href="{{ product.url }}">{{ product.title | escape }}</a>
                       </h3>
 
@@ -134,19 +134,19 @@
       <div class="mx-auto mt-8 flex h-9 w-22 overflow-hidden rounded-full bg-[#C0D7ED]/30 md:hidden" aria-label="Навігація товарів">
         <button
           id="trends-swiper-prev-{{ section.id }}"
-          class="grid h-9 w-11 cursor-pointer place-items-center transition hover:bg-main-blue/10 focus-visible:bg-main-blue/10"
+          class="grid h-9 w-11 cursor-pointer place-items-center text-main-blue transition hover:bg-main-blue/10 focus-visible:bg-main-blue/10"
           type="button"
           aria-label="Попередні товари"
         >
-          <span class="h-3.5 w-3.5 rotate-45 border-b-2 border-l-2 border-main-blue" aria-hidden="true"></span>
+          {% render 'mp-slider-arrow', direction: 'prev' %}
         </button>
         <button
           id="trends-swiper-next-{{ section.id }}"
-          class="grid h-9 w-11 cursor-pointer place-items-center transition hover:bg-main-blue/10 focus-visible:bg-main-blue/10"
+          class="grid h-9 w-11 cursor-pointer place-items-center text-main-blue transition hover:bg-main-blue/10 focus-visible:bg-main-blue/10"
           type="button"
           aria-label="Наступні товари"
         >
-          <span class="h-3.5 w-3.5 rotate-225 border-b-2 border-l-2 border-main-blue" aria-hidden="true"></span>
+          {% render 'mp-slider-arrow', direction: 'next' %}
         </button>
       </div>
     {%- else -%}
